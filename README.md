@@ -6,12 +6,10 @@ As such, this XSLT must be considered as unstable, and can be updated any time b
 
 # Content
 
-* [`api/`](./api/): Proof-of-concept of the implementation of Datacite+DCAT-AP following the CSW interface.
 * [`documentation/`](./documentation/): Folder containing documentation on the XSLT:
+    * [`Background.md`](./documentation/Background.md): Describes the background and methodology for the design of Datacite+DCAT-AP.
     * [`HowTo.md`](./documentation/HowTo.md): Describes how to use the XSLT.
-    * [`HTTP-URIs.md`](./documentation/HTTP-URIs.md): Provides the list of transformation rules currently implemented for identifying HTTP URIs embedded in Datacite metadata records.
     * [`Mappings.md`](./documentation/Mappings.md): Provides a summary of the mappings from Datacite to Datacite+DCAT-AP.
-* [`CHANGELOG.md`](./CHANGELOG.md): Log of changes made to the XSLT.
 * [`datacite-to-dcat-ap.xsl`](./datacite-to-dcat-ap.xsl): The code of the XSLT.
 * [`LICENCE.md`](./LICENCE.md): The XSLT's licence.
 * [`README.md`](./README.md): This document. 
