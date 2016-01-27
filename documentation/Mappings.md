@@ -18,9 +18,7 @@
 
 <p>This documents illustrates the mappings defined in DataCite+DCAT-AP, as implemented in the <a href="../datacite-to-dcat-ap.xsl"><code>datacite-to-dcat-ap.xsl</code></a> XSLT.</p>
 <p>The background and methodology for the design of DataCite+DCAT-AP are illustrated in a separate document:</p>
-<ul>
-<li><a href="./Background.md"><cite>DataCite+DCAT-AP: Background &amp; methodology</cite></a></li>
-</ul>
+<p><a href="./Background.md"><cite>DataCite+DCAT-AP: Background &amp; methodology</cite></a></p>
 
 
 <h2>Table of contents</h2>
@@ -303,7 +301,7 @@
 <ul>
 <li>The element "type" is not specified</li>
 <li>No mapping is specified for a given element "type"</li>
-</ul> 
+</ul>
 <p>As a rule, the domain of the mappings is the one corresponding to the ResourceType element (i.e., <code>rdfs:Resource</code>, <code>dcat:Dataset</code>, <code>dctype:Service</code>, or <code>dctype:Event</code>). However, “starred” elements – i.e., elements whose name is preceded by an asterisk (“*”) – are those having as domain <code>dcat:Distribution</code>.</p>
 
 <table>
@@ -1122,7 +1120,7 @@
 <ul>
 <li>Elements with child elements</li>
 <li>Elements with attributes</li>
-</ul> 
+</ul>
 
 <h4>Elements with child elements</h4>
 
@@ -1321,7 +1319,7 @@
 <p>In DataCite+DCAT-AP, all these identifiers are mapped to URIs, by concatenating the identifier in the DataCite record with a URI prefix defined for each identifier type / scheme. Whenever possible, dereferenceable HTTP URIs/URLs are used; otherwise, URNs.</p>
 <p>This mapping is based on the name of the identifier type / scheme.</p>
 <p>Notably, DataCite provides a <a href="https://schema.datacite.org/meta/kernel-3/include/relatedIdentifierType-3.1.xsd">code list</a> for the types / schemes of identifiers used to denote resource, but no code list is defined in DataCite for types / schemes of identifiers used to denote resource creators / contributors (the specification uses, as an example, "ORCID" and "ISNI").</p>
-<p>DataCite does not specify a code list for scheme URIs. So, the mapping between the identifier type / scheme implemented in DataCite+DCAT-AP is based on the relevant registries and examples in the DataCite metadata schema specification. No URI prefix is of course used is the identifier is already a URI (as URLs and URNs).</p> 
+<p>DataCite does not specify a code list for scheme URIs. So, the mapping between the identifier type / scheme implemented in DataCite+DCAT-AP is based on the relevant registries and examples in the DataCite metadata schema specification. No URI prefix is of course used is the identifier is already a URI (as URLs and URNs).</p>
 <p>The following table shows, for each identifier type / scheme, which is the URI prefix used in DataCite+DCAT-AP, along with examples of the results of such mappings. As mentioned above, all the identifier types / schemes in the table are defined as a code list in the DataCite metadata schema, with the exception of ORCID and ISNI (marked in italic).</p>
 
 <table>
