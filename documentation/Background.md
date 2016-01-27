@@ -66,7 +66,7 @@
 
 <p>About point (2), the DataCite-based extension of DCAT-AP is also meant to integrate into DCAT-AP all the information required for data citation.</p>
 
-<p>Based on these considerations, two versions of an DataCite profile of DCAT-AP have been defined, namely, DataCite+DCAT-AP Core (addressing the requirements of point (1)) and DataCite+DCAT-AP Extended (addressing the requirements of point (2)). More precisely, the core version includes alignments only for the subset of DataCite metadata elements included in the DCAT-AP specification, whereas the extended version tries to defines alignments for all the DataCite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not offer suitable candidates). As such, DataCite+DCAT-AP Extended is a superset of DataCite+DCAT-AP Core, and both are conformant with DCAT-AP.</p>
+<p>Based on these considerations, two versions of a DataCite profile of DCAT-AP have been defined, namely, DataCite+DCAT-AP Core (addressing the requirements of point (1)) and DataCite+DCAT-AP Extended (addressing the requirements of point (2)). More precisely, the core version includes alignments only for the subset of DataCite metadata elements included in the DCAT-AP specification, whereas the extended version tries to defines alignments for all the DataCite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not offer suitable candidates). As such, DataCite+DCAT-AP Extended is a superset of DataCite+DCAT-AP Core, and both are conformant with DCAT-AP.</p>
 
 <h2><a name="methodology">Methodology</a></h2>
 
@@ -92,7 +92,7 @@
 <h2><a name="comparison">DataCite and DCAT-AP at a glance</a></h2>
 
 <p>The following sections provide a high-level comparison of the metadata elements defined in DataCite and DCAT-AP.</p>
- 
+
 
 <h3><a name="comparison-datacite-vs-dcat-ap">DataCite metadata elements supported in DCAT-AP</a></h3>
 
@@ -418,7 +418,7 @@
 
 <h2><a name="alignment-issues">Summary of alignment issues</a></h2>
 
-<p>TBD</p> 
+<p>TBD</p>
 
 <!--
 </body>
