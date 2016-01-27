@@ -20,10 +20,8 @@ This parameter specifies the DataCite+DCAT-AP profile to be used:
 * value `extended`: the DataCite+DCAT-AP _extended_ profile, which defines mappings for all the DataCite metadata elements.
 
 The default value is: `extended`.
-  
-The current specifications for the core and extended DataCite+DCAT-AP profiles are available on the Joinup collaboration platform of the EU ISA Programme:
 
-    https://joinup.ec.europa.eu/node/139283/
+The mappings defined in the core and extended DataCite+DCAT-AP profiles are summarised in the [Mappings](./Mappings.md) document.
 
 ### Parameters for the spatial reference system of the bounding box
 
@@ -34,10 +32,10 @@ These parameters denote the URI and URN, respectively, of the spatial reference 
 
 The SRS URI's and URN's to be used are those operated by the OGC's registry:
 
-* URIs: `http://www.opengis.net/def/crs/<authority>/(<version>|0)/<code>`. Examples: 
+* URIs: `http://www.opengis.net/def/crs/<authority>/(<version>|0)/<code>`. Examples:
     * [`http://www.opengis.net/def/crs/OGC/1.3/CRS84`](http://www.opengis.net/def/crs/OGC/1.3/CRS84) (CRS84: WGS84 lon/lat)
     * [`http://www.opengis.net/def/crs/EPSG/0/4326`](http://www.opengis.net/def/crs/EPSG/0/4326) (EPSG:4326: WGS84 lat/lon)
-* URNs: `urn:ogc:def:crs:<authority>:[<version>]:<code>`. Examples: 
+* URNs: `urn:ogc:def:crs:<authority>:[<version>]:<code>`. Examples:
     * `urn:ogc:def:crs:OGC:1.3:CRS84` (CRS84: WGS84 lon/lat)
     * `urn:ogc:def:crs:EPSG::4326` (EPSG:4326: WGS84 lat/lon)
 
@@ -64,16 +62,16 @@ This section provides examples of code from popular programming languages that c
 
 // The URL pointing to the latest version of the XSLT.
   $xslURL = "https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap/browse/datacite-to-dcat-ap.xsl?raw";
-  
+
   $xml = new DOMDocument;
   $xml->load($xmlURL) or die();
 
   $xsl = new DOMDocument;
   $xsl->load($xslURL) or die();
-  
+
   $proc = new XSLTProcessor();
   $proc->importStyleSheet($xsl);
-  
+
   echo $proc->transformToXML($xml);
 
 ?>
@@ -89,7 +87,7 @@ xmlURL = "http://oai.datacite.org/oai?verb=ListRecords&metadataPrefix=oai_dataci
 
 # The URL pointing to the latest version of the XSLT.
 xslURL = "https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap/browse/datacite-to-dcat-ap.xsl?raw"
-  
+
 xml = ET.parse(xmlURL)
 xsl = ET.parse(xslURL)
 
@@ -101,4 +99,3 @@ print(ET.tostring(transform(xml), pretty_print=True))
 ### Java
 
 TBD
-

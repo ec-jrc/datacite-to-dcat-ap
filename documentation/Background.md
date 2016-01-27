@@ -17,7 +17,7 @@
 
 <h2>Abstract</h2>
 
-<p>This document describes the background and metholodogy for the design of the DataCite profile of DCAT-AP (DataCite+DCAT-AP).</p>
+<p>This document describes the background and methodology for the design of the DataCite profile of DCAT-AP (DataCite+DCAT-AP).</p>
 <p>The mappings defined in DataCite+DCAT-AP are illustrated in a separate document:</p>
 <p><a href="./Mappings.md"><cite>Mappings defined in DataCite+DCAT-AP</cite></a></p>
 
