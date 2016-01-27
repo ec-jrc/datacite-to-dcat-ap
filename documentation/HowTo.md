@@ -4,7 +4,7 @@ The XSLT can be run directly on the ouput of a OAI-PMH endpoint or on single met
 
 The actual output of the XSLT depends on configuration parameters that specify:
 
-* whether to use the _core_ or _extended_ Datacite+DCAT-AP profile;
+* whether to use the _core_ or _extended_ DataCite+DCAT-AP profile;
 * which spatial reference system to use for the geometry encoding of the bounding box (when available).
 * The HTTP URIs to be used for the metadata record and/or the described resource.
 
@@ -14,14 +14,14 @@ The following sections describe first the XSLT configuration parameters, and the
 
 ### Parameter `$profile`
 
-This parameter specifies the Datacite+DCAT-AP profile to be used:
+This parameter specifies the DataCite+DCAT-AP profile to be used:
 
-* value `core`: the Datacite+DCAT-AP _core_ profile, which includes only the Datacite metadata elements supported in DCAT-AP.
-* value `extended`: the Datacite+DCAT-AP _extended_ profile, which defines mappings for all the Datacite metadata elements.
+* value `core`: the DataCite+DCAT-AP _core_ profile, which includes only the DataCite metadata elements supported in DCAT-AP.
+* value `extended`: the DataCite+DCAT-AP _extended_ profile, which defines mappings for all the DataCite metadata elements.
 
 The default value is: `extended`.
   
-The current specifications for the core and extended Datacite+DCAT-AP profiles are available on the Joinup collaboration platform of the EU ISA Programme:
+The current specifications for the core and extended DataCite+DCAT-AP profiles are available on the Joinup collaboration platform of the EU ISA Programme:
 
     https://joinup.ec.europa.eu/node/139283/
 

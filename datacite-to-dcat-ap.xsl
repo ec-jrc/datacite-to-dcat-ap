@@ -31,10 +31,10 @@
   PURPOSE AND USAGE
 
   This XSLT is a proof of concept for the implementation of the specification
-  concerning the Datacite profile of DCAT-AP (Datacite+DCAT-AP)
+  concerning the DataCite profile of DCAT-AP (DataCite+DCAT-AP)
     
   As such, this XSLT must be considered as unstable, and can be updated any 
-  time based on the revisions to the Datacite+DCAT-AP specifications.
+  time based on the revisions to the DataCite+DCAT-AP specifications.
   
 -->
 
@@ -83,7 +83,7 @@
     <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'"/>
     <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
     
-<!-- The namespace of the Datacite metadata schema changes depending on the schema version -->
+<!-- The namespace of the DataCite metadata schema changes depending on the schema version -->
 <!--
     <xsl:param name="dtctNsUriPrefix">http://datacite.org/schema/kernel-</xsl:param>
 -->              
@@ -99,21 +99,21 @@
 <!-- Parameter $profile -->
 <!--
 
-  This parameter specifies the Datacite+DCAT-AP profile to be used:
-  - value "core": the Datacite+DCAT-AP Core profile, which includes only the INSPIRE and ISO 19115 core metadata elements supported in DCAT-AP
-  - value "extended": the Datacite+DCAT-AP Extended profile, which defines mappings for all the INSPIRE and ISO 19115 core metadata elements
+  This parameter specifies the DataCite+DCAT-AP profile to be used:
+  - value "core": the DataCite+DCAT-AP Core profile, which includes only the INSPIRE and ISO 19115 core metadata elements supported in DCAT-AP
+  - value "extended": the DataCite+DCAT-AP Extended profile, which defines mappings for all the INSPIRE and ISO 19115 core metadata elements
   
-  The current specifications for the core and extended Datacite+DCAT-AP profiles are available on the Joinup collaboration platform:
+  The current specifications for the core and extended DataCite+DCAT-AP profiles are available on the Joinup collaboration platform:
 
     https://joinup.ec.europa.eu/node/139283/
 
 -->
 
-<!-- Uncomment to use Datacite+DCAT-AP Core -->
+<!-- Uncomment to use DataCite+DCAT-AP Core -->
 <!--
   <xsl:param name="profile">core</xsl:param>
 -->
-<!-- Uncomment to use Datacite+DCAT-AP Extended -->
+<!-- Uncomment to use DataCite+DCAT-AP Extended -->
   <xsl:param name="profile">extended</xsl:param>
 
 <!--
@@ -308,9 +308,9 @@
 <!-- Formats-->    
           <xsl:apply-templates select="*[local-name() = 'formats']/*[local-name() = 'format']"/>
 <!-- Rights -->    
-<!-- For Datacite schema version < 3 -->    
+<!-- For DataCite schema version < 3 -->    
           <xsl:apply-templates select="*[local-name() = 'rights']"/>
-<!-- For Datacite schema version >= 3 -->    
+<!-- For DataCite schema version >= 3 -->    
           <xsl:apply-templates select="*[local-name() = 'rightsList']"/>
           <xsl:if test="$ResourceUri != ''">
             <dcat:accessURL rdf:resource="{$ResourceUri}"/>
@@ -366,7 +366,7 @@
 
 <!-- 
 
-  Datacite elements templates
+  DataCite elements templates
   ===========================
  
  -->

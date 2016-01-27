@@ -1,26 +1,26 @@
 <!--
 <html>
 <head>
-<title>Datacite+DCAT-AP: Background &amp; methodology</title>
+<title>DataCite+DCAT-AP: Background &amp; methodology</title>
 <link type="text/css" rel="stylesheet" href="https://bootswatch.com/readable/bootstrap.css" media="screen"/>
 <link type="text/css" rel="stylesheet" href="/common/css/base.css" media="screen"/>
 </head>
 <body>
 -->
 
-<h1>Datacite+DCAT-AP: Background &amp; methodology</h1>
+<h1>DataCite+DCAT-AP: Background &amp; methodology</h1>
 
 <h2>Status of this document</h2>
 
-<p>This document is a draft meant to report work in progress concerning an exercise, carried out at the <a href="https://ec.europa.eu/jrc/">Joint Research Centre of the European Commission</a> (Units H.6 &amp; F.4), for the alignment of Datacite metadata with DCAT-AP.</p>
+<p>This document is a draft meant to report work in progress concerning an exercise, carried out at the <a href="https://ec.europa.eu/jrc/">Joint Research Centre of the European Commission</a> (Units H.6 &amp; F.4), for the alignment of DataCite metadata with DCAT-AP.</p>
 <p>As such, it can be updated any time and it must be considered as unstable.</p>
 
 <h2>Abstract</h2>
 
-<p>This document describes the background and metholodogy for the design of the Datacite profile of DCAT-AP (Datacite+DCAT-AP).</p>
-<p>The mappings defined in Datacite+DCAT-AP are illustrated in a separate document:</p>
+<p>This document describes the background and metholodogy for the design of the DataCite profile of DCAT-AP (DataCite+DCAT-AP).</p>
+<p>The mappings defined in DataCite+DCAT-AP are illustrated in a separate document:</p>
 <ul>
-<li><a href="./Mappings.md"><cite>Mappings defined in Datacite+DCAT-AP</cite></a></li>
+<li><a href="./Mappings.md"><cite>Mappings defined in DataCite+DCAT-AP</cite></a></li>
 </ul>
 
 <h2>Table of contents</h2>
@@ -29,15 +29,15 @@
   <li><a href="#background">Background</a>
     <ul>
       <li><a href="#background-dcat-ap">The <em>DCAT Application Profile for Data Portals in Europe</em> (DCAT-AP)</a></li>
-      <li><a href="#background-datacite">Datacite</a></li>
-      <li><a href="#background-why">Aligning Datacite with DCAT-AP</a></li>
+      <li><a href="#background-datacite">DataCite</a></li>
+      <li><a href="#background-why">Aligning DataCite with DCAT-AP</a></li>
     </ul>
   </li>
   <li><a href="#methodology">Methodology</a></li>
-  <li><a href="#comparison">Datacite and DCAT-AP at a glance</a>
+  <li><a href="#comparison">DataCite and DCAT-AP at a glance</a>
     <ul>
-      <li><a href="#comparison-datacite-vs-dcat-ap">Datacite metadata elements supported in DCAT-AP</a></li>
-      <li><a href="#comparison-dcat-ap-vs-datacite">DCAT-AP classes and properties elements supported in Datacite</a></li>
+      <li><a href="#comparison-datacite-vs-dcat-ap">DataCite metadata elements supported in DCAT-AP</a></li>
+      <li><a href="#comparison-dcat-ap-vs-datacite">DCAT-AP classes and properties elements supported in DataCite</a></li>
     </ul>
   </li>
   <li><a href="#alignment-issues">Summary of alignment issues</a>
@@ -51,58 +51,58 @@
 <p>DCAT-AP [<a href="https://joinup.ec.europa.eu/asset/dcat_application_profile/">DCAT-AP</a>] is a metadata profile developed in the framework of the EU Programme <a href="http://ec.europa.eu/isa/"><em>Interoperability Solutions for European Public Administrations</em></a> (ISA), and based on and compliant with the <a href="http://www.w3.org/TR/2014/REC-vocab-dcat-20140116/">W3C Data Catalog vocabulary</a> (DCAT) - currently, one of the most widely used Semantic Web vocabularies for describing datasets and data catalogues.</p>
 <p>The purpose of DCAT-AP is to define a common interchange metadata format for data portals of the EU and of EU Member States. In order to achieve this, DCAT-AP defines a set of classes and properties, grouped into mandatory, recommended and optional. Such classes and properties correspond to information on datasets and data catalogues that are shared by many European data portals, aiding interoperability. Although DCAT-AP is designed to be independent from its actual implementation, RDF [<a href="http://www.w3.org/TR/2004/REC-rdf-concepts-20040210/">RDF</a>] and Linked Data [<a href="http://linkeddatabook.com/book">LDBOOK</a>] are the reference technologies.</p>
 
-<h3><a name="background-datacite">Datacite</a></h3>
+<h3><a name="background-datacite">DataCite</a></h3>
 
 <p>TBD</p>
 
-<h3><a name="background-why">Aligning Datacite with DCAT-AP</a></h3>
+<h3><a name="background-why">Aligning DataCite with DCAT-AP</a></h3>
 
-<p>The motivation for investigating the possiblity of aligning Datacite metadata with DCAT-AP is twofold:</p>
+<p>The motivation for investigating the possiblity of aligning DataCite metadata with DCAT-AP is twofold:</p>
 
 <ol>
-	<li>To identify how to create a DCAT-AP-compliant representation of Datacite metadata, in order to enable their sharing across DCAT-AP-enabled data catalogues. This analysis is not meant to provide a complete representation of all Datacite metadata elements, but only of those included in DCAT-AP.</li>
-	<li>To identify how to create a Datacite-compliant representation of DCAT-AP metadata, in order to enable their publishing on the Datacite infrastructure. This analysis is meant to develop an extension of DCAT-AP, covering all Datacite metadata elements.</li>
+	<li>To identify how to create a DCAT-AP-compliant representation of DataCite metadata, in order to enable their sharing across DCAT-AP-enabled data catalogues. This analysis is not meant to provide a complete representation of all DataCite metadata elements, but only of those included in DCAT-AP.</li>
+	<li>To identify how to create a DataCite-compliant representation of DCAT-AP metadata, in order to enable their publishing on the DataCite infrastructure. This analysis is meant to develop an extension of DCAT-AP, covering all DataCite metadata elements.</li>
 </ol>
 
-<p>About point (2), the Datacite-based extension of DCAT-AP is also meant to integrate into DCAT-AP all the information required for data citation.</p>
+<p>About point (2), the DataCite-based extension of DCAT-AP is also meant to integrate into DCAT-AP all the information required for data citation.</p>
 
-<p>Based on these considerations, two versions of an Datacite profile of DCAT-AP have been defined, namely, Datacite+DCAT-AP Core (addressing the requirements of point (1)) and Datacite+DCAT-AP Extended (addressing the requirements of point (2)). More precisely, the core version includes alignments only for the subset of Datacite metadata elements included in the DCAT-AP specification, whereas the extended version tries to defines alignments for all the Datacite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not offer suitable candidates). As such, Datacite+DCAT-AP Extended is a superset of Datacite+DCAT-AP Core, and both are conformant with DCAT-AP.</p>
+<p>Based on these considerations, two versions of an DataCite profile of DCAT-AP have been defined, namely, DataCite+DCAT-AP Core (addressing the requirements of point (1)) and DataCite+DCAT-AP Extended (addressing the requirements of point (2)). More precisely, the core version includes alignments only for the subset of DataCite metadata elements included in the DCAT-AP specification, whereas the extended version tries to defines alignments for all the DataCite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not offer suitable candidates). As such, DataCite+DCAT-AP Extended is a superset of DataCite+DCAT-AP Core, and both are conformant with DCAT-AP.</p>
 
 <h2><a name="methodology">Methodology</a></h2>
 
-<p>The reference DCAT-AP and Datacite specifications on which Datacite+DCAT-AP is based are the following ones:</p>
+<p>The reference DCAT-AP and DataCite specifications on which DataCite+DCAT-AP is based are the following ones:</p>
 <ul>
 <li><a href="https://joinup.ec.europa.eu/system/files/project/dcat-ap_version_1.1.pdf">DCAT-AP v1.1</a> (October 2015)</li>
-<li><a href="https://schema.datacite.org/meta/kernel-3/doc/DataCite-MetadataKernel_v3.1.pdf">Datacite v3.1</a> (August 2015)</li>
+<li><a href="https://schema.datacite.org/meta/kernel-3/doc/DataCite-MetadataKernel_v3.1.pdf">DataCite v3.1</a> (August 2015)</li>
 </ul>
 <p>
-<p>For the mappings, existing work has been taken into account concerning the mapping of Datacite to other metadata standards. In particular:</p>
+<p>For the mappings, existing work has been taken into account concerning the mapping of DataCite to other metadata standards. In particular:</p>
 <ul>
-<li>The Datacite to Dublin Core mappings defined in <a href="https://schema.datacite.org/meta/kernel-2.2/">version 2.2 of the Datacite metadata schema specification</a> (July 2011)</li>
+<li>The DataCite to Dublin Core mappings defined in <a href="https://schema.datacite.org/meta/kernel-2.2/">version 2.2 of the DataCite metadata schema specification</a> (July 2011)</li>
 <li>The RDF bindings defined in the <a href="https://docs.google.com/document/d/1paJgvmCMu3pbM4in6PjWAKO0gP-6ultii3DWQslygq4/edit">DataCite2RDF mapping document</a> (April 2011)</li>
 </ul>
-<p>Datacite+DCAT-AP re-uses these specifications, and extends them to provide a complete mapping of all the metadata elements in version 3.1 of the Datacite metadata schema.</p>
-<p>The resulting mappings have been grouped into two classes, corresponding to two different Datacite+DCAT-AP profiles:</p>
+<p>DataCite+DCAT-AP re-uses these specifications, and extends them to provide a complete mapping of all the metadata elements in version 3.1 of the DataCite metadata schema.</p>
+<p>The resulting mappings have been grouped into two classes, corresponding to two different DataCite+DCAT-AP profiles:</p>
 <ul>
-<li><strong>Datacite+DCAT-AP Core</strong>: This profile defines alignments for the subset of Datacite metadata elements supported by DCAT-AP</li>
-<li><strong>Datacite+DCAT-AP Extended</strong>: This profile defines alignments for all the Datacite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not provide suitable candidates)</li>
+<li><strong>DataCite+DCAT-AP Core</strong>: This profile defines alignments for the subset of DataCite metadata elements supported by DCAT-AP</li>
+<li><strong>DataCite+DCAT-AP Extended</strong>: This profile defines alignments for all the DataCite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not provide suitable candidates)</li>
 </ul>
 
 
-<h2><a name="comparison">Datacite and DCAT-AP at a glance</a></h2>
+<h2><a name="comparison">DataCite and DCAT-AP at a glance</a></h2>
 
-<p>The following sections provide a high-level comparison of the metadata elements defined in Datacite and DCAT-AP.</p>
+<p>The following sections provide a high-level comparison of the metadata elements defined in DataCite and DCAT-AP.</p>
  
 
-<h3><a name="comparison-datacite-vs-dcat-ap">Datacite metadata elements supported in DCAT-AP</a></h3>
+<h3><a name="comparison-datacite-vs-dcat-ap">DataCite metadata elements supported in DCAT-AP</a></h3>
 
-<p>The following table provides the complete list of Datacite metadata elements, and shows whether they are supported in DCAT-AP.</p>
-<p>For each of the Datacite metadata elements, the table specifies whether they are mandatory (<strong>M</strong>), recommended (<em>R</em>), or optional (O).</p>
+<p>The following table provides the complete list of DataCite metadata elements, and shows whether they are supported in DCAT-AP.</p>
+<p>For each of the DataCite metadata elements, the table specifies whether they are mandatory (<strong>M</strong>), recommended (<em>R</em>), or optional (O).</p>
 
 <table>
   <thead>
     <tr>
-      <th colspan="2">Datacite 3.1</th>
+      <th colspan="2">DataCite 3.1</th>
       <th rowspan="2">DCAT-AP 1.1</th>
       <th rowspan="2">Comments</th>
     </tr>
@@ -116,7 +116,7 @@
       <td>Identifier</td>
       <td><strong>M</strong></td>
       <td><em>Partially</em></td>
-      <td>Datacite <strong>requires</strong> this to be a DOI, whereas DCAT-AP does not have such requirement</td>
+      <td>DataCite <strong>requires</strong> this to be a DOI, whereas DCAT-AP does not have such requirement</td>
     </tr>
     <tr>
       <td>Creator</td>
@@ -152,19 +152,19 @@
       <td>Contributor</td>
       <td><em>R</em></td>
       <td><em>Partially</em></td>
-      <td>DCAT-AP supports only 1 out of the 21 Datacite contributor types (namely, contact point / person)</td>
+      <td>DCAT-AP supports only 1 out of the 21 DataCite contributor types (namely, contact point / person)</td>
     </tr>
     <tr>
       <td>Date</td>
       <td><em>R</em></td>
       <td><em>Partially</em></td>
-      <td>DCAT-AP supports only 2 out of the 9 Datacite date types (namely, issues data and last modified date)</td>
+      <td>DCAT-AP supports only 2 out of the 9 DataCite date types (namely, issues data and last modified date)</td>
     </tr>
     <tr>
       <td>Resource type</td>
       <td><em>R</em></td>
       <td><em>Partially</em></td>
-      <td>Some of the Datacite resource types are not supported in DCAT-AP (e.g., event and physical object)</td>
+      <td>Some of the DataCite resource types are not supported in DCAT-AP (e.g., event and physical object)</td>
     </tr>
     <tr>
       <td>Related identifier</td>
@@ -223,16 +223,16 @@
   </tbody>
 </table>
 
-<h3><a name="comparison-dcat-ap-vs-datacite">DCAT-AP classes and properties supported in Datacite</a></h3>
+<h3><a name="comparison-dcat-ap-vs-datacite">DCAT-AP classes and properties supported in DataCite</a></h3>
 
-<p>The following table provides the list of classes and properties defined in DCAT-AP, and shows whether they are supported in Datacite.</p>
+<p>The following table provides the list of classes and properties defined in DCAT-AP, and shows whether they are supported in DataCite.</p>
 <p><strong>NB</strong>: The list of DCAT-AP classes and properties is here limited to those that are either mandatory (<strong>M</strong>) or recommended (<em>R</em>).</p>
 
 <table>
   <thead>
     <tr>
       <th colspan="4">DCAT-AP 1.1</th>
-      <th rowspan="2">Datacite 3.1</th>
+      <th rowspan="2">DataCite 3.1</th>
       <th rowspan="2">Comments</th>
     </tr>
     <tr>
@@ -325,7 +325,7 @@
       <td>description</td>
       <td><strong>M</strong></td>
       <td>Yes</td>
-      <td>In Datacite, this property recommended, not mandatory</td>
+      <td>In DataCite, this property recommended, not mandatory</td>
     </tr>
     <tr>
       <td>title</td>
@@ -397,13 +397,13 @@
       <td>format</td>
       <td><em>R</em></td>
       <td>Yes</td>
-      <td>In Datacite, this is a property of the dataset itself</td>
+      <td>In DataCite, this is a property of the dataset itself</td>
     </tr>
     <tr>
       <td>licence</td>
       <td><em>R</em></td>
       <td>Yes</td>
-      <td>In Datacite, this is a property of the dataset itself</td>
+      <td>In DataCite, this is a property of the dataset itself</td>
     </tr>
     <tr>
       <td>Licence document</td>

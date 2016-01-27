@@ -1,25 +1,25 @@
 <!--
 <html>
 <head>
-<title>Mappings defined in Datacite+DCAT-AP</title>
+<title>Mappings defined in DataCite+DCAT-AP</title>
 <link type="text/css" rel="stylesheet" href="https://bootswatch.com/readable/bootstrap.css" media="screen"/>
 <link type="text/css" rel="stylesheet" href="/common/css/base.css" media="screen"/>
 </head>
 <body>
 -->
-<h1>Mappings defined in Datacite+DCAT-AP</h1>
+<h1>Mappings defined in DataCite+DCAT-AP</h1>
 
 <h2>Status of this document</h2>
 
-<p>This document is a draft meant to report work in progress concerning an exercise, carried out at the <a href="https://ec.europa.eu/jrc/">Joint Research Centre of the European Commission</a> (Units H.6 &amp; F.4), for the alignment of Datacite metadata with DCAT-AP.</p>
+<p>This document is a draft meant to report work in progress concerning an exercise, carried out at the <a href="https://ec.europa.eu/jrc/">Joint Research Centre of the European Commission</a> (Units H.6 &amp; F.4), for the alignment of DataCite metadata with DCAT-AP.</p>
 <p>As such, it can be updated any time and it must be considered as unstable.</p>
 
 <h2>Abstract</h2>
 
-<p>This documents illustrates the mappings defined in Datacite+DCAT-AP, as implemented in the <a href="../datacite-to-dcat-ap.xsl"><code>datacite-to-dcat-ap.xsl</code></a> XSLT.</p>
-<p>The background and methodology for the design of Datacite+DCAT-AP are illustrated in a separate document:</p>
+<p>This documents illustrates the mappings defined in DataCite+DCAT-AP, as implemented in the <a href="../datacite-to-dcat-ap.xsl"><code>datacite-to-dcat-ap.xsl</code></a> XSLT.</p>
+<p>The background and methodology for the design of DataCite+DCAT-AP are illustrated in a separate document:</p>
 <ul>
-<li><a href="./Background.md"><cite>Datacite+DCAT-AP: Background &amp; methodology</cite></a></li>
+<li><a href="./Background.md"><cite>DataCite+DCAT-AP: Background &amp; methodology</cite></a></li>
 </ul>
 
 
@@ -56,22 +56,22 @@
 <!--
 <h2><a name="methodology">Methodology</a></h2>
 
-<p>The reference DCAT-AP and Datacite specifications on which Datacite+DCAT-AP is based are the following ones:</p>
+<p>The reference DCAT-AP and DataCite specifications on which DataCite+DCAT-AP is based are the following ones:</p>
 <ul>
 <li><a href="https://joinup.ec.europa.eu/system/files/project/dcat-ap_version_1.1.pdf">DCAT-AP v1.1 (October 2015)</a></li>
-<li><a href="https://schema.datacite.org/meta/kernel-3/doc/DataCite-MetadataKernel_v3.1.pdf">Datacite v3.1 (August 2015)</a></li>
+<li><a href="https://schema.datacite.org/meta/kernel-3/doc/DataCite-MetadataKernel_v3.1.pdf">DataCite v3.1 (August 2015)</a></li>
 </ul>
 <p>
-<p>For the mappings, existing work has been taken into account concerning the mapping of Datacite to other metadata standards. In particular:</p>
+<p>For the mappings, existing work has been taken into account concerning the mapping of DataCite to other metadata standards. In particular:</p>
 <ul>
-<li>The Datacite to Dublin Core mappings defined in <a href="https://schema.datacite.org/meta/kernel-2.2/">version 2.2 of the Datacite metadata schema specification</a> (July 2011)</li>
+<li>The DataCite to Dublin Core mappings defined in <a href="https://schema.datacite.org/meta/kernel-2.2/">version 2.2 of the DataCite metadata schema specification</a> (July 2011)</li>
 <li>The RDF bindings defined in the <a href="https://docs.google.com/document/d/1paJgvmCMu3pbM4in6PjWAKO0gP-6ultii3DWQslygq4/edit">DataCite2RDF mapping document</a> (April 2011)</li>
 </ul>
-<p>Datacite+DCAT-AP re-uses these specifications, and extends them to provide a complete mapping of all the metadata elements in version 3.1 of the Datacite metadata schema.</p>
-<p>The resulting mappings have been grouped into two classes, corresponding to two different Datacite+DCAT-AP profiles:</p>
+<p>DataCite+DCAT-AP re-uses these specifications, and extends them to provide a complete mapping of all the metadata elements in version 3.1 of the DataCite metadata schema.</p>
+<p>The resulting mappings have been grouped into two classes, corresponding to two different DataCite+DCAT-AP profiles:</p>
 <ul>
-<li><strong>Datacite+DCAT-AP Core</strong>: This profile defines alignments for the subset of Datacite metadata elements supported by DCAT-AP</li>
-<li><strong>Datacite+DCAT-AP Extended</strong>: This profile defines alignments for all the Datacite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not provide suitable candidates)</li>
+<li><strong>DataCite+DCAT-AP Core</strong>: This profile defines alignments for the subset of DataCite metadata elements supported by DCAT-AP</li>
+<li><strong>DataCite+DCAT-AP Extended</strong>: This profile defines alignments for all the DataCite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not provide suitable candidates)</li>
 </ul>
 -->
 <h2><a name="used-namespaces">Used namespaces</a></h2>
@@ -195,7 +195,7 @@
 <table>
   <thead>
     <tr>
-      <th>Datacite metadata elements</th>
+      <th>DataCite metadata elements</th>
       <th>Code list URI</th>
       <th>Code lists</th>
       <th>Status</th>
@@ -288,17 +288,17 @@
 
 <h2><a name="mapping-summary">Mapping summary</a></h2>
 
-<p>The following section summarises the alignments defined in Datacite+DCAT-AP.</p>
+<p>The following section summarises the alignments defined in DataCite+DCAT-AP.</p>
 <p>The alignments are grouped as follows:</p>
 <ul>
-<li>Alignments for 1st-level Datacite metadata elements</li>
-<li>Alignments for 2nd-level Datacite metadata elements</li>
-<li>Alignments for identifiers used in Datacite records</li>
+<li>Alignments for 1st-level DataCite metadata elements</li>
+<li>Alignments for 2nd-level DataCite metadata elements</li>
+<li>Alignments for identifiers used in DataCite records</li>
 </ul>
-<p>The alignments supported only in the extended profile of Datacite+DCAT-AP are in <strong>bold</strong>.</p>
+<p>The alignments supported only in the extended profile of DataCite+DCAT-AP are in <strong>bold</strong>.</p>
 
 <h3><a name="mapping-1st-level">1st-level mappings</a></h3>
-<p>The mappings illustrated in this section concern the 1st-level elements in the Datacite metadata schema.</p>
+<p>The mappings illustrated in this section concern the 1st-level elements in the DataCite metadata schema.</p>
 <p>These elements specify properties / relationships that, in some cases, can be futher specialised with an attribute denoting their sub-type (e.g., the "type" of resource, the "type" of contributor, the "type" of related resource). For this reason, elements having a "type" attribute have both a <em>default</em> mapping for the element, and a specific mapping for the type. The default mapping is used in the following cases:</p>
 <ul>
 <li>The element "type" is not specified</li>
@@ -1117,7 +1117,7 @@
 </table>
 
 <h3><a name="mapping-2nd-level">2nd-level mappings</a></h3>
-<p>The mappings illustrated in this section concern the 2nd-level elements in the Datacite metadata schema.</p>
+<p>The mappings illustrated in this section concern the 2nd-level elements in the DataCite metadata schema.</p>
 <p>These elements, and the corresponding mappings, are grouped in the following classes:</p>
 <ul>
 <li>Elements with child elements</li>
@@ -1307,29 +1307,29 @@
 
 
 <h3><a name="mapping-identifiers">Identifiers</a></h3>
-<p>Datacite supports the use of persistent identifiers to denote:</p>
+<p>DataCite supports the use of persistent identifiers to denote:</p>
 <ul>
   <li>the described resource, and the related resources</li>
   <li>resource creators and contributors</li>
 </ul>
-<p>In Datacite, such identifiers are specified as follows:</p>
+<p>In DataCite, such identifiers are specified as follows:</p>
 <ul>
 <li>the identifier</li>
 <li>the identifier type / scheme name (e.g., <code>ORCID</code>, <code>ISNI</code>, <code>DOI</code>)</li>
 <li>optionally, the scheme URI (e.g., <code>http://orcid.org/</code>, <code>http://www.isni.org/</code>, <code>http://dx.doi.org/</code>)</li>
 </ul>
-<p>In Datacite+DCAT-AP, all these identifiers are mapped to URIs, by concatenating the identifier in the Datacite record with a URI prefix defined for each identifier type / scheme. Whenever possible, dereferenceable HTTP URIs/URLs are used; otherwise, URNs.</p>
+<p>In DataCite+DCAT-AP, all these identifiers are mapped to URIs, by concatenating the identifier in the DataCite record with a URI prefix defined for each identifier type / scheme. Whenever possible, dereferenceable HTTP URIs/URLs are used; otherwise, URNs.</p>
 <p>This mapping is based on the name of the identifier type / scheme.</p>
-<p>Notably, Datacite provides a <a href="https://schema.datacite.org/meta/kernel-3/include/relatedIdentifierType-3.1.xsd">code list</a> for the types / schemes of identifiers used to denote resource, but no code list is defined in Datacite for types / schemes of identifiers used to denote resource creators / contributors (the specification uses, as an example, "ORCID" and "ISNI").</p>
-<p>Datacite does not specify a code list for scheme URIs. So, the mapping between the identifier type / scheme implemented in Datacite+DCAT-AP is based on the relevant registries and examples in the Datacite metadata schema specification. No URI prefix is of course used is the identifier is already a URI (as URLs and URNs).</p> 
-<p>The following table shows, for each identifier type / scheme, which is the URI prefix used in Datacite+DCAT-AP, along with examples of the results of such mappings. As mentioned above, all the identifier types / schemes in the table are defined as a code list in the Datacite metadata schema, with the exception of ORCID and ISNI (marked in italic).</p>
+<p>Notably, DataCite provides a <a href="https://schema.datacite.org/meta/kernel-3/include/relatedIdentifierType-3.1.xsd">code list</a> for the types / schemes of identifiers used to denote resource, but no code list is defined in DataCite for types / schemes of identifiers used to denote resource creators / contributors (the specification uses, as an example, "ORCID" and "ISNI").</p>
+<p>DataCite does not specify a code list for scheme URIs. So, the mapping between the identifier type / scheme implemented in DataCite+DCAT-AP is based on the relevant registries and examples in the DataCite metadata schema specification. No URI prefix is of course used is the identifier is already a URI (as URLs and URNs).</p> 
+<p>The following table shows, for each identifier type / scheme, which is the URI prefix used in DataCite+DCAT-AP, along with examples of the results of such mappings. As mentioned above, all the identifier types / schemes in the table are defined as a code list in the DataCite metadata schema, with the exception of ORCID and ISNI (marked in italic).</p>
 
 <table>
   <thead>
     <tr>
       <th rowspan="2">Identifier type / scheme</th>
       <th rowspan="2">Element(s)</th>
-      <th rowspan="2">URI prefix used in Datacite+DCAT-AP</th>
+      <th rowspan="2">URI prefix used in DataCite+DCAT-AP</th>
       <th colspan="2">Example</th>
       <th rowspan="2">Mapping status</th>
       <th rowspan="2">Comments</th>

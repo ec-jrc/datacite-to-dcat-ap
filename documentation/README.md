@@ -2,9 +2,9 @@ This folder includes documentation concerning the design and use of the [`dataci
 
 More precisely:
 
-* [`Background.md`](./Background.md): Describes the background and methodology for the design of Datacite+DCAT-AP.
+* [`Background.md`](./Background.md): Describes the background and methodology for the design of DataCite+DCAT-AP.
 * [`HowTo.md`](./HowTo.md): Describes how to use the XSLT.
-* [`Mappings.md`](./Mappings.md): Provides a summary of the mappings from Datacite to Datacite+DCAT-AP.
+* [`Mappings.md`](./Mappings.md): Provides a summary of the mappings from DataCite to DataCite+DCAT-AP.
 * [`README.md`](./README.md): This document.
 
 
