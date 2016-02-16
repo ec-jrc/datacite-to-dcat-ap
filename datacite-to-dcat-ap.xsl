@@ -555,7 +555,7 @@
       <dct:spatial>
         <dct:Location>
           <xsl:if test="$place != ''">
-            <locn:geographicName xml:lang="{@xml:lang}"><xsl:value-of select="$place"/></locn:geographicName>
+            <locn:geographicName xml:lang="{*[local-name() = 'geoLocationPlace']/@xml:lang}"><xsl:value-of select="$place"/></locn:geographicName>
           </xsl:if>
           <xsl:if test="$point != ''">
             <geo:lat_long rdf:datatype="{$xsd}decimal"><xsl:value-of select="$point"/></geo:lat_long>
