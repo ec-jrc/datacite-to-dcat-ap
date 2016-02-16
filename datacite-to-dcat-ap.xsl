@@ -560,7 +560,7 @@
           <xsl:if test="$point != ''">
             <geo:lat_long rdf:datatype="{$xsd}decimal"><xsl:value-of select="$point"/></geo:lat_long>
           </xsl:if>
-          <xsl:if test="$point != ''">
+          <xsl:if test="$box != ''">
             <schema:box rdf:datatype="{$xsd}string"><xsl:value-of select="$box"/></schema:box>
 <!-- Recommended geometry encodings -->    
             <locn:geometry rdf:datatype="{$gsp}wktLiteral"><xsl:value-of select="$WKTLiteral"/></locn:geometry>
