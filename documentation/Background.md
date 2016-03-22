@@ -35,7 +35,7 @@
   <li><a href="#comparison">DataCite and DCAT-AP at a glance</a>
     <ul>
       <li><a href="#comparison-datacite-vs-dcat-ap">DataCite metadata elements supported in DCAT-AP</a></li>
-      <li><a href="#comparison-dcat-ap-vs-datacite">DCAT-AP classes and properties elements supported in DataCite</a></li>
+      <li><a href="#comparison-dcat-ap-vs-datacite">DCAT-AP classes and properties supported in DataCite</a></li>
     </ul>
   </li>
   <li><a href="#alignment-issues">Summary of alignment issues</a>
