@@ -51,7 +51,8 @@
 
 <h3><a name="background-datacite">DataCite</a></h3>
 
-<p>TBD</p>
+<p>DataCite [<a href="https://www.datacite.org/">DataCite</a>] is an international initiative meant to enable citation for scientific datasets. To achieve this, DataCite operates a metadata infrastructure, following the same approach used by CrossRef for scientific publications. As such, the DataCite infrastructure is responsible for issuing persistent identifiers (in particular, DOIs) for datasets, and for registering dataset metadata. Such metadata are to be provided according to the DataCite metadata schema – which is basically an extension to the DOI one.</p>
+<p>Currently, DataCite is the de facto standard for data citation. Therefore, the ability to transform metadata records from and to the DataCite metadata schema would enable, respectively, the harvesting of DataCite records, and the publication of metadata records in the DataCite infrastructure (thus enabling their citation).</p>
 
 <h3><a name="background-why">Aligning DataCite with DCAT-AP</a></h3>
 
