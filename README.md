@@ -16,4 +16,4 @@ As such, this XSLT must be considered as unstable, and can be updated any time b
   
 #  Credits
   
-This work is a joint exercise carried out by Units H.6 &amp; F.4 of the <a href="https://ec.europa.eu/jrc/">Joint Research Centre of the European Commission</a>.
+This work is a joint exercise carried out by Units B.6 &amp; G.I.4 of the <a href="https://ec.europa.eu/jrc/">Joint Research Centre of the European Commission</a>.

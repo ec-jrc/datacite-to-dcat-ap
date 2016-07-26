@@ -12,7 +12,7 @@
 
 <h2>Status of this document</h2>
 
-<p>This document is a draft meant to report work in progress concerning an exercise, carried out at the <a href="https://ec.europa.eu/jrc/">Joint Research Centre of the European Commission</a> (Units H.6 &amp; F.4), for the alignment of DataCite metadata with DCAT-AP.</p>
+<p>This document is a draft meant to report work in progress concerning an exercise, carried out at the <a href="https://ec.europa.eu/jrc/">Joint Research Centre of the European Commission</a> (Units B.6 &amp; G.I.4), for the alignment of DataCite metadata with DCAT-AP.</p>
 <p>As such, it can be updated any time and it must be considered as unstable.</p>
 
 <h2>Abstract</h2>
