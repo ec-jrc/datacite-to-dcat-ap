@@ -125,6 +125,11 @@
       <td><a href="http://xmlns.com/foaf/spec/20140114.html">FOAF Vocabulary</a></td>
     </tr>
     <tr>
+      <td><code>frapo</code></td>
+      <td><code><a href="http://purl.org/cerif/frapo/">http://purl.org/cerif/frapo/</a></code></td>
+      <td><a href="http://purl.org/cerif/frapo/">FRAPO, the Funding, Research Administration and Projects Ontology</a></td>
+    </tr>
+    <tr>
       <td><code>geo</code></td>
       <td><code><a href="http://www.w3.org/2003/01/geo/wgs84_pos#">http://www.w3.org/2003/01/geo/wgs84_pos#</a></code></td>
       <td><a href="http://www.w3.org/2003/01/geo/wgs84_pos">W3C Basic Geo (WGS84 lat/long) vocabulary</a></td>
@@ -138,6 +143,11 @@
       <td><code>locn</code></td>
       <td><code><a href="http://www.w3.org/ns/locn#">http://www.w3.org/ns/locn#</a></code></td>
       <td><a href="http://www.w3.org/ns/locn">ISA Programme Core Location Vocabulary</a></td>
+    </tr>
+    <tr>
+      <td><code>org</code></td>
+      <td><code><a href="http://www.w3.org/ns/org#">http://www.w3.org/ns/org#</a></code></td>
+      <td><a href="https://www.w3.org/TR/2014/REC-vocab-org-20140116/">The Organization Ontology</a></td>
     </tr>
     <tr>
       <td><code>owl</code></td>
@@ -302,9 +312,9 @@
 <li>The element "type" is not specified</li>
 <li>No mapping is specified for a given element "type"</li>
 </ul>
-<p>As a rule, the domain of the mappings is the one corresponding to the ResourceType element (i.e., <code>rdfs:Resource</code>, <code>dcat:Dataset</code>, <code>dctype:Service</code>, or <code>dctype:Event</code>). However, “starred” elements – i.e., elements whose name is preceded by an asterisk (“*”) – are those having as domain <code>dcat:Distribution</code>.</p>
+<p>As a rule, the domain of the mappings is the one corresponding to the ResourceType element (i.e., <code>rdfs:Resource</code>, <code>dcat:Dataset</code>, <code>dctype:Service</code>, or <code>dctype:Event</code>). However, "starred" elements - i.e., elements whose name is preceded by an asterisk ("*") - are those having as domain <code>dcat:Distribution</code>.</p>
 
-<table>
+<table border="1">
   <thead>
     <tr>
       <th rowspan="2">Element</th>
@@ -375,10 +385,10 @@
     </tr>
     <tr>
       <td>TranslatedTitle</td>
-      <td><code>??:??</code></td>
+      <td><code>dct:title</code></td>
       <td><code>rdf:PlainLiteral</code></td>
-      <td><strong>unstable</strong></td>
-      <td>TBD</td>
+      <td><em>testing</em></td>
+      <td></td>
     </tr>
     <tr>
       <td colspan="2">Publisher</td>
@@ -459,10 +469,13 @@
     </tr>
     <tr>
       <td>Funder</td>
-      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>schema:funder</code></strong></td>
       <td><strong><code>foaf:Agent</code></strong></td>
-      <td><strong>unstable</strong></td>
-      <td>TBD</td>
+      <td><em>testing</em></td>
+      <td>
+        <p>Only for the extended profile.</p>
+        <p>This element has been deprecated in DataCite 4.0, in favour of new element <a href="#mapping-funding-reference">FundingReference</a>.</p>
+      </td>
     </tr>
     <tr>
       <td>HostingInstitution</td>
@@ -838,7 +851,13 @@
       <td>TBD</td>
     </tr>
     <tr>
-      <td colspan="2">AlternateIdentifier</td>
+      <td colspan="2" rowspan="2">AlternateIdentifier</td>
+      <td><code>owl:sameAs</code></td>
+      <td>URI reference</td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
       <td><code>adms:identifier</code></td>
       <td><code>adms:Identifier</code></td>
       <td><em>testing</em></td>
@@ -1111,6 +1130,16 @@
       <td><em>testing</em></td>
       <td></td>
     </tr>
+    <tr>
+      <td colspan="2"><a title="see details" href="#mapping-funding-reference">FundingReference</a></td>
+      <td><strong><code>frapo:isFundedBy</code></strong></td>
+      <td><strong><code>foaf:Project</code></strong></td>
+      <td><em>testing</em></td>
+      <td>
+        <p>Element added in DataCite 4.0.</p>
+        <p>Only for the extended profile.</p>
+      </td>
+    </tr>
   </tbody>
 </table>
 
@@ -1124,7 +1153,7 @@
 
 <h4>Elements with child elements</h4>
 
-<table>
+<table border="1">
   <thead>
     <tr>
       <th rowspan="2">Element</th>
@@ -1141,11 +1170,25 @@
   </thead>
   <tbody>
     <tr>
-      <td rowspan="3"><a name="mapping-creator">Creator</a></td>
+      <td rowspan="5"><a name="mapping-creator">Creator</a></td>
       <td>creatorName</td>
-      <td rowspan="3"><code>foaf:Agent</code></td>
+      <td rowspan="5"><code>foaf:Agent</code></td>
       <td><code>foaf:name</code></td>
-      <td><code>rdfs:Literal</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>givenName</td>
+      <td><code>foaf:givenName</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>familyName</td>
+      <td><code>foaf:familyName</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
       <td><em>testing</em></td>
       <td></td>
     </tr>
@@ -1158,24 +1201,54 @@
     </tr>
     <tr>
       <td>affiliation</td>
-      <td><code>schema:affiliation</code></td>
-      <td><code>rdf:PlainLiteral</code></td>
+      <td><code>org:memberOf</code></td>
+      <td><code>foaf:Organization</code></td>
       <td><em>testing</em></td>
       <td></td>
     </tr>
     <tr>
-      <td rowspan="6"><a name="mapping-contributor">Contributor</a></td>
+      <td rowspan="10"><a name="mapping-contributor">Contributor</a></td>
       <td rowspan="2">contributorName</td>
       <td><code>foaf:Agent</code></td>
       <td><code>foaf:name</code></td>
-      <td><code>rdfs:Literal</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
       <td><em>testing</em></td>
       <td></td>
     </tr>
     <tr>
       <td><code>vcard:Individual</code></td>
       <td><code>vcard:fn</code></td>
-      <td><code>rdfs:Literal</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td>If the contributor type is "ContactPerson"</td>
+    </tr>
+    <tr>
+      <td rowspan="2">givenName</td>
+      <td><code>foaf:Agent</code></td>
+      <td><code>foaf:givenName</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>vcard:Individual</code></td>
+      <td><code>vcard:given-name</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td>If the contributor type is "ContactPerson"</td>
+    </tr>
+    <tr>
+      <td rowspan="2">familyName</td>
+      <td><code>foaf:Agent</code></td>
+      <td><code>foaf:familyName</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>vcard:Individual</code></td>
+      <td><code>vcard:family-name</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
       <td><em>testing</em></td>
       <td>If the contributor type is "ContactPerson"</td>
     </tr>
@@ -1195,8 +1268,8 @@
     <tr>
       <td rowspan="2">affiliation</td>
       <td><code>foaf:Agent</code></td>
-      <td><code>schema:affiliation</code></td>
-      <td><code>rdf:PlainLiteral</code></td>
+      <td><code>org:memberOf</code></td>
+      <td><code>foaf:Organization</code></td>
       <td><em>testing</em></td>
       <td></td>
     </tr>
@@ -1208,20 +1281,34 @@
       <td>If the contributor type is "ContactPerson"</td>
     </tr>
     <tr>
-      <td rowspan="5"><a name="mapping-geolocation">GeoLocation</a></td>
-      <td>geoLocationPoint</td>
-      <td rowspan="5"><code>dct:Location</code></td>
+      <td rowspan="9"><a name="mapping-geolocation">GeoLocation</a></td>
+      <td rowspan="3">geoLocationPoint</td>
+      <td rowspan="9"><code>dct:Location</code></td>
       <td><code>geo:lat_long</code></td>
       <td><code>rdfs:Literal</code></td>
       <td><em>testing</em></td>
-      <td></td>
+      <td rowspan="3">
+        <p>In DataCite 4.0, this information is specified by using 2 child elements - namely, <code>pointLatitude</code> and <code>pointLongitude</code>.</p>
+        <p>Earlier versions of DataCite use a literal instead.</p>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2"><code>locn:geometry</code></td>
+      <td><code>gsp:gmlLiteral</code></td>
+      <td rowspan="2"><em>testing</em></td>
+    </tr>
+    <tr>
+      <td><code>gsp:wktLiteral</code></td>
     </tr>
     <tr>
       <td rowspan="3">geoLocationBox</td>
       <td rowspan="2"><code>locn:geometry</code></td>
       <td><code>gsp:wktLiteral</code></td>
       <td rowspan="2"><em>testing</em></td>
-      <td rowspan="2"></td>
+      <td rowspan="3">
+        <p>In DataCite 4.0, this information is specified by using 4 child elements - namely, <code>northBoundLatitude</code>, <code>eastBoundLongitude</code>, <code>southBoundLatitude</code>, and <code>westBoundLongitude</code>.</p>
+        <p>Earlier versions of DataCite use a literal instead.</p>
+      </td>
     </tr>
     <tr>
       <td><code>gsp:gmlLiteral</code></td>
@@ -1230,21 +1317,64 @@
       <td><code>schema:box</code></td>
       <td><code>rdfs:Literal</code></td>
       <td><em>testing</em></td>
+    </tr>
+    <tr>
+      <td rowspan="3">geoLocationPolygon</td>
+      <td rowspan="2"><code>locn:geometry</code></td>
+      <td><code>gsp:wktLiteral</code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="3">
+        <p>Element added in DataCite 4.0.</p>
+        <p>The polygon vertices are specified by using child element <code>geoPolygonPoint</code>. The coordinates of each vertex are specified by using two child elements - respectively, <code>pointLatitude</code> and <code>pointLongitude</code>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><code>gsp:gmlLiteral</code></td>
+    </tr>
+    <tr>
+      <td><code>schema:polygon</code></td>
+      <td><code>rdfs:Literal</code></td>
+      <td><em>testing</em></td>
+    </tr>
+    <tr>
+      <td rowspan="4"><a name="mapping-funding-reference">FundingReference</a></td>
+      <td><a href="#mapping-award-number">awardNumber</a></td>
+      <td rowspan="2"><code>foaf:Project</code></td>
+      <td><code>dct:identifier</code></td>
+      <td><code>xsd:string</code> | <code>xsd:anyURI</code></td>
+      <td><em>testing</em></td>
       <td></td>
     </tr>
     <tr>
-      <td>geoLocationPlace</td>
-      <td><code>locn:geographicName</code></td>
+      <td>awardTitle</td>
+      <td><code>dct:title</code></td>
       <td><code>rdf:PlainLiteral</code></td>
       <td><em>testing</em></td>
       <td></td>
+    </tr>
+    <tr>
+      <td>* funderName</td>
+      <td rowspan="2"><code>foaf:Organization</code></td>
+      <td><code>foaf:name</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td rowspan="2">
+        <p>The "funding project" (<code>foaf:Project</code>) is linked to the "funder" (<code>foaf:Organization</code>) by using property <code>frapo:isAwardedBy</code>.</p>
+        <p>The domain is <code>foaf:Organization</code>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>* funderIdentifier</td>
+      <td><code>dct:identifier</code></td>
+      <td><code>xsd:string</code> | <code>xsd:anyURI</code></td>
+      <td><em>testing</em></td>
     </tr>
   </tbody>
 </table>
 
 <h4>Elements with attributes</h4>
 
-<table>
+<table border="1">
   <thead>
     <tr>
       <th rowspan="2">Element</th>
@@ -1274,7 +1404,7 @@
       <td><code>skos:inScheme</code></td>
       <td><code>skos:ConceptScheme</code> (URI reference)</td>
       <td><em>testing</em></td>
-      <td>The domain is <code>skos:ConceptScheme</code></td>
+      <td></td>
     </tr>
     <tr>
       <td>* @subjectScheme</td>
@@ -1282,7 +1412,7 @@
       <td><code>dct:title</code></td>
       <td><code>rdf:PlainLiteral</code></td>
       <td><em>testing</em></td>
-      <td></td>
+      <td>The domain is <code>skos:ConceptScheme</code></td>
     </tr>
     <tr>
       <td rowspan="2"><a name="mapping-rights">Rights</a></td>
@@ -1299,6 +1429,21 @@
       <td><em>testing</em></td>
       <td></td>
     <tr>
+    <tr>
+      <td rowspan="2"><a name="mapping-award-number">awardNumber</a></td>
+      <td><em>textual content</em></td>
+      <td rowspan="2"><code>foaf:Project</code></td>
+      <td><code>dct:identifier</code></td>
+      <td><code>xsd:string</code> | <code>xsd:anyURI</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>@awardURI</td>
+      <td><code>@rdf:about</code></td>
+      <td>URI reference</td>
+      <td><em>testing</em></td>
+      <td></td>
     </tr>
   </tbody>
 </table>
@@ -1318,8 +1463,8 @@
 </ul>
 <p>In DataCite+DCAT-AP, all these identifiers are mapped to URIs, by concatenating the identifier in the DataCite record with a URI prefix defined for each identifier type / scheme. Whenever possible, dereferenceable HTTP URIs/URLs are used; otherwise, URNs.</p>
 <p>This mapping is based on the name of the identifier type / scheme.</p>
-<p>Notably, DataCite provides a <a href="https://schema.datacite.org/meta/kernel-3/include/relatedIdentifierType-3.1.xsd">code list</a> for the types / schemes of identifiers used to denote resource, but no code list is defined in DataCite for types / schemes of identifiers used to denote resource creators / contributors (the specification uses, as an example, "ORCID" and "ISNI").</p>
-<p>DataCite does not specify a code list for scheme URIs. So, the mapping between the identifier type / scheme implemented in DataCite+DCAT-AP is based on the relevant registries and examples in the DataCite metadata schema specification. No URI prefix is of course used is the identifier is already a URI (as URLs and URNs).</p>
+<p>Notably, DataCite provides a <a href="https://schema.datacite.org/meta/kernel-4.0/include/datacite-relatedIdentifierType-v4.xsd">code list</a> for the types / schemes of identifiers used to denote resource, but no code list is defined in DataCite for types / schemes of identifiers used to denote resource creators / contributors (the specification uses, as an example, "ORCID" and "ISNI").</p>
+<p>DataCite does not specify a code list for scheme URIs. So, the mapping between the identifier type / scheme implemented in DataCite+DCAT-AP is based on the relevant registries and examples in the DataCite metadata schema specification. No URI prefix is of course used if the identifier is already a URI (as URLs and URNs).</p>
 <p>The following table shows, for each identifier type / scheme, which is the URI prefix used in DataCite+DCAT-AP, along with examples of the results of such mappings. As mentioned above, all the identifier types / schemes in the table are defined as a code list in the DataCite metadata schema, with the exception of ORCID and ISNI (marked in italic).</p>
 
 <table>
@@ -1434,11 +1579,23 @@
     <tr>
       <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Handle_System" title="Handle System">Handle</a></td>
       <td>AlternateIdentifier</td>
-      <td rowspan="2"><code><a href="https://hdl.handle.net/">https://hdl.handle.net/</a></code></td>
+      <td rowspan="2"><code><a href="https://hdl.handle.net/">http://hdl.handle.net/</a></code></td>
       <td rowspan="2"><code>10013/epic.10033</code></td>
-      <td rowspan="2"><code><a href="https://hdl.handle.net/10013/epic.10033">https://hdl.handle.net/10013/epic.10033</a></code></td>
+      <td rowspan="2"><code><a href="https://hdl.handle.net/10013/epic.10033">http://hdl.handle.net/10013/epic.10033</a></code></td>
       <td rowspan="2"><em>testing</em></td>
       <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Geo_Sample_Number" title="International GeoSample Number">IGSN</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code><a href="http://hdl.handle.net/10273/">http://hdl.handle.net/10273/</a></code> (<code><a href="http://dx.doi.org/10273/">http://dx.doi.org/10273/</a></code>)</td>
+      <td rowspan="2"><code>SSH000SUA</code></td>
+      <td rowspan="2"><code><a href="http://hdl.handle.net/10273/SSH000SUA">http://hdl.handle.net/10273/SSH000SUA</a></code> (<code><a href="http://dx.doi.org/10273/SSH000SUA">http://dx.doi.org/10273/SSH000SUA</a></code>)</td>
+      <td rowspan="2">stable</td>
+      <td rowspan="2">Identifier type added in DataCite 4.0.</td>
     </tr>
     <tr>
       <td>RelatedIdentifier</td>

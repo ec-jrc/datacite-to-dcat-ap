@@ -39,38 +39,35 @@
 -->
 
 <xsl:transform
-    xmlns:xsl    = "http://www.w3.org/1999/XSL/Transform"
-    xmlns:rdf    = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:rdfs   = "http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:owl    = "http://www.w3.org/2002/07/owl#"
-    xmlns:skos   = "http://www.w3.org/2004/02/skos/core#"
+    xmlns:adms   = "http://www.w3.org/ns/adms#"
     xmlns:cnt    = "http://www.w3.org/2011/content#"
     xmlns:dc     = "http://purl.org/dc/elements/1.1/" 
     xmlns:dct    = "http://purl.org/dc/terms/"
     xmlns:dctype = "http://purl.org/dc/dcmitype/"
-    xmlns:earl   = "http://www.w3.org/ns/earl#"
     xmlns:dcat   = "http://www.w3.org/ns/dcat#"
+    xmlns:dtct2.2 = "http://datacite.org/schema/kernel-2.2"
+    xmlns:dtct3  ="http://datacite.org/schema/kernel-3"
+    xmlns:dtct4  ="http://datacite.org/schema/kernel-4"
+    xmlns:earl   = "http://www.w3.org/ns/earl#"
     xmlns:foaf   = "http://xmlns.com/foaf/0.1/"
-    xmlns:wdrs   = "http://www.w3.org/2007/05/powder-s#"
-    xmlns:prov   = "http://www.w3.org/ns/prov#"
-    xmlns:vcard  = "http://www.w3.org/2006/vcard/ns#"
-    xmlns:adms   = "http://www.w3.org/ns/adms#"
+    xmlns:frapo  = "http://purl.org/cerif/frapo/"
     xmlns:geo    = "http://www.w3.org/2003/01/geo/wgs84_pos#"
-    xmlns:oa     = "http://www.w3.org/ns/oa#"
     xmlns:gsp    = "http://www.opengis.net/ont/geosparql#"
     xmlns:locn   = "http://www.w3.org/ns/locn#"
-    xmlns:gmd    = "http://www.isotc211.org/2005/gmd" 
-    xmlns:gmx    = "http://www.isotc211.org/2005/gmx" 
-    xmlns:gco    = "http://www.isotc211.org/2005/gco" 
-    xmlns:srv    = "http://www.isotc211.org/2005/srv"
-    xmlns:xsi    = "http://www.w3.org/2001/XMLSchema-instance" 
-    xmlns:gml    = "http://www.opengis.net/gml" 
-    xmlns:xlink  = "http://www.w3.org/1999/xlink" 
-    xmlns:ns9    = "http://inspire.ec.europa.eu/schemas/geoportal/1.0"
-    xmlns:i      = "http://inspire.ec.europa.eu/schemas/common/1.0"
+    xmlns:oa     = "http://www.w3.org/ns/oa#"
+    xmlns:org    = "http://www.w3.org/ns/org#"
+    xmlns:owl    = "http://www.w3.org/2002/07/owl#"
+    xmlns:prov   = "http://www.w3.org/ns/prov#"
+    xmlns:rdf    = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs   = "http://www.w3.org/2000/01/rdf-schema#"
     xmlns:schema = "http://schema.org/"
-    xmlns:dtct ="http://datacite.org/schema/kernel-3"
-    xmlns        = "http://datacite.org/schema/kernel-2.2"
+    xmlns:skos   = "http://www.w3.org/2004/02/skos/core#"
+    xmlns:vcard  = "http://www.w3.org/2006/vcard/ns#"
+    xmlns:xlink  = "http://www.w3.org/1999/xlink" 
+    xmlns:xsi    = "http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xsl    = "http://www.w3.org/1999/XSL/Transform"
+    xmlns:wdrs   = "http://www.w3.org/2007/05/powder-s#"
+    exclude-result-prefixes = "dtct2.2 dtct3 dtct4 earl oa xlink xsi xsl wdrs"
     version="1.0">
 
   <xsl:output method="xml"
@@ -86,7 +83,7 @@
 <!-- The namespace of the DataCite metadata schema changes depending on the schema version -->
 <!--
     <xsl:param name="dtctNsUriPrefix">http://datacite.org/schema/kernel-</xsl:param>
--->              
+-->
 <!--
 
   Mapping parameters
@@ -282,6 +279,14 @@
       <xsl:apply-templates select="*[local-name() = 'publicationYear']"/>
 <!-- Subjects -->    
       <xsl:apply-templates select="*[local-name() = 'subjects']/*[local-name() = 'subject']"/>
+<!-- Funding references -->    
+      
+      <xsl:if test="$profile = 'extended'">
+        <xsl:for-each select="*[local-name() = 'fundingReferences']/*[local-name() = 'fundingReference']">
+          <xsl:call-template name="FundingReferences"/>
+        </xsl:for-each>
+      </xsl:if>
+        
 <!-- Contributors-->    
       <xsl:apply-templates select="*[local-name() = 'contributors']/*[local-name() = 'contributor']"/>
 <!-- Dates -->    
@@ -297,6 +302,7 @@
 <!-- Descriptions -->    
       <xsl:apply-templates select="*[local-name() = 'descriptions']/*[local-name() = 'description']"/>
 <!-- Geo locations -->    
+
       <xsl:apply-templates select="*[local-name() = 'geoLocations']/*[local-name() = 'geoLocation']"/>
 
 <!-- Distribution -->      
@@ -361,7 +367,15 @@
         </rdf:Description>
       </xsl:otherwise>
     </xsl:choose>
-      
+
+    <xsl:for-each select="//*[local-name() = 'fundingReferences']/*[local-name() = 'fundingReference' and normalize-space(*[local-name() = 'awardNumber']/@awardURI) != '']">
+      <xsl:call-template name="FundingAwards"/>
+    </xsl:for-each>
+
+    <xsl:for-each select="//*[local-name() = 'fundingReferences']/*[local-name() = 'fundingReference' and ( starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'http://') or starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'https://') ) and not(*[local-name() = 'funderIdentifier']=preceding::*)]">
+      <xsl:call-template name="Funders"/>
+    </xsl:for-each>
+        
   </xsl:template>
 
 <!-- 
@@ -379,21 +393,42 @@
     <xsl:variable name="type" select="normalize-space(translate(@titleType,$uppercase,$lowercase))"/>
     <xsl:choose>
       <xsl:when test="$type = ''">
-        <dct:title xml:lang="{@xml:lang}"><xsl:value-of select="$title"/></dct:title>
+        <xsl:choose>
+          <xsl:when test="normalize-space(@xml:lang) != ''">
+            <dct:title xml:lang="{@xml:lang}"><xsl:value-of select="$title"/></dct:title>
+          </xsl:when>
+          <xsl:otherwise>
+            <dct:title><xsl:value-of select="$title"/></dct:title>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
       <xsl:when test="$type = 'alternativetitle'">
-        <dct:alternative xml:lang="{@xml:lang}"><xsl:value-of select="$title"/></dct:alternative>
+        <xsl:choose>
+          <xsl:when test="normalize-space(@xml:lang) != ''">
+            <dct:alternative xml:lang="{@xml:lang}"><xsl:value-of select="$title"/></dct:alternative>
+          </xsl:when>
+          <xsl:otherwise>
+            <dct:alternative><xsl:value-of select="$title"/></dct:alternative>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
 <!-- TBD
       <xsl:when test="$type = 'subtitle' and $profile = 'extended'">
-        <dct:?? xml:lang="{@xml:lang}"><xsl:value-of select="$title"/></dct:??>
+        <xsl:choose>
+          <xsl:when test="normalize-space(@xml:lang) != ''">
+            <dct:?? xml:lang="{@xml:lang}"><xsl:value-of select="$title"/></dct:??>
+          </xsl:when>
+          <xsl:otherwise>
+            <dct:??><xsl:value-of select="$title"/></dct:??>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
 -->        
-<!-- TBD
-      <xsl:when test="$type = 'translated' and $profile = 'extended'">
-        <dct:?? xml:lang="{@xml:lang}"><xsl:value-of select="$title"/></dct:??>
+<!-- Unstable -->
+      <xsl:when test="$type = 'translated'">
+        <dct:title xml:lang="{@xml:lang}"><xsl:value-of select="$title"/></dct:title>
       </xsl:when>
--->        
+        
     </xsl:choose>
   </xsl:template>
 
@@ -404,12 +439,26 @@
     <xsl:variable name="type" select="normalize-space(translate(@descriptionType,$uppercase,$lowercase))"/>
     <xsl:choose>
       <xsl:when test="$type = 'abstract'">
-        <dct:description xml:lang="{@xml:lang}"><xsl:value-of select="$description"/></dct:description>
+        <xsl:choose>
+          <xsl:when test="normalize-space(@xml:lang) != ''">
+            <dct:description xml:lang="{@xml:lang}"><xsl:value-of select="$description"/></dct:description>
+          </xsl:when>
+          <xsl:otherwise>
+            <dct:description><xsl:value-of select="$description"/></dct:description>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
       <xsl:when test="$type = 'methods'">
         <dct:provenance>
           <dct:ProvenanceStatement>
-            <rdfs:label xml:lang="{@xml:lang}"><xsl:value-of select="$description"/></rdfs:label>
+            <xsl:choose>
+              <xsl:when test="normalize-space(@xml:lang) != ''">
+                <rdfs:label xml:lang="{@xml:lang}"><xsl:value-of select="$description"/></rdfs:label>
+              </xsl:when>
+              <xsl:otherwise>
+                <rdfs:label><xsl:value-of select="$description"/></rdfs:label>
+              </xsl:otherwise>
+            </xsl:choose>
           </dct:ProvenanceStatement>
         </dct:provenance>
       </xsl:when>
@@ -474,11 +523,56 @@
         </dct:subject>
       </xsl:when>
       <xsl:otherwise>
-        <dcat:keyword xml:lang="{@xml:lang}"><xsl:value-of select="$subject"/></dcat:keyword>
+        <xsl:choose>
+          <xsl:when test="normalize-space(@xml:lang) != ''">
+            <dcat:keyword xml:lang="{@xml:lang}"><xsl:value-of select="$subject"/></dcat:keyword>
+          </xsl:when>
+          <xsl:otherwise>
+            <dcat:keyword><xsl:value-of select="$subject"/></dcat:keyword>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
 
+
+<!-- Funding references template -->
+
+  <xsl:template name="FundingReferences">
+    <xsl:param name="funderURI">
+      <xsl:if test="starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'http://') or starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'https://')">
+        <xsl:value-of select="normalize-space(*[local-name() = 'funderIdentifier'])"/>
+      </xsl:if>
+    </xsl:param>
+    <xsl:param name="funderInfo">
+      <dct:identifier><xsl:value-of select="normalize-space(*[local-name() = 'funderIdentifier'])"/></dct:identifier>
+      <foaf:name><xsl:value-of select="normalize-space(*[local-name() = 'funderName'])"/></foaf:name>
+    </xsl:param>
+    <xsl:param name="fundingReferenceURI">
+      <xsl:value-of select="normalize-space(*[local-name() = 'awardNumber']/@awardURI)"/>
+    </xsl:param>
+    <xsl:choose>
+      <xsl:when test="$fundingReferenceURI != ''">
+        <frapo:isFundedBy rdf:resource="{$fundingReferenceURI}"/>
+      </xsl:when>
+      <xsl:when test="normalize-space(*[local-name() = 'awardNumber']) != '' or normalize-space(*[local-name() = 'awardTitle']) != ''">
+        <frapo:isFundedBy>
+          <xsl:call-template name="FundingAwards"/>
+        </frapo:isFundedBy>
+      </xsl:when>
+    </xsl:choose>
+    <xsl:choose>
+      <xsl:when test="$funderURI != ''">
+        <schema:funder rdf:resource="{$funderURI}"/>
+      </xsl:when>
+      <xsl:when test="normalize-space($funderInfo) != ''">
+        <schema:funder>
+          <xsl:call-template name="Funders"/>
+        </schema:funder>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:template>
+  
 <!-- Version template -->
 
   <xsl:template name="Version" match="*[local-name() = 'version']">
@@ -490,16 +584,26 @@
   <xsl:template name="Rights" match="*[local-name() = 'rights']">
     <xsl:variable name="rights" select="normalize-space(.)"/>
     <xsl:variable name="rightsURI" select="@rightsURI"/>
+    <xsl:variable name="rightsLabel">
+      <xsl:choose>
+        <xsl:when test="normalize-space(@xml:lang) != ''">
+          <rdfs:label xml:lang="{@xml:lang}"><xsl:value-of select="$rights"/></rdfs:label>
+        </xsl:when>
+        <xsl:otherwise>
+          <rdfs:label><xsl:value-of select="$rights"/></rdfs:label>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
     <dct:rights>
       <xsl:choose>
         <xsl:when test="$rightsURI != ''">
           <dct:RightsStatement rdf:about="{$rightsURI}">
-            <rdfs:label xml:lang="{@xml:lang}"><xsl:value-of select="$rights"/></rdfs:label>
+            <xsl:copy-of select="$rightsLabel"/>
           </dct:RightsStatement>
         </xsl:when>
         <xsl:otherwise>
           <dct:RightsStatement>
-            <rdfs:label xml:lang="{@xml:lang}"><xsl:value-of select="$rights"/></rdfs:label>
+            <xsl:copy-of select="$rightsLabel"/>
           </dct:RightsStatement>
         </xsl:otherwise>
       </xsl:choose>
@@ -516,57 +620,302 @@
 
   <xsl:template name="Geolocations" match="*[local-name() = 'geoLocations']/*[local-name() = 'geoLocation']">
   
-    <xsl:param name="point" select="normalize-space(translate(*[local-name() = 'geoLocationPoint'],',',' '))"/>
-    <xsl:param name="box" select="normalize-space(translate(*[local-name() = 'geoLocationBox'],',',' '))"/>
     <xsl:param name="place" select="normalize-space(*[local-name() = 'geoLocationPlace'])"/>
+
+    <xsl:param name="point">
+      <xsl:if test="normalize-space(*[local-name() = 'geoLocationPoint']) != ''">
+        <xsl:choose>
+          <xsl:when test="*[local-name() = 'geoLocationPoint']/*[local-name() = 'pointLatitude'] and *[local-name() = 'geoLocationPoint']/*[local-name() = 'pointLongitude']">
+            <xsl:value-of select="normalize-space(concat(*[local-name() = 'geoLocationPoint']/*[local-name() = 'pointLatitude'],' ',*[local-name() = 'geoLocationPoint']/*[local-name() = 'pointLongitude']))"/>
+          </xsl:when>
+          <xsl:when test="self::text()">
+            <xsl:value-of select="normalize-space(translate(*[local-name() = 'geoLocationPoint'],',',' '))"/>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:if>
+    </xsl:param>
     
-    <xsl:param name="north" select="substring-before($box, ' ')"/>
-    <xsl:param name="esw" select="substring-after($box, ' ')"/>
-    <xsl:param name="east"  select="substring-before($esw, ' ')"/>
-    <xsl:param name="sw" select="substring-after($esw, ' ')"/>
-    <xsl:param name="south" select="substring-before($sw, ' ')"/>
-    <xsl:param name="west"  select="substring-after($sw, ' ')"/>
+    <xsl:param name="pointLongitude" select="normalize-space(*[local-name() = 'geoLocationPoint']/*[local-name() = 'pointLongitude'])"/>
 
-<!-- Bbox as GML (GeoSPARQL) -->
+    <xsl:param name="pointLatitude" select="normalize-space(*[local-name() = 'geoLocationPoint']/*[local-name() = 'pointLatitude'])"/>
 
-    <xsl:param name="GMLLiteral">
+    <xsl:param name="box">
+      <xsl:if test="normalize-space(*[local-name() = 'geoLocationBox']) != ''">
+        <xsl:choose>
+          <xsl:when test="*[local-name() = 'geoLocationBox']/*[local-name() = 'northBoundLatitude'] and *[local-name() = 'geoLocationBox']/*[local-name() = 'southBoundLatitude'] and *[local-name() = 'geoLocationBox']/*[local-name() = 'eastBoundLongitude'] and *[local-name() = 'geoLocationBox']/*[local-name() = 'westBoundLongitude']">
+            <xsl:value-of select="normalize-space(concat(*[local-name() = 'geoLocationBox']/*[local-name() = 'southBoundLatitude'],' ',*[local-name() = 'geoLocationBox']/*[local-name() = 'westBoundLongitude'],' ',*[local-name() = 'geoLocationBox']/*[local-name() = 'northBoundLatitude'],' ',*[local-name() = 'geoLocationBox']/*[local-name() = 'eastBoundLongitude']))"/>
+          </xsl:when>
+          <xsl:when test="self::text()">
+            <xsl:value-of select="normalize-space(translate(*[local-name() = 'geoLocationBox'],',',' '))"/>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:if>
+    </xsl:param>
+    
+    <xsl:param name="north">
       <xsl:choose>
-        <xsl:when test="$SrsUri = 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'">&lt;gml:Envelope srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:lowerCorner&gt;<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>&lt;/gml:lowerCorner&gt;&lt;gml:upperCorner&gt;<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>&lt;/gml:upperCorner&gt;&lt;/gml:Envelope&gt;</xsl:when>
-        <xsl:when test="$SrsAxisOrder = 'LonLat'">&lt;gml:Envelope srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:lowerCorner&gt;<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>&lt;/gml:lowerCorner&gt;&lt;gml:upperCorner&gt;<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>&lt;/gml:upperCorner&gt;&lt;/gml:Envelope&gt;</xsl:when>
-        <xsl:when test="$SrsAxisOrder = 'LatLon'">&lt;gml:Envelope srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:lowerCorner&gt;<xsl:value-of select="$south"/><xsl:text> </xsl:text><xsl:value-of select="$west"/>&lt;/gml:lowerCorner&gt;&lt;gml:upperCorner&gt;<xsl:value-of select="$north"/><xsl:text> </xsl:text><xsl:value-of select="$east"/>&lt;/gml:upperCorner&gt;&lt;/gml:Envelope&gt;</xsl:when>
+        <xsl:when test="*[local-name() = 'geoLocationBox']/*[local-name() = 'northBoundLatitude']">
+          <xsl:value-of select="normalize-space(*[local-name() = 'geoLocationBox']/*[local-name() = 'northBoundLatitude'])"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="substring-before($box, ' ')"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:param>
+    <xsl:param name="esw" select="substring-after($box, ' ')"/>
+    <xsl:param name="sw" select="substring-after($esw, ' ')"/>
+    <xsl:param name="east">
+      <xsl:choose>
+        <xsl:when test="*[local-name() = 'geoLocationBox']/*[local-name() = 'eastBoundLongitude']">
+          <xsl:value-of select="normalize-space(*[local-name() = 'geoLocationBox']/*[local-name() = 'eastBoundLongitude'])"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="substring-before($esw, ' ')"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:param>
+    <xsl:param name="south">
+      <xsl:choose>
+        <xsl:when test="*[local-name() = 'geoLocationBox']/*[local-name() = 'southBoundLatitude']">
+          <xsl:value-of select="normalize-space(*[local-name() = 'geoLocationBox']/*[local-name() = 'southBoundLatitude'])"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="substring-before($sw, ' ')"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:param>
+    <xsl:param name="west">
+      <xsl:choose>
+        <xsl:when test="*[local-name() = 'geoLocationBox']/*[local-name() = 'westBoundLongitude']">
+          <xsl:value-of select="normalize-space(*[local-name() = 'geoLocationBox']/*[local-name() = 'westBoundLongitude'])"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="substring-after($sw, ' ')"/>
+        </xsl:otherwise>
       </xsl:choose>
     </xsl:param>
 
-<!-- Bbox as WKT (GeoSPARQL) -->
-
-    <xsl:param name="WKTLiteral">
-      <xsl:choose>
-        <xsl:when test="$SrsUri = 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'">POLYGON((<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>,<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>,<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>,<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>,<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>))</xsl:when>
-        <xsl:when test="$SrsAxisOrder = 'LonLat'">&lt;<xsl:value-of select="$SrsUri"/>&gt; POLYGON((<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>,<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>,<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>,<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>,<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>))</xsl:when>
-        <xsl:when test="$SrsAxisOrder = 'LatLon'">&lt;<xsl:value-of select="$SrsUri"/>&gt; POLYGON((<xsl:value-of select="$north"/><xsl:text> </xsl:text><xsl:value-of select="$west"/>,<xsl:value-of select="$north"/><xsl:text> </xsl:text><xsl:value-of select="$east"/>,<xsl:value-of select="$south"/><xsl:text> </xsl:text><xsl:value-of select="$east"/>,<xsl:value-of select="$south"/><xsl:text> </xsl:text><xsl:value-of select="$west"/>,<xsl:value-of select="$north"/><xsl:text> </xsl:text><xsl:value-of select="$west"/>))</xsl:when>
-        </xsl:choose>
+    <xsl:param name="polygonAsLonLat">
+      <xsl:for-each select="*[local-name() = 'geoLocationPolygon']">
+        <xsl:variable name="cnr" select="count(*[local-name() = 'polygonPoint'])"/>
+        <xsl:for-each select="*[local-name() = 'polygonPoint']">
+          <xsl:variable name="delimiter">
+            <xsl:if test="position() &lt; $cnr">
+              <xsl:text>,</xsl:text>
+            </xsl:if>
+          </xsl:variable>
+          <xsl:value-of select="normalize-space(*[local-name() = 'pointLongitude'])"/><xsl:text> </xsl:text><xsl:value-of select="normalize-space(*[local-name() = 'pointLatitude'])"/><xsl:value-of select="$delimiter"/>
+        </xsl:for-each>
+      </xsl:for-each>
+    </xsl:param>
+    
+    <xsl:param name="polygonAsLatLon">
+      <xsl:for-each select="*[local-name() = 'geoLocationPolygon']">
+        <xsl:variable name="cnr" select="count(*[local-name() = 'polygonPoint'])"/>
+        <xsl:for-each select="*[local-name() = 'polygonPoint']">
+          <xsl:variable name="delimiter">
+            <xsl:if test="position() &lt; $cnr">
+              <xsl:text>,</xsl:text>
+            </xsl:if>
+          </xsl:variable>
+          <xsl:value-of select="normalize-space(*[local-name() = 'pointLatitude'])"/><xsl:text> </xsl:text><xsl:value-of select="normalize-space(*[local-name() = 'pointLongitude'])"/><xsl:value-of select="$delimiter"/>
+        </xsl:for-each>
+      </xsl:for-each>
     </xsl:param>
 
-<!-- Bbox as GeoJSON -->
-
-    <xsl:param name="GeoJSONLiteral">{"type":"Polygon","crs":{"type":"name","properties":{"name":"<xsl:value-of select="$SrsUrn"/>"}},"coordinates":[[[<xsl:value-of select="$west"/><xsl:text>,</xsl:text><xsl:value-of select="$north"/>],[<xsl:value-of select="$east"/><xsl:text>,</xsl:text><xsl:value-of select="$north"/>],[<xsl:value-of select="$east"/><xsl:text>,</xsl:text><xsl:value-of select="$south"/>],[<xsl:value-of select="$west"/><xsl:text>,</xsl:text><xsl:value-of select="$south"/>],[<xsl:value-of select="$west"/><xsl:text>,</xsl:text><xsl:value-of select="$north"/>]]]}</xsl:param>
+    <xsl:param name="polygon">
+      <xsl:choose>
+        <xsl:when test="$SrsAxisOrder = 'LatLon'">
+          <xsl:value-of select="$polygonAsLatLon"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="$polygonAsLonLat"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:param>
     
-    <xsl:if test="$point != '' or $box != '' or $place != ''">
+<!-- Geometry as GML (GeoSPARQL) -->
+
+    <xsl:param name="pointAsGMLLiteral">
+      <xsl:if test="$point != ''">
+        <xsl:choose>
+          <xsl:when test="$SrsAxisOrder = 'LatLon'">&lt;gml:Point srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:pos srsDimension="2"&gt;<xsl:value-of select="$pointLatitude"/><xsl:text> </xsl:text><xsl:value-of select="$pointLongitude"/>&lt;/gml:pos&gt;&lt;/gml:Point&gt;</xsl:when>
+          <xsl:otherwise>&lt;gml:Point srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:pos srsDimension="2"&gt;<xsl:value-of select="$pointLongitude"/><xsl:text> </xsl:text><xsl:value-of select="$pointLatitude"/>&lt;/gml:pos&gt;&lt;/gml:Point&gt;</xsl:otherwise>
+        </xsl:choose>
+      </xsl:if>
+    </xsl:param>
+
+    <xsl:param name="boxAsGMLLiteral">
+      <xsl:if test="$box != ''">
+        <xsl:choose>
+          <xsl:when test="$SrsUri = 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'">&lt;gml:Envelope srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:lowerCorner&gt;<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>&lt;/gml:lowerCorner&gt;&lt;gml:upperCorner&gt;<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>&lt;/gml:upperCorner&gt;&lt;/gml:Envelope&gt;</xsl:when>
+          <xsl:when test="$SrsAxisOrder = 'LonLat'">&lt;gml:Envelope srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:lowerCorner&gt;<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>&lt;/gml:lowerCorner&gt;&lt;gml:upperCorner&gt;<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>&lt;/gml:upperCorner&gt;&lt;/gml:Envelope&gt;</xsl:when>
+          <xsl:when test="$SrsAxisOrder = 'LatLon'">&lt;gml:Envelope srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:lowerCorner&gt;<xsl:value-of select="$south"/><xsl:text> </xsl:text><xsl:value-of select="$west"/>&lt;/gml:lowerCorner&gt;&lt;gml:upperCorner&gt;<xsl:value-of select="$north"/><xsl:text> </xsl:text><xsl:value-of select="$east"/>&lt;/gml:upperCorner&gt;&lt;/gml:Envelope&gt;</xsl:when>
+        </xsl:choose>
+      </xsl:if>
+    </xsl:param>
+
+    <xsl:param name="polygonAsGMLLiteral">
+      <xsl:if test="$polygon != ''">
+        <xsl:choose>
+          <xsl:when test="$SrsUri = 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'">&lt;gml:Polygon srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension="2"&gt;<xsl:value-of select="translate($polygon,',',' ')"/>&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:Polygon&gt;</xsl:when>
+          <xsl:otherwise>&lt;gml:Polygon srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension="2"&gt;<xsl:value-of select="translate($polygon,',',' ')"/>&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:Polygon&gt;</xsl:otherwise>
+        </xsl:choose>
+      </xsl:if>
+    </xsl:param>
+<!--
+    <xsl:param name="GMLLiteral">
+      <xsl:choose>
+        <xsl:when test="$point != ''">
+          <xsl:choose>
+            <xsl:when test="$SrsAxisOrder = 'LatLon'">&lt;gml:Point srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:pos srsDimension="2"&gt;<xsl:value-of select="$pointLatitude"/><xsl:text> </xsl:text><xsl:value-of select="$pointLongitude"/>&lt;/gml:pos&gt;&lt;/gml:Point&gt;</xsl:when>
+            <xsl:otherwise>&lt;gml:Point srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:pos srsDimension="2"&gt;<xsl:value-of select="$pointLongitude"/><xsl:text> </xsl:text><xsl:value-of select="$pointLatitude"/>&lt;/gml:pos&gt;&lt;/gml:Point&gt;</xsl:otherwise>
+          </xsl:choose>
+        </xsl:when>
+        <xsl:when test="$box != ''">
+          <xsl:choose>
+            <xsl:when test="$SrsUri = 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'">&lt;gml:Envelope srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:lowerCorner&gt;<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>&lt;/gml:lowerCorner&gt;&lt;gml:upperCorner&gt;<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>&lt;/gml:upperCorner&gt;&lt;/gml:Envelope&gt;</xsl:when>
+            <xsl:when test="$SrsAxisOrder = 'LonLat'">&lt;gml:Envelope srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:lowerCorner&gt;<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>&lt;/gml:lowerCorner&gt;&lt;gml:upperCorner&gt;<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>&lt;/gml:upperCorner&gt;&lt;/gml:Envelope&gt;</xsl:when>
+            <xsl:when test="$SrsAxisOrder = 'LatLon'">&lt;gml:Envelope srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:lowerCorner&gt;<xsl:value-of select="$south"/><xsl:text> </xsl:text><xsl:value-of select="$west"/>&lt;/gml:lowerCorner&gt;&lt;gml:upperCorner&gt;<xsl:value-of select="$north"/><xsl:text> </xsl:text><xsl:value-of select="$east"/>&lt;/gml:upperCorner&gt;&lt;/gml:Envelope&gt;</xsl:when>
+          </xsl:choose>
+        </xsl:when>
+        <xsl:when test="$polygon != ''">
+          <xsl:choose>
+            <xsl:when test="$SrsUri = 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'">&lt;gml:Polygon srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension="2"&gt;<xsl:value-of select="translate($polygon,',',' ')"/>&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:Polygon&gt;</xsl:when>
+            <xsl:otherwise>&lt;gml:Polygon srsName="<xsl:value-of select="$SrsUri"/>"&gt;&lt;gml:exterior&gt;&lt;gml:LinearRing&gt;&lt;gml:posList srsDimension="2"&gt;<xsl:value-of select="translate($polygon,',',' ')"/>&lt;/gml:posList&gt;&lt;/gml:LinearRing&gt;&lt;/gml:exterior&gt;&lt;/gml:Polygon&gt;</xsl:otherwise>
+          </xsl:choose>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:param>
+-->
+<!-- Geometry as WKT (GeoSPARQL) -->
+
+    <xsl:param name="pointAsWKTLiteral">
+      <xsl:if test="$point != ''">
+        <xsl:choose>
+          <xsl:when test="$SrsUri = 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'">POINT(<xsl:value-of select="$pointLongitude"/><xsl:text> </xsl:text><xsl:value-of select="$pointLatitude"/>)</xsl:when>
+          <xsl:when test="$SrsAxisOrder = 'LonLat'">&lt;<xsl:value-of select="$SrsUri"/>&gt; POINT(<xsl:value-of select="$pointLongitude"/><xsl:text> </xsl:text><xsl:value-of select="$pointLatitude"/>)</xsl:when>
+          <xsl:when test="$SrsAxisOrder = 'LatLon'">&lt;<xsl:value-of select="$SrsUri"/>&gt; POINT(<xsl:value-of select="$pointLatitude"/><xsl:text> </xsl:text><xsl:value-of select="$pointLongitude"/>)</xsl:when>
+        </xsl:choose>
+      </xsl:if>
+    </xsl:param>
+
+    <xsl:param name="boxAsWKTLiteral">
+      <xsl:if test="$box != ''">
+        <xsl:choose>
+          <xsl:when test="$SrsUri = 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'">POLYGON((<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>,<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>,<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>,<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>,<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>))</xsl:when>
+          <xsl:when test="$SrsAxisOrder = 'LonLat'">&lt;<xsl:value-of select="$SrsUri"/>&gt; POLYGON((<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>,<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>,<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>,<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>,<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>))</xsl:when>
+          <xsl:when test="$SrsAxisOrder = 'LatLon'">&lt;<xsl:value-of select="$SrsUri"/>&gt; POLYGON((<xsl:value-of select="$north"/><xsl:text> </xsl:text><xsl:value-of select="$west"/>,<xsl:value-of select="$north"/><xsl:text> </xsl:text><xsl:value-of select="$east"/>,<xsl:value-of select="$south"/><xsl:text> </xsl:text><xsl:value-of select="$east"/>,<xsl:value-of select="$south"/><xsl:text> </xsl:text><xsl:value-of select="$west"/>,<xsl:value-of select="$north"/><xsl:text> </xsl:text><xsl:value-of select="$west"/>))</xsl:when>
+        </xsl:choose>
+      </xsl:if>
+    </xsl:param>
+
+    <xsl:param name="polygonAsWKTLiteral">
+      <xsl:if test="$polygon != ''">
+        <xsl:choose>
+          <xsl:when test="$SrsUri = 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'">POLYGON((<xsl:value-of select="$polygon"/>))</xsl:when>
+          <xsl:otherwise>&lt;<xsl:value-of select="$SrsUri"/>&gt; POLYGON((<xsl:value-of select="$polygon"/>))</xsl:otherwise>
+        </xsl:choose>
+      </xsl:if>
+    </xsl:param>
+<!--
+    <xsl:param name="WKTLiteral">
+      <xsl:choose>
+        <xsl:when test="$point != ''">
+          <xsl:choose>
+            <xsl:when test="$SrsUri = 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'">POINT(<xsl:value-of select="$pointLongitude"/><xsl:text> </xsl:text><xsl:value-of select="$pointLatitude"/>)</xsl:when>
+            <xsl:when test="$SrsAxisOrder = 'LonLat'">&lt;<xsl:value-of select="$SrsUri"/>&gt; POINT(<xsl:value-of select="$pointLongitude"/><xsl:text> </xsl:text><xsl:value-of select="$pointLatitude"/>)</xsl:when>
+            <xsl:when test="$SrsAxisOrder = 'LatLon'">&lt;<xsl:value-of select="$SrsUri"/>&gt; POINT(<xsl:value-of select="$pointLatitude"/><xsl:text> </xsl:text><xsl:value-of select="$pointLongitude"/>)</xsl:when>
+          </xsl:choose>
+        </xsl:when>
+        <xsl:when test="$box != ''">
+          <xsl:choose>
+            <xsl:when test="$SrsUri = 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'">POLYGON((<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>,<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>,<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>,<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>,<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>))</xsl:when>
+            <xsl:when test="$SrsAxisOrder = 'LonLat'">&lt;<xsl:value-of select="$SrsUri"/>&gt; POLYGON((<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>,<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>,<xsl:value-of select="$east"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>,<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$south"/>,<xsl:value-of select="$west"/><xsl:text> </xsl:text><xsl:value-of select="$north"/>))</xsl:when>
+            <xsl:when test="$SrsAxisOrder = 'LatLon'">&lt;<xsl:value-of select="$SrsUri"/>&gt; POLYGON((<xsl:value-of select="$north"/><xsl:text> </xsl:text><xsl:value-of select="$west"/>,<xsl:value-of select="$north"/><xsl:text> </xsl:text><xsl:value-of select="$east"/>,<xsl:value-of select="$south"/><xsl:text> </xsl:text><xsl:value-of select="$east"/>,<xsl:value-of select="$south"/><xsl:text> </xsl:text><xsl:value-of select="$west"/>,<xsl:value-of select="$north"/><xsl:text> </xsl:text><xsl:value-of select="$west"/>))</xsl:when>
+          </xsl:choose>
+        </xsl:when>
+        <xsl:when test="$polygon != ''">
+          <xsl:choose>
+            <xsl:when test="$SrsUri = 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'">POLYGON((<xsl:value-of select="translate($polygon)"/>))</xsl:when>
+            <xsl:otherwise>&lt;<xsl:value-of select="$SrsUri"/>&gt; POLYGON((<xsl:value-of select="translate($polygon)"/>))</xsl:otherwise>
+          </xsl:choose>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:param>
+-->
+<!-- Geometry as GeoJSON -->
+
+    <xsl:param name="pointAsGeoJSONLiteral">
+      <xsl:if test="$point != ''">{"type":"Point","crs":{"type":"name","properties":{"name":"<xsl:value-of select="$SrsUrn"/>"}},"coordinates":[<xsl:value-of select="$pointLongitude"/><xsl:text>,</xsl:text><xsl:value-of select="$pointLatitude"/>]}</xsl:if>
+    </xsl:param>
+
+    <xsl:param name="boxAsGeoJSONLiteral">
+      <xsl:if test="$box != ''">{"type":"Polygon","crs":{"type":"name","properties":{"name":"<xsl:value-of select="$SrsUrn"/>"}},"coordinates":[[[<xsl:value-of select="$west"/><xsl:text>,</xsl:text><xsl:value-of select="$north"/>],[<xsl:value-of select="$east"/><xsl:text>,</xsl:text><xsl:value-of select="$north"/>],[<xsl:value-of select="$east"/><xsl:text>,</xsl:text><xsl:value-of select="$south"/>],[<xsl:value-of select="$west"/><xsl:text>,</xsl:text><xsl:value-of select="$south"/>],[<xsl:value-of select="$west"/><xsl:text>,</xsl:text><xsl:value-of select="$north"/>]]]}</xsl:if>
+    </xsl:param>
+
+    <xsl:param name="polygonAsArray">
+      <xsl:if test="$polygon != ''">
+        <xsl:text>[</xsl:text>
+        <xsl:for-each select="*[local-name() = 'geoLocationPolygon']">
+          <xsl:variable name="cnr" select="count(*[local-name() = 'polygonPoint'])"/>
+          <xsl:for-each select="*[local-name() = 'polygonPoint']">
+            <xsl:variable name="delimiter">
+              <xsl:if test="position() &lt; $cnr">
+                <xsl:text>,</xsl:text>
+              </xsl:if>
+            </xsl:variable>
+            <xsl:text>[</xsl:text><xsl:value-of select="normalize-space(*[local-name() = 'pointLatitude'])"/><xsl:text> </xsl:text><xsl:value-of select="normalize-space(*[local-name() = 'pointLongitude'])"/><xsl:value-of select="$delimiter"/><xsl:text>]</xsl:text>
+          </xsl:for-each>
+        </xsl:for-each>
+        <xsl:text>]</xsl:text>
+      </xsl:if>
+    </xsl:param>
+    
+    <xsl:param name="polygonAsGeoJSONLiteral">
+      <xsl:if test="$polygon != ''">{"type":"Polygon","crs":{"type":"name","properties":{"name":"<xsl:value-of select="$SrsUrn"/>"}},"coordinates":[[[<xsl:value-of select="$polygonAsArray"/>]]]}</xsl:if>
+    </xsl:param>
+<!--
+    <xsl:param name="GeoJSONLiteral">
+      <xsl:choose>
+        <xsl:when test="$point != ''">{"type":"Point","crs":{"type":"name","properties":{"name":"<xsl:value-of select="$SrsUrn"/>"}},"coordinates":[<xsl:value-of select="$pointLongitude"/><xsl:text>,</xsl:text><xsl:value-of select="$pointLatitude"/>]}</xsl:when>
+        <xsl:when test="$box != ''">{"type":"Polygon","crs":{"type":"name","properties":{"name":"<xsl:value-of select="$SrsUrn"/>"}},"coordinates":[[[<xsl:value-of select="$west"/><xsl:text>,</xsl:text><xsl:value-of select="$north"/>],[<xsl:value-of select="$east"/><xsl:text>,</xsl:text><xsl:value-of select="$north"/>],[<xsl:value-of select="$east"/><xsl:text>,</xsl:text><xsl:value-of select="$south"/>],[<xsl:value-of select="$west"/><xsl:text>,</xsl:text><xsl:value-of select="$south"/>],[<xsl:value-of select="$west"/><xsl:text>,</xsl:text><xsl:value-of select="$north"/>]]]}</xsl:when>
+        <xsl:when test="$polygon != ''">{"type":"Polygon","crs":{"type":"name","properties":{"name":"<xsl:value-of select="$SrsUrn"/>"}},"coordinates":[[[<xsl:value-of select="$polygonAsGeoJSON"/>]]]}</xsl:when>
+      </xsl:choose>
+    </xsl:param>
+-->
+<!-- Geolocation -->
+    
+    <xsl:if test="$place != '' or $point != '' or $box != '' or $polygon != ''">
       <dct:spatial>
         <dct:Location>
           <xsl:if test="$place != ''">
-            <locn:geographicName xml:lang="{*[local-name() = 'geoLocationPlace']/@xml:lang}"><xsl:value-of select="$place"/></locn:geographicName>
+            <xsl:choose>
+              <xsl:when test="normalize-space(*[local-name() = 'geoLocationPlace']/@xml:lang) != ''">
+                <locn:geographicName xml:lang="{*[local-name() = 'geoLocationPlace']/@xml:lang}"><xsl:value-of select="$place"/></locn:geographicName>
+              </xsl:when>
+              <xsl:otherwise>
+                <locn:geographicName><xsl:value-of select="$place"/></locn:geographicName>
+              </xsl:otherwise>
+            </xsl:choose>
           </xsl:if>
           <xsl:if test="$point != ''">
             <geo:lat_long rdf:datatype="{$xsd}decimal"><xsl:value-of select="$point"/></geo:lat_long>
+            <locn:geometry rdf:datatype="{$gsp}wktLiteral"><xsl:value-of select="$pointAsWKTLiteral"/></locn:geometry>
+            <locn:geometry rdf:datatype="{$gsp}gmlLiteral"><xsl:value-of select="$pointAsGMLLiteral"/></locn:geometry>
+            <locn:geometry rdf:datatype="{$geojsonMediaTypeUri}"><xsl:value-of select="$pointAsGeoJSONLiteral"/></locn:geometry>
           </xsl:if>
           <xsl:if test="$box != ''">
             <schema:box rdf:datatype="{$xsd}string"><xsl:value-of select="$box"/></schema:box>
-<!-- Recommended geometry encodings -->    
-            <locn:geometry rdf:datatype="{$gsp}wktLiteral"><xsl:value-of select="$WKTLiteral"/></locn:geometry>
-            <locn:geometry rdf:datatype="{$gsp}gmlLiteral"><xsl:value-of select="$GMLLiteral"/></locn:geometry>
-<!-- Additional geometry encodings -->    
-            <locn:geometry rdf:datatype="{$geojsonMediaTypeUri}"><xsl:value-of select="$GeoJSONLiteral"/></locn:geometry>
+            <locn:geometry rdf:datatype="{$gsp}wktLiteral"><xsl:value-of select="$boxAsWKTLiteral"/></locn:geometry>
+            <locn:geometry rdf:datatype="{$gsp}gmlLiteral"><xsl:value-of select="$boxAsGMLLiteral"/></locn:geometry>
+            <locn:geometry rdf:datatype="{$geojsonMediaTypeUri}"><xsl:value-of select="$boxAsGeoJSONLiteral"/></locn:geometry>
+          </xsl:if>
+          <xsl:if test="$polygon != ''">
+            <schema:polygon><xsl:value-of select="normalize-space(translate($polygonAsLatLon,',',' '))"/></schema:polygon>
+            <locn:geometry rdf:datatype="{$gsp}wktLiteral"><xsl:value-of select="$polygonAsWKTLiteral"/></locn:geometry>
+            <locn:geometry rdf:datatype="{$gsp}gmlLiteral"><xsl:value-of select="$polygonAsGMLLiteral"/></locn:geometry>
+            <locn:geometry rdf:datatype="{$geojsonMediaTypeUri}"><xsl:value-of select="$polygonAsGeoJSONLiteral"/></locn:geometry>
           </xsl:if>
         </dct:Location>
       </dct:spatial>
@@ -583,7 +932,14 @@
     <xsl:if test="$profile = 'extended'">
       <dct:extent>
         <dct:SizeOrDuration>
-          <rdfs:label xml:lang="{@xml:lang}"><xsl:value-of select="normalize-space(.)"/></rdfs:label>
+          <xsl:choose>
+            <xsl:when test="normalize-space(@xml:lang) != ''">
+              <rdfs:label xml:lang="{@xml:lang}"><xsl:value-of select="normalize-space(.)"/></rdfs:label>
+            </xsl:when>
+            <xsl:otherwise>
+              <rdfs:label><xsl:value-of select="normalize-space(.)"/></rdfs:label>
+            </xsl:otherwise>
+          </xsl:choose>
         </dct:SizeOrDuration>
       </dct:extent>    
     </xsl:if>
@@ -677,8 +1033,28 @@
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
-    <xsl:variable name="agentFamilyName" select="normalize-space(substring-before($agentName, ','))"/>
-    <xsl:variable name="agentGivenName" select="normalize-space(substring-after($agentName, ','))"/>
+    <xsl:variable name="agentFamilyName">
+      <xsl:choose>
+<!-- Added in DataCite v4.0 -->      
+        <xsl:when test="*[local-name() = 'familyName']">
+          <xsl:value-of select="normalize-space(*[local-name() = 'familyName'])"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="normalize-space(substring-before($agentName, ','))"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="agentGivenName">
+      <xsl:choose>
+<!-- Added in DataCite v4.0 -->      
+        <xsl:when test="*[local-name() = 'givenName']">
+          <xsl:value-of select="normalize-space(*[local-name() = 'givenName'])"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="normalize-space(substring-before($agentName, ','))"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
     <xsl:variable name="type" select="normalize-space(translate(@contributorType,$uppercase,$lowercase))"/>
     <xsl:variable name="nameIdentifier" select="normalize-space(*[local-name() = 'nameIdentifier'])"/>
     <xsl:variable name="nameIdentifierScheme" select="normalize-space(translate(*[local-name() = 'nameIdentifier']/@nameIdentifierScheme,$uppercase,$lowercase))"/>
@@ -708,15 +1084,19 @@
           <rdf:type rdf:resource="{$foaf}Agent"/>
           <xsl:if test="$agentName != ''">
             <foaf:name><xsl:value-of select="$agentName"/></foaf:name>
+          </xsl:if>
+          <xsl:if test="$agentGivenName != ''">
             <foaf:givenName><xsl:value-of select="$agentGivenName"/></foaf:givenName>
+          </xsl:if>
+          <xsl:if test="$agentFamilyName != ''">
             <foaf:familyName><xsl:value-of select="$agentFamilyName"/></foaf:familyName>
           </xsl:if>
           <xsl:if test="$affiliation != ''">
-            <schema:affiliation>
+            <org:memberOf>
               <foaf:Organization>
                 <foaf:name><xsl:value-of select="$affiliation"/></foaf:name>
               </foaf:Organization>
-            </schema:affiliation>
+            </org:memberOf>
           </xsl:if>
         </xsl:otherwise>
       </xsl:choose>
@@ -777,12 +1157,10 @@
               <xsl:when test="$type = 'editor'">
                 <schema:editor><xsl:copy-of select="$agent"/></schema:editor>
               </xsl:when>
-<!-- TBD -->
-<!--
+<!-- Unstable -->
               <xsl:when test="$type = 'funder'">
-                <dct:contributor><xsl:copy-of select="$agent"/></dct:contributor>
+                <schema:funder><xsl:copy-of select="$agent"/></schema:funder>
               </xsl:when>
--->              
 <!-- TBD -->
 <!--
               <xsl:when test="$type = 'hostinginstitution'">
@@ -923,7 +1301,15 @@
             <dcat:landingPage rdf:resource="{$uri}"/>
           </xsl:when>
           <xsl:when test="local-name() = 'alternateIdentifier'">
+            <owl:sameAs rdf:resource="{$uri}"/>
+<!--            
             <adms:identifier rdf:resource="{$uri}"/>
+-->            
+            <adms:identifier>
+              <adms:Identifier>
+                <skos:notation rdf:datatype="{$xsd}anyURI"><xsl:value-of select="$uri"/></skos:notation>
+              </adms:Identifier>
+            </adms:identifier>
           </xsl:when>
         </xsl:choose>
       </xsl:when>
@@ -1280,6 +1666,8 @@
     <xsl:variable name="bibcode">http://adsabs.harvard.edu/abs/</xsl:variable>
     <xsl:variable name="pmid">http://www.ncbi.nlm.nih.gov/pubmed/</xsl:variable>
     <xsl:variable name="handle">https://hdl.handle.net/</xsl:variable>
+<!-- Added in DataCite v4.0 -->    
+    <xsl:variable name="igsn">https://hdl.handle.net/10273/</xsl:variable>
     <xsl:variable name="istc">http://istc-search-beta.peppertag.com/ptproc/IstcSearch?tFrame=IstcListing&amp;tForceNewQuery=Yes&amp;esfIstc=</xsl:variable>
     <xsl:variable name="issn">urn:issn:</xsl:variable>
     <xsl:variable name="isbn">urn:isbn:</xsl:variable>
@@ -1315,6 +1703,9 @@
       <xsl:when test="$type = 'isbn'">
         <xsl:value-of select="concat($isbn,$identifier)"/>
       </xsl:when>
+      <xsl:when test="$type = 'igsn'">
+        <xsl:value-of select="concat($igsn,$identifier)"/>
+      </xsl:when>
       <xsl:when test="$type = 'issn'">
         <xsl:value-of select="concat($issn,$identifier)"/>
       </xsl:when>
@@ -1347,6 +1738,126 @@
         <xsl:value-of select="$identifier"/>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+
+<!-- Funders template -->
+<!--
+  <xsl:template match="//*[local-name() = 'fundingReferences']/*[local-name() = 'fundingReference' and (starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'http://') or starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'https://'))]">
+-->
+
+  <xsl:template name="Funders">  
+    <xsl:param name="funderURI">
+      <xsl:if test="starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'http://') or starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'https://')">
+        <xsl:value-of select="normalize-space(*[local-name() = 'funderIdentifier'])"/>
+      </xsl:if>
+    </xsl:param>
+    <xsl:param name="funderIdentifierDatatype">
+      <xsl:choose>
+        <xsl:when test="$funderURI != ''">
+          <xsl:value-of select="concat($xsd,'anyURI')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="concat($xsd,'string')"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:param>
+    <xsl:param name="funderInfo">
+      <dct:identifier rdf:datatype="{$funderIdentifierDatatype}"><xsl:value-of select="normalize-space(*[local-name() = 'funderIdentifier'])"/></dct:identifier>
+      <xsl:choose>
+        <xsl:when test="normalize-space(*[local-name() = 'funderName']/@xml:lang) != ''">
+          <foaf:name xml:lang="{normalize-space(*[local-name() = 'funderName']/@xml:lang)}"><xsl:value-of select="normalize-space(*[local-name() = 'funderName'])"/></foaf:name>
+        </xsl:when>
+        <xsl:otherwise>
+          <foaf:name><xsl:value-of select="normalize-space(*[local-name() = 'funderName'])"/></foaf:name>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:param>
+    <xsl:choose>
+      <xsl:when test="$funderURI != ''">
+        <foaf:Organization rdf:about="{$funderURI}">
+          <xsl:copy-of select="$funderInfo"/>
+        </foaf:Organization>
+      </xsl:when>
+      <xsl:when test="normalize-space($funderInfo) != ''">
+        <foaf:Organization>
+          <xsl:copy-of select="$funderInfo"/>
+        </foaf:Organization>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:template>
+
+<!-- Funding Awards references template -->
+<!--
+  <xsl:template match="//*[local-name() = 'fundingReferences']/*[local-name() = 'fundingReference' and normalize-space(*[local-name() = 'awardNumber']/@awardURI) != '']">
+-->
+
+  <xsl:template name="FundingAwards">  
+    <xsl:param name="funderURI">
+      <xsl:if test="starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'http://') or starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'https://')">
+        <xsl:value-of select="normalize-space(*[local-name() = 'funderIdentifier'])"/>
+      </xsl:if>
+    </xsl:param>
+
+<!--    
+    <xsl:param name="funderInfo">
+      <dct:identifier><xsl:value-of select="normalize-space(*[local-name() = 'funderIdentifier'])"/></dct:identifier>
+      <foaf:name><xsl:value-of select="normalize-space(*[local-name() = 'funderName'])"/></foaf:name>
+    </xsl:param>
+-->    
+
+    <xsl:param name="fundingReferenceURI">
+      <xsl:value-of select="normalize-space(*[local-name() = 'awardNumber']/@awardURI)"/>
+    </xsl:param>
+    <xsl:param name="fundingReferenceIdentifierDatatype">
+      <xsl:choose>
+        <xsl:when test="starts-with(translate(normalize-space(*[local-name() = 'awardNumber']), $uppercase, $lowercase), 'http://')">
+          <xsl:value-of select="concat($xsd,'anyURI')"/>
+        </xsl:when>
+        <xsl:when test="starts-with(translate(normalize-space(*[local-name() = 'awardNumber']), $uppercase, $lowercase), 'https://')">
+          <xsl:value-of select="concat($xsd,'anyURI')"/>
+        </xsl:when>
+        <xsl:when test="starts-with(translate(normalize-space(*[local-name() = 'awardNumber']), $uppercase, $lowercase), 'urn:')">
+          <xsl:value-of select="concat($xsd,'anyURI')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="concat($xsd,'string')"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:param>
+    <xsl:param name="fundingReferenceInfo">
+      <dct:identifier rdf:datatype="{$fundingReferenceIdentifierDatatype}"><xsl:value-of select="normalize-space(*[local-name() = 'awardNumber'])"/></dct:identifier>
+      <xsl:choose>
+        <xsl:when test="normalize-space(*[local-name() = 'awardTitle']/@xml:lang) != ''">
+          <dct:title xml:lang="{normalize-space(*[local-name() = 'awardTitle']/@xml:lang)}"><xsl:value-of select="normalize-space(*[local-name() = 'awardTitle'])"/></dct:title>
+        </xsl:when>
+        <xsl:otherwise>
+          <dct:title><xsl:value-of select="normalize-space(*[local-name() = 'awardTitle'])"/></dct:title>
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:choose>
+        <xsl:when test="$funderURI != ''">
+          <frapo:isAwardedBy rdf:resouce="{$funderURI}"/>
+        </xsl:when>
+        <xsl:when test="normalize-space(*[local-name() = 'funderName']) != '' or normalize-space(*[local-name() = 'funderIdentifier']) != ''">
+          <frapo:isAwardedBy>
+            <xsl:call-template name="Funders"/>
+          </frapo:isAwardedBy>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:param>
+    <xsl:choose>
+      <xsl:when test="$fundingReferenceURI != ''">
+        <foaf:Project rdf:about="{$fundingReferenceURI}">
+          <xsl:copy-of select="$fundingReferenceInfo"/>
+        </foaf:Project> 
+      </xsl:when>
+      <xsl:when test="normalize-space($fundingReferenceInfo) != ''">
+        <foaf:Project>
+          <xsl:copy-of select="$fundingReferenceInfo"/>
+        </foaf:Project> 
+      </xsl:when>
+    </xsl:choose>
+
   </xsl:template>
   
 <!-- Template returning the Alpha-2 version of a language code / tag  -->

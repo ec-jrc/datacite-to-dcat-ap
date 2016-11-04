@@ -72,7 +72,7 @@
 <p>The reference DCAT-AP and DataCite specifications on which DataCite+DCAT-AP is based are the following ones:</p>
 <ul>
 <li><a href="https://joinup.ec.europa.eu/system/files/project/dcat-ap_version_1.1.pdf">DCAT-AP v1.1</a> (October 2015)</li>
-<li><a href="https://schema.datacite.org/meta/kernel-3/doc/DataCite-MetadataKernel_v3.1.pdf">DataCite v3.1</a> (August 2015)</li>
+<li><a href="http://doi.org/10.5438/0012">DataCite v4.0</a> (September 2016)</li>
 </ul>
 <p>
 <p>For the mappings, existing work has been taken into account concerning the mapping of DataCite to other metadata standards. In particular:</p>
@@ -80,7 +80,7 @@
 <li>The DataCite to Dublin Core mappings defined in <a href="https://schema.datacite.org/meta/kernel-2.2/">version 2.2 of the DataCite metadata schema specification</a> (July 2011)</li>
 <li>The RDF bindings defined in the <a href="https://docs.google.com/document/d/1paJgvmCMu3pbM4in6PjWAKO0gP-6ultii3DWQslygq4/edit">DataCite2RDF mapping document</a> (April 2011)</li>
 </ul>
-<p>DataCite+DCAT-AP re-uses these specifications, and extends them to provide a complete mapping of all the metadata elements in version 3.1 of the DataCite metadata schema.</p>
+<p>DataCite+DCAT-AP re-uses these specifications, and extends them to provide a complete mapping of all the metadata elements in version 4.0 of the DataCite metadata schema. Moreover, the defined mappings are backward compatible with earlier versions of the DataCite metadata schema.</p>
 <p>The resulting mappings have been grouped into two classes, corresponding to two different DataCite+DCAT-AP profiles:</p>
 <ul>
 <li><strong>DataCite+DCAT-AP Core</strong>: This profile defines alignments for the subset of DataCite metadata elements supported by DCAT-AP</li>
@@ -101,7 +101,7 @@
 <table>
   <thead>
     <tr>
-      <th colspan="2">DataCite 3.1</th>
+      <th colspan="2">DataCite 4.0</th>
       <th rowspan="2">DCAT-AP 1.1</th>
       <th rowspan="2">Comments</th>
     </tr>
@@ -121,7 +121,7 @@
       <td>Creator</td>
       <td><strong>M</strong></td>
       <td><strong>No</strong></td>
-      <td></td>
+      <td>This agent role is supported in GeoDCAT-AP</td>
     </tr>
     <tr>
       <td>Title</td>
@@ -151,19 +151,27 @@
       <td>Contributor</td>
       <td><em>R</em></td>
       <td><em>Partially</em></td>
-      <td>DCAT-AP supports only 1 out of the 21 DataCite contributor types (namely, contact point / person)</td>
+      <td>
+        <p>DCAT-AP supports only 1 out of the 21 DataCite contributor types (namely, contact point / person).</p>
+        <p>GeoDCAT-AP supports 2 additional DataCite contributor types, namely, distributor and rights holder.</p>
+      </td>
     </tr>
     <tr>
       <td>Date</td>
       <td><em>R</em></td>
       <td><em>Partially</em></td>
-      <td>DCAT-AP supports only 2 out of the 9 DataCite date types (namely, issues data and last modified date)</td>
+      <td>
+        <p>DCAT-AP supports only 2 out of the 9 DataCite date types (namely, issue date and last modified date)</p>
+        <p>GeoDCAT-AP supports also an additional date type, namely, creation date.</p>
+      </td>
     </tr>
     <tr>
       <td>Resource type</td>
       <td><em>R</em></td>
       <td><em>Partially</em></td>
-      <td>Some of the DataCite resource types are not supported in DCAT-AP (e.g., event and physical object)</td>
+      <td>
+        <p>DCAT-AP supports just one resource type, namely, <code>dcat:Dataset</code>. All DataCite resource types fall under the definition of <code>dcat:Dataset</code>, with the exception of event, physical object, and service. The last one (i.e., service) is however supported in GeoDCAT-AP.</p>
+      </td>
     </tr>
     <tr>
       <td>Related identifier</td>
@@ -219,6 +227,12 @@
       <td>Yes</td>
       <td>In DCAT-AP, this is a property of the dataset distribution, and not of the dataset itself</td>
     </tr>
+    <tr>
+      <td>Funding Reference</td>
+      <td>O</td>
+      <td><strong>No</strong></td>
+      <td>This element specifies: (a) title, identifier and, possibly, URI of the funding project, and (b) name and identifier of the organisation who awarded that project</td>
+    </tr>
   </tbody>
 </table>
 
@@ -231,7 +245,7 @@
   <thead>
     <tr>
       <th colspan="4">DCAT-AP 1.1</th>
-      <th rowspan="2">DataCite 3.1</th>
+      <th rowspan="2">DataCite 4.0</th>
       <th rowspan="2">Comments</th>
     </tr>
     <tr>
