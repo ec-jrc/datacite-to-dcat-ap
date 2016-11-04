@@ -338,7 +338,7 @@
       <td>description</td>
       <td><strong>M</strong></td>
       <td>Yes</td>
-      <td>In DataCite, this property recommended, not mandatory</td>
+      <td>In DataCite, this property is recommended, not mandatory</td>
     </tr>
     <tr>
       <td>title</td>
