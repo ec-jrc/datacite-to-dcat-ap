@@ -314,7 +314,7 @@
 </ul>
 <p>As a rule, the domain of the mappings is the one corresponding to the ResourceType element (i.e., <code>rdfs:Resource</code>, <code>dcat:Dataset</code>, <code>dctype:Service</code>, or <code>dctype:Event</code>). However, "starred" elements - i.e., elements whose name is preceded by an asterisk ("*") - are those having as domain <code>dcat:Distribution</code>.</p>
 
-<table border="1">
+<table>
   <thead>
     <tr>
       <th rowspan="2">Element</th>
@@ -1153,7 +1153,7 @@
 
 <h4>Elements with child elements</h4>
 
-<table border="1">
+<table>
   <thead>
     <tr>
       <th rowspan="2">Element</th>
@@ -1374,7 +1374,7 @@
 
 <h4>Elements with attributes</h4>
 
-<table border="1">
+<table>
   <thead>
     <tr>
       <th rowspan="2">Element</th>
