@@ -312,7 +312,7 @@
 <li>The element "type" is not specified</li>
 <li>No mapping is specified for a given element "type"</li>
 </ul>
-<p>As a rule, the domain of the mappings is the one corresponding to the ResourceType element (i.e., <code>rdfs:Resource</code>, <code>dcat:Dataset</code>, <code>dctype:Service</code>, or <code>dctype:Event</code>). However, "starred" elements - i.e., elements whose name is preceded by an asterisk ("*") - are those having as domain <code>dcat:Distribution</code>.</p>
+<p>As a rule, the domain of the mappings is the one corresponding to the ResourceType element (i.e., <code>rdfs:Resource</code>, <code>dcat:Dataset</code>, <code>dctype:Service</code>, or <code>dctype:Event</code>). However, "starred" elements - i.e., elements whose name is preceded by an asterisk ("*") - are those having as domain <code>dcat:Distribution</code> when the resource is modelled as a <code>dcat:Dataset</code>.</p>
 
 <table>
   <thead>
@@ -330,7 +330,7 @@
   </thead>
   <tbody>
     <tr>
-      <td colspan="2" rowspan="4">Identifier</td>
+      <td colspan="2" rowspan="5">Identifier</td>
       <td><code>@rdf:about</code></td>
       <td><code>rdfs:Resource</code> (URI reference)</td>
       <td><em>testing</em></td>
@@ -346,13 +346,19 @@
       <td><code>dcat:landingPage</code></td>
       <td><code>rdfs:Resource</code> (URI reference)</td>
       <td><em>testing</em></td>
-      <td></td>
+      <td>If the resource is modelled as a <code>dcat:Dataset</code></td>
+    </tr>
+    <tr>
+      <td><code>foaf:page</code></td>
+      <td><code>rdfs:Resource</code> (URI reference)</td>
+      <td><em>testing</em></td>
+      <td>If the resource is not modelled as a <code>dcat:Dataset</code></td>
     </tr>
     <tr>
       <td>* <code>dcat:accessURL</code></td>
       <td><code>rdfs:Resource</code> (URI reference)</td>
       <td><em>testing</em></td>
-      <td>The domain is <code>dcat:Distribution</code></td>
+      <td>If the resource is modelled as a <code>dcat:Dataset</code>,  the domain is <code>dcat:Distribution</code></td>
     </tr>
     <tr>
       <td colspan="2"><a title="see details" href="#mapping-creator">Creator</a></td>
@@ -1051,20 +1057,20 @@
       <td><strong><code>dct:extent</code></strong></td>
       <td><strong><code>dct:SizeOrDuration</code></strong></td>
       <td><em>testing</em></td>
-      <td><p>The domain is <code>dcat:Distribution</code>.</p><p>Only for the extended profile.</p></td>
+      <td><p>If the resource is modelled as a <code>dcat:Dataset</code>,  the domain is <code>dcat:Distribution</code>.</p><p>Only for the extended profile.</p></td>
     </tr>
     <tr>
       <td colspan="2" rowspan="2">* Format</td>
       <td><code>dct:format</code></td>
       <td><code>dct:MediaTypeOrExtent</code></td>
       <td><em>testing</em></td>
-      <td><p>If not specified with a IANA media type</p><p>The domain is <code>dcat:Distribution</code>.</p></td>
+      <td><p>If not specified with a IANA media type</p><p>If the resource is modelled as a <code>dcat:Dataset</code>,  the domain is <code>dcat:Distribution</code>.</p></td>
     </tr>
     <tr>
       <td><code>dcat:mediaType</code></td>
       <td><code>dct:MediaTypeOrExtent</code> (URI reference)</td>
       <td><em>testing</em></td>
-      <td><p>If specified with a IANA media type</p><p>The domain is <code>dcat:Distribution</code>.</p></td>
+      <td><p>If specified with a IANA media type</p><p>If the resource is modelled as a <code>dcat:Dataset</code>,  the domain is <code>dcat:Distribution</code>.</p></td>
     </tr>
     <tr>
       <td colspan="2">Version</td>
@@ -1078,7 +1084,7 @@
       <td><code>dct:rights</code></td>
       <td><code>dct:RightsStatement</code></td>
       <td><em>testing</em></td>
-      <td>The domain is <code>dcat:Distribution</code>.</td>
+      <td>If the resource is modelled as a <code>dcat:Dataset</code>,  the domain is <code>dcat:Distribution</code>.</td>
     </tr>
     <tr>
       <td rowspan="6">Description</td>
@@ -1464,7 +1470,7 @@
 <p>In DataCite+DCAT-AP, all these identifiers are mapped to URIs, by concatenating the identifier in the DataCite record with a URI prefix defined for each identifier type / scheme. Whenever possible, dereferenceable HTTP URIs/URLs are used; otherwise, URNs.</p>
 <p>This mapping is based on the name of the identifier type / scheme.</p>
 <p>Notably, DataCite provides a <a href="https://schema.datacite.org/meta/kernel-4.0/include/datacite-relatedIdentifierType-v4.xsd">code list</a> for the types / schemes of identifiers used to denote resource, but no code list is defined in DataCite for types / schemes of identifiers used to denote resource creators / contributors (the specification uses, as an example, "ORCID" and "ISNI").</p>
-<p>DataCite does not specify a code list for scheme URIs. So, the mapping between the identifier type / scheme implemented in DataCite+DCAT-AP is based on the relevant registries and examples in the DataCite metadata schema specification. No URI prefix is of course used if the identifier is already a URI (as URLs and URNs).</p>
+<p>However, DataCite does not specify a code list for scheme URIs. So, the mapping between the identifier type / scheme implemented in DataCite+DCAT-AP is based on the relevant registries and examples in the DataCite metadata schema specification. No URI prefix is of course used if the identifier is already a URI (as URLs and URNs).</p>
 <p>The following table shows, for each identifier type / scheme, which is the URI prefix used in DataCite+DCAT-AP, along with examples of the results of such mappings. As mentioned above, all the identifier types / schemes in the table are defined as a code list in the DataCite metadata schema, with the exception of ORCID and ISNI (marked in italic).</p>
 
 <table>
