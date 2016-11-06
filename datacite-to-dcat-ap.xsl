@@ -154,28 +154,16 @@
 -->  
   <xsl:param name="dcat">http://www.w3.org/ns/dcat#</xsl:param>
   <xsl:param name="gsp">http://www.opengis.net/ont/geosparql#</xsl:param>
-<!-- Old params used for the SRS 
-  <xsl:param name="ogcCrsBaseUri">http://www.opengis.net/def/EPSG/0/</xsl:param>
-  <xsl:param name="ogcCrsBaseUrn">urn:ogc:def:EPSG::</xsl:param>
--->  
-<!-- Currently not used.
-  <xsl:param name="inspire">http://inspire.ec.europa.eu/schemas/md/</xsl:param>
--->  
-<!-- Currently not used.
-  <xsl:param name="kos">http://ec.europa.eu/open-data/kos/</xsl:param>
-  <xsl:param name="kosil" select="concat($kos,'interoperability-level/')"/>
-  <xsl:param name="kosdst" select="concat($kos,'dataset-type/')"/>
-  <xsl:param name="kosdss" select="concat($kos,'dataset-status/Completed')"/>
-  <xsl:param name="kosdoct" select="concat($kos,'documentation-type/')"/>
-  <xsl:param name="koslic" select="concat($kos,'licence/EuropeanCommission')"/>
--->  
+
+<!-- MDR NALs and other code lists -->
+
   <xsl:param name="op">http://publications.europa.eu/resource/authority/</xsl:param>
+  <xsl:param name="oplang" select="concat($op,'language/')"/>
+  <xsl:param name="opcb" select="concat($op,'corporate-body/')"/>
+  <xsl:param name="oplic" select="concat($op,'licence/')"/>
+  <xsl:param name="opar" select="concat($op,'access-right/')"/>
 <!--  
   <xsl:param name="opcountry" select="concat($op,'country/')"/>
--->  
-  <xsl:param name="oplang" select="concat($op,'language/')"/>
-<!--  
-  <xsl:param name="opcb" select="concat($op,'corporate-body/')"/>
   <xsl:param name="opfq" select="concat($op,'frequency/')"/>
   <xsl:param name="cldFrequency">http://purl.org/cld/freq/</xsl:param>
 -->  
@@ -257,6 +245,29 @@
   
 -->  
   
+<!-- Resource type -->    
+
+    <xsl:param name="ResourceType">
+      <xsl:variable name="type" select="normalize-space(translate(*[local-name() = 'resourceType']/@resourceTypeGeneral,$uppercase,$lowercase))"/>
+      <xsl:choose>
+        <xsl:when test="$type = 'audiovisual'">dataset</xsl:when>
+        <xsl:when test="$type = 'collection'">dataset</xsl:when>
+        <xsl:when test="$type = 'dataset'">dataset</xsl:when>
+        <xsl:when test="$type = 'event'">event</xsl:when>
+        <xsl:when test="$type = 'image'">dataset</xsl:when>
+        <xsl:when test="$type = 'interactiveresource'">dataset</xsl:when>
+        <xsl:when test="$type = 'model'">dataset</xsl:when>
+        <xsl:when test="$type = 'physicalobject'">physicalobject</xsl:when>
+        <xsl:when test="$type = 'service'">service</xsl:when>
+        <xsl:when test="$type = 'software'">dataset</xsl:when>
+        <xsl:when test="$type = 'sound'">dataset</xsl:when>
+        <xsl:when test="$type = 'text'">dataset</xsl:when>
+        <xsl:when test="$type = 'workflow'">dataset</xsl:when>
+        <xsl:when test="$type = 'other'">other</xsl:when>
+        <xsl:otherwise>other</xsl:otherwise>
+      </xsl:choose>
+    </xsl:param>
+    
 <!-- Metadata description (metadata on metadata) -->    
 
     <xsl:param name="MetadataDescription"/>
@@ -302,32 +313,68 @@
 <!-- Descriptions -->    
       <xsl:apply-templates select="*[local-name() = 'descriptions']/*[local-name() = 'description']"/>
 <!-- Geo locations -->    
-
       <xsl:apply-templates select="*[local-name() = 'geoLocations']/*[local-name() = 'geoLocation']"/>
+<!-- Access rights -->    
+<!-- For DataCite schema version < 3 -->    
+      <xsl:apply-templates select="*[local-name() = 'rights']">
+        <xsl:with-param name="show-access-rights">yes</xsl:with-param>
+      </xsl:apply-templates>
+<!-- For DataCite schema version >= 3 -->    
+      <xsl:apply-templates select="*[local-name() = 'rightsList']">
+        <xsl:with-param name="show-access-rights">yes</xsl:with-param>
+      </xsl:apply-templates>
 
-<!-- Distribution -->      
-      
-      <dcat:distribution>
-        <dcat:Distribution>
+<!-- Distribution -->
+
+      <xsl:variable name="distribution">
 <!-- Sizes -->    
-          <xsl:apply-templates select="*[local-name() = 'sizes']/*[local-name() = 'size']"/>
+        <xsl:apply-templates select="*[local-name() = 'sizes']/*[local-name() = 'size']"/>
 <!-- Formats-->    
-          <xsl:apply-templates select="*[local-name() = 'formats']/*[local-name() = 'format']"/>
+        <xsl:apply-templates select="*[local-name() = 'formats']/*[local-name() = 'format']"/>
 <!-- Rights -->    
 <!-- For DataCite schema version < 3 -->    
-          <xsl:apply-templates select="*[local-name() = 'rights']"/>
+        <xsl:apply-templates select="*[local-name() = 'rights']">
+          <xsl:with-param name="show-licence">yes</xsl:with-param>
+          <xsl:with-param name="show-rights">yes</xsl:with-param>
+        </xsl:apply-templates>
 <!-- For DataCite schema version >= 3 -->    
-          <xsl:apply-templates select="*[local-name() = 'rightsList']"/>
-          <xsl:if test="$ResourceUri != ''">
-            <dcat:accessURL rdf:resource="{$ResourceUri}"/>
-          </xsl:if>
-        </dcat:Distribution>
-      </dcat:distribution>
+        <xsl:apply-templates select="*[local-name() = 'rightsList']">
+          <xsl:with-param name="show-licence">yes</xsl:with-param>
+          <xsl:with-param name="show-rights">yes</xsl:with-param>
+        </xsl:apply-templates>
+        <xsl:if test="$ResourceUri != ''">
+          <xsl:choose>
+            <xsl:when test="$ResourceType = 'dataset'">
+              <dcat:accessURL rdf:resource="{$ResourceUri}"/>
+            </xsl:when>
+            <xsl:otherwise>
+<!--            
+              <foaf:page rdf:resource="{$ResourceUri}"/>
+-->              
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:if>
+      </xsl:variable>
+      
+      <xsl:choose>
+        <xsl:when test="$ResourceType = 'dataset'">
+          <dcat:distribution>
+            <dcat:Distribution>
+              <xsl:copy-of select="$distribution"/>
+            </dcat:Distribution>
+          </dcat:distribution>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:copy-of select="$distribution"/>
+        </xsl:otherwise>
+      </xsl:choose>
       
       
     </xsl:param>
 
 <!-- Generating the output record. -->    
+    
+    <xsl:if test="$profile = 'extended' or ($profile = 'core' and $ResourceType = 'dataset')">
     
     <xsl:choose>
       <xsl:when test="$ResourceUri != ''">
@@ -368,6 +415,8 @@
       </xsl:otherwise>
     </xsl:choose>
 
+    <xsl:if test="$profile = 'extended'">
+
     <xsl:for-each select="//*[local-name() = 'fundingReferences']/*[local-name() = 'fundingReference' and normalize-space(*[local-name() = 'awardNumber']/@awardURI) != '']">
       <xsl:call-template name="FundingAwards"/>
     </xsl:for-each>
@@ -375,6 +424,10 @@
     <xsl:for-each select="//*[local-name() = 'fundingReferences']/*[local-name() = 'fundingReference' and ( starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'http://') or starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'https://') ) and not(*[local-name() = 'funderIdentifier']=preceding::*)]">
       <xsl:call-template name="Funders"/>
     </xsl:for-each>
+
+    </xsl:if>
+    
+    </xsl:if>
         
   </xsl:template>
 
@@ -582,18 +635,149 @@
 <!-- Rights template -->
 
   <xsl:template name="Rights" match="*[local-name() = 'rights']">
-    <xsl:variable name="rights" select="normalize-space(.)"/>
-    <xsl:variable name="rightsURI" select="@rightsURI"/>
-    <xsl:variable name="rightsLabel">
+    <xsl:param name="show-licence"/>
+    <xsl:param name="show-access-rights"/>
+    <xsl:param name="show-rights"/>
+    <xsl:param name="rightsText" select="normalize-space(.)"/>
+    <xsl:param name="rightsURI" select="normalize-space(@rightsURI)"/>
+    <xsl:param name="rightsLabel">
       <xsl:choose>
         <xsl:when test="normalize-space(@xml:lang) != ''">
-          <rdfs:label xml:lang="{@xml:lang}"><xsl:value-of select="$rights"/></rdfs:label>
+          <rdfs:label xml:lang="{@xml:lang}"><xsl:value-of select="$rightsText"/></rdfs:label>
         </xsl:when>
         <xsl:otherwise>
-          <rdfs:label><xsl:value-of select="$rights"/></rdfs:label>
+          <rdfs:label><xsl:value-of select="$rightsText"/></rdfs:label>
         </xsl:otherwise>
       </xsl:choose>
-    </xsl:variable>
+    </xsl:param>
+    <xsl:param name="licence">
+      <xsl:if test="$rightsURI != ''">
+<!--      
+        <xsl:if test="$show-use-conditions = 'yes'">
+<rdfs:label><xsl:value-of select="$rightsURI"/></rdfs:label>
+-->        
+        <xsl:choose>
+          <xsl:when test="starts-with($rightsURI, 'http://creativecommons.org/')">
+            <dct:license rdf:resource="{$rightsURI}"/>
+          </xsl:when>
+          <xsl:when test="starts-with($rightsURI, $oplic)">
+            <dct:license rdf:resource="{$rightsURI}"/>
+          </xsl:when>
+          <xsl:otherwise>not-detected</xsl:otherwise>
+        </xsl:choose>
+<!--            
+        </xsl:if>
+        <xsl:if test="$show-access-conditions = 'yes'">        
+          <xsl:choose>
+-->   
+      </xsl:if>
+    </xsl:param>
+    <xsl:param name="access-rights">       
+      <xsl:if test="$rightsURI != ''">
+<!-- 
+  See: 
+  - https://wiki.surfnet.nl/display/standards/info-eu-repo#info-eu-repo-AccessRights 
+  - http://guidelines.readthedocs.io/en/latest/data/field_rights.html
+-->
+        <xsl:choose>
+          <xsl:when test="starts-with($rightsURI,'info:eu-repo/semantics/closedAccess')">
+            <dct:accessRights rdf:resource="{$arr}NON_PUBLIC"/>
+            <dct:accessRights>
+              <dct:RightsStatement rdf:about="{$rightsURI}">
+                <xsl:copy-of select="$rightsLabel"/>
+              </dct:RightsStatement>
+            </dct:accessRights>
+          </xsl:when>
+          <xsl:when test="starts-with($rightsURI,'info:eu-repo/semantics/embargoedAccess')">
+            <dct:accessRights rdf:resource="{$opar}NON_PUBLIC"/>
+            <dct:accessRights>
+              <dct:RightsStatement rdf:about="{$rightsURI}">
+                <xsl:copy-of select="$rightsLabel"/>
+              </dct:RightsStatement>
+            </dct:accessRights>
+          </xsl:when>
+          <xsl:when test="starts-with($rightsURI,'info:eu-repo/semantics/restrictedAccess')">
+            <dct:accessRights rdf:resource="{$opar}RESTRICTED"/>
+            <dct:accessRights>
+              <dct:RightsStatement rdf:about="{$rightsURI}">
+                <xsl:copy-of select="$rightsLabel"/>
+              </dct:RightsStatement>
+            </dct:accessRights>
+          </xsl:when>
+          <xsl:when test="starts-with($rightsURI,'info:eu-repo/semantics/openAccess')">
+            <dct:accessRights rdf:resource="{$opar}PUBLIC"/>
+            <dct:accessRights>
+              <dct:RightsStatement rdf:about="{$rightsURI}">
+                <xsl:copy-of select="$rightsLabel"/>
+              </dct:RightsStatement>
+            </dct:accessRights>
+          </xsl:when>
+        
+<!-- See: http://www.ukoln.ac.uk/repositories/digirep/index/Eprints_AccessRights_Vocabulary_Encoding_Scheme -->        
+          <xsl:when test="starts-with($rightsURI,'http://purl.org/eprint/accessRights/ClosedAccess')">
+            <dct:accessRights rdf:resource="{$opar}NON_PUBLIC"/>
+            <dct:accessRights>
+              <dct:RightsStatement rdf:about="{$rightsURI}">
+                <xsl:copy-of select="$rightsLabel"/>
+              </dct:RightsStatement>
+            </dct:accessRights>
+          </xsl:when>
+          <xsl:when test="starts-with($rightsURI,'http://purl.org/eprint/accessRights/RestrictedAccess')">
+            <dct:accessRights rdf:resource="{$opar}RESTRICTED"/>
+            <dct:accessRights>
+              <dct:RightsStatement rdf:about="{$rightsURI}">
+                <xsl:copy-of select="$rightsLabel"/>
+              </dct:RightsStatement>
+            </dct:accessRights>
+          </xsl:when>
+          <xsl:when test="starts-with($rightsURI,'http://purl.org/eprint/accessRights/OpenAccess')">
+            <dct:accessRights rdf:resource="{$opar}PUBLIC"/>
+            <dct:accessRights>
+              <dct:RightsStatement rdf:about="{$rightsURI}">
+                <xsl:copy-of select="$rightsLabel"/>
+              </dct:RightsStatement>
+            </dct:accessRights>
+          </xsl:when>
+
+          <xsl:when test="starts-with($rightsURI,$opar)">
+            <dct:accessRights rdf:resource="{$rightsURI}"/>
+          </xsl:when>
+          <xsl:otherwise>not-detected</xsl:otherwise>
+        </xsl:choose>
+      </xsl:if>
+    </xsl:param>
+    <xsl:param name="rights">
+      <xsl:choose>
+        <xsl:when test="$rightsURI != ''">
+          <dct:rights>
+            <dct:RightsStatement rdf:about="{$rightsURI}">
+              <xsl:copy-of select="$rightsLabel"/>
+            </dct:RightsStatement>
+          </dct:rights>
+        </xsl:when>
+        <xsl:otherwise>
+          <dct:rights>
+            <dct:RightsStatement>
+              <xsl:copy-of select="$rightsLabel"/>
+            </dct:RightsStatement>
+          </dct:rights>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:param>
+    <xsl:choose>
+      <xsl:when test="$licence != 'not-detected' or $access-rights != 'not-detected'">
+        <xsl:if test="$licence != 'not-detected' and $show-licence = 'yes'">
+          <xsl:copy-of select="$licence"/>
+        </xsl:if>
+        <xsl:if test="$access-rights != 'not-detected' and $show-access-rights = 'yes'">
+          <xsl:copy-of select="$access-rights"/>
+        </xsl:if>
+      </xsl:when>
+      <xsl:when test="$show-rights = 'yes'">
+        <xsl:copy-of select="$rights"/>
+      </xsl:when>
+    </xsl:choose>
+<!--      
     <dct:rights>
       <xsl:choose>
         <xsl:when test="$rightsURI != ''">
@@ -608,12 +792,20 @@
         </xsl:otherwise>
       </xsl:choose>
     </dct:rights>
+-->    
   </xsl:template>
 
 <!-- Rights list template -->
 
   <xsl:template name="RightsList" match="*[local-name() = 'rightsList']">
-    <xsl:apply-templates select="*[local-name() = 'rights']"/>
+    <xsl:param name="show-licence"/>
+    <xsl:param name="show-access-rights"/>
+    <xsl:param name="show-rights"/>
+    <xsl:apply-templates select="*[local-name() = 'rights']">
+      <xsl:with-param name="show-licence" select="$show-licence"/>
+      <xsl:with-param name="show-access-rights" select="$show-access-rights"/>
+      <xsl:with-param name="show-rights" select="$show-rights"/>
+    </xsl:apply-templates>
   </xsl:template>
 
 <!-- Geolocations template -->
@@ -1298,7 +1490,14 @@
         <xsl:choose>
           <xsl:when test="local-name() = 'identifier'">
             <dct:identifier rdf:datatype="{$xsd}anyURI"><xsl:value-of select="$uri"/></dct:identifier>
-            <dcat:landingPage rdf:resource="{$uri}"/>
+            <xsl:choose>
+              <xsl:when test="$ResourceType = dataset">
+                <dcat:landingPage rdf:resource="{$uri}"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <foaf:page rdf:resource="{$uri}"/>
+              </xsl:otherwise>
+            </xsl:choose>
           </xsl:when>
           <xsl:when test="local-name() = 'alternateIdentifier'">
             <owl:sameAs rdf:resource="{$uri}"/>
@@ -1836,7 +2035,7 @@
       </xsl:choose>
       <xsl:choose>
         <xsl:when test="$funderURI != ''">
-          <frapo:isAwardedBy rdf:resouce="{$funderURI}"/>
+          <frapo:isAwardedBy rdf:resource="{$funderURI}"/>
         </xsl:when>
         <xsl:when test="normalize-space(*[local-name() = 'funderName']) != '' or normalize-space(*[local-name() = 'funderIdentifier']) != ''">
           <frapo:isAwardedBy>
