@@ -384,8 +384,8 @@
     </tr>
     <tr>
       <td>Subtitle</td>
-      <td><code>??:??</code></td>
-      <td><code>rdf:PlainLiteral</code></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdf:PlainLiteral</code></strong></td>
       <td><strong>unstable</strong></td>
       <td>TBD</td>
     </tr>
@@ -879,43 +879,43 @@
     </tr>
     <tr>
       <td>IsCitedBy</td>
-      <td><code>??:??</code></td>
-      <td><code>rdfs:Resource</code></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
       <td><strong>unstable</strong></td>
       <td>TBD</td>
     </tr>
     <tr>
       <td>Cites</td>
-      <td><code>??:??</code></td>
-      <td><code>rdfs:Resource</code></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
       <td><strong>unstable</strong></td>
       <td>TBD</td>
     </tr>
     <tr>
       <td>IsSupplementTo</td>
-      <td><code>??:??</code></td>
-      <td><code>rdfs:Resource</code></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
       <td><strong>unstable</strong></td>
       <td>TBD</td>
     </tr>
     <tr>
       <td>IsSupplementedBy</td>
-      <td><code>??:??</code></td>
-      <td><code>rdfs:Resource</code></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
       <td><strong>unstable</strong></td>
       <td>TBD</td>
     </tr>
     <tr>
       <td>IsContinuedBy</td>
-      <td><code>??:??</code></td>
-      <td><code>rdfs:Resource</code></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
       <td><strong>unstable</strong></td>
       <td>TBD</td>
     </tr>
     <tr>
       <td>Continues</td>
-      <td><code>??:??</code></td>
-      <td><code>rdfs:Resource</code></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
       <td><strong>unstable</strong></td>
       <td>TBD</td>
     </tr>
@@ -984,22 +984,22 @@
     </tr>
     <tr>
       <td>Documents</td>
-      <td><code>??:??</code></td>
-      <td><code>rdfs:Resource</code></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
       <td><strong>unstable</strong></td>
       <td>TBD</td>
     </tr>
     <tr>
       <td>IsCompiledBy</td>
-      <td><code>??:??</code></td>
-      <td><code>rdfs:Resource</code></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
       <td><strong>unstable</strong></td>
       <td>TBD</td>
     </tr>
     <tr>
       <td>Compiles</td>
-      <td><code>??:??</code></td>
-      <td><code>rdfs:Resource</code></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
       <td><strong>unstable</strong></td>
       <td>TBD</td>
     </tr>
@@ -1012,8 +1012,8 @@
     </tr>
     <tr>
       <td>IsOriginalFormOf</td>
-      <td><code>??:??</code></td>
-      <td><code>rdfs:Resource</code></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
       <td><strong>unstable</strong></td>
       <td>TBD</td>
     </tr>
@@ -1110,8 +1110,8 @@
     </tr>
     <tr>
       <td>SeriesInformation</td>
-      <td><code>??:??</code></td>
-      <td><code>??:??</code></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>??:??</code></strong></td>
       <td><strong>unstable</strong></td>
       <td>TBD</td>
     </tr>
