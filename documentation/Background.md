@@ -51,7 +51,7 @@
 
 <h3><a name="background-datacite">DataCite</a></h3>
 
-<p>DataCite [<a href="https://www.datacite.org/">DataCite</a>] is an international initiative meant to enable citation for scientific datasets. To achieve this, DataCite operates a metadata infrastructure, following the same approach used by CrossRef for scientific publications. As such, the DataCite infrastructure is responsible for issuing persistent identifiers (in particular, DOIs) for datasets, and for registering dataset metadata. Such metadata are to be provided according to the DataCite metadata schema – which is basically an extension to the DOI one.</p>
+<p>DataCite [<a href="https://www.datacite.org/">DataCite</a>] is an international initiative meant to enable citation for scientific datasets. To achieve this, DataCite operates a metadata infrastructure, following the same approach used by CrossRef for scientific publications. As such, the DataCite infrastructure is responsible for issuing persistent identifiers (in particular, DOIs) for datasets, and for registering dataset metadata. Such metadata are to be provided according to the DataCite metadata schema - which is basically an extension to the DOI one.</p>
 <p>Currently, DataCite is the de facto standard for data citation. Therefore, the ability to transform metadata records from and to the DataCite metadata schema would enable, respectively, the harvesting of DataCite records, and the publication of metadata records in the DataCite infrastructure (thus enabling their citation).</p>
 
 <h3><a name="background-why">Aligning DataCite with DCAT-AP</a></h3>
@@ -225,7 +225,10 @@
       <td>Rights</td>
       <td>O</td>
       <td>Yes</td>
-      <td>In DCAT-AP, this is a property of the dataset distribution, and not of the dataset itself</td>
+      <td>
+        <p>DataCite does not use specific elements for use conditions (i.e., licences) and access rights, </p>
+        <p>In DCAT-AP, use conditions are a property of the dataset distribution, whereas access rights are associated with the dataset.</p>
+      </td>
     </tr>
     <tr>
       <td>Funding Reference</td>
@@ -410,13 +413,13 @@
       <td>format</td>
       <td><em>R</em></td>
       <td>Yes</td>
-      <td>In DataCite, this is a property of the dataset itself</td>
+      <td>In DataCite, this is always a property of the resource itself - even when such resource is a dataset</td>
     </tr>
     <tr>
       <td>licence</td>
       <td><em>R</em></td>
       <td>Yes</td>
-      <td>In DataCite, this is a property of the dataset itself</td>
+      <td>In DataCite, this is always a property of the resource itself - even when such resource is a dataset</td>
     </tr>
     <tr>
       <td>Licence document</td>
@@ -431,7 +434,97 @@
 
 <h2><a name="alignment-issues">Summary of alignment issues</a></h2>
 
-<p>TBD</p>
+<p>As shown in the previous section, DCAT-AP is able to represent all DataCite mandatory elements, with the exception of "creator". This poses an issue for the possible use of DCAT-AP for data citation purposes, since element "creator" is one of the required components. Notably, GeoDCAT-AP supports this agent role, so it can re-used for this purpose.</p>
+<p>On the other hand, DataCite includes all the DCAT-AP mandatory classes and related properties, with the only notable exception of <code>dcat:Catalog</code>. However, this does not poses particular compliance issues, since the catalogue description could be obtained separately from the relevant DataCite records. Actually, since DataCite records are supposed to be all available via the DataCite catalogue, the catalogue description can be potentially be the same for all DataCite records. Of course, this does not apply for those records following the DataCite schema but not registered in the DataCite infrastructure.</p>
+
+<p>There are however some key differences on the DCAT-AP and DataCite data models that needs to be addressed. The following sections outline the solutions adopted in DataCite+DCAT-AP, as well as open issues.</p>
+
+<h3>Resource types</h3>
+
+<p>DataCite supports 14 different resource types - namely: audiovisual, collection, dataset, event, image, interactive resource, model, physical object, service, software, sound, text, workflow, other. They basically corresponds to the classes included in the DCMI Type vocabulary, with the exception of model and workflow.</p>
+<p>The definition of <code>dcat:Dataset</code> is broad enough to cover most of the DataCite resource type, the exceptions being event, physical object, service, which are not supported in DCAT-AP. Moreover, the notion of "service" is supported in GeoDCAT-AP via <a href="http://dublincore.org/documents/dcmi-terms/#dcmitype-Service"><code>dctype:Service</code></a>. For the rest, it is possible to re-use the DCMI Type vocabulary, which includes classes for event (<a href="http://dublincore.org/documents/dcmi-terms/#dcmitype-Event"><code>dctype:Event</code></a>) and physical object (<a href="http://dublincore.org/documents/dcmi-terms/#dcmitype-PhysicalObject"><code>dctype:Event</code></a>).</p>
+<p>DataCite+DCAT-AP re-uses the approach outlined above. Moreover, in order to preserve the original information, it uses <code>dct:type</code> with the relevant classes of the DCMI Type vocabulary to denote the DataCite resource type. As said above, the DCMI Type vocabulary does not include classes for model and workflow, and no suitable candidates have been found in the reference vocabularies. As a result, in DataCite+DCAT-AP are both modelled only as <code>dcat:Dataset</code>'s, thus loosing the original information.</p>
+
+<h3>Identifiers</h3>
+
+<p>The requirements are basically the following ones:</p>
+<ul>
+<li>DataCite requires the dataset identifier to be a DOI.</li>
+<li>DataCite distinguishes between primary and secondary identifiers.</li>
+<li>DataCite models the "type" of identifier (DOIs, ORCIDs, ISNIs, ISSNs, etc.).</li>
+</ul>
+<p>DCAT-AP already provides a mechanism to model primary and secondary identifiers, as well as the identifier type. More precisely:</p>
+<ul>
+<li>Property <a href="http://purl.org/dc/terms/#terms-identifier"><code>dct:identifier</code></a> is used to model primary identifiers.</li>
+<li>Property <a href="https://www.w3.org/TR/vocab-adms/#adms-identifier"><code>adms:identifier</code></a> is used to model secondary/alternative identifiers.</li>
+<li>Class <a href="https://www.w3.org/TR/vocab-adms/#identifier"><code>adms:Identifier</code></a> allows the specification of information about the identifier - identifier scheme included.</li>
+</ul>
+<p>Such solutions are basically reflecting the DataCite approach to model identifiers. However, identifiers modelled in this way are of no use for effectively linking the relevant resources. For this purpose, an option would be encoding identifiers as HTTP URIs, whenever possible. This is the case, e.g., for ORCIDs, ISNIs, and DOIs. About the ability to modelling differently primary and secondary/alternative identifiers, the resource URI can denote the primary identifier, whereas URIs corresponding to alternative identifiers can be specified by using <a href="https://www.w3.org/TR/owl-ref/#sameAs-def"><code>owl:sameAs</code></a>.</p>
+<p>Based on what said above, DataCite+DCAT-AP models identifiers as follows:</p>
+<ul>
+<li>Identifiers are encoded as HTTP URIs, whenever possible, or URNs, using <code>owl:sameAs</code> for URIs concerning secondary/alternative identifiers.</li>
+<li>In addition:
+<ul>
+<li>Primary identifiers are specified, as literals, with <code>dct:identifier</code>.</li>
+<li>Secondary/alternative identifiers are specified, as literals, with <code>adms:identifier</code>.</li>
+</ul>
+</li>
+</ul>
+
+<h3>Agent roles</h3>
+
+<p>DataCite supports three main types of agent roles, namely, creator, publisher, and contributor. The last can be further specialised by specifying a contributor "type". DataCite supports 22 contributor types, including, e.g., "contact person", "data curator", "distributor", "editor", "producer", "rights holder", "other".</p>
+<p>DCAT-AP supports only two agent roles, namely, publisher and contact point (corresponding to contributor type "contact person" in DataCite). GeoDCAT-AP includes other two DataCite agent roles - namely, creator and rights holder.</p>
+<p>As a result, together, DCAT-AP and GeoDCAT-AP cover publisher, creator, and 2 contributor types, namely, contact point and rights holder. For the other ones, DataCite+DCAT-AP includes the following mappings:</p>
+<ul>
+<li><a href="http://purl.org/dc/terms/#terms-contributor"><code>dct:contributor</code></a> is used when the contributor is untyped, or when the contributor type is "other".</li>
+<li><a href="http://schema.org/editor"><code>schema:editor</code></a>, <a href="http://schema.org/funder"><code>schema:funder</code></a>, and <a href="http://schema.org/producer"><code>schema:producer</code></a> are used for the corresponding DataCite contributor types.</li>
+</ul>
+<p>For the remaining 16 DataCite contributor types, no candidates have been found in the reference vocabularies, so they are left unmapped in DataCite+DCAT-AP.</p>
+
+<h3>Distributions</h3>
+
+<p>The DataCite data model does not distinguish between a dataset and its embodiment(s) ("distribution(s)",  in the DCAT terminology).</p>
+<p>As a consequence, attributes that in DCAT/DCAT-AP are specific to distributions (as format, licence, size), in DataCite are associated with the dataset. Moreover, in DataCite there is no attribute equivalent to <code>dcat:accessURL</code> or <code>dcat:downloadURL</code>. Actually, the only information that can be used to access the dataset, and, possibly, its distribution(s), is the resource DOI.</p>
+<p>Based on this, the approach used in DataCite+DCAT-AP to map DataCite records is as follows:</p>
+<ol>
+<li>If the described resource is an event, physical object, or service (i.e., if it cannot be modelled as a dataset), the notion of "distribution" does not apply. Therefore, all DataCite elements are used in DataCite+DCAT-AP to describe the resource. Otherwise:</li>
+<li>Each record is modelled in DataCite+DCAT-AP as a dataset (<code>dcat:Dataset</code>), having exactly 1 distribution.</li>
+<li>The resulting distribution gets the relevant DataCite elements (as format, licence, size), as per the DCAT/DCAT-AP schema, whereas the remaining ones are used to describe the dataset.</li>
+<li>The dataset DOI is used both as the dataset identifier / URI and as the distribution access URL.</li>
+</ol>
+
+<h3>Use and access conditions</h3>
+
+<p>DataCite includes a single element, namely, "rights", to specify use and access conditions. This element is also supported in DCAT-AP (<code>dct:rights</code>), but, in addition, specific properties are used for licences (<code>dct:license</code>) and access rights (<code>dct:accessRights</code>). Moreover, in DCAT-AP use conditions are associated with distributions, whereas access rights with datasets.</p>
+<p>Based on this, DataCite+DCAT-AP maps by default DataCite "rights" to <code>dct:rights</code>. In addition, they are mapped to <code>dct:license</code> and <code>dct:accessRights</code> when DataCite rights make explicit reference to some known licences and access rights vocabularies. More precisely, the recognised vocabularies are the following ones:</p>
+<ul>
+<li>For licences:
+<ul>
+<li><a href="https://creativecommons.org/">Creative Commons licences</a></li>
+<li>The <a href="http://publications.europa.eu/mdr/authority/licence/">licence code list maintained by the Publications Office of the EU</a></li>
+</ul>
+</li>
+<li>For access rights:
+<ul>
+<li><a href="https://wiki.surfnet.nl/display/standards/info-eu-repo#info-eu-repo-AccessRights">EU-Repo access rights vocabulary</a></li>
+<li><a href="http://www.ukoln.ac.uk/repositories/digirep/index/Eprints_AccessRights_Vocabulary_Encoding_Scheme">ePrints access rights vocabulary</a></li>
+<li>The <a href="http://publications.europa.eu/mdr/authority/access-right/">access rights code list maintained by the Publications Office of the EU</a></li>
+</ul>
+</li>
+</ul>
+
+<h3>Keywords and controlled vocabularies</h3>
+
+<p>DataCite supports both the specification of free-text keywords and keywords from controlled vocabularies.</p>
+<p>For the latter case, DCAT-AP recommends the use of URIs, but in DataCite only textual labels are used.</p>
+<p>To comply with the DCAT-AP recommendation, an option is to implement mappings from textual labels to URIs. However, this poses two main issues:</p>
+<ol>
+<li>DataCite does not require / recommend the use of specific vocabularies, nor a particular format for the textual labels.</li>
+<li>It is often the case that no URIs are available for the used vocabularies.</li>
+</ol>
+<p>Such situation make it difficult the effective implementation of vocabulary mapping.</p>
+<p>For this reason, DataCite+DCAT-AP preserve keywords from controlled vocabularies as textual labels.</p>
 
 <!--
 </body>
