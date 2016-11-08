@@ -713,7 +713,7 @@
             </dct:accessRights>
           </xsl:when>
         
-<!-- See: http://www.ukoln.ac.uk/repositories/digirep/index/Eprints_AccessRights_Vocabulary_Encoding_Scheme -->        
+<!-- See: http://www.ukoln.ac.uk/repositories/digirep/index/Eprints_AccessRights_Vocabulary_Encoding_Scheme -->
           <xsl:when test="starts-with($rightsURI,'http://purl.org/eprint/accessRights/ClosedAccess')">
             <dct:accessRights rdf:resource="{$opar}NON_PUBLIC"/>
             <dct:accessRights>
