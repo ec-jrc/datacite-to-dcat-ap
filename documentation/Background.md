@@ -72,6 +72,7 @@
 <p>The reference DCAT-AP and DataCite specifications on which DataCite+DCAT-AP is based are the following ones:</p>
 <ul>
 <li><a href="https://joinup.ec.europa.eu/system/files/project/dcat-ap_version_1.1.pdf">DCAT-AP v1.1</a> (October 2015)</li>
+<li><a href="https://joinup.ec.europa.eu/system/files/project/geodcat-ap_v1.0.1.pdf">GeoDCAT-AP v1.0.1</a> (August 2016)</li>
 <li><a href="http://doi.org/10.5438/0012">DataCite v4.0</a> (September 2016)</li>
 </ul>
 <p>
@@ -443,7 +444,8 @@
 
 <p>DataCite supports 14 different resource types - namely: audiovisual, collection, dataset, event, image, interactive resource, model, physical object, service, software, sound, text, workflow, other. They basically corresponds to the classes included in the DCMI Type vocabulary, with the exception of model and workflow.</p>
 <p>The definition of <code>dcat:Dataset</code> is broad enough to cover most of the DataCite resource type, the exceptions being event, physical object, service, which are not supported in DCAT-AP. Moreover, the notion of "service" is supported in GeoDCAT-AP via <a href="http://dublincore.org/documents/dcmi-terms/#dcmitype-Service"><code>dctype:Service</code></a>. For the rest, it is possible to re-use the DCMI Type vocabulary, which includes classes for event (<a href="http://dublincore.org/documents/dcmi-terms/#dcmitype-Event"><code>dctype:Event</code></a>) and physical object (<a href="http://dublincore.org/documents/dcmi-terms/#dcmitype-PhysicalObject"><code>dctype:Event</code></a>).</p>
-<p>DataCite+DCAT-AP re-uses the approach outlined above. Moreover, in order to preserve the original information, it uses <code>dct:type</code> with the relevant classes of the DCMI Type vocabulary to denote the DataCite resource type. As said above, the DCMI Type vocabulary does not include classes for model and workflow, and no suitable candidates have been found in the reference vocabularies. As a result, in DataCite+DCAT-AP are both modelled only as <code>dcat:Dataset</code>'s, thus loosing the original information.</p>
+<p>DataCite+DCAT-AP re-uses the approach outlined above. Moreover, in order to preserve the original information, it uses <code>dct:type</code> with the relevant classes of the DCMI Type vocabulary to denote the DataCite resource type. This is basically the solution adopted in GeoDCAT-AP to model the resource types defined in ISO 19115 - namely, dataset, dataset series, and services.</p>
+<p>As said above, the DCMI Type vocabulary does not include classes for model and workflow, and no suitable candidates have been found in the reference vocabularies. As a result, in DataCite+DCAT-AP are both modelled only as <code>dcat:Dataset</code>'s, thus loosing the original information.</p>
 
 <h3>Identifiers</h3>
 
@@ -516,14 +518,14 @@
 
 <h3>Keywords and controlled vocabularies</h3>
 
-<p>DataCite supports both the specification of free-text keywords and keywords from controlled vocabularies.</p>
+<p>DataCite supports the specification of both free-text keywords and keywords from controlled vocabularies.</p>
 <p>For the latter case, DCAT-AP recommends the use of URIs, but in DataCite only textual labels are used.</p>
 <p>To comply with the DCAT-AP recommendation, an option is to implement mappings from textual labels to URIs. However, this poses two main issues:</p>
 <ol>
 <li>DataCite does not require / recommend the use of specific vocabularies, nor a particular format for the textual labels.</li>
 <li>It is often the case that no URIs are available for the used vocabularies.</li>
 </ol>
-<p>Such situation make it difficult the effective implementation of vocabulary mapping.</p>
+<p>Such situation makes it difficult the effective implementation of vocabulary mapping.</p>
 <p>For this reason, DataCite+DCAT-AP preserve keywords from controlled vocabularies as textual labels.</p>
 
 <!--
