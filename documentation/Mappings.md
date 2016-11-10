@@ -512,11 +512,20 @@
       <td>TBD</td>
     </tr>
     <tr>
-      <td>ProjectMember</td>
-      <td><strong><code>??:??</code></strong></td>
-      <td><strong><code>foaf:Agent</code></strong></td>
-      <td><strong>unstable</strong></td>
-      <td>TBD</td>
+      <td rowspan="2">ProjectMember</td>
+      <td><strong><code>dct:contributor</code></strong></td>
+      <td rowspan="2"><strong><code>foaf:Agent</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td><strong>* <code>foaf:member</code></strong></td>
+      <td><em>testing</em></td>
+      <td>
+        <p>Only for the extended profile</p>
+        <p>The domain of property <code>foaf:member</code> is class <code>foaf:Project</code>.</p>
+        <p>The resource is linked to <code>foaf:Project</code> with property <code>prov:wasGeneratedBy</code>.</p>
+      </td>
     </tr>
     <tr>
       <td>RegistrationAgency</td>
@@ -562,10 +571,10 @@
     </tr>
     <tr>
       <td>Sponsor</td>
-      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>schema:sponsor</code></strong></td>
       <td><strong><code>foaf:Agent</code></strong></td>
-      <td><strong>unstable</strong></td>
-      <td>TBD</td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
     </tr>
     <tr>
       <td>Supervisor</td>

@@ -1384,9 +1384,10 @@
 -->              
 <!-- TBD -->
               <xsl:when test="$type = 'projectmember'">
+                <dct:contributor><xsl:copy-of select="$agent"/></dct:contributor>
                 <prov:wasGeneratedBy>
                   <foaf:Project>
-                    <dct:contributor><xsl:copy-of select="$agent"/></dct:contributor>
+                    <foaf:member><xsl:copy-of select="$agent"/></foaf:member>
                   </foaf:Project>
                 </prov:wasGeneratedBy>
               </xsl:when>
@@ -1424,12 +1425,10 @@
               <xsl:when test="$type = 'rightsholder'">
                 <dct:rightsHolder><xsl:copy-of select="$agent"/></dct:rightsHolder>
               </xsl:when>
-<!-- TBD -->
-<!--
+<!-- Unstable -->
               <xsl:when test="$type = 'sponsor'">
-                <dct:contributor><xsl:copy-of select="$agent"/></dct:contributor>
+                <schema:sponsor><xsl:copy-of select="$agent"/></schema:sponsor>
               </xsl:when> 
--->              
 <!-- TBD -->
 <!--
               <xsl:when test="$type = 'supervisor'">
