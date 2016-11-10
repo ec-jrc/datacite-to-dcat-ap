@@ -475,14 +475,34 @@
 
 <h3>Agent roles</h3>
 
-<p>DataCite supports three main types of agent roles, namely, creator, publisher, and contributor. The last can be further specialised by specifying a contributor "type". DataCite supports 22 contributor types, including, e.g., "contact person", "data curator", "distributor", "editor", "producer", "rights holder", "other".</p>
+<p>DataCite supports three main types of agent roles, namely, creator, publisher, and contributor. The last can be further specialised by specifying a contributor "type". DataCite supports 22 contributor types, including, e.g., "contact person", "editor", "funder", "producer", "rights holder", "sponsor", "other".</p>
 <p>DCAT-AP supports only two agent roles, namely, publisher and contact point (corresponding to contributor type "contact person" in DataCite). GeoDCAT-AP includes other two DataCite agent roles - namely, creator and rights holder.</p>
 <p>As a result, together, DCAT-AP and GeoDCAT-AP cover publisher, creator, and 2 contributor types, namely, contact point and rights holder. For the other ones, DataCite+DCAT-AP includes the following mappings:</p>
 <ul>
 <li><a href="http://purl.org/dc/terms/#terms-contributor"><code>dct:contributor</code></a> is used when the contributor is untyped, or when the contributor type is "other".</li>
-<li><a href="http://schema.org/editor"><code>schema:editor</code></a>, <a href="http://schema.org/funder"><code>schema:funder</code></a>, and <a href="http://schema.org/producer"><code>schema:producer</code></a> are used for the corresponding DataCite contributor types.</li>
+<li><a href="http://schema.org/editor"><code>schema:editor</code></a>, <a href="http://schema.org/funder"><code>schema:funder</code></a>, <a href="http://schema.org/producer"><code>schema:producer</code></a>, and  <a href="http://schema.org/sponsor"><code>schema:sponsor</code></a> are used for the corresponding DataCite contributor types.</li>
 </ul>
-<p>For the remaining 16 DataCite contributor types, no candidates have been found in the reference vocabularies, so they are left unmapped in DataCite+DCAT-AP.</p>
+<p>It is worth noting that some of the DataCite contributor types cannot be modelled with a direct relationship. This is the case of roles "project leader", "project manager", "project member", "researcher", "supervisor", and "workpackage leader". Such roles are not directly describing the relationship between a resource and an agent, but rather the role of the individual in the "activity" that created the resource. E.g., "project leader" can be described as "the leader of the project that created the resource".</p>
+<p>In such cases, the approach used in DataCite+DCAT-AP is as follows:</p>
+<ul>
+<li>The resource is linked to the agent (<code>foaf:Agent</code>) with property <code>dct:contributor</code></li>
+<li>The agent is linked to the activity (<code>prov:Activity</code>) with a property denoting the role played</li>
+<li>The activity is linked to the resource with property <code>prov:wasGeneratedBy</code></li>
+</ul>
+<p>In case of roles "project leader", "project manager", and "project member", the activity is additionally typed as a <code>foaf:Project</code>.</p>
+<p>The following code snippet shows how contributor type "project member" is modelled in DataCite+DCAT-AP:</p>
+<pre>
+a:Dataset a dcat:Dataset ;
+  dct:contributor a:Contributor ;
+  prov:wasGeneratedBy a:Project .
+  
+a:Contributor a foaf:Agent , prov:Agent .
+  
+a:Project a prov:Activity , foaf:Project ;
+  foaf:member a:Contributor .
+</pre>
+<p>The issue is that the reference vocabularies does not provide candidates for modelling such contributor types, with the exception of "project member".</p>
+<p>For the remaining 14 DataCite contributor types, no candidates have been found in the reference vocabularies, so they are left unmapped in DataCite+DCAT-AP.</p>
 
 <h3>Distributions</h3>
 
