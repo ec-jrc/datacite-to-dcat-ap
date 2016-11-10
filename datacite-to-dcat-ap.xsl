@@ -1365,9 +1365,10 @@
 <!-- TBD -->
 <!--
               <xsl:when test="$type = 'projectleader'">
+                <dct:contributor><xsl:copy-of select="$agent"/></dct:contributor>
                 <prov:wasGeneratedBy>
                   <foaf:Project>
-                    <dct:contributor><xsl:copy-of select="$agent"/></dct:contributor>
+                    <??:??><xsl:copy-of select="$agent"/></??:??>
                   </foaf:Project>
                 </prov:wasGeneratedBy>
               </xsl:when>
@@ -1375,9 +1376,10 @@
 <!-- TBD -->
 <!--
               <xsl:when test="$type = 'projectmanager'">
+                <dct:contributor><xsl:copy-of select="$agent"/></dct:contributor>
                 <prov:wasGeneratedBy>
                   <foaf:Project>
-                    <dct:contributor><xsl:copy-of select="$agent"/></dct:contributor>
+                    <??:??><xsl:copy-of select="$agent"/></??:??>
                   </foaf:Project>
                 </prov:wasGeneratedBy>
               </xsl:when>
