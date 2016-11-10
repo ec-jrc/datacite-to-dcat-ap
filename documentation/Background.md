@@ -491,16 +491,16 @@
 </ul>
 <p>In case of roles "project leader", "project manager", and "project member", the activity is additionally typed as a <code>foaf:Project</code>.</p>
 <p>The following code snippet shows how contributor type "project member" is modelled in DataCite+DCAT-AP:</p>
-<pre>
+<pre><code>
 a:Dataset a dcat:Dataset ;
   dct:contributor a:Contributor ;
   prov:wasGeneratedBy a:Project .
-  
+
 a:Contributor a foaf:Agent , prov:Agent .
-  
+
 a:Project a prov:Activity , foaf:Project ;
   foaf:member a:Contributor .
-</pre>
+</code></pre>
 <p>The issue is that the reference vocabularies does not provide candidates for modelling such contributor types, with the exception of "project member".</p>
 <p>For the remaining 14 DataCite contributor types, no candidates have been found in the reference vocabularies, so they are left unmapped in DataCite+DCAT-AP.</p>
 
