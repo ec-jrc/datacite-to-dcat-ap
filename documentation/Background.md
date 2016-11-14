@@ -487,6 +487,7 @@
 <li>1 ("IsSourceOf") is modelled by using the W3C PROV Ontology (<code>prov:hadDerivation</code>)</li>
 <li>10 are left unmapped, since the reference vocabularies do not provide suitable candidates</li>
 </ul>
+<p>DCAT-AP supports 6 of mapped related resource types. All the other ones are supported only in the extended profile of DataCite+DCAT-AP.</p>
 
 <h3>Agent roles</h3>
 
