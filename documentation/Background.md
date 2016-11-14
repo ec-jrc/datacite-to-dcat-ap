@@ -473,6 +473,21 @@
 </li>
 </ul>
 
+<h3>Related resource</h3>
+
+<p>DataCite supports the possibility of specifying references to resources related to the described in the metadata record via element RelatedIdentifier, carrying an optional attribute that can be used to express the related resource type.</p>
+<p>Roughly half of the supported related resource "types" (25, in total) correspond to the ones defined in Dublin Core. Moreover, with the exception of type "IsIdenticalTo", they denote a relationship (e.g., "IsReferencedBy") and its inverse (e.g., "References").</p>
+<p>Based on this DataCite+DCAT-AP models this information as follows:</p>
+<ul>
+<li>The default mapping of element RelatedIdentifier is <code>dct:relation</code></li>
+<li>Dublin Core is used for all the relevant related resource types (i.e., 7, excluding <code>dct:relation</code>)</li>
+<li>3 are modelled by using FOAF</li>
+<li>3 are modelled by using Schema.org</li>
+<li>1 ("IsIdenticalTo") is modelled by using OWL (<code>owl:sameAs</code>)</li>
+<li>1 ("IsSourceOf") is modelled by using the W3C PROV Ontology (<code>prov:hadDerivation</code>)</li>
+<li>10 are left unmapped, since the reference vocabularies do not provide suitable candidates</li>
+</ul>
+
 <h3>Agent roles</h3>
 
 <p>DataCite supports three main types of agent roles, namely, creator, publisher, and contributor. The last can be further specialised by specifying a contributor "type". DataCite supports 22 contributor types, including, e.g., "contact person", "editor", "funder", "producer", "rights holder", "sponsor", "other".</p>
