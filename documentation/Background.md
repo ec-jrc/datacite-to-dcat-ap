@@ -173,7 +173,7 @@
       <td><em>Partially</em></td>
       <td>
         <p>DCAT-AP supports only 1 out of the 21 DataCite contributor types (namely, contact point / person).</p>
-        <p>GeoDCAT-AP supports 2 additional DataCite contributor types, namely, distributor and rights holder.</p>
+        <p>GeoDCAT-AP supports 1 additional DataCite contributor type, namely, rights holder.</p>
       </td>
     </tr>
     <tr>
