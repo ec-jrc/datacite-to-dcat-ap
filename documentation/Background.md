@@ -516,6 +516,7 @@
 <ul>
 <li><a href="http://purl.org/dc/terms/#terms-contributor"><code>dct:contributor</code></a> is used when the contributor is untyped, or when the contributor type is "other".</li>
 <li><a href="http://schema.org/editor"><code>schema:editor</code></a>, <a href="http://schema.org/funder"><code>schema:funder</code></a>, <a href="http://schema.org/producer"><code>schema:producer</code></a>, and  <a href="http://schema.org/sponsor"><code>schema:sponsor</code></a> are used for the corresponding DataCite contributor types.</li>
+<li><a href="https://www.w3.org/TR/vocab-duv/#Property:hasDistributor"><code>duv:hasDistributor</code></a> is used for the corresponding DataCite contributor type.</li>
 </ul>
 <p>It is worth noting that some of the DataCite contributor types cannot be modelled with a direct relationship. This is the case of roles "project leader", "project manager", "project member", "researcher", "supervisor", and "workpackage leader". Such roles are not directly describing the relationship between a resource and an agent, but rather the role of the individual in the "activity" that created the resource. E.g., "project leader" can be described as "the leader of the project that created the resource".</p>
 <p>In such cases, the approach used in DataCite+DCAT-AP is as follows:</p>

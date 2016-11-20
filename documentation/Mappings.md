@@ -112,6 +112,11 @@
       <td><code><a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a></code></td>
       <td><a href="http://dublincore.org/documents/2012/06/14/dcmi-terms/">DCMI Metadata Terms</a></td>
     </tr>
+    <tr>
+      <td><code>duv</code></td>
+      <td><code><a href="http://www.w3.org/ns/duv#">http://www.w3.org/ns/duv#</a></code></td>
+      <td><a href="https://www.w3.org/TR/vocab-duv/">Dataset Usage Vocabulary</a></td>
+    </tr>
 <!--    
     <tr>
       <td><code>earl</code></td>
@@ -461,10 +466,10 @@
     </tr>
     <tr>
       <td>Distributor</td>
-      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>duv:hasDistributor</code></strong></td>
       <td><strong><code>foaf:Agent</code></strong></td>
-      <td><strong>unstable</strong></td>
-      <td>TBD</td>
+      <td><em>testing</em></td>
+      <td></td>
     </tr>
     <tr>
       <td>Editor</td>

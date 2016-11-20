@@ -46,8 +46,9 @@
     xmlns:dctype = "http://purl.org/dc/dcmitype/"
     xmlns:dcat   = "http://www.w3.org/ns/dcat#"
     xmlns:dtct2.2 = "http://datacite.org/schema/kernel-2.2"
-    xmlns:dtct3  ="http://datacite.org/schema/kernel-3"
-    xmlns:dtct4  ="http://datacite.org/schema/kernel-4"
+    xmlns:dtct3  = "http://datacite.org/schema/kernel-3"
+    xmlns:dtct4  = "http://datacite.org/schema/kernel-4"
+    xmlns:duv    = "http://www.w3.org/ns/duv#"
     xmlns:earl   = "http://www.w3.org/ns/earl#"
     xmlns:foaf   = "http://xmlns.com/foaf/0.1/"
     xmlns:frapo  = "http://purl.org/cerif/frapo/"
@@ -1340,12 +1341,12 @@
                 <dct:contributor><xsl:copy-of select="$agent"/></dct:contributor>
               </xsl:when>
 -->              
-<!-- TBD -->
-<!--
+<!-- Mapping to be confirmed when the final version of DUV will be realeased -->
+
               <xsl:when test="$type = 'distributor'">
-                <dct:contributor><xsl:copy-of select="$agent"/></dct:contributor>
+                <duv:hasDistributor><xsl:copy-of select="$agent"/></duv:hasDistributor>
               </xsl:when>
--->              
+              
               <xsl:when test="$type = 'editor'">
                 <schema:editor><xsl:copy-of select="$agent"/></schema:editor>
               </xsl:when>
