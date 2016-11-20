@@ -469,7 +469,7 @@
       <td><strong><code>duv:hasDistributor</code></strong></td>
       <td><strong><code>foaf:Agent</code></strong></td>
       <td><em>testing</em></td>
-      <td></td>
+      <td>Only for the extended profile</td>
     </tr>
     <tr>
       <td>Editor</td>
