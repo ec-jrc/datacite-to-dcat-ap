@@ -32,6 +32,7 @@
     </ul>
   </li>
   <li><a href="#methodology">Methodology</a></li>
+  <li><a href="#comparison-with-dc2ap-and-datacite2rdf">Comparison with DC2AP &amp; DataCite2RDF</a></li>
   <li><a href="#comparison">DataCite and DCAT-AP at a glance</a>
     <ul>
       <li><a href="#comparison-datacite-vs-dcat-ap">DataCite metadata elements supported in DCAT-AP</a></li>
@@ -78,21 +79,39 @@
 <p>
 <p>For the mappings, existing work has been taken into account concerning the mapping of DataCite to other metadata standards. In particular:</p>
 <ul>
+<!--
 <li>The DataCite to Dublin Core mappings defined in <a href="https://schema.datacite.org/meta/kernel-2.2/">version 2.2 of the DataCite metadata schema specification</a> (July 2011)</li>
 <li>The RDF bindings defined in the <a href="https://docs.google.com/document/d/1paJgvmCMu3pbM4in6PjWAKO0gP-6ultii3DWQslygq4/edit">DataCite2RDF mapping document</a> (April 2011)</li>
+-->
+<li><a href="https://groups.google.com/a/datacite.org/group/dc2map/attach/624ec3cd533a3/DataCite%20Dublin%20Core%20AP%20-%20Draft%201_8.pdf">DataCite Dublin Core Application Profile (DC2AP). Version 1.8</a> (February 2016)</li>
+<li><a href="http://dx.doi.org/10.6084/m9.figshare.2075356">DataCite2RDF: Mapping DataCite Metadata Schema 3.1 Terms to RDF. Version 3.3</a> (February 2016)</li>
 </ul>
-<p>DataCite+DCAT-AP re-uses these specifications, and extends them to provide a complete mapping of all the metadata elements in version 4.0 of the DataCite metadata schema. Moreover, the defined mappings are backward compatible with earlier versions of the DataCite metadata schema.</p>
+<p>DataCite+DCAT-AP builds upon these specifications to provide an as much as possible complete mapping of all the metadata elements in version 4.0 of the DataCite metadata schema. Moreover, the defined mappings are backward compatible with earlier versions of the DataCite metadata schema.</p>
 <p>The resulting mappings have been grouped into two classes, corresponding to two different DataCite+DCAT-AP profiles:</p>
 <ul>
-<li><strong>DataCite+DCAT-AP Core</strong>: This profile defines alignments for the subset of DataCite metadata elements supported by DCAT-AP</li>
-<li><strong>DataCite+DCAT-AP Extended</strong>: This profile defines alignments for all the DataCite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not provide suitable candidates)</li>
+<li><strong>DataCite+DCAT-AP Core</strong>: This profile defines alignments for the subset of DataCite metadata elements supported by DCAT-AP.</li>
+<li><strong>DataCite+DCAT-AP Extended</strong>: This profile defines alignments for all the DataCite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not provide suitable candidates).</li>
 </ul>
+<p>As far as the extended profile is concerned, the reference vocabularies have been chosen based on the following criteria:</p>
+<ol>
+<li>They have clear persistence and versioning policies.</li>
+<li>Preferably, they should be used across domains and data communities.</li>
+</ol>
+<p>These criteria are determining the main differences with the mappings defined in DC2AP and DC2RDF, that are illustrated in the following section.</p>
 
+<h2><a name="comparison-with-dc2ap-and-datacite2rdf">Comparison with DC2AP &amp; DataCite2RDF</a></h2>
+
+<p>DC2AP and DataCite2RDF provide a full mapping of version 3.1 of the DataCite metadata schema. To achieve this, they re-use a number of vocabularies, that can be grouped into two main classes:</p>
+<ol>
+<li>General purpose and widely used vocabularies, such as Dublin Core, FOAF, GeoSPARQL, and SKOS.</li>
+<li>A set of vocabularies developed specifically to model the publishing and academic domain. They include <a href="http://www.idealliance.org/specifications/prism-metadata-initiative/prism">PRISM</a> (<em>Publishing Requirements for Industry Standard Metadata</em>) and <a href="http://purl.org/vocab/frbr/core#">FRBR</a> (<em>Functional Requirements for Bibliographic Records</em>), plus a set of ontologies developed in the framework of the <a href="http://www.sparontologies.net/">SPAR</a> (<em>Semantic Publishing and Referencing Ontologies</em>) project.</li>
+</ol>
+<p>The current version of DataCite+DCAT-AP follows the mappings based on the former group of vocabularies, but not the ones based on the latter group. The reason is twofold. First, the persistence and versioning policies of these vocabularies are unclear, and so it has been considered safer to re-consider their use when the DataCite+DCAT-AP is more consolidated. Second, the mappings defined in DC2AP and DataCite2RDF are not compliant with the general requirements of DCAT-AP. For instance, despite the resource types defined in DataCite include datasets and metadata records, DC2AP and DataCite2RDF do not make use of DCAT.</p>
+<p>It is worth noting that the second group of ontologies, and in particular the ones developed in the SPAR project, provide interesting solutions to modelling some aspects not explicitly addressed in DCAT-AP - e.g., the possibility of associating a temporal dimension to agent roles - but also alternative solutions for specifying the same information - one of the examples being resource identifiers. Complementing and aligning the different approaches would be mutually beneficial.</p>
 
 <h2><a name="comparison">DataCite and DCAT-AP at a glance</a></h2>
 
 <p>The following sections provide a high-level comparison of the metadata elements defined in DataCite and DCAT-AP.</p>
-
 
 <h3><a name="comparison-datacite-vs-dcat-ap">DataCite metadata elements supported in DCAT-AP</a></h3>
 
@@ -436,7 +455,7 @@
 <h2><a name="alignment-issues">Summary of alignment issues</a></h2>
 
 <p>As shown in the previous section, DCAT-AP is able to represent all DataCite mandatory elements, with the exception of "creator". This poses an issue for the possible use of DCAT-AP for data citation purposes, since element "creator" is one of the required components. Notably, GeoDCAT-AP supports this agent role, so it can re-used for this purpose.</p>
-<p>On the other hand, DataCite includes all the DCAT-AP mandatory classes and related properties, with the only notable exception of <code>dcat:Catalog</code>. However, this does not poses particular compliance issues, since the catalogue description could be obtained separately from the relevant DataCite records. Actually, since DataCite records are supposed to be all available via the DataCite catalogue, the catalogue description can potentially be the same for all DataCite records. Of course, this does not apply for those records following the DataCite schema but not registered in the DataCite infrastructure.</p>
+<p>On the other hand, DataCite includes all the DCAT-AP mandatory classes and related properties, with the only notable exception of <code>dcat:Catalog</code>. However, this does not pose particular compliance issues, since the catalogue description could be obtained separately from the relevant DataCite records. Actually, since DataCite records are supposed to be all available via the DataCite catalogue, the catalogue description can potentially be the same for all DataCite records. Of course, this does not apply for those records following the DataCite schema but not registered in the DataCite infrastructure.</p>
 
 <p>There are however some key differences on the DCAT-AP and DataCite data models that needs to be addressed. The following sections outline the solutions adopted in DataCite+DCAT-AP, as well as open issues.</p>
 
@@ -536,7 +555,7 @@ a:Project a prov:Activity , foaf:Project ;
 
 <h3>Use and access conditions</h3>
 
-<p>DataCite includes a single element, namely, "rights", to specify use and access conditions. This element is also supported in DCAT-AP (<code>dct:rights</code>), but, in addition, specific properties are used for licences (<code>dct:license</code>) and access rights (<code>dct:accessRights</code>). Moreover, in DCAT-AP use conditions are associated with distributions, whereas access rights with datasets.</p>
+<p>DataCite includes a single element, namely, "rights", to specify use and access conditions. This element is also supported in DCAT-AP (<code>dct:rights</code>), but, in addition, specific properties are used for use conditions (<code>dct:license</code>) and access rights (<code>dct:accessRights</code>). Moreover, in DCAT-AP use conditions are associated with distributions, whereas access rights with datasets.</p>
 <p>Based on this, DataCite+DCAT-AP maps by default DataCite "rights" to <code>dct:rights</code>. In addition, they are mapped to <code>dct:license</code> and <code>dct:accessRights</code> when DataCite rights make explicit reference to some known licences and access rights vocabularies. More precisely, the recognised vocabularies are the following ones:</p>
 <ul>
 <li>For licences:
