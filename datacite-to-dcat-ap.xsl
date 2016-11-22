@@ -280,7 +280,9 @@
 <!-- Resource type -->    
       <xsl:apply-templates select="*[local-name() = 'resourceType']"/>
 <!-- Identifier -->    
-      <xsl:apply-templates select="*[local-name() = 'identifier']"/>
+      <xsl:apply-templates select="*[local-name() = 'identifier']">
+        <xsl:with-param name="ResourceType" select="$ResourceType"/>
+      </xsl:apply-templates>
 <!-- Creators -->    
       <xsl:apply-templates select="*[local-name() = 'creators']/*[local-name() = 'creator']"/>
 <!-- Titles -->    
@@ -1467,6 +1469,7 @@
 <!-- Main and alternate identifiers template -->  
 
   <xsl:template name="Identifiers" match="*[local-name() = 'identifier']|*[local-name() = 'alternateIdentifiers']/*[local-name() = 'alternateIdentifier']">
+    <xsl:param name="ResourceType"/>
     <xsl:param name="identifier" select="normalize-space(.)"/>
     <xsl:param name="type">
       <xsl:choose>
