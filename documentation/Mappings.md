@@ -104,7 +104,7 @@
     </tr>
     <tr>
       <td><code>dcat</code></td>
-      <td><code><a href="http://www.w3.org/ns/dcat#">http://www.w3.org/ns/dcat</a></code></td>
+      <td><code><a href="http://www.w3.org/ns/dcat#">http://www.w3.org/ns/dcat#</a></code></td>
       <td><a href="http://www.w3.org/TR/2014/REC-vocab-dcat-20140116/" title="DCAT">Data Catalog Vocabulary</a></td>
     </tr>
     <tr>
@@ -1479,7 +1479,7 @@
 <ul>
 <li>the identifier</li>
 <li>the identifier type / scheme name (e.g., <code>ORCID</code>, <code>ISNI</code>, <code>DOI</code>)</li>
-<li>optionally, the scheme URI (e.g., <code>http://orcid.org/</code>, <code>http://www.isni.org/</code>, <code>http://dx.doi.org/</code>)</li>
+<li>optionally, the scheme URI (e.g., <code>http://orcid.org/</code>, <code>http://www.isni.org/</code>, <code>https://doi.org/</code>)</li>
 </ul>
 <p>In DataCite+DCAT-AP, all these identifiers are mapped to URIs, by concatenating the identifier in the DataCite record with a URI prefix defined for each identifier type / scheme. Whenever possible, dereferenceable HTTP URIs/URLs are used; otherwise, URNs.</p>
 <p>This mapping is based on the name of the identifier type / scheme.</p>
@@ -1524,9 +1524,9 @@
     <tr>
       <td rowspan="3"><a href="https://en.wikipedia.org/wiki/Digital_object_identifier" title="Digital Object Identifier">DOI</a></td>
       <td>Identifier</td>
-      <td rowspan="3"><code><a href="http://dx.doi.org/">http://dx.doi.org/</a></code></td>
+      <td rowspan="3"><code><a href="https://doi.org/">https://doi.org/</a></code></td>
       <td rowspan="3"><code>10.1016/j.epsl.2011.11.037</code></td>
-      <td rowspan="3"><code><a href="http://dx.doi.org/10.1016/j.epsl.2011.11.037">http://dx.doi.org/10.1016/j.epsl.2011.11.037</a></code></td>
+      <td rowspan="3"><code><a href="https://doi.org/10.1016/j.epsl.2011.11.037">https://doi.org/10.1016/j.epsl.2011.11.037</a></code></td>
       <td rowspan="3"><em>testing</em></td>
       <td rowspan="3"></td>
     </tr>
@@ -1611,9 +1611,9 @@
     <tr>
       <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Geo_Sample_Number" title="International GeoSample Number">IGSN</a></td>
       <td>AlternateIdentifier</td>
-      <td rowspan="2"><code><a href="http://hdl.handle.net/10273/">http://hdl.handle.net/10273/</a></code> (<code><a href="http://dx.doi.org/10273/">http://dx.doi.org/10273/</a></code>)</td>
+      <td rowspan="2"><code><a href="http://hdl.handle.net/10273/">http://hdl.handle.net/10273/</a></code> (<code><a href="https://doi.org/10273/">https://doi.org/10273/</a></code>)</td>
       <td rowspan="2"><code>SSH000SUA</code></td>
-      <td rowspan="2"><code><a href="http://hdl.handle.net/10273/SSH000SUA">http://hdl.handle.net/10273/SSH000SUA</a></code> (<code><a href="http://dx.doi.org/10273/SSH000SUA">http://dx.doi.org/10273/SSH000SUA</a></code>)</td>
+      <td rowspan="2"><code><a href="http://hdl.handle.net/10273/SSH000SUA">http://hdl.handle.net/10273/SSH000SUA</a></code> (<code><a href="https://doi.org/10273/SSH000SUA">https://doi.org/10273/SSH000SUA</a></code>)</td>
       <td rowspan="2">stable</td>
       <td rowspan="2">Identifier type added in DataCite 4.0.</td>
     </tr>

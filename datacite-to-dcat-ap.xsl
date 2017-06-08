@@ -1866,7 +1866,7 @@
     <xsl:variable name="fundref">http://www.crossref.org/fundref/</xsl:variable>
     <xsl:variable name="n2t">http://n2t.net/</xsl:variable>
     <xsl:variable name="arxiv">http://arxiv.org/abs/</xsl:variable>
-    <xsl:variable name="doi">http://dx.doi.org/</xsl:variable>
+    <xsl:variable name="doi">https://doi.org/</xsl:variable>
     <xsl:variable name="bibcode">http://adsabs.harvard.edu/abs/</xsl:variable>
     <xsl:variable name="pmid">http://www.ncbi.nlm.nih.gov/pubmed/</xsl:variable>
     <xsl:variable name="handle">https://hdl.handle.net/</xsl:variable>

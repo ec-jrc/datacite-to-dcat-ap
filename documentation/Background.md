@@ -84,7 +84,7 @@
 <li>The RDF bindings defined in the <a href="https://docs.google.com/document/d/1paJgvmCMu3pbM4in6PjWAKO0gP-6ultii3DWQslygq4/edit">DataCite2RDF mapping document</a> (April 2011)</li>
 -->
 <li><a href="https://groups.google.com/a/datacite.org/group/dc2map/attach/624ec3cd533a3/DataCite%20Dublin%20Core%20AP%20-%20Draft%201_8.pdf">DataCite Dublin Core Application Profile (DC2AP). Version 1.8</a> (February 2016)</li>
-<li><a href="http://dx.doi.org/10.6084/m9.figshare.2075356">DataCite2RDF: Mapping DataCite Metadata Schema 3.1 Terms to RDF. Version 3.3</a> (February 2016)</li>
+<li><a href="https://doi.org/10.6084/m9.figshare.2075356">DataCite2RDF: Mapping DataCite Metadata Schema 3.1 Terms to RDF. Version 3.3</a> (February 2016)</li>
 </ul>
 <p>DataCite+DCAT-AP builds upon these specifications to provide an as much as possible complete mapping of all the metadata elements in version 4.0 of the DataCite metadata schema. Moreover, the defined mappings are backward compatible with earlier versions of the DataCite metadata schema.</p>
 <p>The resulting mappings have been grouped into two classes, corresponding to two different DataCite+DCAT-AP profiles:</p>
