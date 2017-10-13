@@ -98,12 +98,13 @@
 <!--
 
   This parameter specifies the DataCite+DCAT-AP profile to be used:
-  - value "core": the DataCite+DCAT-AP Core profile, which includes only the INSPIRE and ISO 19115 core metadata elements supported in DCAT-AP
-  - value "extended": the DataCite+DCAT-AP Extended profile, which defines mappings for all the INSPIRE and ISO 19115 core metadata elements
+  - value "core": the DataCite+DCAT-AP Core profile, which includes only the DataCite metadata elements supported in DCAT-AP
+  - value "extended": the DataCite+DCAT-AP Extended profile, which defines mappings for all the DataCite metadata elements
   
-  The current specifications for the core and extended DataCite+DCAT-AP profiles are available on the Joinup collaboration platform:
+  The current specifications for the core and extended DataCite+DCAT-AP profiles are available on the European Commission's 
+  Git repository:
 
-    https://joinup.ec.europa.eu/node/139283/
+    https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap/
 
 -->
 
