@@ -2,7 +2,7 @@
 
 <!--  
 
-  Copyright 2015-2017 EUROPEAN UNION
+  Copyright 2015-2018 EUROPEAN UNION
   Licensed under the EUPL, Version 1.1 or - as soon they will be approved by
   the European Commission - subsequent versions of the EUPL (the "Licence");
   You may not use this work except in compliance with the Licence.
@@ -16,14 +16,9 @@
   See the Licence for the specific language governing permissions and
   limitations under the Licence.
  
-  Authors: European Commission - Joint Research Centre
+  Authors: European Commission, Joint Research Centre (JRC)
            Andrea Perego <andrea.perego@ec.europa.eu>
  
-  This work was supported by the EU Interoperability Solutions for
-  European Public Administrations Programme (http://ec.europa.eu/isa)
-  through Action 1.17: Re-usable INSPIRE Reference Platform 
-  (http://ec.europa.eu/isa/actions/01-trusted-information-exchange/1-17action_en.htm).
-
 -->
 
 <!--
@@ -34,8 +29,7 @@
   concerning the DataCite profile of DCAT-AP (DataCite+DCAT-AP)
     
   As such, this XSLT must be considered as unstable, and can be updated any 
-  time based on the revisions to the DataCite+DCAT-AP specifications.
-  
+  time based on the revisions to the DataCite+DCAT-AP specifications.  
 -->
 
 <xsl:transform
@@ -68,7 +62,7 @@
     xmlns:xsi    = "http://www.w3.org/2001/XMLSchema-instance" 
     xmlns:xsl    = "http://www.w3.org/1999/XSL/Transform"
     xmlns:wdrs   = "http://www.w3.org/2007/05/powder-s#"
-    exclude-result-prefixes = "dtct2.2 dtct3 dtct4 earl oa xlink xsi xsl wdrs"
+    exclude-result-prefixes = "dtct2.2 dtct3 dtct4 earl oa xlink xsi xsl"
     version="1.0">
 
   <xsl:output method="xml"
@@ -254,6 +248,8 @@
       <xsl:choose>
         <xsl:when test="$type = 'audiovisual'">dataset</xsl:when>
         <xsl:when test="$type = 'collection'">dataset</xsl:when>
+<!-- Added in DataCite v4.1 -->        
+        <xsl:when test="$type = 'datapaper'">dataset</xsl:when>
         <xsl:when test="$type = 'dataset'">dataset</xsl:when>
         <xsl:when test="$type = 'event'">event</xsl:when>
         <xsl:when test="$type = 'image'">dataset</xsl:when>
@@ -596,10 +592,26 @@
 <!-- Funding references template -->
 
   <xsl:template name="FundingReferences">
+    <xsl:param name="funderIdentifier" select="normalize-space(*[local-name() = 'funderIdentifier'])"/>
+    <xsl:param name="funderIdentifierType" select="translate(normalize-space(*[local-name() = 'funderIdentifier']/@funderIdentifierType),$uppercase,$lowercase)"/>
     <xsl:param name="funderURI">
+      <xsl:variable name="uri">
+        <xsl:call-template name="IdentifierURI">
+          <xsl:with-param name="identifier" select="$funderIdentifier"/>
+          <xsl:with-param name="type" select="$funderIdentifierType"/>
+<!--          
+          <xsl:with-param name="schemeURI" select="$schemeURI"/>
+-->          
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:if test="starts-with(translate(normalize-space($uri),$uppercase,$lowercase),'http://') or starts-with(translate(normalize-space($uri),$uppercase,$lowercase),'https://') or starts-with(translate(normalize-space($uri),$uppercase,$lowercase),'urn://')">
+        <xsl:value-of select="$uri"/>
+      </xsl:if>
+<!--    
       <xsl:if test="starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'http://') or starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'https://')">
         <xsl:value-of select="normalize-space(*[local-name() = 'funderIdentifier'])"/>
       </xsl:if>
+-->      
     </xsl:param>
     <xsl:param name="funderInfo">
       <dct:identifier><xsl:value-of select="normalize-space(*[local-name() = 'funderIdentifier'])"/></dct:identifier>
@@ -1152,54 +1164,79 @@
   <xsl:template name="Dates" match="*[local-name() = 'dates']/*[local-name() = 'date']">
     <xsl:variable name="date" select="normalize-space(.)"/>
     <xsl:variable name="type" select="normalize-space(translate(@dateType,$uppercase,$lowercase))"/>
+    <xsl:variable name="dateDataType">
+      <xsl:choose>
+        <xsl:when test="string-length($date) = 4">
+          <xsl:text>gYear</xsl:text>
+        </xsl:when>
+        <xsl:when test="string-length($date) = 10">
+          <xsl:text>date</xsl:text>
+        </xsl:when>
+        <xsl:when test="string-length($date) &gt; 10">
+          <xsl:text>dateTime</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>date</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+<!-- Added in DataCite v4.1 -->
+<!-- NB: Currently not mapped. Options could be to use reification or PROV-O -->    
+    <xsl:variable name="dateInformation" select="normalize-space(@dateInformation)"/>
     <xsl:choose>
       <xsl:when test="$type = 'issued'">
-        <dct:issued rdf:datatype="{$xsd}date">
+        <dct:issued rdf:datatype="{$xsd}{$dateDataType}">
           <xsl:value-of select="$date"/>
         </dct:issued>
       </xsl:when>
       <xsl:when test="$type = 'updated'">
-        <dct:modified rdf:datatype="{$xsd}date">
+        <dct:modified rdf:datatype="{$xsd}{$dateDataType}">
           <xsl:value-of select="$date"/>
         </dct:modified>
       </xsl:when>
       <xsl:when test="$type = 'created' and $profile = 'extended'">
-        <dct:created rdf:datatype="{$xsd}date">
+        <dct:created rdf:datatype="{$xsd}{$dateDataType}">
           <xsl:value-of select="$date"/>
         </dct:created>
       </xsl:when> 
       <xsl:when test="$type = 'accepted' and $profile = 'extended'">
-        <dct:dateAccepted rdf:datatype="{$xsd}date">
+        <dct:dateAccepted rdf:datatype="{$xsd}{$dateDataType}">
           <xsl:value-of select="$date"/>
         </dct:dateAccepted>
       </xsl:when>
       <xsl:when test="$type = 'available' and $profile = 'extended'">
-        <dct:available rdf:datatype="{$xsd}date">
+        <dct:available rdf:datatype="{$xsd}{$dateDataType}">
           <xsl:value-of select="$date"/>
         </dct:available>
       </xsl:when>
       <xsl:when test="$type = 'copyrighted' and $profile = 'extended'">
-        <dct:dateCopyrighted rdf:datatype="{$xsd}date">
+        <dct:dateCopyrighted rdf:datatype="{$xsd}{$dateDataType}">
           <xsl:value-of select="$date"/>
         </dct:dateCopyrighted>
       </xsl:when>
       <xsl:when test="$type = 'collected' and $profile = 'extended'">
-        <dct:created rdf:datatype="{$xsd}date">
+        <dct:created rdf:datatype="{$xsd}{$dateDataType}">
           <xsl:value-of select="$date"/>
         </dct:created>
       </xsl:when>
       <xsl:when test="$type = 'submitted' and $profile = 'extended'">
-        <dct:dateSubmitted rdf:datatype="{$xsd}date">
+        <dct:dateSubmitted rdf:datatype="{$xsd}{$dateDataType}">
           <xsl:value-of select="$date"/>
         </dct:dateSubmitted>
       </xsl:when>
       <xsl:when test="$type = 'valid' and $profile = 'extended'">
-        <dct:valid rdf:datatype="{$xsd}date">
+        <dct:valid rdf:datatype="{$xsd}{$dateDataType}">
           <xsl:value-of select="$date"/>
         </dct:valid>
       </xsl:when>
+<!-- Added in DataCite v4.1 -->      
+      <xsl:when test="$type = 'other'">
+        <dct:date rdf:datatype="{$xsd}{$dateDataType}">
+          <xsl:value-of select="$date"/>
+        </dct:date>
+      </xsl:when>
       <xsl:otherwise>
-        <dct:date rdf:datatype="{$xsd}date">
+        <dct:date rdf:datatype="{$xsd}{$dateDataType}">
           <xsl:value-of select="$date"/>
         </dct:date>
       </xsl:otherwise>
@@ -1219,6 +1256,17 @@
 <!-- Creators and contributors template -->
 
   <xsl:template name="Agents" match="*[local-name() = 'creators']/*[local-name() = 'creator']|*[local-name() = 'contributors']/*[local-name() = 'contributor']">
+<!-- Added in DataCite v4.1 -->
+    <xsl:variable name="nameType">
+      <xsl:choose>
+        <xsl:when test="local-name(.) = 'creator' and *[local-name() = 'creatorName']/@nameType">
+          <xsl:value-of select="translate(normalize-space(*[local-name() = 'creatorName']/@nameType),$uppercase,$lowercase)"/>
+        </xsl:when>
+        <xsl:when test="local-name(.) = 'contributor' and *[local-name() = 'contributorName']/@nameType">
+          <xsl:value-of select="translate(normalize-space(*[local-name() = 'contributorName']/@nameType),$uppercase,$lowercase)"/>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:variable>
     <xsl:variable name="agentName">
       <xsl:choose>
         <xsl:when test="local-name(.) = 'creator'">
@@ -1263,10 +1311,44 @@
       </xsl:call-template>
     </xsl:variable>    
     <xsl:variable name="affiliation" select="normalize-space(*[local-name() = 'affiliation'])"/>
-    <xsl:variable name="agentDescription">
+    <xsl:variable name="agentType">
       <xsl:choose>
         <xsl:when test="$type = 'contactperson'">
+          <xsl:choose>
+            <xsl:when test="$nameType = 'personal'">
+              <rdf:type rdf:resource="{$vcard}Individual"/>
+>
+            </xsl:when>
+            <xsl:when test="$nameType = 'organizational'">
+              <rdf:type rdf:resource="{$vcard}Organization"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <rdf:type rdf:resource="{$vcard}Individual"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:choose>
+            <xsl:when test="$nameType = 'personal'">
+              <rdf:type rdf:resource="{$foaf}Person"/>
+            </xsl:when>
+            <xsl:when test="$nameType = 'organizational'">
+              <rdf:type rdf:resource="{$foaf}Organization"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <rdf:type rdf:resource="{$foaf}Agent"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="agentDescription">
+      <xsl:copy-of select="$agentType"/>
+      <xsl:choose>
+        <xsl:when test="$type = 'contactperson'">
+<!--        
           <rdf:type rdf:resource="{$vcard}Individual"/>
+-->          
           <xsl:if test="$agentName != ''">
             <vcard:fn><xsl:value-of select="$agentName"/></vcard:fn>
             <vcard:given-name><xsl:value-of select="$agentGivenName"/></vcard:given-name>
@@ -1277,7 +1359,9 @@
           </xsl:if>
         </xsl:when>
         <xsl:otherwise>
+<!--        
           <rdf:type rdf:resource="{$foaf}Agent"/>
+-->
           <xsl:if test="$agentName != ''">
             <foaf:name><xsl:value-of select="$agentName"/></foaf:name>
           </xsl:if>
@@ -1549,6 +1633,8 @@
         <xsl:with-param name="schemeURI" select="$schemeURI"/>
       </xsl:call-template>
     </xsl:param>    
+<!-- Added in DataCite v4.1 -->    
+    <xsl:param name="resourceType" select="normalize-space(translate(@resourceTypeGeneral,$uppercase,$lowercase))"/>
     <xsl:choose>
       <xsl:when test="$relation = 'hasmetadata'">
         <foaf:isPrimaryTopicOf>
@@ -1590,6 +1676,13 @@
       </xsl:when>
       <xsl:when test="$relation = 'isderivedfrom'">
         <dct:source rdf:resource="{$uri}"/>
+      </xsl:when>
+<!-- Added in DataCite v4.1 -->          
+      <xsl:when test="$relation = 'hasversion'">
+        <dct:hasVersion rdf:resource="{$uri}"/>
+      </xsl:when>
+      <xsl:when test="$relation = 'isversionof'">
+        <dct:isVersionOf rdf:resource="{$uri}"/>
       </xsl:when>
       <xsl:when test="$profile = 'extended'">
         <xsl:choose>
@@ -1683,6 +1776,22 @@
           <xsl:when test="$relation = 'issourceof'">
             <prov:hadDerivation rdf:resource="{$uri}"/>
           </xsl:when>
+<!-- Added in DataCite v4.1 -->          
+<!-- TBD -->
+<!--
+          <xsl:when test="$relation = 'describes'">
+            <dct:relation rdf:resource="{$uri}"/>
+          </xsl:when>
+-->          
+          <xsl:when test="$relation = 'isdescribedby'">
+            <wdrs:describedby rdf:resource="{$uri}"/>
+          </xsl:when>
+          <xsl:when test="$relation = 'requires'">
+            <dct:requires rdf:resource="{$uri}"/>
+          </xsl:when>
+          <xsl:when test="$relation = 'isrequiredby'">
+            <dct:isRequiredBy rdf:resource="{$uri}"/>
+          </xsl:when>
           <xsl:otherwise>
             <xsl:variable name="urilc" select="translate($uri,$uppercase,$lowercase)"/>
             <xsl:choose>
@@ -1759,6 +1868,16 @@
         <rdf:type rdf:resource="{$dcat}Dataset"/>
         <xsl:if test="$profile = 'extended'">
           <dct:type rdf:resource="{$dctype}Collection"/>
+        </xsl:if>
+      </xsl:when>
+<!-- Added in DataCite v4.1 -->      
+      <xsl:when test="$type = 'datapaper'">
+        <rdf:type rdf:resource="{$dcat}Dataset"/>
+        <xsl:if test="$profile = 'extended'">
+<!-- TBD -->
+<!--        
+          <dct:type rdf:resource="{$dctype}??"/>
+-->          
         </xsl:if>
       </xsl:when>
       <xsl:when test="$type = 'dataset'">
@@ -1864,7 +1983,12 @@
 <!-- Resolvers -->    
     <xsl:variable name="orcid">http://orcid.org/</xsl:variable>
     <xsl:variable name="isni">http://www.isni.org/</xsl:variable>
+    <xsl:variable name="grid">https://www.grid.ac/institutes/</xsl:variable>
+<!--    
     <xsl:variable name="fundref">http://www.crossref.org/fundref/</xsl:variable>
+    <xsl:variable name="fundref">https://doi.org/</xsl:variable>
+-->
+    <xsl:variable name="fundref"></xsl:variable>
     <xsl:variable name="n2t">http://n2t.net/</xsl:variable>
     <xsl:variable name="arxiv">http://arxiv.org/abs/</xsl:variable>
     <xsl:variable name="doi">https://doi.org/</xsl:variable>
@@ -1882,6 +2006,12 @@
       </xsl:when>
       <xsl:when test="$type = 'isni'">
         <xsl:value-of select="concat($isni,$identifier)"/>
+      </xsl:when>
+      <xsl:when test="$type = 'grid'">
+        <xsl:value-of select="concat($isni,$identifier)"/>
+      </xsl:when>
+      <xsl:when test="$type = 'crossref funder id'">
+        <xsl:value-of select="concat($fundref,$identifier)"/>
       </xsl:when>
       <xsl:when test="$type = 'ark'">
         <xsl:value-of select="concat($n2t,$identifier)"/>
@@ -1951,14 +2081,36 @@
 -->
 
   <xsl:template name="Funders">  
+    <xsl:param name="funderIdentifier" select="normalize-space(*[local-name() = 'funderIdentifier'])"/>
+    <xsl:param name="funderIdentifierType" select="translate(normalize-space(*[local-name() = 'funderIdentifier']/@funderIdentifierType),$uppercase,$lowercase)"/>
     <xsl:param name="funderURI">
+      <xsl:variable name="uri">
+        <xsl:call-template name="IdentifierURI">
+          <xsl:with-param name="identifier" select="$funderIdentifier"/>
+          <xsl:with-param name="type" select="$funderIdentifierType"/>
+<!--          
+          <xsl:with-param name="schemeURI" select="$schemeURI"/>
+-->          
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:if test="starts-with(translate(normalize-space($uri),$uppercase,$lowercase),'http://') or starts-with(translate(normalize-space($uri),$uppercase,$lowercase),'https://') or starts-with(translate(normalize-space($uri),$uppercase,$lowercase),'urn://')">
+        <xsl:value-of select="$uri"/>
+      </xsl:if>
+<!--    
       <xsl:if test="starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'http://') or starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'https://')">
         <xsl:value-of select="normalize-space(*[local-name() = 'funderIdentifier'])"/>
       </xsl:if>
+-->      
     </xsl:param>
     <xsl:param name="funderIdentifierDatatype">
       <xsl:choose>
-        <xsl:when test="$funderURI != ''">
+        <xsl:when test="starts-with(translate(normalize-space($funderIdentifier),$uppercase,$lowercase),'http://')">
+          <xsl:value-of select="concat($xsd,'anyURI')"/>
+        </xsl:when>
+        <xsl:when test="starts-with(translate(normalize-space($funderIdentifier),$uppercase,$lowercase),'https://')">
+          <xsl:value-of select="concat($xsd,'anyURI')"/>
+        </xsl:when>
+        <xsl:when test="starts-with(translate(normalize-space($funderIdentifier),$uppercase,$lowercase),'urn://')">
           <xsl:value-of select="concat($xsd,'anyURI')"/>
         </xsl:when>
         <xsl:otherwise>
@@ -1967,7 +2119,7 @@
       </xsl:choose>
     </xsl:param>
     <xsl:param name="funderInfo">
-      <dct:identifier rdf:datatype="{$funderIdentifierDatatype}"><xsl:value-of select="normalize-space(*[local-name() = 'funderIdentifier'])"/></dct:identifier>
+      <dct:identifier rdf:datatype="{$funderIdentifierDatatype}"><xsl:value-of select="$funderIdentifier"/></dct:identifier>
       <xsl:choose>
         <xsl:when test="normalize-space(*[local-name() = 'funderName']/@xml:lang) != ''">
           <foaf:name xml:lang="{normalize-space(*[local-name() = 'funderName']/@xml:lang)}"><xsl:value-of select="normalize-space(*[local-name() = 'funderName'])"/></foaf:name>
@@ -1997,19 +2149,33 @@
 -->
 
   <xsl:template name="FundingAwards">  
+    <xsl:param name="funderIdentifier" select="normalize-space(*[local-name() = 'funderIdentifier'])"/>
+    <xsl:param name="funderIdentifierType" select="translate(normalize-space(*[local-name() = 'funderIdentifier']/@funderIdentifierType),$uppercase,$lowercase)"/>
     <xsl:param name="funderURI">
+      <xsl:variable name="uri">
+        <xsl:call-template name="IdentifierURI">
+          <xsl:with-param name="identifier" select="$funderIdentifier"/>
+          <xsl:with-param name="type" select="$funderIdentifierType"/>
+<!--          
+          <xsl:with-param name="schemeURI" select="$schemeURI"/>
+-->          
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:if test="starts-with(translate(normalize-space($uri),$uppercase,$lowercase),'http://') or starts-with(translate(normalize-space($uri),$uppercase,$lowercase),'https://') or starts-with(translate(normalize-space($uri),$uppercase,$lowercase),'urn://')">
+        <xsl:value-of select="$uri"/>
+      </xsl:if>
+<!--    
       <xsl:if test="starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'http://') or starts-with(translate(normalize-space(*[local-name() = 'funderIdentifier']),$uppercase,$lowercase),'https://')">
         <xsl:value-of select="normalize-space(*[local-name() = 'funderIdentifier'])"/>
       </xsl:if>
+-->      
     </xsl:param>
-
 <!--    
     <xsl:param name="funderInfo">
       <dct:identifier><xsl:value-of select="normalize-space(*[local-name() = 'funderIdentifier'])"/></dct:identifier>
       <foaf:name><xsl:value-of select="normalize-space(*[local-name() = 'funderName'])"/></foaf:name>
     </xsl:param>
 -->    
-
     <xsl:param name="fundingReferenceURI">
       <xsl:value-of select="normalize-space(*[local-name() = 'awardNumber']/@awardURI)"/>
     </xsl:param>
