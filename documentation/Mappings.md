@@ -686,7 +686,7 @@
       <td></td>
     </tr>
     <tr>
-      <td rowspan="29">ResourceType</td>
+      <td rowspan="31">ResourceType</td>
       <td><em>default</em></td>
       <td><strong><code>rdf:type</code></strong></td>
       <td><strong><code>rdfs:Resource</code></strong></td>
