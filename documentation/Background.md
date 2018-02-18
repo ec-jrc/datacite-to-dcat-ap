@@ -74,7 +74,7 @@
 <ul>
 <li><a href="https://joinup.ec.europa.eu/system/files/project/dcat-ap_version_1.1.pdf">DCAT-AP v1.1</a> (October 2015)</li>
 <li><a href="https://joinup.ec.europa.eu/system/files/project/geodcat-ap_v1.0.1.pdf">GeoDCAT-AP v1.0.1</a> (August 2016)</li>
-<li><a href="http://doi.org/10.5438/0012">DataCite v4.0</a> (September 2016)</li>
+<li><a href="http://doi.org/10.5438/0014">DataCite v4.1</a> (October 2017)</li>
 </ul>
 <p>
 <p>For the mappings, existing work has been taken into account concerning the mapping of DataCite to other metadata standards. In particular:</p>
@@ -86,7 +86,7 @@
 <li><a href="https://groups.google.com/a/datacite.org/group/dc2map/attach/624ec3cd533a3/DataCite%20Dublin%20Core%20AP%20-%20Draft%201_8.pdf">DataCite Dublin Core Application Profile (DC2AP). Version 1.8</a> (February 2016)</li>
 <li><a href="https://doi.org/10.6084/m9.figshare.2075356">DataCite2RDF: Mapping DataCite Metadata Schema 3.1 Terms to RDF. Version 3.3</a> (February 2016)</li>
 </ul>
-<p>DataCite+DCAT-AP builds upon these specifications to provide an as much as possible complete mapping of all the metadata elements in version 4.0 of the DataCite metadata schema. Moreover, the defined mappings are backward compatible with earlier versions of the DataCite metadata schema.</p>
+<p>DataCite+DCAT-AP builds upon these specifications to provide an as much as possible complete mapping of all the metadata elements in version 4.1 of the DataCite metadata schema. Moreover, the defined mappings are backward compatible with earlier versions of the DataCite metadata schema.</p>
 <p>The resulting mappings have been grouped into two classes, corresponding to two different DataCite+DCAT-AP profiles:</p>
 <ul>
 <li><strong>DataCite+DCAT-AP Core</strong>: This profile defines alignments for the subset of DataCite metadata elements supported by DCAT-AP.</li>
@@ -121,7 +121,7 @@
 <table>
   <thead>
     <tr>
-      <th colspan="2">DataCite 4.0</th>
+      <th colspan="2">DataCite 4.1</th>
       <th rowspan="2">DCAT-AP 1.1</th>
       <th rowspan="2">Comments</th>
     </tr>
@@ -268,7 +268,7 @@
   <thead>
     <tr>
       <th colspan="4">DCAT-AP 1.1</th>
-      <th rowspan="2">DataCite 4.0</th>
+      <th rowspan="2">DataCite 4.1</th>
       <th rowspan="2">Comments</th>
     </tr>
     <tr>
@@ -499,12 +499,13 @@
 <p>Based on this DataCite+DCAT-AP models this information as follows:</p>
 <ul>
 <li>The default mapping of element RelatedIdentifier is <code>dct:relation</code></li>
-<li>Dublin Core is used for all the relevant related resource types (i.e., 7, excluding <code>dct:relation</code>)</li>
+<li>Dublin Core is used for all the relevant related resource types (i.e., 9, excluding <code>dct:relation</code>)</li>
 <li>3 are modelled by using FOAF</li>
 <li>3 are modelled by using Schema.org</li>
 <li>1 ("IsIdenticalTo") is modelled by using OWL (<code>owl:sameAs</code>)</li>
 <li>1 ("IsSourceOf") is modelled by using the W3C PROV Ontology (<code>prov:hadDerivation</code>)</li>
-<li>10 are left unmapped, since the reference vocabularies do not provide suitable candidates</li>
+<li>1 ("IsDescribedBy") is modelled by using the W3C POWDER-S Vocabulary (<code>wdrs:describedby</code>)</li>
+<li>11 are left unmapped, since the reference vocabularies do not provide suitable candidates</li>
 </ul>
 <p>DCAT-AP supports 6 of the mapped related resource types. All the other ones are supported only in the extended profile of DataCite+DCAT-AP.</p>
 
