@@ -1576,19 +1576,19 @@
       <td></td>
     </tr>
     <tr>
-      <td><a href="https://en.wikipedia.org/wiki/International_Standard_Name_Identifier" title="International Standard Name Identifier"><em>ISNI</em></a></td>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Name_Identifier" title="International Standard Name Identifier"><em>ISNI</em></a></td>
       <td>nameIdentifier</td>
-      <td rowpan="2"><code><a href="http://www.isni.org/">http://www.isni.org/</a></code></td>
-      <td rowpan="2"><code>0000000121032683</code></td>
-      <td rowpan="2"><code><a href="http://www.isni.org/0000000121032683">http://www.isni.org/0000000121032683</a></code></td>
-      <td rowpan="2"><em>testing</em></td>
-      <td rowpan="2"></td>
+      <td rowspan="2"><code><a href="http://www.isni.org/">http://www.isni.org/</a></code></td>
+      <td rowspan="2"><code>0000000121032683</code></td>
+      <td rowspan="2"><code><a href="http://www.isni.org/0000000121032683">http://www.isni.org/0000000121032683</a></code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2"></td>
     </tr>
     <tr>
       <td>funderIdentifier</td>
     </tr>
     <tr>
-      <td><a href="https://www.grid.ac/" title="Global Research Identifier"><em>GRID</em></a></td>
+      <td><a href="https://www.grid.ac/" title="Global Research Identifier">GRID</a></td>
       <td>funderIdentifier</td>
       <td><code><a href="https://www.grid.ac/institutes/">https://www.grid.ac/institutes/</a></code></td>
       <td><code>grid.270680.b</code></td>
@@ -1597,7 +1597,7 @@
       <td></td>
     </tr>
     <tr>
-      <td><a href="https://www.crossref.org/services/funder-registry/" title="CrossRef Funder Identifier"><em>CrossRef Funder ID</em></a></td>
+      <td><a href="https://www.crossref.org/services/funder-registry/" title="CrossRef Funder Identifier">CrossRef Funder ID</a></td>
       <td>funderIdentifier</td>
       <td><code><a href="https://doi.org/">https://doi.org/</a></code></td>
       <td><code>10.13039/501100000900</code></td>
