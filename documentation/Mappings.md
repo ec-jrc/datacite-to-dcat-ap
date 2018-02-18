@@ -902,7 +902,7 @@
       <td></td>
     </tr>
     <tr>
-      <td rowspan="26">RelatedIdentifier</td>
+      <td rowspan="32">RelatedIdentifier</td>
       <td><em>default</em></td>
       <td><code>dct:relation</code></td>
       <td><code>rdfs:Resource</code></td>
