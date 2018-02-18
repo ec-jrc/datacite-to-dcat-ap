@@ -194,6 +194,11 @@
       <td><code><a href="http://www.w3.org/2001/XMLSchema">http://www.w3.org/2001/XMLSchema#</a></code></td>
       <td><a href="http://www.w3.org/TR/2004/REC-xmlschema-2-20041028/">XML Schema Part 2: Datatypes Second Edition</a></td>
     </tr>
+    <tr>
+      <td><code>wdrs</code></td>
+      <td><code><a href="https://www.w3.org/2007/05/powder-s">https://www.w3.org/2007/05/powder-s#</a></code></td>
+      <td><a href="https://www.w3.org/2007/05/powder-s">Protocol for Web Description Resources (POWDER): POWDER-S Vocabulary (WDRS)</a></td>
+    </tr>
   </tbody>
 </table>
 
@@ -715,6 +720,19 @@
       <td>Only for the extended profile</td>
     </tr>
     <tr>
+      <td rowspan="2">DataPaper</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in DataCite v4.1</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
       <td rowspan="2">Dataset</td>
       <td><code>rdf:type</code></td>
       <td><code>dcat:Dataset</code></td>
@@ -1063,6 +1081,48 @@
       <td>IsSourceOf</td>
       <td><strong><code>prov:hadDerivation</code></strong></td>
       <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>Describes</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>IsDescribedBy</td>
+      <td><code>wdrs:describedby</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>HasVersion</td>
+      <td><code>dct:hasVersion</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>IsVersionOf</td>
+      <td><code>dct:isVersionOf</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Requires</td>
+      <td><code>dct:requires</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>IsRequiredBy</td>
+      <td><code>dct:isRequiredBy</code></td>
+      <td><code>rdfs:Resource</code></td>
       <td><em>testing</em></td>
       <td>Only for the extended profile</td>
     </tr>
@@ -1474,6 +1534,7 @@
 <ul>
   <li>the described resource, and the related resources</li>
   <li>resource creators and contributors</li>
+  <li>funders (i.e., the organisation funding the activity from which the described resource has been created)</li>
 </ul>
 <p>In DataCite, such identifiers are specified as follows:</p>
 <ul>
@@ -1482,10 +1543,12 @@
 <li>optionally, the scheme URI (e.g., <code>http://orcid.org/</code>, <code>http://www.isni.org/</code>, <code>https://doi.org/</code>)</li>
 </ul>
 <p>In DataCite+DCAT-AP, all these identifiers are mapped to URIs, by concatenating the identifier in the DataCite record with a URI prefix defined for each identifier type / scheme. Whenever possible, dereferenceable HTTP URIs/URLs are used; otherwise, URNs.</p>
+<!--
 <p>This mapping is based on the name of the identifier type / scheme.</p>
-<p>Notably, DataCite provides a <a href="https://schema.datacite.org/meta/kernel-4.0/include/datacite-relatedIdentifierType-v4.xsd">code list</a> for the types / schemes of identifiers used to denote resource, but no code list is defined in DataCite for types / schemes of identifiers used to denote resource creators / contributors (the specification uses, as an example, "ORCID" and "ISNI").</p>
+-->
+<p>Notably, DataCite provides code lists for the types / schemes of identifiers used to denote <a href="https://schema.datacite.org/meta/kernel-4.0/include/datacite-relatedIdentifierType-v4.xsd">resources</a> and <a href="https://schema.datacite.org/meta/kernel-4.0/include/datacite-funderIdentifierType-v4.xsd">funders</a>, but no code list is defined in DataCite for types / schemes of identifiers used to denote resource creators / contributors (the specification uses, as an example, "ORCID" and "ISNI").</p>
 <p>However, DataCite does not specify a code list for scheme URIs. So, the mapping between the identifier type / scheme implemented in DataCite+DCAT-AP is based on the relevant registries and examples in the DataCite metadata schema specification. No URI prefix is of course used if the identifier is already a URI (as URLs and URNs).</p>
-<p>The following table shows, for each identifier type / scheme, which is the URI prefix used in DataCite+DCAT-AP, along with examples of the results of such mappings. As mentioned above, all the identifier types / schemes in the table are defined as a code list in the DataCite metadata schema, with the exception of ORCID and ISNI (marked in italic).</p>
+<p>The following table shows, for each identifier type / scheme, which is the URI prefix used in DataCite+DCAT-AP, along with examples of the results of such mappings. As mentioned above, all the identifier types / schemes in the table are defined as a code list in the DataCite metadata schema, with the exception of ORCID and ISNI (however, ISNI is defined in the code list for funder identifier types).</p>
 
 <table>
   <thead>
@@ -1515,9 +1578,30 @@
     <tr>
       <td><a href="https://en.wikipedia.org/wiki/International_Standard_Name_Identifier" title="International Standard Name Identifier"><em>ISNI</em></a></td>
       <td>nameIdentifier</td>
-      <td><code><a href="http://www.isni.org/">http://www.isni.org/</a></code></td>
-      <td><code>0000000121032683</code></td>
-      <td><code><a href="http://www.isni.org/0000000121032683">http://www.isni.org/0000000121032683</a></code></td>
+      <td rowpan="2"><code><a href="http://www.isni.org/">http://www.isni.org/</a></code></td>
+      <td rowpan="2"><code>0000000121032683</code></td>
+      <td rowpan="2"><code><a href="http://www.isni.org/0000000121032683">http://www.isni.org/0000000121032683</a></code></td>
+      <td rowpan="2"><em>testing</em></td>
+      <td rowpan="2"></td>
+    </tr>
+    <tr>
+      <td>funderIdentifier</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.grid.ac/" title="Global Research Identifier"><em>GRID</em></a></td>
+      <td>funderIdentifier</td>
+      <td><code><a href="https://www.grid.ac/institutes/">https://www.grid.ac/institutes/</a></code></td>
+      <td><code>grid.270680.b</code></td>
+      <td><code><a href="https://www.grid.ac/institutes/grid.270680.b">https://www.grid.ac/institutes/grid.270680.b</a></code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="https://www.crossref.org/services/funder-registry/" title="CrossRef Funder Identifier"><em>CrossRef Funder ID</em></a></td>
+      <td>funderIdentifier</td>
+      <td><code><a href="https://doi.org/">https://doi.org/</a></code></td>
+      <td><code>10.13039/501100000900</code></td>
+      <td><code><a href="https://doi.org/10.13039/501100000900">https://doi.org/10.13039/501100000900</a></code></td>
       <td><em>testing</em></td>
       <td></td>
     </tr>
