@@ -5,9 +5,9 @@ This API is a proof-of-concept of the implementation of DataCite+DCAT-AP in an [
 
 More precisely, DataCite+DCAT-API uses the standard OAI-PMH parameter `metadataPrefix` to determine the DataCite+DCAT-AP profile to be used (core or extended).
 
-The document containing the DataCite records to be transformed is specified by a DataCite+DCAT-API-specific parameter `src`, whereas parameter `outputFormat` specifies the RDF serialisation to be returned. Both these parameter are not part of the OAI-PMH interface. 
+The document containing the DataCite records to be transformed is specified by parameter `src`, whereas parameter `outputFormat` determines the RDF serialisation to be returned. Both these parameters are not part of the OAI-PMH interface. 
 
-The API uses the [DataCite+DCAT-AP XSLT](https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/iso-19139-to-dcat-ap) to transform DataCite records into DataCite+DCAT-AP. As such, the API works both on static files including the records, and on the OAI-PMH output of a `GetRecords` or `GetRecordById` request.
+The API uses the [DataCite+DCAT-AP XSLT](https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap) to transform DataCite records into DataCite+DCAT-AP. As such, the API works both on static files including the records, and on the OAI-PMH endpoint output of a `ListRecords` or `GetRecord` request.
 
 # API specification
 
