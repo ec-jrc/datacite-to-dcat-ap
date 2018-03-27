@@ -1295,7 +1295,7 @@
           <xsl:value-of select="normalize-space(*[local-name() = 'givenName'])"/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="normalize-space(substring-before($agentName, ','))"/>
+          <xsl:value-of select="normalize-space(substring-after($agentName, ','))"/>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
