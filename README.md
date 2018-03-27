@@ -6,6 +6,7 @@ As such, this XSLT must be considered as unstable, and can be updated any time b
 
 # Content
 
+* [`api/`](./api/): Proof-of-concept of the implementation of DataCite+DCAT-AP following the OAI-PMH interface.
 * [`documentation/`](./documentation/): Folder containing documentation on the XSLT:
     * [`Background.md`](./documentation/Background.md): Describes the background and methodology for the design of DataCite+DCAT-AP.
     * [`HowTo.md`](./documentation/HowTo.md): Describes how to use the XSLT.
