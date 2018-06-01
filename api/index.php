@@ -2,13 +2,13 @@
 
 // The API
 
-  $apiSrcRep = "https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap/browse/api";
+  $apiSrcRep = "https://github.com/ec-jrc/datacite-to-dcat-ap/tree/master/api";
 
 // Variables for API landing page.
 
   $title = "DataCite+DCAT-AP API";
   $head = '<link rel="stylesheet" type="text/css" href="./css/style.css"/>' . "\n";
-  $footer = '<p>' . $title . ' @ Stash: <a href="' . $apiSrcRep . '">' . $apiSrcRep . '</a></p>';
+  $footer = '<p>' . $title . ' @ GitHub: <a href="' . $apiSrcRep . '">' . $apiSrcRep . '</a></p>';
   $exampleSrcURL = "";
 
 // Loading the required libraries
@@ -22,7 +22,7 @@
     'label' => 'DCAT-AP',
     'description' => 'TBD',
     'url' => 'TBD',
-    'xslt' => 'https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap/browse/datacite-to-dcat-ap.xsl?raw',
+    'xslt' => 'https://raw.githubusercontent.com/ec-jrc/datacite-to-dcat-ap/master/datacite-to-dcat-ap.xsl',
     'params' => array(
       'profile' => 'core'
     )
@@ -31,7 +31,7 @@
     'label' => 'DataCite+DCAT-AP',
     'description' => 'TBD',
     'url' => 'TBD',
-    'xslt' => 'https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap/browse/datacite-to-dcat-ap.xsl?raw',
+    'xslt' => 'https://raw.githubusercontent.com/ec-jrc/datacite-to-dcat-ap/master/datacite-to-dcat-ap.xsl',
     'params' => array(
       'profile' => 'extended'
     )
@@ -40,7 +40,7 @@
 
 // XSLT to generate the HTML+RDFa serialisation
 
-  $rdf2rdfa = "https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/dcat-ap-rdf2html/browse/dcat-ap-rdf2rdfa.xsl?raw";
+  $rdf2rdfa = "https://github.com/SEMICeu/dcat-ap-rdf2html/raw/master/dcat-ap-rdf2rdfa.xsl";
 
 // Output formats
 
@@ -302,7 +302,7 @@
       <p>Supported OAI-PMH request types: <code>ListRecords</code>, <code>GetRecord</code>.</p>
       <p>Supported OAI-PMH output schema (<code>metadataPrefix</code>): <code>oai_datacite</code></p>
       <p><strong>NB</strong>: The current version of the API supports only OAI-PMH calls using the <code>GET</code> HTTP method.</p>
-      <p><em>A description of the DataCite+DCAT-AP API is available on the <a href="<?php echo $apiSrcRep; ?>">API's Stash repository</a>.</em></p>
+      <p><em>A description of the DataCite+DCAT-AP API is available on the <a href="<?php echo $apiSrcRep; ?>">API's GitHub repository</a>.</em></p>
     </section>
     <aside>
     </aside>

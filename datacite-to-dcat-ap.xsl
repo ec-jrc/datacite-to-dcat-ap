@@ -95,10 +95,9 @@
   - value "core": the DataCite+DCAT-AP Core profile, which includes only the DataCite metadata elements supported in DCAT-AP
   - value "extended": the DataCite+DCAT-AP Extended profile, which defines mappings for all the DataCite metadata elements
   
-  The current specifications for the core and extended DataCite+DCAT-AP profiles are available on the European Commission's 
-  Git repository:
+  The current specifications for the core and extended DataCite+DCAT-AP profiles are available on the JRC GitHub repository:
 
-    https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap/
+    https://github.com/ec-jrc/datacite-to-dcat-ap/
 
 -->
 

@@ -1,4 +1,3 @@
-﻿
 # The DataCite+DCAT-AP API (DataCite+DCAT-API)
 
 This API is a proof-of-concept of the implementation of DataCite+DCAT-AP in an [OAI-PMH endpoint](https://www.openarchives.org/pmh/), re-using the standard OAI-PMH interface, and supporting in addition [HTTP content negotiation](https://tools.ietf.org/html/rfc7231#section-3.4).
@@ -7,7 +6,7 @@ More precisely, DataCite+DCAT-API uses the standard OAI-PMH parameter `metadataP
 
 The document containing the DataCite records to be transformed is specified by parameter `src`, whereas parameter `outputFormat` determines the RDF serialisation to be returned. Both these parameters are not part of the OAI-PMH interface. 
 
-The API uses the [DataCite+DCAT-AP XSLT](https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap) to transform DataCite records into DataCite+DCAT-AP. As such, the API works both on static files including the records, and on the OAI-PMH endpoint output of a `ListRecords` or `GetRecord` request.
+The API uses the [DataCite+DCAT-AP XSLT](https://github.com/ec-jrc/datacite-to-dcat-ap) to transform DataCite records into DataCite+DCAT-AP. As such, the API works both on static files including the records, and on the OAI-PMH endpoint output of a `ListRecords` or `GetRecord` request.
 
 # API specification
 

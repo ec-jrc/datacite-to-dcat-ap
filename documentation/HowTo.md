@@ -61,7 +61,7 @@ This section provides examples of code from popular programming languages that c
   $xmlURL = "http://oai.datacite.org/oai?verb=ListRecords&metadataPrefix=oai_datacite";
 
 // The URL pointing to the latest version of the XSLT.
-  $xslURL = "https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap/browse/datacite-to-dcat-ap.xsl?raw";
+  $xslURL = "https://raw.githubusercontent.com/ec-jrc/datacite-to-dcat-ap/master/datacite-to-dcat-ap.xsl";
 
   $xml = new DOMDocument;
   $xml->load($xmlURL) or die();
@@ -86,7 +86,7 @@ import lxml.etree as ET
 xmlURL = "http://oai.datacite.org/oai?verb=ListRecords&metadataPrefix=oai_datacite"
 
 # The URL pointing to the latest version of the XSLT.
-xslURL = "https://webgate.ec.europa.eu/CITnet/stash/projects/ODCKAN/repos/datacite-to-dcat-ap/browse/datacite-to-dcat-ap.xsl?raw"
+xslURL = "https://raw.githubusercontent.com/ec-jrc/datacite-to-dcat-ap/master/datacite-to-dcat-ap.xsl"
 
 xml = ET.parse(xmlURL)
 xsl = ET.parse(xslURL)
