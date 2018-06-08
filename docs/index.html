@@ -1,0 +1,2583 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DataCite to DCAT-AP Mapping</title>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="content-language" content="en-GB"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <script class="remove" src="./respec-ec-common.js"></script>
+<!--
+    <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c-common"></script>
+    <script class="remove" src="respec-w3c-common.js"></script>
+-->
+    <script class="remove" src="./config.js"></script>
+    
+<!--
+<link type="text/css" rel="stylesheet" href="https://bootswatch.com/readable/bootstrap.css" media="screen"/>
+<link type="text/css" rel="stylesheet" href="/common/css/base.css" media="screen"/>
+-->
+<!--
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/readable/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="https://getbootstrap.com/docs/3.3/assets/css/docs.min.css"/>
+-->    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://bootswatch.com/3/bower_components/html5shiv/dist/html5shiv.js"></script>
+      <script src="https://bootswatch.com/3/bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+<!--    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://getbootstrap.com/docs/3.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://getbootstrap.com/docs/3.3/assets/js/docs.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('article').addClass('bs-docs-container clearfix container main').attr('role', 'main');
+        $('article > header').addClass('page-header');
+        $('article > footer').addClass('bs-doc-footer');
+        $('article section').addClass('bs-docs-section');
+        $('article nav#toc').attr('role', 'complementary');
+        $('table').addClass('table table-hover table-striped small');
+        $('#copyright').addClass('text-muted small');
+/*      
+        $('article').addClass('row');
+        $('article > header').addClass('col-md-9 col-md-offset-3');
+        $('article > footer').addClass('col-md-9 col-md-offset-3');
+        $('article > section').addClass('col-md-9 col-md-offset-3');
+        $('article nav#toc').addClass('bs-docs-sidebar col-md-3 affix').attr('role', 'complementary');
+        $('article nav#toc > ul').addClass('bs-docs-sidenav');
+        $('article nav#toc ul').addClass('nav');
+*/        
+      });
+    </script>    
+-->    
+    <style type="text/css">
+      table {font-size:small;}
+    </style>
+</head>
+<body>
+<!--
+<article>
+-->
+<!--
+<header>
+<h1>DataCite to DCAT-AP Mapping</h1>
+
+<dl>
+<dt>This version:</dt>
+<dd><a href="">http://</a></dd>
+<dt>Latest version:</dt>
+<dd><a href="">http://</a></dd>
+</dl>
+
+<p id="copyright">&copy; European Union, 2015-2018. Reuse is authorised, provided the source is acknowledged. The Commission's reuse policy is implemented by the <a href='http://data.europa.eu/eli/dec/2011/833/oj'>Decision of 12 December 2011 - reuse of Commission documents</a>.</p>
+
+</header>
+-->
+
+<section id="abstract" class="introductory">
+<h2>Abstract</h2>
+<p>This document describes the background and methodology for the design of the DataCite profile of DCAT-AP (DataCite+DCAT-AP), as well as the defined mappings.</p>
+<aside class="ednote">
+<p>This document is a draft meant to report work in progress concerning an exercise, carried out at the <a href="https://ec.europa.eu/jrc/">Joint Research Centre of the European Commission</a> (Units B.6 &amp; G.I.4), for the alignment of DataCite metadata with DCAT-AP.</p>
+<p>As such, it can be updated any time and it must be considered as unstable.</p>
+<p>Comments and queries should be sent via <a href="https://github.com/ec-jrc/datacite-to-dcat-ap/issues/">the issue tracker of the dedicated GitHub repository</a>.</p>
+</aside>
+</section>
+
+<section id="disclaimer" class="introductory">
+<h2>Disclaimer</h2>
+<p>The views expressed are purely those of the author and may not in any circumstances be regarded as stating an official position of the European Commission.</p>
+</section>
+
+<section id="sotd" class="introductory">
+<!--
+<h2>Status of this document</h2>
+-->
+</section>
+
+<nav id="toc">
+<!--
+<h2>Table of contents</h2>
+
+<ul>
+  <li><a href="#background">Background</a>
+    <ul>
+      <li><a href="#background-dcat-ap">The <em>DCAT Application Profile for Data Portals in Europe</em> (DCAT-AP)</a></li>
+      <li><a href="#background-datacite">DataCite</a></li>
+      <li><a href="#background-why">Aligning DataCite with DCAT-AP</a></li>
+    </ul>
+  </li>
+  <li><a href="#methodology">Methodology</a></li>
+  <li><a href="#comparison-with-dc2ap-and-datacite2rdf">Comparison with DC2AP &amp; DataCite2RDF</a></li>
+  <li><a href="#comparison">DataCite and DCAT-AP at a glance</a>
+    <ul>
+      <li><a href="#comparison-datacite-vs-dcat-ap">DataCite metadata elements supported in DCAT-AP</a></li>
+      <li><a href="#comparison-dcat-ap-vs-datacite">DCAT-AP classes and properties supported in DataCite</a></li>
+    </ul>
+  </li>
+  <li><a href="#alignment-issues">Summary of alignment issues</a>
+-->  
+<!--
+  <li><a href="#methodology">Methodology</a></li>
+-->
+<!--  
+  <li><a href="#used-namespaces">Used namespaces</a></li>
+  <li><a href="#ref-code-lists">Reference code lists for metadata elements</a></li>
+  <li><a href="#mapping-summary">Mapping summary</a>
+    <ul>
+      <li><a href="#mapping-1st-level">1st-level mappings</a></li>
+      <li><a href="#mapping-2nd-level">2nd-level mappings</a></li>
+      <li><a href="#mapping-identifiers">Identifiers</a></li>
+    </ul>
+  </li>
+-->  
+<!--
+  <li><a href="#mapping-individual">Mappings of individual metadata elements</a>
+    <ul>
+      <li><a href="#mapping-geo-id">Geographic identifier</a></li>
+      <li><a href="#mapping-bbox">Geographic bounding box</a></li>
+      <li><a href="#mapping-spatial-resolution">Spatial resolution</a></li>
+      <li><a href="#mapping-conformance-result">Conformance result / Conformity (Data quality)</a></li>
+      <li><a href="#mapping-responsible-party">Responsible party</a></li>
+      <li><a href="#mapping-crs">Coordinate reference system</a></li>
+      <li><a href="#mapping-format">Format / Encoding</a></li>
+      <li><a href="#">...</a></li>
+    </ul>
+  </li>
+-->
+<!--  
+</ul>
+-->
+</nav>
+
+<section id="introduction">
+<h2>Introduction</h2>
+<p>This document describes the background and methodology for the design of the DataCite profile of DCAT-AP (DataCite+DCAT-AP), as well as the defined mappings.</p>
+<p>An XSLT-based implementation of the defined mappings is available in <a href="">the dedicated Git repository</a>.</p>
+<p>The following sections first illustrate the background (<a class="sectionRef" href="#background"></a>) and the methodology (<a class="sectionRef" href="#methodology"></a>) for the design of DataCite+DCAT-AP, along with an analysis of related work (<a class="sectionRef" href="#comparison-with-dc2ap-and-datacite2rdf"></a>). ...</p>
+<!--
+<ul>
+<li>... (<a class="sectionRef" href="#background"></a>)</li>
+<li>... (<a class="sectionRef" href="#methodology"></a>)</li>
+<li>... (<a class="sectionRef" href="#comparison-with-dc2ap-and-datacite2rdf"></a>)</li>
+<li>... (<a class="sectionRef" href="#comparison"></a>)</li>
+<li>... (<a class="sectionRef" href="#alignment-issues"></a>)</li>
+<li>... (<a class="sectionRef" href="#mapping-summary"></a>)</li>
+</ul>
+-->
+</section>
+
+<section id="background">
+
+<h2>Background</h2>
+
+<section id="background-dcat-ap">
+
+<h3>The <em>DCAT Application Profile for Data Portals in Europe</em> (DCAT-AP)</h3>
+
+<p>DCAT-AP [[DCAT-AP]] is a metadata profile developed in the framework of the EU Programme <a href="http://ec.europa.eu/isa/"><em>Interoperability Solutions for European Public Administrations</em></a> (ISA), and based on and compliant with the W3C Data Catalog vocabulary (DCAT) [[VOCAB-DCAT]] - currently, one of the most widely used Semantic Web vocabularies for describing datasets and data catalogues.</p>
+<p>The purpose of DCAT-AP is to define a common interchange metadata format for data portals of the EU and of EU Member States. In order to achieve this, DCAT-AP defines a set of classes and properties, grouped into mandatory, recommended and optional. Such classes and properties correspond to information on datasets and data catalogues that are shared by many European data portals, aiding interoperability. Although DCAT-AP is designed to be independent from its actual implementation, RDF [[RDF-CONCEPTS]] and Linked Data [[LD-BOOK]] are the reference technologies.</p>
+
+</section>
+
+<section id="background-datacite">
+
+<h3>DataCite</h3>
+
+<p><a href="https://www.datacite.org/">DataCite</a> is an international initiative meant to enable citation for scientific datasets. To achieve this, DataCite operates a metadata infrastructure, following the same approach used by CrossRef for scientific publications. As such, the DataCite infrastructure is responsible for issuing persistent identifiers (in particular, <abbr title="Digital Object Identifier">DOI</abbr>s) for datasets, and for registering dataset metadata. Such metadata are to be provided according to the DataCite metadata schema - which is basically an extension to the DOI one.</p>
+<p>Currently, DataCite is the de facto standard for data citation. Therefore, the ability to transform metadata records from and to the DataCite metadata schema would enable, respectively, the harvesting of DataCite records, and the publication of metadata records in the DataCite infrastructure (thus enabling their citation).</p>
+
+</section>
+
+<section id="background-why">
+
+<h3>Aligning DataCite with DCAT-AP</h3>
+
+<p>The motivation for investigating the possiblity of aligning DataCite metadata with DCAT-AP is twofold:</p>
+
+<ol>
+	<li>To identify how to create a DCAT-AP-compliant representation of DataCite metadata, in order to enable their sharing across DCAT-AP-enabled data catalogues. This analysis is not meant to provide a complete representation of all DataCite metadata elements, but only of those included in DCAT-AP.</li>
+	<li>To identify how to create a DataCite-compliant representation of DCAT-AP metadata, in order to enable their publishing on the DataCite infrastructure. This analysis is meant to develop an extension of DCAT-AP, covering all DataCite metadata elements.</li>
+</ol>
+
+<p>About point (2), the DataCite-based extension of DCAT-AP is also meant to integrate into DCAT-AP all the information required for data citation.</p>
+
+<p>Based on these considerations, two versions of a DataCite profile of DCAT-AP have been defined, namely, DataCite+DCAT-AP Core (addressing the requirements of point (1)) and DataCite+DCAT-AP Extended (addressing the requirements of point (2)). More precisely, the core version includes alignments only for the subset of DataCite metadata elements included in the DCAT-AP specification, whereas the extended version tries to defines alignments for all the DataCite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not offer suitable candidates). As such, DataCite+DCAT-AP Extended is a superset of DataCite+DCAT-AP Core, and both are conformant with DCAT-AP.</p>
+
+</section>
+
+</section>
+
+<section id="methodology">
+
+<h2>Methodology</h2>
+
+<p>The reference DCAT-AP and DataCite specifications on which DataCite+DCAT-AP is based are the following ones:</p>
+<ul>
+<li>DCAT-AP v1.1 (October 2015) [[DCAT-AP-20151023]]</li>
+<li>GeoDCAT-AP v1.0.1 (August 2016) [[GeoDCAT-AP-20160802]]</li>
+<li>DataCite v4.1 (October 2017) [[DataCite-20171023]]</li>
+</ul>
+<p>
+<p>For the mappings, existing work has been taken into account concerning the mapping of DataCite to other metadata standards. In particular:</p>
+<ul>
+<!--
+<li>The DataCite to Dublin Core mappings defined in <a href="https://schema.datacite.org/meta/kernel-2.2/">version 2.2 of the DataCite metadata schema specification</a> (July 2011)</li>
+<li>The RDF bindings defined in the <a href="https://docs.google.com/document/d/1paJgvmCMu3pbM4in6PjWAKO0gP-6ultii3DWQslygq4/edit">DataCite2RDF mapping document</a> (April 2011)</li>
+-->
+<li>DataCite Dublin Core Application Profile (DC2AP). Version 1. (February 2016) [[DC2AP]]</li>
+<li>DataCite2RDF: Mapping DataCite Metadata Schema 3.1 Terms to RDF. Version 3.3 (February 2016) [[DataCite2RDF]]</li>
+</ul>
+<p>DataCite+DCAT-AP builds upon these specifications to provide an as much as possible complete mapping of all the metadata elements in version 4.1 of the DataCite metadata schema. Moreover, the defined mappings are backward compatible with earlier versions of the DataCite metadata schema.</p>
+<p>The resulting mappings have been grouped into two classes, corresponding to two different DataCite+DCAT-AP profiles:</p>
+<ul>
+<li><strong>DataCite+DCAT-AP Core</strong>: This profile defines alignments for the subset of DataCite metadata elements supported by DCAT-AP.</li>
+<li><strong>DataCite+DCAT-AP Extended</strong>: This profile defines alignments for all the DataCite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not provide suitable candidates).</li>
+</ul>
+<p>As far as the extended profile is concerned, the reference vocabularies have been chosen based on the following criteria:</p>
+<ol>
+<li>They have clear persistence and versioning policies.</li>
+<li>Preferably, they should be used across domains and data communities.</li>
+</ol>
+<p>These criteria are determining the main differences with the mappings defined in DC2AP and DC2RDF, that are illustrated in the following section.</p>
+
+</section>
+<section id="comparison-with-dc2ap-and-datacite2rdf">
+
+<h2>Comparison with DC2AP &amp; DataCite2RDF</h2>
+
+<p>DC2AP and DataCite2RDF provide a full mapping of version 3.1 of the DataCite metadata schema. To achieve this, they re-use a number of vocabularies, that can be grouped into two main classes:</p>
+<ol>
+<li>General purpose and widely used vocabularies, such as Dublin Core, FOAF, GeoSPARQL, and SKOS.</li>
+<li>A set of vocabularies developed specifically to model the publishing and academic domain. They include PRISM (<em>Publishing Requirements for Industry Standard Metadata</em>) [[PRISM]] and FRBR (<em>Functional Requirements for Bibliographic Records</em>) [[FRBR]], plus a set of ontologies developed in the framework of the <a href="http://www.sparontologies.net/">SPAR</a> (<em>Semantic Publishing and Referencing Ontologies</em>) project.</li>
+</ol>
+<p>The current version of DataCite+DCAT-AP follows the mappings based on the former group of vocabularies, but not the ones based on the latter group. The reason is twofold. First, the persistence and versioning policies of these vocabularies are unclear, and so it has been considered safer to re-consider their use when DataCite+DCAT-AP is more consolidated. Second, the mappings defined in DC2AP and DataCite2RDF are not compliant with the general requirements of DCAT-AP. For instance, despite the resource types defined in DataCite include datasets and metadata records, DC2AP and DataCite2RDF do not make use of DCAT.</p>
+<p>It is worth noting that the second group of ontologies, and in particular the ones developed in the SPAR project, provide interesting solutions to modelling some aspects not explicitly addressed in DCAT-AP - e.g., the possibility of associating a temporal dimension to agent roles - but also alternative solutions for specifying the same information - one of the examples being resource identifiers. Complementing and aligning the different approaches would be mutually beneficial.</p>
+
+</section>
+<section id="comparison">
+
+<h2>DataCite and DCAT-AP at a glance</h2>
+
+<p>The following sections provide a high-level comparison of the metadata elements defined in DataCite and DCAT-AP.</p>
+
+<section id="comparison-datacite-vs-dcat-ap">
+
+<h3>DataCite metadata elements supported in DCAT-AP</h3>
+
+<p>The following table provides the complete list of DataCite metadata elements, and shows whether they are supported in DCAT-AP.</p>
+<p>For each of the DataCite metadata elements, the table specifies whether they are mandatory (<strong><abbr title="mandatory">M</abbr></strong>), recommended (<em><abbr title="recommended">R</abbr></em>), or optional (<abbr title="optional">O</abbr>).</p>
+
+<table class="simple">
+  <thead>
+    <tr>
+      <th colspan="2">DataCite 4.1</th>
+      <th rowspan="2">DCAT-AP 1.1</th>
+      <th rowspan="2">Comments</th>
+    </tr>
+    <tr>
+      <th>Elements</th>
+      <th>Obligation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Identifier</td>
+      <td><strong>M</strong></td>
+      <td><em>Partially</em></td>
+      <td>DataCite <strong>requires</strong> this to be a DOI, whereas DCAT-AP does not have such requirement</td>
+    </tr>
+    <tr>
+      <td>Creator</td>
+      <td><strong>M</strong></td>
+      <td><strong>No</strong></td>
+      <td>This agent role is supported in GeoDCAT-AP</td>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td><strong>M</strong></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Publisher</td>
+      <td><strong>M</strong></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Publication year</td>
+      <td><strong>M</strong></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Subject</td>
+      <td><em>R</em></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Contributor</td>
+      <td><em>R</em></td>
+      <td><em>Partially</em></td>
+      <td>
+        <p>DCAT-AP supports only 1 out of the 21 DataCite contributor types (namely, contact point / person).</p>
+        <p>GeoDCAT-AP supports 1 additional DataCite contributor type, namely, rights holder.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td><em>R</em></td>
+      <td><em>Partially</em></td>
+      <td>
+        <p>DCAT-AP supports only 2 out of the 9 DataCite date types (namely, issue date and last modified date)</p>
+        <p>GeoDCAT-AP supports also an additional date type, namely, creation date.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Resource type</td>
+      <td><em>R</em></td>
+      <td><em>Partially</em></td>
+      <td>
+        <p>DCAT-AP supports just one resource type, namely, <code>dcat:Dataset</code>. All DataCite resource types fall under the definition of <code>dcat:Dataset</code>, with the exception of event, physical object, and service. The last one (i.e., service) is however supported in GeoDCAT-AP.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Related identifier</td>
+      <td><em>R</em></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td><em>R</em></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Geolocation</td>
+      <td><em>R</em></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Language</td>
+      <td>O</td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Alternate identifier</td>
+      <td>O</td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Size</td>
+      <td>O</td>
+      <td>Yes</td>
+      <td>In DCAT-AP, this is a property of the dataset distribution, and not of the dataset itself</td>
+    </tr>
+    <tr>
+      <td>Format</td>
+      <td>O</td>
+      <td>Yes</td>
+      <td>In DCAT-AP, this is a property of the dataset distribution, and not of the dataset itself</td>
+    </tr>
+    <tr>
+      <td>Version</td>
+      <td>O</td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Rights</td>
+      <td>O</td>
+      <td>Yes</td>
+      <td>
+        <p>DataCite does not use specific elements for use conditions (i.e., licences) and access rights, </p>
+        <p>In DCAT-AP, use conditions are a property of the dataset distribution, whereas access rights are associated with the dataset.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Funding Reference</td>
+      <td>O</td>
+      <td><strong>No</strong></td>
+      <td>This element specifies: (a) title, identifier and, possibly, URI of the funding project, and (b) name and identifier of the organisation who awarded that project</td>
+    </tr>
+  </tbody>
+</table>
+
+</section>
+
+<section id="comparison-dcat-ap-vs-datacite">
+
+<h3>DCAT-AP classes and properties supported in DataCite</h3>
+
+<p>The following table provides the list of classes and properties defined in DCAT-AP, and shows whether they are supported in DataCite.</p>
+<p><strong>NB</strong>: The list of DCAT-AP classes and properties is here limited to those that are either mandatory (<strong>M</strong>) or recommended (<em>R</em>).</p>
+
+<table class="simple">
+  <thead>
+    <tr>
+      <th colspan="4">DCAT-AP 1.1</th>
+      <th rowspan="2">DataCite 4.1</th>
+      <th rowspan="2">Comments</th>
+    </tr>
+    <tr>
+      <th>Classes</th>
+      <th>Obligation</th>
+      <th>Properties</th>
+      <th>Obligation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">Agent</td>
+      <td rowspan="2"><strong>M</strong></td>
+      <td>name</td>
+      <td><strong>M</strong></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td><em>R</em></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="10">Catalogue</td>
+      <td rowspan="10"><strong>M</strong></td>
+      <td>dataset</td>
+      <td><strong>M</strong></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td><strong>M</strong></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>publisher</td>
+      <td><strong>M</strong></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td><strong>M</strong></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>homepage</td>
+      <td><em>R</em></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>language</td>
+      <td><em>R</em></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>licence</td>
+      <td><em>R</em></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>release date</td>
+      <td><em>R</em></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>themes</td>
+      <td><em>R</em></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>update / modification date</td>
+      <td><em>R</em></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="7">Dataset</td>
+      <td rowspan="7"><strong>M</strong></td>
+      <td>description</td>
+      <td><strong>M</strong></td>
+      <td>Yes</td>
+      <td>In DataCite, this property is recommended, not mandatory</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td><strong>M</strong></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>contact point</td>
+      <td><em>R</em></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>dataset distribution</td>
+      <td><em>R</em></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>keyword / tag</td>
+      <td><em>R</em></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>publisher</td>
+      <td><em>R</em></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>theme / category</td>
+      <td><em>R</em></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Category</td>
+      <td><em>R</em></td>
+      <td>preferred label</td>
+      <td><strong>M</strong></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Category scheme</td>
+      <td><em>R</em></td>
+      <td>title</td>
+      <td><strong>M</strong></td>
+      <td>Yes</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="4">Distribution</td>
+      <td rowspan="4"><em>R</em></td>
+      <td>accessURL</td>
+      <td><strong>M</strong></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td><em>R</em></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>format</td>
+      <td><em>R</em></td>
+      <td>Yes</td>
+      <td>In DataCite, this is always a property of the resource itself - even when such resource is a dataset</td>
+    </tr>
+    <tr>
+      <td>licence</td>
+      <td><em>R</em></td>
+      <td>Yes</td>
+      <td>In DataCite, this is always a property of the resource itself - even when such resource is a dataset</td>
+    </tr>
+    <tr>
+      <td>Licence document</td>
+      <td><em>R</em></td>
+      <td>type</td>
+      <td><em>R</em></td>
+      <td><strong>No</strong></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+</section>
+
+</section>
+
+<section id="alignment-issues">
+
+<h2>Summary of alignment issues</h2>
+
+<p>As shown in the previous section, DCAT-AP is able to represent all DataCite mandatory elements, with the exception of "creator". This poses an issue for the possible use of DCAT-AP for data citation purposes, since element "creator" is one of the required components. Notably, GeoDCAT-AP supports this agent role, so it can re-used for this purpose.</p>
+<p>On the other hand, DataCite includes all the DCAT-AP mandatory classes and related properties, with the only notable exception of <code>dcat:Catalog</code>. However, this does not pose particular compliance issues, since the catalogue description could be obtained separately from the relevant DataCite records. Actually, since DataCite records are supposed to be all available via the DataCite catalogue, the catalogue description can potentially be the same for all DataCite records. Of course, this does not apply for those records following the DataCite schema but not registered in the DataCite infrastructure.</p>
+
+<p>There are however some key differences on the DCAT-AP and DataCite data models that needs to be addressed. The following sections outline the solutions adopted in DataCite+DCAT-AP, as well as open issues.</p>
+
+<section id="alignment-issues-resource-types">
+
+<h3>Resource types</h3>
+
+<p>DataCite supports 14 different resource types - namely: audiovisual, collection, dataset, event, image, interactive resource, model, physical object, service, software, sound, text, workflow, other. They basically corresponds to the classes included in the DCMI Type vocabulary, with the exception of model and workflow.</p>
+<p>The definition of <code>dcat:Dataset</code> is broad enough to cover most of the DataCite resource type, the exceptions being event, physical object, service, which are not supported in DCAT-AP. Moreover, the notion of "service" is supported in GeoDCAT-AP via <a href="http://dublincore.org/documents/dcmi-terms/#dcmitype-Service"><code>dctype:Service</code></a>. For the rest, it is possible to re-use the DCMI Type vocabulary, which includes classes for event (<a href="http://dublincore.org/documents/dcmi-terms/#dcmitype-Event"><code>dctype:Event</code></a>) and physical object (<a href="http://dublincore.org/documents/dcmi-terms/#dcmitype-PhysicalObject"><code>dctype:Event</code></a>).</p>
+<p>DataCite+DCAT-AP re-uses the approach outlined above. Moreover, in order to preserve the original information, it uses <code>dct:type</code> with the relevant classes of the DCMI Type vocabulary to denote the DataCite resource type. This is basically the solution adopted in GeoDCAT-AP to model the resource types defined in ISO 19115 - namely, dataset, dataset series, and services.</p>
+<p>As said above, the DCMI Type vocabulary does not include classes for model and workflow, and no suitable candidates have been found in the reference vocabularies. As a result, in DataCite+DCAT-AP are both modelled only as <code>dcat:Dataset</code>'s, thus loosing the original information.</p>
+
+</section>
+
+<section id="alignment-issues-identifiers">
+
+<h3>Identifiers</h3>
+
+<p>The requirements are basically the following ones:</p>
+<ul>
+<li>DataCite requires the dataset identifier to be a DOI.</li>
+<li>DataCite distinguishes between primary and secondary identifiers.</li>
+<li>DataCite models the "type" of identifier (DOIs, <abbr title="Open Research and Contributor Identifier">ORCID</abbr>s, <abbr title="International Standard Name Identifier">ISNI</abbr>s, <abbr title="International Standard Serial Identifier">ISSN</abbr>s, etc.).</li>
+</ul>
+<p>DCAT-AP already provides a mechanism to model primary and secondary identifiers, as well as the identifier type. More precisely:</p>
+<ul>
+<li>Property <a href="http://purl.org/dc/terms/#terms-identifier"><code>dct:identifier</code></a> is used to model primary identifiers.</li>
+<li>Property <a href="https://www.w3.org/TR/vocab-adms/#adms-identifier"><code>adms:identifier</code></a> is used to model secondary/alternative identifiers.</li>
+<li>Class <a href="https://www.w3.org/TR/vocab-adms/#identifier"><code>adms:Identifier</code></a> allows the specification of information about the identifier - identifier scheme included.</li>
+</ul>
+<p>Such solutions are basically reflecting the DataCite approach to model identifiers. However, identifiers modelled in this way are of no use for effectively linking the relevant resources. For this purpose, an option would be encoding identifiers as HTTP URIs, whenever possible. This is the case, e.g., for ORCIDs, ISNIs, and DOIs. About the ability to modelling differently primary and secondary/alternative identifiers, the resource URI can denote the primary identifier, whereas URIs corresponding to alternative identifiers can be specified by using <a href="https://www.w3.org/TR/owl-ref/#sameAs-def"><code>owl:sameAs</code></a>.</p>
+<p>Based on what said above, DataCite+DCAT-AP models identifiers as follows:</p>
+<ul>
+<li>Identifiers are encoded as HTTP URIs, whenever possible, or URNs, using <code>owl:sameAs</code> for URIs concerning secondary/alternative identifiers.</li>
+<li>In addition:
+<ul>
+<li>Primary identifiers are specified, as literals, with <code>dct:identifier</code>.</li>
+<li>Secondary/alternative identifiers are specified, as literals, with <code>adms:identifier</code>.</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+<section id="alignment-issues-related-resource">
+
+<h3>Related resource</h3>
+
+<p>DataCite supports the possibility of specifying references to resources related to the described in the metadata record via element RelatedIdentifier, carrying an optional attribute that can be used to express the related resource type.</p>
+<p>Roughly half of the supported related resource "types" (25, in total) correspond to the ones defined in Dublin Core. Moreover, with the exception of type "IsIdenticalTo", they denote a relationship (e.g., "IsReferencedBy") and its inverse (e.g., "References").</p>
+<p>Based on this DataCite+DCAT-AP models this information as follows:</p>
+<ul>
+<li>The default mapping of element RelatedIdentifier is <code>dct:relation</code></li>
+<li>Dublin Core [[DCTERMS]] is used for all the relevant related resource types (i.e., 9, excluding <code>dct:relation</code>)</li>
+<li>3 are modelled by using FOAF [[FOAF]]</li>
+<li>3 are modelled by using Schema.org [[SCHEMA-ORG]]</li>
+<li>1 ("IsIdenticalTo") is modelled by using OWL (<code>owl:sameAs</code>) [[OWL-REF]]</li>
+<li>1 ("IsSourceOf") is modelled by using the W3C PROV Ontology [[PROV-O]] (<code>prov:hadDerivation</code>)</li>
+<li>1 ("IsDescribedBy") is modelled by using the W3C POWDER-S Vocabulary [[POWDER-S]] (<code>wdrs:describedby</code>)</li>
+<li>11 are left unmapped, since the reference vocabularies do not provide suitable candidates</li>
+</ul>
+<p>DCAT-AP supports 6 of the mapped related resource types. All the other ones are supported only in the extended profile of DataCite+DCAT-AP.</p>
+
+</section>
+
+<section id="alignment-issues-agent-roles">
+
+<h3>Agent roles</h3>
+
+<p>DataCite supports three main types of agent roles, namely, creator, publisher, and contributor. The last can be further specialised by specifying a contributor "type". DataCite supports 22 contributor types, including, e.g., "contact person", "editor", "funder", "producer", "rights holder", "sponsor", "other".</p>
+<p>DCAT-AP supports only two agent roles, namely, publisher and contact point (corresponding to contributor type "contact person" in DataCite). GeoDCAT-AP includes other two DataCite agent roles - namely, creator and rights holder.</p>
+<p>As a result, together, DCAT-AP and GeoDCAT-AP cover publisher, creator, and 2 contributor types, namely, contact point and rights holder. For the other ones, DataCite+DCAT-AP includes the following mappings:</p>
+<ul>
+<li><a href="http://purl.org/dc/terms/#terms-contributor"><code>dct:contributor</code></a> is used when the contributor is untyped, or when the contributor type is "other".</li>
+<li><a href="http://schema.org/editor"><code>schema:editor</code></a>, <a href="http://schema.org/funder"><code>schema:funder</code></a>, <a href="http://schema.org/producer"><code>schema:producer</code></a>, and  <a href="http://schema.org/sponsor"><code>schema:sponsor</code></a> are used for the corresponding DataCite contributor types.</li>
+<li><a href="https://www.w3.org/TR/vocab-duv/#Property:hasDistributor"><code>duv:hasDistributor</code></a> is used for the corresponding DataCite contributor type.</li>
+</ul>
+<p>It is worth noting that some of the DataCite contributor types cannot be modelled with a direct relationship. This is the case of roles "project leader", "project manager", "project member", "researcher", "supervisor", and "workpackage leader". Such roles are not directly describing the relationship between a resource and an agent, but rather the role of the individual in the "activity" that created the resource. E.g., "project leader" can be described as "the leader of the project that created the resource".</p>
+<p>In such cases, the approach used in DataCite+DCAT-AP is as follows:</p>
+<ul>
+<li>The resource is linked to the agent (<code>foaf:Agent</code>) with property <code>dct:contributor</code></li>
+<li>The agent is linked to the activity (<code>prov:Activity</code>) with a property denoting the role played</li>
+<li>The activity is linked to the resource with property <code>prov:wasGeneratedBy</code></li>
+</ul>
+<p>In case of roles "project leader", "project manager", and "project member", the activity is additionally typed as a <code>foaf:Project</code>.</p>
+<p>The following code snippet shows how contributor type "project member" is modelled in DataCite+DCAT-AP:</p>
+<!--
+<aside id="ex-project-member" class="example">
+-->
+<pre class="example">
+a:Dataset a dcat:Dataset ;
+  dct:contributor a:Contributor ;
+  prov:wasGeneratedBy a:Project .
+
+a:Contributor a foaf:Agent , prov:Agent .
+
+a:Project a prov:Activity , foaf:Project ;
+  foaf:member a:Contributor .
+</pre>
+<!--
+</aside>
+-->
+
+<p>The issue is that the reference vocabularies does not provide candidates for modelling such contributor types, with the exception of "project member".</p>
+<p>For the remaining 14 DataCite contributor types, no candidates have been found in the reference vocabularies, so they are left unmapped in DataCite+DCAT-AP.</p>
+
+</section>
+
+<section id="alignment-issues-distributions">
+
+<h3>Distributions</h3>
+
+<p>The DataCite data model does not distinguish between a dataset and its embodiment(s) ("distribution(s)",  in the DCAT terminology).</p>
+<p>As a consequence, attributes that in DCAT/DCAT-AP are specific to distributions (as format, licence, size), in DataCite are associated with the dataset. Moreover, in DataCite there is no attribute equivalent to <code>dcat:accessURL</code> or <code>dcat:downloadURL</code>. Actually, the only information that can be used to access the dataset, and, possibly, its distribution(s), is the resource DOI.</p>
+<p>Based on this, the approach used in DataCite+DCAT-AP to map DataCite records is as follows:</p>
+<ol>
+<li>If the described resource is an event, physical object, or service (i.e., if it cannot be modelled as a dataset), the notion of "distribution" does not apply. Therefore, all DataCite elements are used in DataCite+DCAT-AP to describe the resource. Otherwise:</li>
+<li>Each record is modelled in DataCite+DCAT-AP as a dataset (<code>dcat:Dataset</code>), having exactly 1 distribution.</li>
+<li>The resulting distribution gets the relevant DataCite elements (as format, licence, size), as per the DCAT/DCAT-AP schema, whereas the remaining ones are used to describe the dataset.</li>
+<li>The dataset DOI is used both as the dataset identifier / URI and as the distribution access URL.</li>
+</ol>
+
+</section>
+
+<section id="alignment-issues-use-and-access-conditions">
+
+<h3>Use and access conditions</h3>
+
+<p>DataCite includes a single element, namely, "rights", to specify use and access conditions. This element is also supported in DCAT-AP (<code>dct:rights</code>), but, in addition, specific properties are used for use conditions (<code>dct:license</code>) and access rights (<code>dct:accessRights</code>). Moreover, in DCAT-AP use conditions are associated with distributions, whereas access rights with datasets.</p>
+<p>Based on this, DataCite+DCAT-AP maps by default DataCite "rights" to <code>dct:rights</code>. In addition, they are mapped to <code>dct:license</code> and <code>dct:accessRights</code> when DataCite rights make explicit reference to some known licences and access rights vocabularies. More precisely, the recognised vocabularies are the following ones:</p>
+<ul>
+<li>For licences:
+<ul>
+<li><a href="https://creativecommons.org/">Creative Commons licences</a></li>
+<li>The licence code list maintained by the Publications Office of the EU [[MDR-LICENCES]]</li>
+</ul>
+</li>
+<li>For access rights:
+<ul>
+<li>EU-Repo access rights vocabulary [[EU-REPO-AR]]</li>
+<li>ePrints access rights vocabulary [[EPRINTS-AR]]</li>
+<li>The access rights code list maintained by the Publications Office of the EU [[MDR-AR]]</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+<section id="alignment-issues-keywords-and-controlled-vocabularies">
+
+<h3>Keywords and controlled vocabularies</h3>
+
+<p>DataCite supports the specification of both free-text keywords and keywords from controlled vocabularies.</p>
+<p>For the latter case, DCAT-AP recommends the use of URIs, but in DataCite only textual labels are used.</p>
+<p>To comply with the DCAT-AP recommendation, an option is to implement mappings from textual labels to URIs. However, this poses two main issues:</p>
+<ol>
+<li>DataCite does not require / recommend the use of specific vocabularies, nor a particular format for the textual labels.</li>
+<li>It is often the case that no URIs are available for the used vocabularies.</li>
+</ol>
+<p>Such situation makes it difficult the effective implementation of vocabulary mapping.</p>
+<p>For this reason, DataCite+DCAT-AP preserve keywords from controlled vocabularies as textual labels.</p>
+
+</section>
+
+</section>
+
+<section id="used-namespaces">
+
+<h2>Used namespaces</h2>
+
+<table class="simple">
+  <thead>
+    <tr>
+      <th>Prefix</th>
+      <th>Namespace URI</th>
+      <th>Schema &amp; documentation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>adms</code></td>
+      <td><code><a href="http://www.w3.org/ns/adms#">http://www.w3.org/ns/adms#</a></code></td>
+      <td>Asset Description Metadata Schema [[VOCAB-ADMS]]</td>
+    </tr>
+<!--    
+    <tr>
+      <td><code>cnt</code></td>
+      <td><code><a href="http://www.w3.org/2011/content#">http://www.w3.org/2011/content#</a></code></td>
+      <td>Representing Content in RDF 1.0 [[Content-in-RDF]]</td>
+    </tr>
+-->    
+    <tr>
+      <td><code>dc</code></td>
+      <td><code><a href="http://purl.org/dc/elements/1.1/">http://purl.org/dc/elements/1.1/</a></code></td>
+      <td>Dublin Core Metadata Element Set, Version 1.1 [[DC11]]</td>
+    </tr>
+    <tr>
+      <td><code>dcat</code></td>
+      <td><code><a href="http://www.w3.org/ns/dcat#">http://www.w3.org/ns/dcat#</a></code></td>
+      <td>Data Catalog Vocabulary [[VOCAB-DCAT]]</td>
+    </tr>
+    <tr>
+      <td><code>dct</code></td>
+      <td><code><a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a></code></td>
+      <td>DCMI Metadata Terms [[DCTERMS]]</td>
+    </tr>
+    <tr>
+      <td><code>duv</code></td>
+      <td><code><a href="http://www.w3.org/ns/duv#">http://www.w3.org/ns/duv#</a></code></td>
+      <td>Dataset Usage Vocabulary [[VOCAB-DUV]]</td>
+    </tr>
+<!--    
+    <tr>
+      <td><code>earl</code></td>
+      <td><code><a href="http://www.w3.org/ns/earl#">http://www.w3.org/ns/earl#</a></code></td>
+      <td>Evaluation and Report Language (EARL) 1.0 [[EARL10]]</td>
+    </tr>
+-->
+    <tr>
+      <td><code>foaf</code></td>
+      <td><code><a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a></code></td>
+      <td>FOAF Vocabulary [[FOAF]]</td>
+    </tr>
+    <tr>
+      <td><code>frapo</code></td>
+      <td><code><a href="http://purl.org/cerif/frapo/">http://purl.org/cerif/frapo/</a></code></td>
+      <td>FRAPO, the Funding, Research Administration and Projects Ontology [[FRAPO]]</td>
+    </tr>
+    <tr>
+      <td><code>geo</code></td>
+      <td><code><a href="http://www.w3.org/2003/01/geo/wgs84_pos#">http://www.w3.org/2003/01/geo/wgs84_pos#</a></code></td>
+      <td>W3C Basic Geo (WGS84 lat/long) vocabulary [[W3C-BASIC-GEO]]</td>
+    </tr>
+    <tr>
+      <td><code>gsp</code></td>
+      <td><code><a href="http://www.opengis.net/ont/geosparql#">http://www.opengis.net/ont/geosparql#</a></code></td>
+      <td>GeoSPARQL - A Geographic Query Language for RDF Data [[GeoSPARQL]]</td>
+    </tr>
+    <tr>
+      <td><code>locn</code></td>
+      <td><code><a href="http://www.w3.org/ns/locn#">http://www.w3.org/ns/locn#</a></code></td>
+      <td>ISA Programme Core Location Vocabulary [[LOCN]]</td>
+    </tr>
+    <tr>
+      <td><code>org</code></td>
+      <td><code><a href="http://www.w3.org/ns/org#">http://www.w3.org/ns/org#</a></code></td>
+      <td>The Organization Ontology [[VOCAB-ORG]]</td>
+    </tr>
+    <tr>
+      <td><code>owl</code></td>
+      <td><code><a href="http://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a></code></td>
+      <td>OWL Web Ontology Language Reference [[OWL-REF]]</td>
+    </tr>
+    <tr>
+      <td><code>prov</code></td>
+      <td><code><a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a></code></td>
+      <td>PROV-O: The PROV Ontology [[PROV-O]]</td>
+    </tr>
+    <tr>
+      <td><code>rdf</code></td>
+      <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a></code></td>
+      <td>Resource Description Framework (RDF): Concepts and Abstract Syntax [[RDF-CONCEPTS]]</td>
+    </tr>
+    <tr>
+      <td><code>rdfs</code></td>
+      <td><code><a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a></code></td>
+      <td>RDF Vocabulary Description Language 1.0: RDF Schema [[RDF-SCHEMA]]</td>
+    </tr>
+    <tr>
+      <td><code>schema</code></td>
+      <td><code><a href="http://schema.org/">http://schema.org/</a></code></td>
+      <td>schema.org [[SCHEMA-ORG]]</td>
+    </tr>
+    <tr>
+      <td><code>skos</code></td>
+      <td><code><a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a></code></td>
+      <td>SKOS Simple Knowledge Organization System - Reference [[SKOS-REFERENCE]]</td>
+    </tr>
+    <tr>
+      <td><code>vcard</code></td>
+      <td><code><a href="http://www.w3.org/2006/vcard/ns#">http://www.w3.org/2006/vcard/ns#</a></code></td>
+      <td>vCard Ontology [[vCARD-RDF]]</td>
+    </tr>
+    <tr>
+      <td><code>xsd</code></td>
+      <td><code><a href="http://www.w3.org/2001/XMLSchema">http://www.w3.org/2001/XMLSchema#</a></code></td>
+      <td>XML Schema Part 2: Datatypes Second Edition [[XMLSCHEMA-2]]</td>
+    </tr>
+    <tr>
+      <td><code>wdrs</code></td>
+      <td><code><a href="https://www.w3.org/2007/05/powder-s">https://www.w3.org/2007/05/powder-s#</a></code></td>
+      <td>Protocol for Web Description Resources (POWDER): POWDER-S Vocabulary (WDRS) [[POWDER-S]]</td>
+    </tr>
+  </tbody>
+</table>
+
+</section>
+
+<section id="ref-code-lists">
+
+<h2>Reference code lists for metadata elements</h2>
+<!--
+<p>For a number of INSPIRE metadata elements, this document proposes the use of URI code list registers. These registers include:</p>
+<ul>
+  <li>Code lists defined in the INSPIRE Metadata Regulation [<a href="http://eur-lex.europa.eu/eli/reg/com/2008/1205">INSPIRE-MD-REG</a>], and made available through the URI registers operated by the INSPIRE Registry [<a href="http://inspire.ec.europa.eu/registry/">INSPIRE-REGISTRY</a>].</li>
+  <li>URI registers operated by the Publications Office of the EU, whose use is recommended in DCAT-AP.</li>
+</ul>
+-->
+<table class="simple">
+  <thead>
+    <tr>
+      <th>DataCite metadata elements</th>
+      <th>Code list URI</th>
+      <th>Code lists</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Language</td>
+      <td><code><a href="http://publications.europa.eu/resource/authority/language">http://publications.europa.eu/resource/authority/language</a></code></td>
+      <td>Language register operated by the Metadata Registry of the Publications Office of the EU [[MDR-LANG]]</td>
+      <td>stable</td>
+    </tr>
+<!--    
+    <tr>
+      <td>Resource type</td>
+      <td><code><a href="http://inspire.ec.europa.eu/metadata-codelist/ResourceType">http://inspire.ec.europa.eu/metadata-codelist/ResourceType</a></code></td>
+      <td>Register operated by the INSPIRE Registry for resource types defined in ISO 19115</td>
+      <td>stable</td>
+    </tr>
+    <tr>
+      <td>Service type</td>
+      <td><code><a href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType">http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType</a></code></td>
+      <td>Register operated by the INSPIRE Registry for service types, as defined in [<a href="http://eur-lex.europa.eu/eli/reg/com/2008/1205">INSPIRE-MD-REG</a>]</td>
+      <td>stable</td>
+    </tr>
+    <tr>
+      <td>Topic category</td>
+      <td><code><a href="http://inspire.ec.europa.eu/metadata-codelist/TopicCategory">http://inspire.ec.europa.eu/metadata-codelist/TopicCategory</a></code></td>
+      <td>Register operated by the INSPIRE Registry for topic categories defined in ISO 19115</td>
+      <td>stable</td>
+    </tr>
+    <tr>
+      <td>Keyword denoting one of the INSPIRE spatial data themes</td>
+      <td><code><a href="http://inspire.ec.europa.eu/theme">http://inspire.ec.europa.eu/theme</a></code></td>
+      <td>INSPIRE spatial data theme register operated by the INSPIRE Registry</td>
+      <td>stable</td>
+    </tr>
+    <tr>
+      <td>Keyword denoting one of the spatial data service categories</td>
+      <td><code><a href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory">http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory</a></code></td>
+      <td>Register operated by the INSPIRE Registry for spatial data service categories defined in ISO 19119</td>
+      <td>stable</td>
+    </tr>
+    <tr>
+      <td>Degree of conformity</td>
+      <td><code><a href="http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity">http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity</a></code></td>
+      <td>Register operated by the INSPIRE Registry for degrees of conformity, as defined in [<a href="http://eur-lex.europa.eu/eli/reg/com/2008/1205">INSPIRE-MD-REG</a>]</td>
+      <td>stable</td>
+    </tr>
+    <tr>
+      <td>Responsible party role</td>
+      <td><code><a href="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole">http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole</a></code></td>
+      <td>Register operated by the INSPIRE Registry for responsible party roles, as defined in [<a href="http://eur-lex.europa.eu/eli/reg/com/2008/1205">INSPIRE-MD-REG</a>]</td>
+      <td>stable</td>
+    </tr>
+-->    
+    <tr>
+      <td rowspan="2">Format</td>
+      <td><code><a href="http://publications.europa.eu/resource/authority/file-type">http://publications.europa.eu/resource/authority/file-type</a></code></td>
+      <td>File type register operated by the Metadata Registry of the Publications Office of the EU [[MDR-FT]]</td>
+      <td>stable</td>
+    </tr>
+    <tr>
+      <td><code><a href="http://www.iana.org/assignments/media-types/">http://www.iana.org/assignments/media-types</a></code></td>
+      <td>IANA MIME Media Types register [[IANA-MEDIA-TYPES]]</td>
+      <td><em>testing</em></td>
+    </tr>
+<!--    
+    <tr>
+      <td rowspan="2">Maintenance frequency (Maintenance information)</td>
+      <td><code><a href="http://publications.europa.eu/resource/authority/frequency">http://publications.europa.eu/resource/authority/frequency</a></code></td>
+      <td>Frequency code register operated by the Metadata Registry of the Publications Office of the EU [<a href="http://publications.europa.eu/mdr/authority/frequency/">MDR-FR</a>]</td>
+      <td>stable</td>
+    </tr>
+    <tr>
+      <td><code>http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequencyCode</code></td>
+      <td>Register operated by the INSPIRE Registry for maintenance frequency codes defined in ISO 19115. The register is not yet available, and the code list URI is tentative.</td>
+      <td><strong>unstable</strong></td>
+    </tr>
+    <tr>
+      <td>Spatial representation type</td>
+      <td><code>http://inspire.ec.europa.eu/metadata-codelist/SpatialRepresentationTypeCode</code></td>
+      <td>Register operated by the INSPIRE Registry for spatial representation type codes defined in ISO 19115. The register is not yet available, and the code list URI is tentative.</td>
+      <td><strong>unstable</strong></td>
+    </tr>
+-->    
+  </tbody>
+</table>
+
+</section>
+
+<section id="mapping-summary">
+
+<h2>Mapping summary</h2>
+
+<p>The following section summarises the alignments defined in DataCite+DCAT-AP.</p>
+<p>The alignments are grouped as follows:</p>
+<ul>
+<li>Alignments for 1st-level DataCite metadata elements</li>
+<li>Alignments for 2nd-level DataCite metadata elements</li>
+<li>Alignments for identifiers used in DataCite records</li>
+</ul>
+<p>The alignments supported only in the extended profile of DataCite+DCAT-AP are in <strong>bold</strong>.</p>
+
+<section id="mapping-1st-level">
+
+<h3>1st-level mappings</h3>
+<p>The mappings illustrated in this section concern the 1st-level elements in the DataCite metadata schema.</p>
+<p>These elements specify properties / relationships that, in some cases, can be futher specialised with an attribute denoting their sub-type (e.g., the "type" of resource, the "type" of contributor, the "type" of related resource). For this reason, elements having a "type" attribute have both a <em>default</em> mapping for the element, and a specific mapping for the type. The default mapping is used in the following cases:</p>
+<ul>
+<li>The element "type" is not specified</li>
+<li>No mapping is specified for a given element "type"</li>
+</ul>
+<p>As a rule, the domain of the mappings is the one corresponding to the ResourceType element (i.e., <code>rdfs:Resource</code>, <code>dcat:Dataset</code>, <code>dctype:Service</code>, or <code>dctype:Event</code>). However, "starred" elements - i.e., elements whose name is preceded by an asterisk ("*") - are those having as domain <code>dcat:Distribution</code> when the resource is modelled as a <code>dcat:Dataset</code>.</p>
+
+<table class="simple">
+  <thead>
+    <tr>
+      <th rowspan="2">Element</th>
+      <th rowspan="2">Type</th>
+      <th colspan="2">Mappings</th>
+      <th rowspan="2">Mapping status</th>
+      <th rowspan="2">Comments</th>
+    </tr>
+    <tr>
+      <th>Property or RDF/XML attribute</th>
+      <th>Range</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="2" rowspan="5">Identifier</td>
+      <td><code>@rdf:about</code></td>
+      <td><code>rdfs:Resource</code> (URI reference)</td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>dct:identifier</code></td>
+      <td><code>xsd:anyURI</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>dcat:landingPage</code></td>
+      <td><code>rdfs:Resource</code> (URI reference)</td>
+      <td><em>testing</em></td>
+      <td>If the resource is modelled as a <code>dcat:Dataset</code></td>
+    </tr>
+    <tr>
+      <td><code>foaf:page</code></td>
+      <td><code>rdfs:Resource</code> (URI reference)</td>
+      <td><em>testing</em></td>
+      <td>If the resource is not modelled as a <code>dcat:Dataset</code></td>
+    </tr>
+    <tr>
+      <td>* <code>dcat:accessURL</code></td>
+      <td><code>rdfs:Resource</code> (URI reference)</td>
+      <td><em>testing</em></td>
+      <td>If the resource is modelled as a <code>dcat:Dataset</code>,  the domain is <code>dcat:Distribution</code></td>
+    </tr>
+    <tr>
+      <td colspan="2"><a title="see details" href="#mapping-creator">Creator</a></td>
+      <td><code>dct:creator</code></td>
+      <td><code>foaf:Agent</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="4">Title</td>
+      <td><em>default</em></td>
+      <td><code>dct:title</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>AlternativeTitle</td>
+      <td><code>dct:alternative</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Subtitle</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdf:PlainLiteral</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td><abbr title="To be done">TBD</abbr></td>
+    </tr>
+    <tr>
+      <td>TranslatedTitle</td>
+      <td><code>dct:title</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="2">Publisher</td>
+      <td><code>dct:publisher</code></td>
+      <td><code>foaf:Agent</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="2">PublicationYear</td>
+      <td><code>dct:issued</code></td>
+      <td><code>xsd:gYear</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="2" rowspan="2"><a title="see details" href="#mapping-subject">Subject</a></td>
+      <td><code>dct:subject</code></td>
+      <td><code>skos:Concept</code></td>
+      <td><em>testing</em></td>
+      <td>If the subject is associated with a subject scheme</td>
+    </tr>
+    <tr>
+      <td><code>dcat:keyword</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td>If the subject is not associated with a subject scheme</td>
+    </tr>
+    <tr>
+      <td rowspan="24"><a title="see details" href="#mapping-contributor">Contributor</a></td>
+      <td><em>default</em></td>
+      <td><strong><code>dct:contributor</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>ContactPerson</td>
+      <td><code>dcat:contactPoint</code></td>
+      <td><code>vcard:Individual</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>DataCollector</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>DataCurator</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>DataManager</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>Distributor</td>
+      <td><strong><code>duv:hasDistributor</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>Editor</td>
+      <td><strong><code>schema:editor</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>Funder</td>
+      <td><strong><code>schema:funder</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><em>testing</em></td>
+      <td>
+        <p>Only for the extended profile.</p>
+        <p>This element has been deprecated in DataCite 4.0, in favour of new element <a href="#mapping-funding-reference">FundingReference</a>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>HostingInstitution</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>Producer</td>
+      <td><strong><code>schema:producer</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>ProjectLeader</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>ProjectManager</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td rowspan="2">ProjectMember</td>
+      <td><strong><code>dct:contributor</code></strong></td>
+      <td rowspan="2"><strong><code>foaf:Agent</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td><strong>* <code>foaf:member</code></strong></td>
+      <td><em>testing</em></td>
+      <td>
+        <p>Only for the extended profile</p>
+        <p>The domain of property <code>foaf:member</code> is class <code>foaf:Project</code>.</p>
+        <p>The resource is linked to <code>foaf:Project</code> with property <code>prov:wasGeneratedBy</code>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>RegistrationAgency</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>RegistrationAuthority</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>RelatedPerson</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>Researcher</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>ResearchGroup</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>RightsHolder</td>
+      <td><strong><code>dct:rightsHolder</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>Sponsor</td>
+      <td><strong><code>schema:sponsor</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>Supervisor</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>WorkPackageLeader</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>Other</td>
+      <td><strong><code>dct:contributor</code></strong></td>
+      <td><strong><code>foaf:Agent</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td rowspan="10">Date</td>
+      <td><em>default</em></td>
+      <td><strong><code>dct:date</code></strong></td>
+      <td><strong><code>xsd:date</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>Accepted</td>
+      <td><strong><code>dct:dateAccepted</code></strong></td>
+      <td><strong><code>xsd:date</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>Available</td>
+      <td><strong><code>dct:available</code></strong></td>
+      <td><strong><code>xsd:date</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>Copyrighted</td>
+      <td><strong><code>dct:dateCopyrighted</code></strong></td>
+      <td><strong><code>xsd:date</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>Collected</td>
+      <td><strong><code>dct:created</code></strong></td>
+      <td><strong><code>xsd:date</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>Created</td>
+      <td><strong><code>dct:created</code></strong></td>
+      <td><strong><code>xsd:date</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>Issued</td>
+      <td><code>dct:issued</code></td>
+      <td><code>xsd:date</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Submitted</td>
+      <td><strong><code>dct:dateSubmitted</code></strong></td>
+      <td><strong><code>xsd:date</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>Updated</td>
+      <td><code>dct:modified</code></td>
+      <td><code>xsd:date</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Valid</td>
+      <td><strong><code>dct:valid</code></strong></td>
+      <td><strong><code>xsd:date</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td colspan="2">Language</td>
+      <td><code>dct:language</code></td>
+      <td><code>dct:LinguisticSystem</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="31">ResourceType</td>
+      <td><em>default</em></td>
+      <td><strong><code>rdf:type</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Audiovisual</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>dctype:MovingImage</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Collection</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>dctype:Collection</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td rowspan="2">DataPaper</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in DataCite v4.1</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Dataset</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>dctype:Dataset</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Event</td>
+      <td><strong><code>rdf:type</code></strong></td>
+      <td><strong><code>dctype:Event</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>dctype:Event</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Image</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>dctype:Image</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td rowspan="2">InteractiveResource</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>dctype:InteractiveResource</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Model</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td rowspan="2">PhysicalObject</td>
+      <td><strong><code>rdf:type</code></strong></td>
+      <td><strong><code>dctype:PhysicalObject</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>dctype:PhysicalObject</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Service</td>
+      <td><strong><code>rdf:type</code></strong></td>
+      <td><strong><code>dctype:Service</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>dctype:Service</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Software</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>dctype:Software</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Sound</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>dctype:Sound</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Text</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>dctype:Text</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Workflow</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td rowspan="2">Other</td>
+      <td><strong><code>rdf:type</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td colspan="2" rowspan="2">AlternateIdentifier</td>
+      <td><code>owl:sameAs</code></td>
+      <td>URI reference</td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>adms:identifier</code></td>
+      <td><code>adms:Identifier</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="32">RelatedIdentifier</td>
+      <td><em>default</em></td>
+      <td><code>dct:relation</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>IsCitedBy</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>Cites</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>IsSupplementTo</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>IsSupplementedBy</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>IsContinuedBy</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>Continues</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>HasMetadata</td>
+      <td><code>foaf:isPrimaryTopicOf</code></td>
+      <td><code>dcat:CatalogRecord</code> (URI reference)</td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>IsMetadataFor</td>
+      <td><strong><code>foaf:primaryTopic</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>IsNewVersionOf</td>
+      <td><code>dct:isVersionOf</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>IsPreviousVersionOf</td>
+      <td><code>dct:hasVersion</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>IsPartOf</td>
+      <td><strong><code>dct:isPartOf</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>HasPart</td>
+      <td><strong><code>dct:hasPart</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>IsReferencedBy</td>
+      <td><strong><code>dct:isReferencedBy</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>References</td>
+      <td><strong><code>dct:references</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>IsDocumentedBy</td>
+      <td><code>foaf:page</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Documents</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>IsCompiledBy</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>Compiles</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>IsVariantFormOf</td>
+      <td><strong><code>schema:isVariantOf</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>IsOriginalFormOf</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>IsIdenticalTo</td>
+      <td><strong><code>owl:sameAs</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>IsReviewedBy</td>
+      <td><strong><code>schema:review</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>Reviews</td>
+      <td><strong><code>schema:itemReviewed</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>IsDerivedFrom</td>
+      <td><code>dct:source</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>IsSourceOf</td>
+      <td><strong><code>prov:hadDerivation</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>Describes</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>IsDescribedBy</td>
+      <td><code>wdrs:describedby</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>HasVersion</td>
+      <td><code>dct:hasVersion</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>IsVersionOf</td>
+      <td><code>dct:isVersionOf</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Requires</td>
+      <td><code>dct:requires</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td>IsRequiredBy</td>
+      <td><code>dct:isRequiredBy</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+    <tr>
+      <td colspan="2">* Size</td>
+      <td><strong><code>dct:extent</code></strong></td>
+      <td><strong><code>dct:SizeOrDuration</code></strong></td>
+      <td><em>testing</em></td>
+      <td><p>If the resource is modelled as a <code>dcat:Dataset</code>,  the domain is <code>dcat:Distribution</code>.</p><p>Only for the extended profile.</p></td>
+    </tr>
+    <tr>
+      <td colspan="2" rowspan="2">* Format</td>
+      <td><code>dct:format</code></td>
+      <td><code>dct:MediaTypeOrExtent</code></td>
+      <td><em>testing</em></td>
+      <td><p>If not specified with a IANA media type</p><p>If the resource is modelled as a <code>dcat:Dataset</code>,  the domain is <code>dcat:Distribution</code>.</p></td>
+    </tr>
+    <tr>
+      <td><code>dcat:mediaType</code></td>
+      <td><code>dct:MediaTypeOrExtent</code> (URI reference)</td>
+      <td><em>testing</em></td>
+      <td><p>If specified with a IANA media type</p><p>If the resource is modelled as a <code>dcat:Dataset</code>,  the domain is <code>dcat:Distribution</code>.</p></td>
+    </tr>
+    <tr>
+      <td colspan="2">Version</td>
+      <td><code>owl:versionInfo</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="2"><a title="see details" href="#mapping-rights">* Rights</a></td>
+      <td><code>dct:rights</code></td>
+      <td><code>dct:RightsStatement</code></td>
+      <td><em>testing</em></td>
+      <td>If the resource is modelled as a <code>dcat:Dataset</code>,  the domain is <code>dcat:Distribution</code>.</td>
+    </tr>
+    <tr>
+      <td rowspan="6">Description</td>
+      <td><em>default</em></td>
+      <td><code>dct:description</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Abstract</td>
+      <td><code>dct:description</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Methods</td>
+      <td><code>dct:provenance</code></td>
+      <td><code>dct:ProvenanceStatement</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>SeriesInformation</td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong><code>??:??</code></strong></td>
+      <td><strong>unstable</strong></td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>TableOfContents</td>
+      <td><strong><code>dct:tableOfContents</code></strong></td>
+      <td><strong><code>rdf:PlainLiteral</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile.</td>
+    </tr>
+    <tr>
+      <td>Other</td>
+      <td><strong><code>rdfs:comment</code></strong></td>
+      <td><strong><code>rdf:PlainLiteral</code></strong></td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile.</td>
+    </tr>
+    <tr>
+      <td colspan="2"><a title="see details" href="#mapping-geolocation">GeoLocation</a></td>
+      <td><code>dct:spatial</code></td>
+      <td><code>dct:Location</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="2"><a title="see details" href="#mapping-funding-reference">FundingReference</a></td>
+      <td><strong><code>frapo:isFundedBy</code></strong></td>
+      <td><strong><code>foaf:Project</code></strong></td>
+      <td><em>testing</em></td>
+      <td>
+        <p>Element added in DataCite 4.0.</p>
+        <p>Only for the extended profile.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</section>
+
+<section id="mapping-2nd-level">
+
+<h3>2nd-level mappings</h3>
+<p>The mappings illustrated in this section concern the 2nd-level elements in the DataCite metadata schema.</p>
+<p>These elements, and the corresponding mappings, are grouped in the following classes:</p>
+<ul>
+<li>Elements with child elements</li>
+<li>Elements with attributes</li>
+</ul>
+
+<section id="elements-with-child-elements">
+<h4>Elements with child elements</h4>
+
+<table class="simple">
+  <thead>
+    <tr>
+      <th rowspan="2">Element</th>
+      <th rowspan="2">Child elements</th>
+      <th colspan="3">Mappings</th>
+      <th rowspan="2">Mapping status</th>
+      <th rowspan="2">Comments</th>
+    </tr>
+    <tr>
+      <th>Domain</th>
+      <th>Property or RDF/XML attribute</th>
+      <th>Range</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="5"><span id="mapping-creator">Creator</span></td>
+      <td>creatorName</td>
+      <td rowspan="5"><code>foaf:Agent</code></td>
+      <td><code>foaf:name</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>givenName</td>
+      <td><code>foaf:givenName</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>familyName</td>
+      <td><code>foaf:familyName</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>nameIdentifier</td>
+      <td><code>@rdf:about</code></td>
+      <td>URI reference</td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>affiliation</td>
+      <td><code>org:memberOf</code></td>
+      <td><code>foaf:Organization</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="10"><span id="mapping-contributor">Contributor</span></td>
+      <td rowspan="2">contributorName</td>
+      <td><code>foaf:Agent</code></td>
+      <td><code>foaf:name</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>vcard:Individual</code></td>
+      <td><code>vcard:fn</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td>If the contributor type is "ContactPerson"</td>
+    </tr>
+    <tr>
+      <td rowspan="2">givenName</td>
+      <td><code>foaf:Agent</code></td>
+      <td><code>foaf:givenName</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>vcard:Individual</code></td>
+      <td><code>vcard:given-name</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td>If the contributor type is "ContactPerson"</td>
+    </tr>
+    <tr>
+      <td rowspan="2">familyName</td>
+      <td><code>foaf:Agent</code></td>
+      <td><code>foaf:familyName</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>vcard:Individual</code></td>
+      <td><code>vcard:family-name</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td>If the contributor type is "ContactPerson"</td>
+    </tr>
+    <tr>
+      <td rowspan="2">nameIdentifier</td>
+      <td><code>foaf:Agent</code></td>
+      <td rowspan="2"><code>@rdf:about</code></td>
+      <td rowspan="2">URI reference</td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>vcard:Individual</code></td>
+      <td><em>testing</em></td>
+      <td>If the contributor type is "ContactPerson"</td>
+    </tr>
+    <tr>
+      <td rowspan="2">affiliation</td>
+      <td><code>foaf:Agent</code></td>
+      <td><code>org:memberOf</code></td>
+      <td><code>foaf:Organization</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>vcard:Individual</code></td>
+      <td><code>vcard:organization-name</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td>If the contributor type is "ContactPerson"</td>
+    </tr>
+    <tr>
+      <td rowspan="9"><span id="mapping-geolocation">GeoLocation</span></td>
+      <td rowspan="3">geoLocationPoint</td>
+      <td rowspan="9"><code>dct:Location</code></td>
+      <td><code>geo:lat_long</code></td>
+      <td><code>rdfs:Literal</code></td>
+      <td><em>testing</em></td>
+      <td rowspan="3">
+        <p>In DataCite 4.0, this information is specified by using 2 child elements - namely, <code>pointLatitude</code> and <code>pointLongitude</code>.</p>
+        <p>Earlier versions of DataCite use a literal instead.</p>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2"><code>locn:geometry</code></td>
+      <td><code>gsp:gmlLiteral</code></td>
+      <td rowspan="2"><em>testing</em></td>
+    </tr>
+    <tr>
+      <td><code>gsp:wktLiteral</code></td>
+    </tr>
+    <tr>
+      <td rowspan="3">geoLocationBox</td>
+      <td rowspan="2"><code>locn:geometry</code></td>
+      <td><code>gsp:wktLiteral</code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="3">
+        <p>In DataCite 4.0, this information is specified by using 4 child elements - namely, <code>northBoundLatitude</code>, <code>eastBoundLongitude</code>, <code>southBoundLatitude</code>, and <code>westBoundLongitude</code>.</p>
+        <p>Earlier versions of DataCite use a literal instead.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><code>gsp:gmlLiteral</code></td>
+    </tr>
+    <tr>
+      <td><code>schema:box</code></td>
+      <td><code>rdfs:Literal</code></td>
+      <td><em>testing</em></td>
+    </tr>
+    <tr>
+      <td rowspan="3">geoLocationPolygon</td>
+      <td rowspan="2"><code>locn:geometry</code></td>
+      <td><code>gsp:wktLiteral</code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="3">
+        <p>Element added in DataCite 4.0.</p>
+        <p>The polygon vertices are specified by using child element <code>geoPolygonPoint</code>. The coordinates of each vertex are specified by using two child elements - respectively, <code>pointLatitude</code> and <code>pointLongitude</code>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><code>gsp:gmlLiteral</code></td>
+    </tr>
+    <tr>
+      <td><code>schema:polygon</code></td>
+      <td><code>rdfs:Literal</code></td>
+      <td><em>testing</em></td>
+    </tr>
+    <tr>
+      <td rowspan="4"><span id="mapping-funding-reference">FundingReference</span></td>
+      <td><a href="#mapping-award-number">awardNumber</a></td>
+      <td rowspan="2"><code>foaf:Project</code></td>
+      <td><code>dct:identifier</code></td>
+      <td><code>xsd:string</code> | <code>xsd:anyURI</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>awardTitle</td>
+      <td><code>dct:title</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>* funderName</td>
+      <td rowspan="2"><code>foaf:Organization</code></td>
+      <td><code>foaf:name</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td rowspan="2">
+        <p>The "funding project" (<code>foaf:Project</code>) is linked to the "funder" (<code>foaf:Organization</code>) by using property <code>frapo:isAwardedBy</code>.</p>
+        <p>The domain is <code>foaf:Organization</code>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>* funderIdentifier</td>
+      <td><code>dct:identifier</code></td>
+      <td><code>xsd:string</code> | <code>xsd:anyURI</code></td>
+      <td><em>testing</em></td>
+    </tr>
+  </tbody>
+</table>
+
+</section>
+
+<section id="elements-with-attributes">
+<h4>Elements with attributes</h4>
+
+<table class="simple">
+  <thead>
+    <tr>
+      <th rowspan="2">Element</th>
+      <th rowspan="2">Textual content &amp; attributes</th>
+      <th colspan="3">Mappings</th>
+      <th rowspan="2">Mapping status</th>
+      <th rowspan="2">Comments</th>
+    </tr>
+    <tr>
+      <th>Domain</th>
+      <th>Property or RDF/XML attribute</th>
+      <th>Range</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="3"><span id="mapping-subject">Subject</span></td>
+      <td><em>textual content</em></td>
+      <td rowspan="2"><code>skos:Concept</code></td>
+      <td><code>skos:prefLabel</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>@schemeURI</td>
+      <td><code>skos:inScheme</code></td>
+      <td><code>skos:ConceptScheme</code> (URI reference)</td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>* @subjectScheme</td>
+      <td><code>skos:ConceptScheme</code></td>
+      <td><code>dct:title</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td>The domain is <code>skos:ConceptScheme</code></td>
+    </tr>
+    <tr>
+      <td rowspan="2"><span id="mapping-rights">Rights</span></td>
+      <td><em>textual content</em></td>
+      <td rowspan="2"><code>dct:RightsStatement</code></td>
+      <td><code>rdfs:label</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>@rightsURI</td>
+      <td><code>@rdf:about</code></td>
+      <td>URI reference</td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="2"><span id="mapping-award-number">awardNumber</span></td>
+      <td><em>textual content</em></td>
+      <td rowspan="2"><code>foaf:Project</code></td>
+      <td><code>dct:identifier</code></td>
+      <td><code>xsd:string</code> | <code>xsd:anyURI</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>@awardURI</td>
+      <td><code>@rdf:about</code></td>
+      <td>URI reference</td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+</section>
+
+</section>
+
+<section id="mapping-identifiers">
+
+<h3>Identifiers</h3>
+<p>DataCite supports the use of persistent identifiers to denote:</p>
+<ul>
+  <li>the described resource, and the related resources</li>
+  <li>resource creators and contributors</li>
+  <li>funders (i.e., the organisation funding the activity from which the described resource has been created)</li>
+</ul>
+<p>In DataCite, such identifiers are specified as follows:</p>
+<ul>
+<li>the identifier</li>
+<li>the identifier type / scheme name (e.g., <code>ORCID</code>, <code>ISNI</code>, <code>DOI</code>)</li>
+<li>optionally, the scheme URI (e.g., <code>http://orcid.org/</code>, <code>http://www.isni.org/</code>, <code>https://doi.org/</code>)</li>
+</ul>
+<p>In DataCite+DCAT-AP, all these identifiers are mapped to URIs, by concatenating the identifier in the DataCite record with a URI prefix defined for each identifier type / scheme. Whenever possible, dereferenceable HTTP URIs/URLs are used; otherwise, URNs.</p>
+<!--
+<p>This mapping is based on the name of the identifier type / scheme.</p>
+-->
+<p>Notably, DataCite provides code lists for the types / schemes of identifiers used to denote <a href="https://schema.datacite.org/meta/kernel-4.0/include/datacite-relatedIdentifierType-v4.xsd">resources</a> and <a href="https://schema.datacite.org/meta/kernel-4.0/include/datacite-funderIdentifierType-v4.xsd">funders</a>, but no code list is defined in DataCite for types / schemes of identifiers used to denote resource creators / contributors (the specification uses, as an example, "ORCID" and "ISNI").</p>
+<p>However, DataCite does not specify a code list for scheme URIs. So, the mapping between the identifier type / scheme implemented in DataCite+DCAT-AP is based on the relevant registries and examples in the DataCite metadata schema specification. No URI prefix is of course used if the identifier is already a URI (as URLs and URNs).</p>
+<p>The following table shows, for each identifier type / scheme, which is the URI prefix used in DataCite+DCAT-AP, along with examples of the results of such mappings. As mentioned above, all the identifier types / schemes in the table are defined as a code list in the DataCite metadata schema, with the exception of ORCID and ISNI (however, ISNI is defined in the code list for funder identifier types).</p>
+
+<table class="simple">
+  <thead>
+    <tr>
+      <th rowspan="2">Identifier type / scheme</th>
+      <th rowspan="2">Element(s)</th>
+      <th rowspan="2">URI prefix used in DataCite+DCAT-AP</th>
+      <th colspan="2">Example</th>
+      <th rowspan="2">Mapping status</th>
+      <th rowspan="2">Comments</th>
+    </tr>
+    <tr>
+      <th>Original</th>
+      <th>Transformed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://en.wikipedia.org/wiki/ORCID" title="Open Researcher and Contributor ID"><em>ORCID</em></a></td>
+      <td>nameIdentifier</td>
+      <td><code><a href="http://orcid.org/">http://orcid.org/</a></code></td>
+      <td><code>0000-0002-7285-027X</code></td>
+      <td><code><a href="http://orcid.org/0000-0002-7285-027X">http://orcid.org/0000-0002-7285-027X</a></code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Name_Identifier" title="International Standard Name Identifier"><em>ISNI</em></a></td>
+      <td>nameIdentifier</td>
+      <td rowspan="2"><code><a href="http://www.isni.org/">http://www.isni.org/</a></code></td>
+      <td rowspan="2"><code>0000000121032683</code></td>
+      <td rowspan="2"><code><a href="http://www.isni.org/0000000121032683">http://www.isni.org/0000000121032683</a></code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>funderIdentifier</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.grid.ac/" title="Global Research Identifier">GRID</a></td>
+      <td>funderIdentifier</td>
+      <td><code><a href="https://www.grid.ac/institutes/">https://www.grid.ac/institutes/</a></code></td>
+      <td><code>grid.270680.b</code></td>
+      <td><code><a href="https://www.grid.ac/institutes/grid.270680.b">https://www.grid.ac/institutes/grid.270680.b</a></code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="https://www.crossref.org/services/funder-registry/" title="CrossRef Funder Identifier">CrossRef Funder ID</a></td>
+      <td>funderIdentifier</td>
+      <td><code><a href="https://doi.org/">https://doi.org/</a></code></td>
+      <td><code>10.13039/501100000900</code></td>
+      <td><code><a href="https://doi.org/10.13039/501100000900">https://doi.org/10.13039/501100000900</a></code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="3"><a href="https://en.wikipedia.org/wiki/Digital_object_identifier" title="Digital Object Identifier">DOI</a></td>
+      <td>Identifier</td>
+      <td rowspan="3"><code><a href="https://doi.org/">https://doi.org/</a></code></td>
+      <td rowspan="3"><code>10.1016/j.epsl.2011.11.037</code></td>
+      <td rowspan="3"><code><a href="https://doi.org/10.1016/j.epsl.2011.11.037">https://doi.org/10.1016/j.epsl.2011.11.037</a></code></td>
+      <td rowspan="3"><em>testing</em></td>
+      <td rowspan="3"></td>
+    </tr>
+    <tr>
+      <td>AlternateIdentifier</td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Archival_Resource_Key" title="Archival Resource Key">ARK</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code><a href="http://n2t.net/">http://n2t.net/</a></code></td>
+      <td rowspan="2"><code>ark:/67531/metapth346793/</code></td>
+      <td rowspan="2"><code><a href="http://n2t.net/ark:/67531/metapth346793/">http://n2t.net/ark:/67531/metapth346793/</a></code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/ArXiv">ar&Chi;iv</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code><a href="http://arxiv.org/abs/">http://arxiv.org/abs/</a></code></td>
+      <td rowspan="2"><code>arXiv:0706.0001</code></td>
+      <td rowspan="2"><code><a href="http://arxiv.org/abs/0706.0001">http://arxiv.org/abs/0706.0001</a></code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2">The URI prefix replaces the namespace prefix <code>arXiv:</code> in the original identifier</td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Bibcode">bibcode</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code><a href="http://adsabs.harvard.edu/abs/">http://adsabs.harvard.edu/abs/</a></code></td>
+      <td rowspan="2"><code>2014Wthr...69...72C</code></td>
+      <td rowspan="2"><code><a href="http://adsabs.harvard.edu/abs/2014Wthr...69...72C">http://adsabs.harvard.edu/abs/2014Wthr...69...72C</a></code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Article_Number_(EAN)" title="International Article Number (EAN)">EAN13</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code>urn:ean-13:</code></td>
+      <td rowspan="2"><code>9783468111242</code></td>
+      <td rowspan="2"><code>urn:ean-13:9783468111242</code></td>
+      <td rowspan="2"><strong>unstable</strong></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Serial_Number#Electronic_ISSN" title="(Electronic) International Standard Serial Number">EISSN</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code>urn:issn:</code></td>
+      <td rowspan="2"><code>1562-6865</code></td>
+      <td rowspan="2"><code>urn:issn:1562-6865</code></td>
+      <td rowspan="2"><strong>unstable</strong></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Handle_System" title="Handle System">Handle</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code><a href="https://hdl.handle.net/">http://hdl.handle.net/</a></code></td>
+      <td rowspan="2"><code>10013/epic.10033</code></td>
+      <td rowspan="2"><code><a href="https://hdl.handle.net/10013/epic.10033">http://hdl.handle.net/10013/epic.10033</a></code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Geo_Sample_Number" title="International GeoSample Number">IGSN</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code><a href="http://hdl.handle.net/10273/">http://hdl.handle.net/10273/</a></code> (<code><a href="https://doi.org/10273/">https://doi.org/10273/</a></code>)</td>
+      <td rowspan="2"><code>SSH000SUA</code></td>
+      <td rowspan="2"><code><a href="http://hdl.handle.net/10273/SSH000SUA">http://hdl.handle.net/10273/SSH000SUA</a></code> (<code><a href="https://doi.org/10273/SSH000SUA">https://doi.org/10273/SSH000SUA</a></code>)</td>
+      <td rowspan="2">stable</td>
+      <td rowspan="2">Identifier type added in DataCite 4.0.</td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code>urn:isbn:</code></td>
+      <td rowspan="2"><code>978-3-905673-82-1</code></td>
+      <td rowspan="2"><code>urn:isbn:978-3-905673-82-1</code></td>
+      <td rowspan="2"><strong>unstable</strong></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Serial_Number#Electronic_ISSN" title="International Standard Serial Number">ISSN</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code>urn:issn:</code></td>
+      <td rowspan="2"><code>0077-5606</code></td>
+      <td rowspan="2"><code>urn:issn:0077-5606</code></td>
+      <td rowspan="2"><strong>unstable</strong></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Text_Code" title="International Standard Text Code">ISTC</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code><a href="http://istc-search-beta.peppertag.com/ptproc/IstcSearch?tFrame=IstcListing&tForceNewQuery=Yes&esfIstc=">http://istc-search-beta.peppertag.com/ptproc/IstcSearch?tFrame=IstcListing&amp;esfIstc=</a></code></td>
+      <td rowspan="2"><code>A12-2014-00013328-5</code></td>
+      <td rowspan="2"><code><a href="http://istc-search-beta.peppertag.com/ptproc/IstcSearch?tFrame=IstcListing&tForceNewQuery=Yes&esfIstc=A12-2014-00013328-5">http://istc-search-beta.peppertag.com/ptproc/IstcSearch?tFrame=IstcListing&tForceNewQuery=Yes&esfIstc=A12-2014-00013328-5</a></code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Serial_Number#Electronic_ISSN" title="(Linking) International Standard Serial Number">LISSN</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code>urn:issn:</code></td>
+      <td rowspan="2"><code>1188-1534</code></td>
+      <td rowspan="2"><code>urn:issn:1188-1534</code></td>
+      <td rowspan="2"><strong>unstable</strong></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/LSID" title="Life Science Identifier">LSID</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"></td>
+      <td rowspan="2"><code>urn:lsid:ubio.org:namebank:11815</code></td>
+      <td rowspan="2"><code>urn:lsid:ubio.org:namebank:11815</code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2"><p>LSIDs are implemented as URNs, following the pattern <code>urn:lsid:</code><var>authority</var><code>:</code><var>namespace</var><code>:</code><var>identifier</var><code>:</code><var>revision</var></p><p>URNs are URIs - no need for a URI prefix.</p></td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/PubMed#PubMed_identifier" title="PubMed Identifier">PMID</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code><a href="http://www.ncbi.nlm.nih.gov/pubmed/">http://www.ncbi.nlm.nih.gov/pubmed/</a></code></td>
+      <td rowspan="2"><code>12082125</code></td>
+      <td rowspan="2"><code><a href="http://www.ncbi.nlm.nih.gov/pubmed/12082125">http://www.ncbi.nlm.nih.gov/pubmed/12082125</a></code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Persistent_uniform_resource_locator" title="Persistent Uniform Resource Locator">PURL</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"></td>
+      <td rowspan="2"><code><a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a></code></td>
+      <td rowspan="2"><code><a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a></code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2">PURLs are HTTP URIs - no need for a URI prefix.</td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Universal_Product_Code" title="Universal Product Code">UPC</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"><code>urn:upc:</code></td>
+      <td rowspan="2"><code>123456789999</code></td>
+      <td rowspan="2"><code>urn:upc:123456789999</code></td>
+      <td rowspan="2"><strong>unstable</strong></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Uniform_Resource_Locator" title="Uniform Resource Locator">URL</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"></td>
+      <td rowspan="2"><code><a href="http://www.heatflow.und.edu/index2.html">http://www.heatflow.und.edu/index2.html</a></code></td>
+      <td rowspan="2"><code><a href="http://www.heatflow.und.edu/index2.html">http://www.heatflow.und.edu/index2.html</a></code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2">URLs are URIs - no need for a URI prefix.</td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Uniform_Resource_Name" title="Uniform Resource Name">URN</a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"></td>
+      <td rowspan="2"><code>urn:nbn:de:101:1-201102033592</code></td>
+      <td rowspan="2"><code>urn:nbn:de:101:1-201102033592</code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2">URNs are URIs - no need for a URI prefix.</td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+  </tbody>
+</table>
+
+</section>
+
+</section>
+
+<!--
+<footer>
+<p>&copy; European Union, 2015-2018.</p>
+<p>Reuse is authorised, provided the source is acknowledged. The Commission's reuse policy is implemented by the <a href='http://data.europa.eu/eli/dec/2011/833/oj'>Decision of 12 December 2011 - reuse of Commission documents</a>.</p>
+</footer>
+-->
+
+<!--
+</article>
+-->
+
+</body>
+</html>
+
