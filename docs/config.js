@@ -5,23 +5,23 @@ var respecConfig = {
     latestVersionURL: "https://ec-jrc.github.io/datacite-to-dcat-ap/",
 
 //	preProcess: [dfn_index],
-    logos: [{
-//      src: './images/eu-isa-programme.png',
-      src: "./images/eu-isa2-programme.jpg",
-//      url: 'https://ec.europa.eu/isa',
-      url: "https://ec.europa.eu/isa2",
-//      alt: "EU ISA Programme",
-//      title: "EU ISA Programme",
-      alt: "EU ISA² Programme",
-      title: "EU ISA² Programme",
-      width: 150,
-//      height: 42,
-      id: 'logo-eu-isa-programme',
-    }],
+//    logos: [{
+////      src: './images/eu-isa-programme.png',
+//      src: "./images/eu-isa2-programme.jpg",
+////      url: 'https://ec.europa.eu/isa',
+//      url: "https://ec.europa.eu/isa2",
+////      alt: "EU ISA Programme",
+////      title: "EU ISA Programme",
+//      alt: "EU ISA² Programme",
+//      title: "EU ISA² Programme",
+//      width: 150,
+////      height: 42,
+//      id: 'logo-eu-isa-programme',
+//    }],
 //    includePermalinks: true,
     doJsonLd: true,
     noRecTrack: true,    
-//    subtitle: "A geospatial extension for the DCAT application profile for data portals in Europe",
+//    subtitle: "",
     copyrightHolder: "European Union",
     copyrightURL: "https://europa.eu/",
     copyrightStart: 2015,
@@ -29,20 +29,20 @@ var respecConfig = {
 /*
     alternateFormats: [{
       label: "PDF",
-      uri: "http://data.europa.eu/w21/483d8c3f-b577-4fbb-ac05-fc55cdf44421",
+      uri: "",
     }, {
       label: "DOCX",
-      uri: "http://data.europa.eu/w21/f106d0e0-4777-4ae2-bfc7-54c4f1d72b79",
+      uri: "",
     }],    
 */
-    license: "isa-open-metadata",
+    license: "ec-notice",
     specStatus: "unofficial",
     shortName: "datacite-to-dcat-ap",
     canonicalURI: "https://ec-jrc.github.io/datacite-to-dcat-ap/",
-//    prevRecURI:           "https://joinup.ec.europa.eu/release/datacite-to-dcat-ap/v101",
+//    prevRecURI:           "",
 //    previousPublishDate:  "2016-08-02",
 //    previousMaturity:     "final",
-//    previousURI:          "https://joinup.ec.europa.eu/release/datacite-to-dcat-ap/v101",
+//    previousURI:          "",
     edDraftURI:           "https://ec-jrc.github.io/datacite-to-dcat-ap/",
     issueBase:            "https://github.com/ec-jrc/datacite-to-dcat-ap/issues/",
     github:               "https://github.com/ec-jrc/datacite-to-dcat-ap/",
@@ -95,29 +95,22 @@ var respecConfig = {
 //    otherLinks: [{
 //        key: "Contributors",
 //        data: [{
-//            value: "Makx Dekkers",
-//            href: "http://www.makxdekkers.com"
-//        },{
-//            value: "Antoine Isaac, Europeana Foundation",
-//            href: "https://pro.europeana.eu/person/antoine-isaac"
-//        },{
-//            value: "Andrea Perego, European Commission",
-//            href: "https://ec.europa.eu/jrc/en/research-topic/digital-earth"
-//        }]
+//            value: "",
+//            href: ""
+//        }
+//        ]
 //      },{
 //        key: "Editors of previous version",
 //        data: [{
-//            value: "Fadi Maali, DERI",
-//            href: "http://www.deri.ie/"
-//        },{
-//            value: "John Erickson, Tetherless World Constellation (RPI)",
-//            href: "http://tw.rpi.edu/"
-//        }]
+//            value: "",
+//            href: ""
+//        }
+//        ]
 //      }],
     wg: "JRC Data Support Team",
     wgURI: "",
-//    wgPublicList: "public-dxwg-comments",
-//    wgPatentURI: "https://www.w3.org/2004/01/pp-impl/99375/status",
+//    wgPublicList: "",
+//    wgPatentURI: "",
     inlineCSS: "true",
 	  lint: "false",
     localBiblio: {
