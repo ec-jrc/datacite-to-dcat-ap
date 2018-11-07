@@ -1997,7 +1997,11 @@
 <!-- Added in DataCite v4.0 -->    
     <xsl:variable name="igsn">https://hdl.handle.net/10273/</xsl:variable>
     <xsl:variable name="istc">http://istc-search-beta.peppertag.com/ptproc/IstcSearch?tFrame=IstcListing&amp;tForceNewQuery=Yes&amp;esfIstc=</xsl:variable>
+<!--    
     <xsl:variable name="issn">urn:issn:</xsl:variable>
+-->
+    <xsl:variable name="issn">http://issn.org/resource/ISSN/</xsl:variable>
+    <xsl:variable name="lissn">http://issn.org/resource/ISSN-L/</xsl:variable>
     <xsl:variable name="isbn">urn:isbn:</xsl:variable>
     <xsl:choose>
       <xsl:when test="$type = 'orcid'">
@@ -2047,7 +2051,7 @@
         <xsl:value-of select="concat($istc,$identifier)"/>
       </xsl:when>
       <xsl:when test="$type = 'lissn'">
-        <xsl:value-of select="concat($issn,$identifier)"/>
+        <xsl:value-of select="concat($lissn,$identifier)"/>
       </xsl:when>
       <xsl:when test="$type = 'lsid'">
         <xsl:value-of select="$identifier"/>
