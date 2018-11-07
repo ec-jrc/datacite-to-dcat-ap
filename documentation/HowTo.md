@@ -1,3 +1,8 @@
+> ## :warning: Warning
+> This documentation is out of date and no longer maintained. 
+>
+> The reference and up to date documentation is available at: https://ec-jrc.github.io/datacite-to-dcat-ap/
+
 # How to use the XSLT
 
 The XSLT can be run directly on the ouput of a OAI-PMH endpoint or on single metadata records, by using any of the programming languages supporting XSLT conversion.
