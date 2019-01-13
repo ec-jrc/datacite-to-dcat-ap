@@ -265,52 +265,52 @@ var respecConfig = {
         "date": "4 August 2015"
       },
       "MDR-AR":{
-        "href":"http://publications.europa.eu/mdr/authority/access-right/",
+        "href":"http://publications.europa.eu/resource/authority/access-right",
         "title":"Named Authority List: Access rights",
         "publisher":"Publications Office of the European Union"
        },
       "MDR-CONT":{
-        "href":"http://publications.europa.eu/mdr/authority/continent/",
+        "href":"http://publications.europa.eu/resource/authority/continent",
         "title":"Named Authority List: Continents",
         "publisher":"Publications Office of the European Union"
        },
       "MDR-COUNTRIES":{
-        "href":"http://publications.europa.eu/mdr/authority/countries/",
+        "href":"http://publications.europa.eu/resource/authority/country",
         "title":"Named Authority List: Countries",
         "publisher":"Publications Office of the European Union"
        },
       "MDR-EUROVOC":{
-        "href":"http://publications.europa.eu/mdr/eurovoc/",
+        "href":"http://publications.europa.eu/resource/dataset/eurovoc",
         "title":"EuroVoc",
         "publisher":"Publications Office of the European Union"
        },
       "MDR-FREQ":{
-        "href":"http://publications.europa.eu/mdr/authority/frequency/",
+        "href":"http://publications.europa.eu/resource/authority/frequency",
         "title":"Named Authority List: Frequencies",
         "publisher":"Publications Office of the European Union"
        },
       "MDR-FT":{
-        "href":"http://publications.europa.eu/mdr/authority/file-type/",
+        "href":"http://publications.europa.eu/resource/authority/file-type",
         "title":"Named Authority List: File types",
         "publisher":"Publications Office of the European Union"
        },
       "MDR-LANG":{
-        "href":"http://publications.europa.eu/mdr/authority/language/",
+        "href":"http://publications.europa.eu/resource/authority/language",
         "title":"Named Authority List: Languages",
         "publisher":"Publications Office of the European Union"
        },
       "MDR-LICENCES":{
-        "href":"http://publications.europa.eu/mdr/authority/licence/",
+        "href":"http://publications.europa.eu/resource/authority/licence",
         "title":"Named Authority List: Licences",
         "publisher":"Publications Office of the European Union"
        },
       "MDR-PLACES":{
-        "href":"http://publications.europa.eu/mdr/authority/place/",
+        "href":"http://publications.europa.eu/resource/authority/place",
         "title":"Named Authority List: Places",
         "publisher":"Publications Office of the European Union"
        },
       "MDR-THEMES":{
-        "href":"http://publications.europa.eu/mdr/authority/data-theme/",
+        "href":"http://publications.europa.eu/resource/authority/data-theme",
         "title":"Named Authority List: Data Themes",
         "publisher":"Publications Office of the European Union"
        },
