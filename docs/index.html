@@ -156,8 +156,25 @@
 <section id="introduction">
 <h2>Introduction</h2>
 <p>This document describes the background and methodology for the design of the DataCite profile of DCAT-AP (DataCite+DCAT-AP), as well as the defined mappings.</p>
-<p>An XSLT-based implementation of the defined mappings is available in <a href="https://github.com/ec-jrc/datacite-to-dcat-ap/">the dedicated GitHub repository</a>.</p>
-<p>The following sections first illustrate the background (<a class="sectionRef" href="#background"></a>) and the methodology (<a class="sectionRef" href="#methodology"></a>) for the design of DataCite+DCAT-AP, along with an analysis of related work (<a class="sectionRef" href="#comparison-with-dc2ap-and-datacite2rdf"></a>). ...</p>
+
+<p>The motivation for investigating the possiblity of aligning DataCite metadata with DCAT-AP is twofold:</p>
+
+<ol>
+	<li>To identify how to create a DCAT-AP-compliant representation of DataCite metadata, in order to enable their sharing across DCAT-AP-enabled data catalogues. This analysis is not meant to provide a complete representation of all DataCite metadata elements, but only of those included in DCAT-AP.</li>
+	<li>To identify how to create a DataCite-compliant representation of DCAT-AP metadata, in order to enable their publishing on the DataCite infrastructure. This analysis is meant to develop an extension of DCAT-AP, covering all DataCite metadata elements.</li>
+</ol>
+
+<p>The following sections first illustrate the background (<a class="sectionRef" href="#background"></a>) and the methodology (<a class="sectionRef" href="#methodology"></a>) for the design of DataCite+DCAT-AP, followed by an analysis of related work (<a class="sectionRef" href="#comparison-with-dc2ap-and-datacite2rdf"></a>). Then, a high level overview of the metadata elements supported in DCAT-AP and DataCite is provided (<a class="sectionRef" href="#comparison"></a>), along with a summary of mapping issues (<a class="sectionRef" href="#alignment-issues"></a>).</p>
+
+<p>The defined mappings are introduced in <a class="sectionRef" href="#mapping-summary"></a>, and grouped as follows:</p>
+
+<ul>
+<li>1st-level DataCite metadata elements (<a class="sectionRef" href="#mapping-1st-level"></a>)</li>
+<li>2nd-level DataCite metadata elements (<a class="sectionRef" href="#mapping-2nd-level"></a>)</li>
+<li>Identifiers used in DataCite records (<a class="sectionRef" href="#mapping-identifiers"></a>)</li>
+</ul>
+
+<p>The XSLT-based implementation of the defined mappings is included in appendix (<a class="sectionRef" href="#formal-definition-xslt"></a>).</p>
 <!--
 <ul>
 <li>... (<a class="sectionRef" href="#background"></a>)</li>
@@ -187,7 +204,7 @@
 
 <h3>DataCite</h3>
 
-<p><a href="https://www.datacite.org/">DataCite</a> is an international initiative meant to enable citation for scientific datasets. To achieve this, DataCite operates a metadata infrastructure, following the same approach used by CrossRef for scientific publications. As such, the DataCite infrastructure is responsible for issuing persistent identifiers (in particular, <abbr title="Digital Object Identifier">DOI</abbr>s) for datasets, and for registering dataset metadata. Such metadata are to be provided according to the DataCite metadata schema - which is basically an extension to the DOI one.</p>
+<p><a href="https://www.datacite.org/">DataCite</a> is an international initiative meant to enable citation for scientific datasets. To achieve this, DataCite operates a metadata infrastructure, following the same approach used by <a href="https://www.crossref.org/">CrossRef</a> for scientific publications. As such, the DataCite infrastructure is responsible for issuing persistent identifiers (in particular, <abbr title="Digital Object Identifier">DOI</abbr>s) for datasets, and for registering dataset metadata. Such metadata are to be provided according to the DataCite metadata schema - which is basically an extension to the DOI one.</p>
 <p>Currently, DataCite is the de facto standard for data citation. Therefore, the ability to transform metadata records from and to the DataCite metadata schema would enable, respectively, the harvesting of DataCite records, and the publication of metadata records in the DataCite infrastructure (thus enabling their citation).</p>
 
 </section>
