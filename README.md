@@ -7,10 +7,11 @@ As such, this XSLT must be considered as unstable, and can be updated any time b
 # Content
 
 * [`api/`](./api/): Proof-of-concept of the implementation of DataCite+DCAT-AP following the OAI-PMH interface.
-* [`documentation/`](./documentation/): Folder containing documentation on the XSLT:
-    * [`Background.md`](./documentation/Background.md): Describes the background and methodology for the design of DataCite+DCAT-AP.
-    * [`HowTo.md`](./documentation/HowTo.md): Describes how to use the XSLT.
-    * [`Mappings.md`](./documentation/Mappings.md): Provides a summary of the mappings from DataCite to DataCite+DCAT-AP.
+* [`docs/`](./docs/): Folder containing documentation on DataCite+DCAT-AP+Schema.org, published at: https://ec-jrc.github.io/datacite-to-dcat-ap/
+* ~~[`documentation/`](./documentation/): Folder containing documentation on the XSLT:~~
+    * ~~[`Background.md`](./documentation/Background.md): Describes the background and methodology for the design of DataCite+DCAT-AP.~~
+    * ~~[`HowTo.md`](./documentation/HowTo.md): Describes how to use the XSLT.~~
+    * ~~[`Mappings.md`](./documentation/Mappings.md): Provides a summary of the mappings from DataCite to DataCite+DCAT-AP.~~
 * [`datacite-to-dcat-ap.xsl`](./datacite-to-dcat-ap.xsl): The code of the XSLT.
 * [`LICENCE.md`](./LICENCE.md): The XSLT's licence.
 * [`README.md`](./README.md): This document. 
