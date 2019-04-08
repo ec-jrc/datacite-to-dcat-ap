@@ -15,6 +15,7 @@ var respecConfig = {
 //      id: 'logo-eu-isa-programme',
 //    }],
 //    includePermalinks: true,
+    addSectionLinks: true,
     doJsonLd: true,
     noRecTrack: true,    
 //    subtitle: "",
