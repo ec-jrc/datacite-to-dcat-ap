@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <title>DataCite to DCAT-AP Mapping</title>
 <meta charset="utf-8"/>
-<meta http-equiv="content-language" content="en-GB"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <!--
@@ -12,8 +11,9 @@
 -->
 <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c-common"></script>
 <script class="remove" src="./config.js"></script>
-<style type="text/css" class="remove">
+<style class="remove">
 table {font-size:small;}
+.disclaimer {font-size:.9em;}
 </style>
 </head>
 <body>
@@ -25,6 +25,11 @@ table {font-size:small;}
 <h1>DataCite to DCAT-AP Mapping</h1>
 </header>
 -->
+
+<aside id="disclaimer" class="disclaimer">
+<p>&#x2605;&nbsp;<strong>Disclaimer</strong>: The views expressed are purely those of the author and may not in any circumstances be regarded as stating an official position of the European Commission.</p>
+</aside>
+
 <section id="abstract" class="introductory">
 <h2>Abstract</h2>
 <p>This document describes the background and methodology for the design of the DataCite profile of DCAT-AP (DataCite+DCAT-AP), as well as the defined mappings.</p>
@@ -34,12 +39,12 @@ table {font-size:small;}
 <p>Comments and queries should be sent via <a href="https://github.com/ec-jrc/datacite-to-dcat-ap/issues/">the issue tracker of the dedicated GitHub repository</a>.</p>
 </aside>
 </section>
-
+<!--
 <section id="disclaimer" class="introductory">
 <h2>Disclaimer</h2>
 <p>The views expressed are purely those of the author and may not in any circumstances be regarded as stating an official position of the European Commission.</p>
 </section>
-
+-->
 <section id="sotd" class="introductory">
 <!--
 <h2>Status of this document</h2>
@@ -2556,15 +2561,9 @@ a:Project a prov:Activity , foaf:Project ;
 <p>The source XSLT is maintained in the dedicated <a href="https://github.com/ec-jrc/datacite-to-dcat-ap/">GitHub repository</a>.</p>
 
 <pre data-include="https://raw.githubusercontent.com/ec-jrc/datacite-to-dcat-ap/master/datacite-to-dcat-ap.xsl" data-include-format="text">
+</pre>
 
 </section>
-
-<!--
-<footer>
-<p>&copy; European Union, 2015-2018.</p>
-<p>Reuse is authorised, provided the source is acknowledged. The Commission's reuse policy is implemented by the <a href='http://data.europa.eu/eli/dec/2011/833/oj'>Decision of 12 December 2011 - reuse of Commission documents</a>.</p>
-</footer>
--->
 
 <!--
 </article>
