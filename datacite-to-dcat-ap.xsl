@@ -26,10 +26,10 @@
   PURPOSE AND USAGE
 
   This XSLT is a proof of concept for the implementation of the specification
-  concerning the DataCite profile of DCAT-AP (DataCite+DCAT-AP)
+  concerning the DataCite profile of DCAT-AP (CiteDCAT-AP)
     
   As such, this XSLT must be considered as unstable, and can be updated any 
-  time based on the revisions to the DataCite+DCAT-AP specifications.  
+  time based on the revisions to the CiteDCAT-AP specifications.  
 -->
 
 <xsl:transform
@@ -91,21 +91,21 @@
 <!-- Parameter $profile -->
 <!--
 
-  This parameter specifies the DataCite+DCAT-AP profile to be used:
-  - value "core": the DataCite+DCAT-AP Core profile, which includes only the DataCite metadata elements supported in DCAT-AP
-  - value "extended": the DataCite+DCAT-AP Extended profile, which defines mappings for all the DataCite metadata elements
+  This parameter specifies the CiteDCAT-AP profile to be used:
+  - value "core": the CiteDCAT-AP Core profile, which includes only the DataCite metadata elements supported in DCAT-AP
+  - value "extended": the CiteDCAT-AP Extended profile, which defines mappings for all the DataCite metadata elements
   
-  The current specifications for the core and extended DataCite+DCAT-AP profiles are available on the JRC GitHub repository:
+  The current specifications for the core and extended CiteDCAT-AP profiles are available on the JRC GitHub repository:
 
     https://github.com/ec-jrc/datacite-to-dcat-ap/
 
 -->
 
-<!-- Uncomment to use DataCite+DCAT-AP Core -->
+<!-- Uncomment to use CiteDCAT-AP Core -->
 <!--
   <xsl:param name="profile">core</xsl:param>
 -->
-<!-- Uncomment to use DataCite+DCAT-AP Extended -->
+<!-- Uncomment to use CiteDCAT-AP Extended -->
   <xsl:param name="profile">extended</xsl:param>
 
 <!--

@@ -32,7 +32,7 @@ table {font-size:small;}
 
 <section id="abstract" class="introductory">
 <h2>Abstract</h2>
-<p>This document describes the background and methodology for the design of the DataCite profile of DCAT-AP (DataCite+DCAT-AP), as well as the defined mappings.</p>
+<p>This document describes the background and methodology for the design of the DataCite profile of DCAT-AP (CiteDCAT-AP), as well as the defined mappings.</p>
 <aside class="ednote">
 <p>This document is a draft meant to report work in progress concerning an exercise, carried out at the <a href="https://ec.europa.eu/jrc/">Joint Research Centre of the European Commission</a> (Units B.6 &amp; G.I.4), for the alignment of DataCite metadata with DCAT-AP.</p>
 <p>As such, it can be updated any time and it must be considered as unstable.</p>
@@ -108,7 +108,7 @@ table {font-size:small;}
 
 <section id="introduction">
 <h2>Introduction</h2>
-<p>This document describes the background and methodology for the design of the DataCite profile of DCAT-AP (DataCite+DCAT-AP), as well as the defined mappings.</p>
+<p>This document describes the background and methodology for the design of the DataCite profile of DCAT-AP (CiteDCAT-AP), as well as the defined mappings.</p>
 
 <p>The motivation for investigating the possiblity of aligning DataCite metadata with DCAT-AP is twofold:</p>
 
@@ -117,7 +117,7 @@ table {font-size:small;}
 	<li>To identify how to create a DataCite-compliant representation of DCAT-AP metadata, in order to enable their publishing on the DataCite infrastructure. This analysis is meant to develop an extension of DCAT-AP, covering all DataCite metadata elements.</li>
 </ol>
 
-<p>The following sections first illustrate the background (<a class="no-sectionRef" href="#background"></a>) and the methodology (<a class="no-sectionRef" href="#methodology"></a>) for the design of DataCite+DCAT-AP, followed by an analysis of related work (<a class="no-sectionRef" href="#comparison-with-dc2ap-and-datacite2rdf"></a>). Then, a high level overview of the metadata elements supported in DCAT-AP and DataCite is provided (<a class="no-sectionRef" href="#comparison"></a>), along with a summary of mapping issues (<a class="no-sectionRef" href="#alignment-issues"></a>).</p>
+<p>The following sections first illustrate the background (<a class="no-sectionRef" href="#background"></a>) and the methodology (<a class="no-sectionRef" href="#methodology"></a>) for the design of CiteDCAT-AP, followed by an analysis of related work (<a class="no-sectionRef" href="#comparison-with-dc2ap-and-datacite2rdf"></a>). Then, a high level overview of the metadata elements supported in DCAT-AP and DataCite is provided (<a class="no-sectionRef" href="#comparison"></a>), along with a summary of mapping issues (<a class="no-sectionRef" href="#alignment-issues"></a>).</p>
 
 <p>The defined mappings are introduced in <a class="no-sectionRef" href="#mapping-summary"></a>, and grouped as follows:</p>
 
@@ -175,7 +175,7 @@ table {font-size:small;}
 
 <p>About point (2), the DataCite-based extension of DCAT-AP is also meant to integrate into DCAT-AP all the information required for data citation.</p>
 
-<p>Based on these considerations, two versions of a DataCite profile of DCAT-AP have been defined, namely, DataCite+DCAT-AP Core (addressing the requirements of point (1)) and DataCite+DCAT-AP Extended (addressing the requirements of point (2)). More precisely, the core version includes alignments only for the subset of DataCite metadata elements included in the DCAT-AP specification, whereas the extended version tries to defines alignments for all the DataCite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not offer suitable candidates). As such, DataCite+DCAT-AP Extended is a superset of DataCite+DCAT-AP Core, and both are conformant with DCAT-AP.</p>
+<p>Based on these considerations, two versions of a DataCite profile of DCAT-AP have been defined, namely, CiteDCAT-AP Core (addressing the requirements of point (1)) and CiteDCAT-AP Extended (addressing the requirements of point (2)). More precisely, the core version includes alignments only for the subset of DataCite metadata elements included in the DCAT-AP specification, whereas the extended version tries to defines alignments for all the DataCite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not offer suitable candidates). As such, CiteDCAT-AP Extended is a superset of CiteDCAT-AP Core, and both are conformant with DCAT-AP.</p>
 
 </section>
 
@@ -185,7 +185,7 @@ table {font-size:small;}
 
 <h2>Methodology</h2>
 
-<p>The reference DCAT-AP and DataCite specifications on which DataCite+DCAT-AP is based are the following ones:</p>
+<p>The reference DCAT-AP and DataCite specifications on which CiteDCAT-AP is based are the following ones:</p>
 <ul>
 <li>DCAT-AP v1.2 (November 2018) [[DCAT-AP-20181108]]</li>
 <li>GeoDCAT-AP v1.0.1 (August 2016) [[GeoDCAT-AP-20160802]]</li>
@@ -201,11 +201,11 @@ table {font-size:small;}
 <li>DataCite Dublin Core Application Profile (DC2AP). Version 1. (February 2016) [[DC2AP]]</li>
 <li>DataCite2RDF: Mapping DataCite Metadata Schema 3.1 Terms to RDF. Version 3.3 (February 2016) [[DataCite2RDF]]</li>
 </ul>
-<p>DataCite+DCAT-AP builds upon these specifications to provide an as much as possible complete mapping of all the metadata elements in version 4.1 of the DataCite metadata schema. Moreover, the defined mappings are backward compatible with earlier versions of the DataCite metadata schema.</p>
-<p>The resulting mappings have been grouped into two classes, corresponding to two different DataCite+DCAT-AP profiles:</p>
+<p>CiteDCAT-AP builds upon these specifications to provide an as much as possible complete mapping of all the metadata elements in version 4.1 of the DataCite metadata schema. Moreover, the defined mappings are backward compatible with earlier versions of the DataCite metadata schema.</p>
+<p>The resulting mappings have been grouped into two classes, corresponding to two different CiteDCAT-AP profiles:</p>
 <ul>
-<li><strong>DataCite+DCAT-AP Core</strong>: This profile defines alignments for the subset of DataCite metadata elements supported by DCAT-AP.</li>
-<li><strong>DataCite+DCAT-AP Extended</strong>: This profile defines alignments for all the DataCite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not provide suitable candidates).</li>
+<li><strong>CiteDCAT-AP Core</strong>: This profile defines alignments for the subset of DataCite metadata elements supported by DCAT-AP.</li>
+<li><strong>CiteDCAT-AP Extended</strong>: This profile defines alignments for all the DataCite metadata elements using DCAT-AP and other Semantic Web vocabularies (whenever DCAT-AP does not provide suitable candidates).</li>
 </ul>
 <p>As far as the extended profile is concerned, the reference vocabularies have been chosen based on the following criteria:</p>
 <ol>
@@ -224,7 +224,7 @@ table {font-size:small;}
 <li>General purpose and widely used vocabularies, such as Dublin Core, FOAF, GeoSPARQL, and SKOS.</li>
 <li>A set of vocabularies developed specifically to model the publishing and academic domain. They include PRISM (<em>Publishing Requirements for Industry Standard Metadata</em>) [[PRISM]] and FRBR (<em>Functional Requirements for Bibliographic Records</em>) [[FRBR]], plus a set of ontologies developed in the framework of the <a href="http://www.sparontologies.net/">SPAR</a> (<em>Semantic Publishing and Referencing Ontologies</em>) project.</li>
 </ol>
-<p>The current version of DataCite+DCAT-AP follows the mappings based on the former group of vocabularies, but not the ones based on the latter group. The reason is twofold. First, the persistence and versioning policies of these vocabularies are unclear, and so it has been considered safer to re-consider their use when DataCite+DCAT-AP is more consolidated. Second, the mappings defined in DC2AP and DataCite2RDF are not compliant with the general requirements of DCAT-AP. For instance, despite the resource types defined in DataCite include datasets and metadata records, DC2AP and DataCite2RDF do not make use of DCAT.</p>
+<p>The current version of CiteDCAT-AP follows the mappings based on the former group of vocabularies, but not the ones based on the latter group. The reason is twofold. First, the persistence and versioning policies of these vocabularies are unclear, and so it has been considered safer to re-consider their use when CiteDCAT-AP is more consolidated. Second, the mappings defined in DC2AP and DataCite2RDF are not compliant with the general requirements of DCAT-AP. For instance, despite the resource types defined in DataCite include datasets and metadata records, DC2AP and DataCite2RDF do not make use of DCAT.</p>
 <p>It is worth noting that the second group of ontologies, and in particular the ones developed in the SPAR project, provide interesting solutions to modelling some aspects not explicitly addressed in DCAT-AP - e.g., the possibility of associating a temporal dimension to agent roles - but also alternative solutions for specifying the same information - one of the examples being resource identifiers. Complementing and aligning the different approaches would be mutually beneficial.</p>
 
 </section>
@@ -590,7 +590,7 @@ table {font-size:small;}
 <p>As shown in the previous section, DCAT-AP is able to represent all DataCite mandatory elements, with the exception of "creator". This poses an issue for the possible use of DCAT-AP for data citation purposes, since element "creator" is one of the required components. Notably, GeoDCAT-AP supports this agent role, so it can re-used for this purpose.</p>
 <p>On the other hand, DataCite includes all the DCAT-AP mandatory classes and related properties, with the only notable exception of <code>dcat:Catalog</code>. However, this does not pose particular compliance issues, since the catalogue description could be obtained separately from the relevant DataCite records. Actually, since DataCite records are supposed to be all available via the DataCite catalogue, the catalogue description can potentially be the same for all DataCite records. Of course, this does not apply for those records following the DataCite schema but not registered in the DataCite infrastructure.</p>
 
-<p>There are however some key differences on the DCAT-AP and DataCite data models that needs to be addressed. The following sections outline the solutions adopted in DataCite+DCAT-AP, as well as open issues.</p>
+<p>There are however some key differences on the DCAT-AP and DataCite data models that needs to be addressed. The following sections outline the solutions adopted in CiteDCAT-AP, as well as open issues.</p>
 
 <section id="alignment-issues-resource-types">
 
@@ -598,8 +598,8 @@ table {font-size:small;}
 
 <p>DataCite supports 14 different resource types - namely: audiovisual, collection, dataset, event, image, interactive resource, model, physical object, service, software, sound, text, workflow, other. They basically corresponds to the classes included in the DCMI Type vocabulary, with the exception of model and workflow.</p>
 <p>The definition of <code>dcat:Dataset</code> is broad enough to cover most of the DataCite resource type, the exceptions being event, physical object, service, which are not supported in DCAT-AP. Moreover, the notion of "service" is supported in GeoDCAT-AP via <a href="http://dublincore.org/documents/dcmi-terms/#dcmitype-Service"><code>dctype:Service</code></a>. For the rest, it is possible to re-use the DCMI Type vocabulary, which includes classes for event (<a href="http://dublincore.org/documents/dcmi-terms/#dcmitype-Event"><code>dctype:Event</code></a>) and physical object (<a href="http://dublincore.org/documents/dcmi-terms/#dcmitype-PhysicalObject"><code>dctype:Event</code></a>).</p>
-<p>DataCite+DCAT-AP re-uses the approach outlined above. Moreover, in order to preserve the original information, it uses <code>dct:type</code> with the relevant classes of the DCMI Type vocabulary to denote the DataCite resource type. This is basically the solution adopted in GeoDCAT-AP to model the resource types defined in ISO 19115 - namely, dataset, dataset series, and services.</p>
-<p>As said above, the DCMI Type vocabulary does not include classes for model and workflow, and no suitable candidates have been found in the reference vocabularies. As a result, in DataCite+DCAT-AP are both modelled only as <code>dcat:Dataset</code>'s, thus loosing the original information.</p>
+<p>CiteDCAT-AP re-uses the approach outlined above. Moreover, in order to preserve the original information, it uses <code>dct:type</code> with the relevant classes of the DCMI Type vocabulary to denote the DataCite resource type. This is basically the solution adopted in GeoDCAT-AP to model the resource types defined in ISO 19115 - namely, dataset, dataset series, and services.</p>
+<p>As said above, the DCMI Type vocabulary does not include classes for model and workflow, and no suitable candidates have been found in the reference vocabularies. As a result, in CiteDCAT-AP are both modelled only as <code>dcat:Dataset</code>'s, thus loosing the original information.</p>
 
 </section>
 
@@ -620,7 +620,7 @@ table {font-size:small;}
 <li>Class <a href="https://www.w3.org/TR/vocab-adms/#identifier"><code>adms:Identifier</code></a> allows the specification of information about the identifier - identifier scheme included.</li>
 </ul>
 <p>Such solutions are basically reflecting the DataCite approach to model identifiers. However, identifiers modelled in this way are of no use for effectively linking the relevant resources. For this purpose, an option would be encoding identifiers as HTTP URIs, whenever possible. This is the case, e.g., for ORCIDs, ISNIs, and DOIs. About the ability to modelling differently primary and secondary/alternative identifiers, the resource URI can denote the primary identifier, whereas URIs corresponding to alternative identifiers can be specified by using <a href="https://www.w3.org/TR/owl-ref/#sameAs-def"><code>owl:sameAs</code></a>.</p>
-<p>Based on what said above, DataCite+DCAT-AP models identifiers as follows:</p>
+<p>Based on what said above, CiteDCAT-AP models identifiers as follows:</p>
 <ul>
 <li>Identifiers are encoded as HTTP URIs, whenever possible, or URNs, using <code>owl:sameAs</code> for URIs concerning secondary/alternative identifiers.</li>
 <li>In addition:
@@ -639,7 +639,7 @@ table {font-size:small;}
 
 <p>DataCite supports the possibility of specifying references to resources related to the described in the metadata record via element RelatedIdentifier, carrying an optional attribute that can be used to express the related resource type.</p>
 <p>Roughly half of the supported related resource "types" (25, in total) correspond to the ones defined in Dublin Core. Moreover, with the exception of type "IsIdenticalTo", they denote a relationship (e.g., "IsReferencedBy") and its inverse (e.g., "References").</p>
-<p>Based on this DataCite+DCAT-AP models this information as follows:</p>
+<p>Based on this CiteDCAT-AP models this information as follows:</p>
 <ul>
 <li>The default mapping of element RelatedIdentifier is <code>dct:relation</code></li>
 <li>Dublin Core [[DCTERMS]] is used for all the relevant related resource types (i.e., 9, excluding <code>dct:relation</code>)</li>
@@ -650,7 +650,7 @@ table {font-size:small;}
 <li>1 ("IsDescribedBy") is modelled by using the W3C POWDER-S Vocabulary [[POWDER-S]] (<code>wdrs:describedby</code>)</li>
 <li>11 are left unmapped, since the reference vocabularies do not provide suitable candidates</li>
 </ul>
-<p>DCAT-AP supports 6 of the mapped related resource types. All the other ones are supported only in the extended profile of DataCite+DCAT-AP.</p>
+<p>DCAT-AP supports 6 of the mapped related resource types. All the other ones are supported only in the extended profile of CiteDCAT-AP.</p>
 
 </section>
 
@@ -660,21 +660,21 @@ table {font-size:small;}
 
 <p>DataCite supports three main types of agent roles, namely, creator, publisher, and contributor. The last can be further specialised by specifying a contributor "type". DataCite supports 22 contributor types, including, e.g., "contact person", "editor", "funder", "producer", "rights holder", "sponsor", "other".</p>
 <p>DCAT-AP supports only two agent roles, namely, publisher and contact point (corresponding to contributor type "contact person" in DataCite). GeoDCAT-AP includes other two DataCite agent roles - namely, creator and rights holder.</p>
-<p>As a result, together, DCAT-AP and GeoDCAT-AP cover publisher, creator, and 2 contributor types, namely, contact point and rights holder. For the other ones, DataCite+DCAT-AP includes the following mappings:</p>
+<p>As a result, together, DCAT-AP and GeoDCAT-AP cover publisher, creator, and 2 contributor types, namely, contact point and rights holder. For the other ones, CiteDCAT-AP includes the following mappings:</p>
 <ul>
 <li><a href="http://purl.org/dc/terms/#terms-contributor"><code>dct:contributor</code></a> is used when the contributor is untyped, or when the contributor type is "other".</li>
 <li><a href="http://schema.org/editor"><code>schema:editor</code></a>, <a href="http://schema.org/funder"><code>schema:funder</code></a>, <a href="http://schema.org/producer"><code>schema:producer</code></a>, and  <a href="http://schema.org/sponsor"><code>schema:sponsor</code></a> are used for the corresponding DataCite contributor types.</li>
 <li><a href="https://www.w3.org/TR/vocab-duv/#Property:hasDistributor"><code>duv:hasDistributor</code></a> is used for the corresponding DataCite contributor type.</li>
 </ul>
 <p>It is worth noting that some of the DataCite contributor types cannot be modelled with a direct relationship. This is the case of roles "project leader", "project manager", "project member", "researcher", "supervisor", and "workpackage leader". Such roles are not directly describing the relationship between a resource and an agent, but rather the role of the individual in the "activity" that created the resource. E.g., "project leader" can be described as "the leader of the project that created the resource".</p>
-<p>In such cases, the approach used in DataCite+DCAT-AP is as follows:</p>
+<p>In such cases, the approach used in CiteDCAT-AP is as follows:</p>
 <ul>
 <li>The resource is linked to the agent (<code>foaf:Agent</code>) with property <code>dct:contributor</code></li>
 <li>The agent is linked to the activity (<code>prov:Activity</code>) with a property denoting the role played</li>
 <li>The activity is linked to the resource with property <code>prov:wasGeneratedBy</code></li>
 </ul>
 <p>In case of roles "project leader", "project manager", and "project member", the activity is additionally typed as a <code>foaf:Project</code>.</p>
-<p>The following code snippet shows how contributor type "project member" is modelled in DataCite+DCAT-AP:</p>
+<p>The following code snippet shows how contributor type "project member" is modelled in CiteDCAT-AP:</p>
 <!--
 <aside id="ex-project-member" class="example">
 -->
@@ -693,7 +693,7 @@ a:Project a prov:Activity , foaf:Project ;
 -->
 
 <p>The issue is that the reference vocabularies does not provide candidates for modelling such contributor types, with the exception of "project member".</p>
-<p>For the remaining 14 DataCite contributor types, no candidates have been found in the reference vocabularies, so they are left unmapped in DataCite+DCAT-AP.</p>
+<p>For the remaining 14 DataCite contributor types, no candidates have been found in the reference vocabularies, so they are left unmapped in CiteDCAT-AP.</p>
 
 </section>
 
@@ -703,10 +703,10 @@ a:Project a prov:Activity , foaf:Project ;
 
 <p>The DataCite data model does not distinguish between a dataset and its embodiment(s) ("distribution(s)",  in the DCAT terminology).</p>
 <p>As a consequence, attributes that in DCAT/DCAT-AP are specific to distributions (as format, licence, size), in DataCite are associated with the dataset. Moreover, in DataCite there is no attribute equivalent to <code>dcat:accessURL</code> or <code>dcat:downloadURL</code>. Actually, the only information that can be used to access the dataset, and, possibly, its distribution(s), is the resource DOI.</p>
-<p>Based on this, the approach used in DataCite+DCAT-AP to map DataCite records is as follows:</p>
+<p>Based on this, the approach used in CiteDCAT-AP to map DataCite records is as follows:</p>
 <ol>
-<li>If the described resource is an event, physical object, or service (i.e., if it cannot be modelled as a dataset), the notion of "distribution" does not apply. Therefore, all DataCite elements are used in DataCite+DCAT-AP to describe the resource. Otherwise:</li>
-<li>Each record is modelled in DataCite+DCAT-AP as a dataset (<code>dcat:Dataset</code>), having exactly 1 distribution.</li>
+<li>If the described resource is an event, physical object, or service (i.e., if it cannot be modelled as a dataset), the notion of "distribution" does not apply. Therefore, all DataCite elements are used in CiteDCAT-AP to describe the resource. Otherwise:</li>
+<li>Each record is modelled in CiteDCAT-AP as a dataset (<code>dcat:Dataset</code>), having exactly 1 distribution.</li>
 <li>The resulting distribution gets the relevant DataCite elements (as format, licence, size), as per the DCAT/DCAT-AP schema, whereas the remaining ones are used to describe the dataset.</li>
 <li>The dataset DOI is used both as the dataset identifier / URI and as the distribution access URL.</li>
 </ol>
@@ -718,7 +718,7 @@ a:Project a prov:Activity , foaf:Project ;
 <h3>Use and access conditions</h3>
 
 <p>DataCite includes a single element, namely, "rights", to specify use and access conditions. This element is also supported in DCAT-AP (<code>dct:rights</code>), but, in addition, specific properties are used for use conditions (<code>dct:license</code>) and access rights (<code>dct:accessRights</code>). Moreover, in DCAT-AP use conditions are associated with distributions, whereas access rights with datasets.</p>
-<p>Based on this, DataCite+DCAT-AP maps by default DataCite "rights" to <code>dct:rights</code>. In addition, they are mapped to <code>dct:license</code> and <code>dct:accessRights</code> when DataCite rights make explicit reference to some known licences and access rights vocabularies. More precisely, the recognised vocabularies are the following ones:</p>
+<p>Based on this, CiteDCAT-AP maps by default DataCite "rights" to <code>dct:rights</code>. In addition, they are mapped to <code>dct:license</code> and <code>dct:accessRights</code> when DataCite rights make explicit reference to some known licences and access rights vocabularies. More precisely, the recognised vocabularies are the following ones:</p>
 <ul>
 <li>For licences:
 <ul>
@@ -749,7 +749,7 @@ a:Project a prov:Activity , foaf:Project ;
 <li>It is often the case that no URIs are available for the used vocabularies.</li>
 </ol>
 <p>Such situation makes it difficult the effective implementation of vocabulary mapping.</p>
-<p>For this reason, DataCite+DCAT-AP preserve keywords from controlled vocabularies as textual labels.</p>
+<p>For this reason, CiteDCAT-AP preserve keywords from controlled vocabularies as textual labels.</p>
 
 </section>
 
@@ -759,14 +759,14 @@ a:Project a prov:Activity , foaf:Project ;
 
 <h2>Mapping summary</h2>
 
-<p>The following section summarises the alignments defined in DataCite+DCAT-AP.</p>
+<p>The following section summarises the alignments defined in CiteDCAT-AP.</p>
 <p>The alignments are grouped as follows:</p>
 <ul>
 <li>Alignments for 1st-level DataCite metadata elements (<a class="no-sectionRef" href="#mapping-1st-level"></a>)</li>
 <li>Alignments for 2nd-level DataCite metadata elements (<a class="no-sectionRef" href="#mapping-2nd-level"></a>)</li>
 <li>Alignments for identifiers used in DataCite records (<a class="no-sectionRef" href="#mapping-identifiers"></a>)</li>
 </ul>
-<p>The alignments supported only in the extended profile of DataCite+DCAT-AP are in <strong>bold</strong>.</p>
+<p>The alignments supported only in the extended profile of CiteDCAT-AP are in <strong>bold</strong>.</p>
 
 <section id="used-namespaces">
 
@@ -2250,20 +2250,20 @@ a:Project a prov:Activity , foaf:Project ;
 <li>the identifier type / scheme name (e.g., <code>ORCID</code>, <code>ISNI</code>, <code>DOI</code>)</li>
 <li>optionally, the scheme URI (e.g., <code>http://orcid.org/</code>, <code>http://www.isni.org/</code>, <code>https://doi.org/</code>)</li>
 </ul>
-<p>In DataCite+DCAT-AP, all these identifiers are mapped to URIs, by concatenating the identifier in the DataCite record with a URI prefix defined for each identifier type / scheme. Whenever possible, dereferenceable HTTP URIs/URLs are used; otherwise, URNs.</p>
+<p>In CiteDCAT-AP, all these identifiers are mapped to URIs, by concatenating the identifier in the DataCite record with a URI prefix defined for each identifier type / scheme. Whenever possible, dereferenceable HTTP URIs/URLs are used; otherwise, URNs.</p>
 <!--
 <p>This mapping is based on the name of the identifier type / scheme.</p>
 -->
 <p>Notably, DataCite provides code lists for the types / schemes of identifiers used to denote <a href="https://schema.datacite.org/meta/kernel-4.0/include/datacite-relatedIdentifierType-v4.xsd">resources</a> and <a href="https://schema.datacite.org/meta/kernel-4.0/include/datacite-funderIdentifierType-v4.xsd">funders</a>, but no code list is defined in DataCite for types / schemes of identifiers used to denote resource creators / contributors (the specification uses, as an example, "ORCID" and "ISNI").</p>
-<p>However, DataCite does not specify a code list for scheme URIs. So, the mapping between the identifier type / scheme implemented in DataCite+DCAT-AP is based on the relevant registries and examples in the DataCite metadata schema specification. No URI prefix is of course used if the identifier is already a URI (as URLs and URNs).</p>
-<p>The following table shows, for each identifier type / scheme, which is the URI prefix used in DataCite+DCAT-AP, along with examples of the results of such mappings. As mentioned above, all the identifier types / schemes in the table are defined as a code list in the DataCite metadata schema, with the exception of ORCID and ISNI (however, ISNI is defined in the code list for funder identifier types).</p>
+<p>However, DataCite does not specify a code list for scheme URIs. So, the mapping between the identifier type / scheme implemented in CiteDCAT-AP is based on the relevant registries and examples in the DataCite metadata schema specification. No URI prefix is of course used if the identifier is already a URI (as URLs and URNs).</p>
+<p>The following table shows, for each identifier type / scheme, which is the URI prefix used in CiteDCAT-AP, along with examples of the results of such mappings. As mentioned above, all the identifier types / schemes in the table are defined as a code list in the DataCite metadata schema, with the exception of ORCID and ISNI (however, ISNI is defined in the code list for funder identifier types).</p>
 
 <table class="simple">
   <thead>
     <tr>
       <th rowspan="2">Identifier type / scheme</th>
       <th rowspan="2">Element(s)</th>
-      <th rowspan="2">URI prefix used in DataCite+DCAT-AP</th>
+      <th rowspan="2">URI prefix used in CiteDCAT-AP</th>
       <th colspan="2">Example</th>
       <th rowspan="2">Mapping status</th>
       <th rowspan="2">Comments</th>
@@ -2557,7 +2557,7 @@ a:Project a prov:Activity , foaf:Project ;
 
 <section id="formal-definition-xslt" class="appendix">
 <h2>XSLT implementation</h2>
-<p>This section illustrates the XSLT implementation of the mappings defined in DataCite+DCAT-AP.</p>
+<p>This section illustrates the XSLT implementation of the mappings defined in CiteDCAT-AP.</p>
 <p>The source XSLT is maintained in the dedicated <a href="https://github.com/ec-jrc/datacite-to-dcat-ap/">GitHub repository</a>.</p>
 
 <pre data-include="https://raw.githubusercontent.com/ec-jrc/datacite-to-dcat-ap/master/datacite-to-dcat-ap.xsl" data-include-format="text">

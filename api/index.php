@@ -6,7 +6,7 @@
 
 // Variables for API landing page.
 
-  $title = "DataCite+DCAT-AP API";
+  $title = "CiteDCAT-AP API";
   $head = '<link rel="stylesheet" type="text/css" href="./css/style.css"/>' . "\n";
   $footer = '<p>' . $title . ' @ GitHub: <a href="' . $apiSrcRep . '">' . $apiSrcRep . '</a></p>';
   $exampleSrcURL = "";
@@ -28,7 +28,7 @@
     )
   );
   $outputSchemas['extended'] = array(
-    'label' => 'DataCite+DCAT-AP',
+    'label' => 'CiteDCAT-AP',
     'description' => 'TBD',
     'url' => 'TBD',
     'xslt' => 'https://raw.githubusercontent.com/ec-jrc/datacite-to-dcat-ap/master/datacite-to-dcat-ap.xsl',
@@ -302,7 +302,7 @@
       <p>Supported OAI-PMH request types: <code>ListRecords</code>, <code>GetRecord</code>.</p>
       <p>Supported OAI-PMH output schema (<code>metadataPrefix</code>): <code>oai_datacite</code></p>
       <p><strong>NB</strong>: The current version of the API supports only OAI-PMH calls using the <code>GET</code> HTTP method.</p>
-      <p><em>A description of the DataCite+DCAT-AP API is available on the <a href="<?php echo $apiSrcRep; ?>">API's GitHub repository</a>.</em></p>
+      <p><em>A description of the CiteDCAT-AP API is available on the <a href="<?php echo $apiSrcRep; ?>">API's GitHub repository</a>.</em></p>
     </section>
     <aside>
     </aside>
