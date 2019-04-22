@@ -187,9 +187,10 @@ table {font-size:small;}
 
 <p>The reference DCAT-AP and DataCite specifications on which CiteDCAT-AP is based are the following ones:</p>
 <ul>
-<li>DCAT-AP v1.2 (November 2018) [[DCAT-AP-20181108]]</li>
-<li>GeoDCAT-AP v1.0.1 (August 2016) [[GeoDCAT-AP-20160802]]</li>
-<li>DataCite v4.1 (October 2017) [[DataCite-20171023]]</li>
+<li>DCAT-AP 1.2 (November 2018) [[DCAT-AP-20181108]]</li>
+<li>GeoDCAT-AP 1.0.1 (August 2016) [[GeoDCAT-AP-20160802]]</li>
+<li>StatDCAT-AP 1.0.0 (December 2016) [[StatDCAT-AP-20161215]]</li>
+<li>DataCite 4.2 (March 2019) [[DataCite-20190320]]</li>
 </ul>
 <p>
 <p>For the mappings, existing work has been taken into account concerning the mapping of DataCite to other metadata standards. In particular:</p>
@@ -201,7 +202,7 @@ table {font-size:small;}
 <li>DataCite Dublin Core Application Profile (DC2AP). Version 1. (February 2016) [[DC2AP]]</li>
 <li>DataCite2RDF: Mapping DataCite Metadata Schema 3.1 Terms to RDF. Version 3.3 (February 2016) [[DataCite2RDF]]</li>
 </ul>
-<p>CiteDCAT-AP builds upon these specifications to provide an as much as possible complete mapping of all the metadata elements in version 4.1 of the DataCite metadata schema. Moreover, the defined mappings are backward compatible with earlier versions of the DataCite metadata schema.</p>
+<p>CiteDCAT-AP builds upon these specifications to provide an as much as possible complete mapping of all the metadata elements in version 4.2 of the DataCite metadata schema. Moreover, the defined mappings are backward compatible with earlier versions of the DataCite metadata schema.</p>
 <p>The resulting mappings have been grouped into two classes, corresponding to two different CiteDCAT-AP profiles:</p>
 <ul>
 <li><strong>CiteDCAT-AP Core</strong>: This profile defines alignments for the subset of DataCite metadata elements supported by DCAT-AP.</li>
@@ -244,7 +245,7 @@ table {font-size:small;}
 <table class="simple">
   <thead>
     <tr>
-      <th colspan="2">DataCite 4.1</th>
+      <th colspan="2">DataCite 4.2</th>
       <th rowspan="2">DCAT-AP 1.2</th>
       <th rowspan="2">Comments</th>
     </tr>
@@ -395,7 +396,7 @@ table {font-size:small;}
   <thead>
     <tr>
       <th colspan="4">DCAT-AP 1.2</th>
-      <th rowspan="2">DataCite 4.1</th>
+      <th rowspan="2">DataCite 4.2</th>
       <th rowspan="2">Comments</th>
     </tr>
     <tr>
@@ -921,85 +922,28 @@ a:Project a prov:Activity , foaf:Project ;
   </thead>
   <tbody>
     <tr>
-      <td>Language</td>
-      <td><code><a href="http://publications.europa.eu/resource/authority/language">http://publications.europa.eu/resource/authority/language</a></code></td>
-      <td>Language register operated by the Metadata Registry of the Publications Office of the EU [[MDR-LANG]]</td>
+      <td>Date (type: withdrawn)</td>
+      <td><code><a href="http://publications.europa.eu/resource/authority/dataset-status">http://publications.europa.eu/resource/authority/dataset-status</a></code></td>
+      <td>[[MDR-DS]]</td>
       <td>stable</td>
     </tr>
-<!--    
-    <tr>
-      <td>Resource type</td>
-      <td><code><a href="http://inspire.ec.europa.eu/metadata-codelist/ResourceType">http://inspire.ec.europa.eu/metadata-codelist/ResourceType</a></code></td>
-      <td>Register operated by the INSPIRE Registry for resource types defined in ISO 19115</td>
-      <td>stable</td>
-    </tr>
-    <tr>
-      <td>Service type</td>
-      <td><code><a href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType">http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType</a></code></td>
-      <td>Register operated by the INSPIRE Registry for service types, as defined in [<a href="http://eur-lex.europa.eu/eli/reg/com/2008/1205">INSPIRE-MD-REG</a>]</td>
-      <td>stable</td>
-    </tr>
-    <tr>
-      <td>Topic category</td>
-      <td><code><a href="http://inspire.ec.europa.eu/metadata-codelist/TopicCategory">http://inspire.ec.europa.eu/metadata-codelist/TopicCategory</a></code></td>
-      <td>Register operated by the INSPIRE Registry for topic categories defined in ISO 19115</td>
-      <td>stable</td>
-    </tr>
-    <tr>
-      <td>Keyword denoting one of the INSPIRE spatial data themes</td>
-      <td><code><a href="http://inspire.ec.europa.eu/theme">http://inspire.ec.europa.eu/theme</a></code></td>
-      <td>INSPIRE spatial data theme register operated by the INSPIRE Registry</td>
-      <td>stable</td>
-    </tr>
-    <tr>
-      <td>Keyword denoting one of the spatial data service categories</td>
-      <td><code><a href="http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory">http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceCategory</a></code></td>
-      <td>Register operated by the INSPIRE Registry for spatial data service categories defined in ISO 19119</td>
-      <td>stable</td>
-    </tr>
-    <tr>
-      <td>Degree of conformity</td>
-      <td><code><a href="http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity">http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity</a></code></td>
-      <td>Register operated by the INSPIRE Registry for degrees of conformity, as defined in [<a href="http://eur-lex.europa.eu/eli/reg/com/2008/1205">INSPIRE-MD-REG</a>]</td>
-      <td>stable</td>
-    </tr>
-    <tr>
-      <td>Responsible party role</td>
-      <td><code><a href="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole">http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole</a></code></td>
-      <td>Register operated by the INSPIRE Registry for responsible party roles, as defined in [<a href="http://eur-lex.europa.eu/eli/reg/com/2008/1205">INSPIRE-MD-REG</a>]</td>
-      <td>stable</td>
-    </tr>
--->    
     <tr>
       <td rowspan="2">Format</td>
       <td><code><a href="http://publications.europa.eu/resource/authority/file-type">http://publications.europa.eu/resource/authority/file-type</a></code></td>
-      <td>File type register operated by the Metadata Registry of the Publications Office of the EU [[MDR-FT]]</td>
+      <td>[[MDR-FT]]</td>
       <td>stable</td>
     </tr>
     <tr>
       <td><code><a href="http://www.iana.org/assignments/media-types/">http://www.iana.org/assignments/media-types</a></code></td>
-      <td>IANA MIME Media Types register [[IANA-MEDIA-TYPES]]</td>
+      <td>[[IANA-MEDIA-TYPES]]</td>
       <td><em>testing</em></td>
     </tr>
-<!--    
     <tr>
-      <td rowspan="2">Maintenance frequency (Maintenance information)</td>
-      <td><code><a href="http://publications.europa.eu/resource/authority/frequency">http://publications.europa.eu/resource/authority/frequency</a></code></td>
-      <td>Frequency code register operated by the Metadata Registry of the Publications Office of the EU [<a href="http://publications.europa.eu/mdr/authority/frequency/">MDR-FR</a>]</td>
+      <td>Language</td>
+      <td><code><a href="http://publications.europa.eu/resource/authority/language">http://publications.europa.eu/resource/authority/language</a></code></td>
+      <td>[[MDR-LANG]]</td>
       <td>stable</td>
     </tr>
-    <tr>
-      <td><code>http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequencyCode</code></td>
-      <td>Register operated by the INSPIRE Registry for maintenance frequency codes defined in ISO 19115. The register is not yet available, and the code list URI is tentative.</td>
-      <td><strong>unstable</strong></td>
-    </tr>
-    <tr>
-      <td>Spatial representation type</td>
-      <td><code>http://inspire.ec.europa.eu/metadata-codelist/SpatialRepresentationTypeCode</code></td>
-      <td>Register operated by the INSPIRE Registry for spatial representation type codes defined in ISO 19115. The register is not yet available, and the code list URI is tentative.</td>
-      <td><strong>unstable</strong></td>
-    </tr>
--->    
   </tbody>
 </table>
 
@@ -1302,7 +1246,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>Only for the extended profile</td>
     </tr>
     <tr>
-      <td rowspan="10">Date</td>
+      <td rowspan="13"><a href="#mapping-date">Date</a></td>
       <td><em>default</em></td>
       <td><strong><code>dct:date</code></strong></td>
       <td><strong><code>xsd:date</code></strong></td>
@@ -1352,6 +1296,16 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
+      <td>Other</td>
+      <td><strong><code>dct:date</code></strong></td>
+      <td><strong><code>xsd:date</code></strong></td>
+      <td><em>testing</em></td>
+      <td>
+        <p>Only for the extended profile</p>
+        <p>Added in DataCite 4.1</p>
+      </td>
+    </tr>
+    <tr>
       <td>Submitted</td>
       <td><strong><code>dct:dateSubmitted</code></strong></td>
       <td><strong><code>xsd:date</code></strong></td>
@@ -1373,6 +1327,20 @@ a:Project a prov:Activity , foaf:Project ;
       <td>Only for the extended profile</td>
     </tr>
     <tr>
+      <td rowspan="2">Withdrawn</td>
+      <td><strong><code>dct:modified</code></strong></td>
+      <td><strong><code>xsd:date</code></strong></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2">
+        <p>Only for the extended profile</p>
+        <p>Added in DataCite 4.2</p>
+      </td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td><strong><code>http://publications.europa.eu/resource/authority/dataset-status/WITHDRAWN</code></strong></td>
+    </tr>
+    <tr>
       <td colspan="2">Language</td>
       <td><code>dct:language</code></td>
       <td><code>dct:LinguisticSystem</code></td>
@@ -1380,7 +1348,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td rowspan="31">ResourceType</td>
+      <td rowspan="31" id="mapping-resource-type">ResourceType</td>
       <td><em>default</em></td>
       <td><strong><code>rdf:type</code></strong></td>
       <td><strong><code>rdfs:Resource</code></strong></td>
@@ -1418,7 +1386,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><code>rdf:type</code></td>
       <td><code>dcat:Dataset</code></td>
       <td><em>testing</em></td>
-      <td>Added in DataCite v4.1</td>
+      <td>Added in DataCite 4.1</td>
     </tr>
     <tr>
       <td><strong><code>dct:type</code></strong></td>
@@ -1596,7 +1564,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td rowspan="32">RelatedIdentifier</td>
+      <td rowspan="34"><a href="#mapping-related-identifier">RelatedIdentifier</a></td>
       <td><em>default</em></td>
       <td><code>dct:relation</code></td>
       <td><code>rdfs:Resource</code></td>
@@ -1783,42 +1751,80 @@ a:Project a prov:Activity , foaf:Project ;
       <td><strong><code>??:??</code></strong></td>
       <td><strong><code>rdfs:Resource</code></strong></td>
       <td><strong>unstable</strong></td>
-      <td>TBD</td>
+      <td>
+        <p>TBD</p>
+        <p>Added in DataCite 4.1</p>
+      </td>
     </tr>
     <tr>
       <td>IsDescribedBy</td>
       <td><code>wdrs:describedby</code></td>
       <td><code>rdfs:Resource</code></td>
       <td><em>testing</em></td>
-      <td>Only for the extended profile</td>
+      <td>
+        <p>Only for the extended profile</p>
+        <p>Added in DataCite 4.1</p>
+      </td>
     </tr>
     <tr>
       <td>HasVersion</td>
       <td><code>dct:hasVersion</code></td>
       <td><code>rdfs:Resource</code></td>
       <td><em>testing</em></td>
-      <td></td>
+      <td>
+        <p>Only for the extended profile</p>
+        <p>Added in DataCite 4.1</p>
+      </td>
     </tr>
     <tr>
       <td>IsVersionOf</td>
       <td><code>dct:isVersionOf</code></td>
       <td><code>rdfs:Resource</code></td>
       <td><em>testing</em></td>
-      <td></td>
+      <td>
+        <p>Only for the extended profile</p>
+        <p>Added in DataCite 4.1</p>
+      </td>
     </tr>
     <tr>
       <td>Requires</td>
       <td><code>dct:requires</code></td>
       <td><code>rdfs:Resource</code></td>
       <td><em>testing</em></td>
-      <td>Only for the extended profile</td>
+      <td>
+        <p>Only for the extended profile</p>
+        <p>Added in DataCite 4.1</p>
+      </td>
     </tr>
     <tr>
       <td>IsRequiredBy</td>
       <td><code>dct:isRequiredBy</code></td>
       <td><code>rdfs:Resource</code></td>
       <td><em>testing</em></td>
-      <td>Only for the extended profile</td>
+      <td>
+        <p>Only for the extended profile</p>
+        <p>Added in DataCite 4.1</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Obsoletes</td>
+      <td><code>dct:replaces</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td>
+        <p>Only for the extended profile</p>
+        <p>Added in DataCite 4.2</p>
+      </td>
+    </tr>
+    <tr>
+      <td>IsObsoletedBy</td>
+      <td><code>dct:isReplacedBy</code></td>
+      <td><code>rdfs:Resource</code></td>
+      <td><em>testing</em></td>
+      <td>
+        <p>Only for the extended profile</p>
+        <p>Added in DataCite 4.2</p>
+      </td>
     </tr>
     <tr>
       <td colspan="2">* Size</td>
@@ -1949,8 +1955,8 @@ a:Project a prov:Activity , foaf:Project ;
   </thead>
   <tbody>
     <tr>
-      <td rowspan="5"><span id="mapping-creator">Creator</span></td>
-      <td>creatorName</td>
+      <td rowspan="5" id="mapping-creator">Creator</td>
+      <td><a href="#mapping-creator-name">creatorName</a></td>
       <td rowspan="5"><code>foaf:Agent</code></td>
       <td><code>foaf:name</code></td>
       <td><code>rdf:PlainLiteral</code></td>
@@ -1986,8 +1992,8 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td rowspan="10"><span id="mapping-contributor">Contributor</span></td>
-      <td rowspan="2">contributorName</td>
+      <td rowspan="10" id="mapping-contributor">Contributor</td>
+      <td rowspan="2"><a href="#mapping-contributor-name">contributorName</a></td>
       <td><code>foaf:Agent</code></td>
       <td><code>foaf:name</code></td>
       <td><code>rdf:PlainLiteral</code></td>
@@ -2060,7 +2066,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>If the contributor type is "ContactPerson"</td>
     </tr>
     <tr>
-      <td rowspan="9"><span id="mapping-geolocation">GeoLocation</span></td>
+      <td rowspan="9" id="mapping-geolocation">GeoLocation</td>
       <td rowspan="3">geoLocationPoint</td>
       <td rowspan="9"><code>dct:Location</code></td>
       <td><code>geo:lat_long</code></td>
@@ -2105,6 +2111,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td rowspan="3">
         <p>Element added in DataCite 4.0.</p>
         <p>The polygon vertices are specified by using child element <code>geoPolygonPoint</code>. The coordinates of each vertex are specified by using two child elements - respectively, <code>pointLatitude</code> and <code>pointLongitude</code>.</p>
+        <p>DataCite 4.1 introduces an additional element <code>inPolygonPoint</code> to mark the inside of the polygon for "any bound area that is larger than half the earth". Its purpose is not necessary in the transformed geometry encoding, so this element is not mapped.</p>
       </td>
     </tr>
     <tr>
@@ -2116,7 +2123,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
     </tr>
     <tr>
-      <td rowspan="4"><span id="mapping-funding-reference">FundingReference</span></td>
+      <td rowspan="4" id="mapping-funding-reference">FundingReference</td>
       <td><a href="#mapping-award-number">awardNumber</a></td>
       <td rowspan="2"><code>foaf:Project</code></td>
       <td><code>dct:identifier</code></td>
@@ -2173,7 +2180,57 @@ a:Project a prov:Activity , foaf:Project ;
   </thead>
   <tbody>
     <tr>
-      <td rowspan="3"><span id="mapping-subject">Subject</span></td>
+      <td rowspan="2" id="mapping-creator-name">creatorName</td>
+      <td>@nameType = Organizational</td>
+      <td><code>foaf:Organization</code></td>
+      <td rowspan="2"><code>foaf:name</code></td>
+      <td rowspan="2"><code>rdf:PlainLiteral</code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2">Added in DataCite 4.1</td>
+    </tr>
+    <tr>
+      <td>@nameType = Personal</td>
+      <td><code>foaf:Person</code></td>
+    </tr>
+    <tr>
+      <td rowspan="2" id="mapping-contributor-name">contributorName</td>
+      <td>@nameType = Organizational</td>
+      <td><code>foaf:Organization</code></td>
+      <td rowspan="2"><code>foaf:name</code></td>
+      <td rowspan="2"><code>rdf:PlainLiteral</code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2">Added in DataCite 4.1</td>
+    </tr>
+    <tr>
+      <td>@nameType = Personal</td>
+      <td><code>foaf:Person</code></td>
+    </tr>
+    <tr>
+      <td id="mapping-date">Date</td>
+      <td>@dateInformation</td>
+      <td><code>??:??</code></td>
+      <td><code>??:??</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><strong>unstable</strong></td>
+      <td>
+        <p>TBD</p>
+        <p>Added in DataCite 4.1</p>
+      </td>
+    </tr>
+    <tr>
+      <td id="mapping-related-identifier">RelatedIdentifier</td>
+      <td>@resourceTypeGeneral</td>
+      <td><code>rdfs:Resource</code></td>
+      <td><code>rdf:type</code>, <code>dct:type</code></td>
+      <td>The same set of types of element <a href="#mapping-resource-type">ResourceType</a></td>
+      <td><strong>unstable</strong></td>
+      <td>
+        <p>Not mapped at the moment</p>
+        <p>Added in DataCite 4.1</p>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="3" id="mapping-subject">Subject</td>
       <td><em>textual content</em></td>
       <td rowspan="2"><code>skos:Concept</code></td>
       <td><code>skos:prefLabel</code></td>
@@ -2189,7 +2246,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td>* @subjectScheme</td>
+      <td>*&nbsp;@subjectScheme</td>
       <td><code>skos:ConceptScheme</code></td>
       <td><code>dct:title</code></td>
       <td><code>rdf:PlainLiteral</code></td>
@@ -2197,7 +2254,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>The domain is <code>skos:ConceptScheme</code></td>
     </tr>
     <tr>
-      <td rowspan="2"><span id="mapping-rights">Rights</span></td>
+      <td rowspan="5" id="mapping-rights">Rights</td>
       <td><em>textual content</em></td>
       <td rowspan="2"><code>dct:RightsStatement</code></td>
       <td><code>rdfs:label</code></td>
@@ -2213,7 +2270,30 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td rowspan="2"><span id="mapping-award-number">awardNumber</span></td>
+      <td>*&nbsp;@rightsIdentifier</td>
+      <td rowspan="3"><code>adms:Identifier</code></td>
+      <td><code>skos:notation</code></td>
+      <td><code>rdfs:Literal</code></td>
+      <td><em>testing</em></td>
+      <td rowspan="3">
+        <p>The domain is <code>adms:Identifier</code></p>
+        <p>Added in DataCite 4.2</p>
+      </td>
+    </tr>
+    <tr>
+      <td>*&nbsp;@rightsIdentifierScheme</td>
+      <td><code>adms:schemeAgency</code></td>
+      <td><code>rdfs:Literal</code></td>
+      <td><em>testing</em></td>
+    </tr>
+    <tr>
+      <td>*&nbsp;@rightsIdentifierSchemeURI</td>
+      <td><code>dct:creator</code></td>
+      <td>URI reference</td>
+      <td><em>testing</em></td>
+    </tr>
+    <tr>
+      <td rowspan="2" id="mapping-award-number">awardNumber</td>
       <td><em>textual content</em></td>
       <td rowspan="2"><code>foaf:Project</code></td>
       <td><code>dct:identifier</code></td>
@@ -2296,7 +2376,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>funderIdentifier</td>
     </tr>
     <tr>
-      <td><a href="https://www.grid.ac/" title="Global Research Identifier">GRID</a></td>
+      <td><a href="https://www.grid.ac/"><abbr title="Global Research Identifier">GRID</abbr></a></td>
       <td>funderIdentifier</td>
       <td><code><a href="https://www.grid.ac/institutes/">https://www.grid.ac/institutes/</a></code></td>
       <td><code>grid.270680.b</code></td>
@@ -2305,7 +2385,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td><a href="https://www.crossref.org/services/funder-registry/" title="CrossRef Funder Identifier">CrossRef Funder ID</a></td>
+      <td><a href="https://www.crossref.org/services/funder-registry/"><abrr title="CrossRef Funder Identifier">CrossRef Funder ID</abbr></a></td>
       <td>funderIdentifier</td>
       <td><code><a href="https://doi.org/">https://doi.org/</a></code></td>
       <td><code>10.13039/501100000900</code></td>
@@ -2329,7 +2409,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>RelatedIdentifier</td>
     </tr>
     <tr>
-      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Archival_Resource_Key" title="Archival Resource Key">ARK</a></td>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Archival_Resource_Key"><abrr title="Archival Resource Key">ARK</abbr></a></td>
       <td>AlternateIdentifier</td>
       <td rowspan="2"><code><a href="http://n2t.net/">http://n2t.net/</a></code></td>
       <td rowspan="2"><code>ark:/67531/metapth346793/</code></td>
@@ -2365,7 +2445,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>RelatedIdentifier</td>
     </tr>
     <tr>
-      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Article_Number_(EAN)" title="International Article Number (EAN)">EAN13</a></td>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Article_Number_(EAN)"><abbr title="International Article Number (EAN)">EAN13</abbr></a></td>
       <td>AlternateIdentifier</td>
       <td rowspan="2"><code>urn:ean-13:</code></td>
       <td rowspan="2"><code>9783468111242</code></td>
@@ -2377,7 +2457,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>RelatedIdentifier</td>
     </tr>
     <tr>
-      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Serial_Number#Electronic_ISSN" title="Electronic International Standard Serial Number">e-ISSN</a></td>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Serial_Number#Electronic_ISSN"><abbr title="Electronic International Standard Serial Number">e-ISSN</abbr></a></td>
       <td>AlternateIdentifier</td>
 <!--      
       <td rowspan="2"><code>urn:issn:</code></td>
@@ -2407,7 +2487,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>RelatedIdentifier</td>
     </tr>
     <tr>
-      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Geo_Sample_Number" title="International GeoSample Number">IGSN</a></td>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Geo_Sample_Number"><abbr title="International GeoSample Number">IGSN</abbr></a></td>
       <td>AlternateIdentifier</td>
       <td rowspan="2"><code><a href="http://hdl.handle.net/10273/">http://hdl.handle.net/10273/</a></code> (<code><a href="https://doi.org/10273/">https://doi.org/10273/</a></code>)</td>
       <td rowspan="2"><code>SSH000SUA</code></td>
@@ -2419,7 +2499,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>RelatedIdentifier</td>
     </tr>
     <tr>
-      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a></td>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Book_Number"><abbr title="International Standard Book Number">ISBN</abbr></a></td>
       <td>AlternateIdentifier</td>
       <td rowspan="2"><code>urn:isbn:</code></td>
       <td rowspan="2"><code>978-3-905673-82-1</code></td>
@@ -2449,7 +2529,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>RelatedIdentifier</td>
     </tr>
     <tr>
-      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Text_Code" title="International Standard Text Code">ISTC</a></td>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Text_Code"><abbr title="International Standard Text Code">ISTC</abbr></a></td>
       <td>AlternateIdentifier</td>
       <td rowspan="2"><code><a href="http://istc-search-beta.peppertag.com/ptproc/IstcSearch?tFrame=IstcListing&tForceNewQuery=Yes&esfIstc=">http://istc-search-beta.peppertag.com/ptproc/IstcSearch?tFrame=IstcListing&amp;esfIstc=</a></code></td>
       <td rowspan="2"><code>A12-2014-00013328-5</code></td>
@@ -2461,7 +2541,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>RelatedIdentifier</td>
     </tr>
     <tr>
-      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Serial_Number#Linking_ISSN" title="Linking International Standard Serial Number">ISSN-L</a></td>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Serial_Number#Linking_ISSN"><abbr title="Linking International Standard Serial Number">ISSN-L</abbr></a></td>
       <td>AlternateIdentifier</td>
 <!--      
       <td rowspan="2"><code>urn:issn:</code></td>
@@ -2479,7 +2559,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>RelatedIdentifier</td>
     </tr>
     <tr>
-      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/LSID" title="Life Science Identifier">LSID</a></td>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/LSID"><abbr title="Life Science Identifier">LSID</a></a></td>
       <td>AlternateIdentifier</td>
       <td rowspan="2"></td>
       <td rowspan="2"><code>urn:lsid:ubio.org:namebank:11815</code></td>
@@ -2491,7 +2571,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>RelatedIdentifier</td>
     </tr>
     <tr>
-      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/PubMed#PubMed_identifier" title="PubMed Identifier">PMID</a></td>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/PubMed#PubMed_identifier"><abbr title="PubMed Identifier">PMID</abbr></a></td>
       <td>AlternateIdentifier</td>
       <td rowspan="2"><code><a href="http://www.ncbi.nlm.nih.gov/pubmed/">http://www.ncbi.nlm.nih.gov/pubmed/</a></code></td>
       <td rowspan="2"><code>12082125</code></td>
@@ -2503,7 +2583,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>RelatedIdentifier</td>
     </tr>
     <tr>
-      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Persistent_uniform_resource_locator" title="Persistent Uniform Resource Locator">PURL</a></td>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Persistent_uniform_resource_locator"><abbr title="Persistent Uniform Resource Locator">PURL</abbr></a></td>
       <td>AlternateIdentifier</td>
       <td rowspan="2"></td>
       <td rowspan="2"><code><a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a></code></td>
@@ -2515,7 +2595,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>RelatedIdentifier</td>
     </tr>
     <tr>
-      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Universal_Product_Code" title="Universal Product Code">UPC</a></td>
+      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/Universal_Product_Code"><abbr title="Universal Product Code">UPC</abbr></a></td>
       <td>AlternateIdentifier</td>
       <td rowspan="2"><code>urn:upc:</code></td>
       <td rowspan="2"><code>123456789999</code></td>
@@ -2546,6 +2626,21 @@ a:Project a prov:Activity , foaf:Project ;
       <td rowspan="2"><code>urn:nbn:de:101:1-201102033592</code></td>
       <td rowspan="2"><em>testing</em></td>
       <td rowspan="2">URNs are URIs - no need for a URI prefix.</td>
+    </tr>
+    <tr>
+      <td>RelatedIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://w3id.org/"><abbr title="Permanent Identifiers for the Web">w3id</abbr></a></td>
+      <td>AlternateIdentifier</td>
+      <td rowspan="2"></td>
+      <td rowspan="2"><code><a href="https://w3id.org/games/spec/coil#Coil_Bomb_Die_Of_Age">https://w3id.org/games/spec/coil#Coil_Bomb_Die_Of_Age</a></code></td>
+      <td rowspan="2"><code><a href="https://w3id.org/games/spec/coil#Coil_Bomb_Die_Of_Age">https://w3id.org/games/spec/coil#Coil_Bomb_Die_Of_Age</a></code></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2">
+       <p>w3id's are HTTP URIs - no need for a URI prefix.</p>
+       <p>Added in DataCite 4.2.</p>
+      </td>
     </tr>
     <tr>
       <td>RelatedIdentifier</td>
