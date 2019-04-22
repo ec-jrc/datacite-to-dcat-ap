@@ -284,6 +284,11 @@ var respecConfig = {
         "title":"Named Authority List: Countries",
         "publisher":"Publications Office of the European Union"
        },
+      "MDR-DS":{
+        "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/dataset-status",
+        "title":"Named Authority List: Dataset statuses",
+        "publisher":"Publications Office of the European Union"
+       },
       "MDR-DT":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/distribution-type",
         "title":"Named Authority List: Distribution types",
