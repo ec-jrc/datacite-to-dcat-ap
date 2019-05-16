@@ -1683,6 +1683,14 @@
             <adms:identifier>
               <adms:Identifier>
                 <skos:notation rdf:datatype="{$xsd}anyURI"><xsl:value-of select="$uri"/></skos:notation>
+		<xsl:choose>
+		  <xsl:when test="$type != ''">
+		    <adms:schemeAgency><xsl:value-of select="$type"/></adms:schemeAgency>
+		  </xsl:when>
+		  <xsl:when test="$schemeURI != ''">
+		    <dct:creator rdf:resource="{$schemeURI}"/>
+		  </xsl:when>
+		</xsl:choose>
               </adms:Identifier>
             </adms:identifier>
           </xsl:when>
@@ -1697,6 +1705,14 @@
             <adms:identifier>
               <adms:Identifier>
                 <skos:notation rdf:datatype="{$xsd}string"><xsl:value-of select="$uri"/></skos:notation>
+		<xsl:choose>
+		  <xsl:when test="$type != ''">
+		    <adms:schemeAgency><xsl:value-of select="$type"/></adms:schemeAgency>
+		  </xsl:when>
+		  <xsl:when test="$schemeURI != ''">
+		    <dct:creator rdf:resource="{$schemeURI}"/>
+		  </xsl:when>
+		</xsl:choose>
               </adms:Identifier>
             </adms:identifier>
           </xsl:when>
