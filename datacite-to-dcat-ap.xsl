@@ -1642,16 +1642,17 @@
   <xsl:template name="Identifiers" match="*[local-name() = 'identifier']|*[local-name() = 'alternateIdentifiers']/*[local-name() = 'alternateIdentifier']">
     <xsl:param name="ResourceType"/>
     <xsl:param name="identifier" select="normalize-space(.)"/>
-    <xsl:param name="type">
+    <xsl:param name="type-original">
       <xsl:choose>
         <xsl:when test="local-name() = 'identifier'">
-          <xsl:value-of select="normalize-space(translate(@identifierType,$uppercase,$lowercase))"/>
+          <xsl:value-of select="normalize-space(@identifierType)"/>
         </xsl:when>
         <xsl:when test="local-name() = 'alternateIdentifier'">
-          <xsl:value-of select="normalize-space(translate(@alternateIdentifierType,$uppercase,$lowercase))"/>
+          <xsl:value-of select="normalize-space(@alternateIdentifierType)"/>
         </xsl:when>
       </xsl:choose>
     </xsl:param>
+    <xsl:param name="type" select="translate($type-original,$uppercase,$lowercase)"/>
     <xsl:param name="schemeURI" select="@schemeURI"/>
     <xsl:param name="uri">
       <xsl:call-template name="IdentifierURI">
@@ -1662,7 +1663,7 @@
     </xsl:param>    
     <xsl:variable name="urilc" select="translate($uri,$uppercase,$lowercase)"/>
     <xsl:choose>
-      <xsl:when test="$uri != '' and ( starts-with($urilc, 'http://') or starts-with($urilc, 'https://') or starts-with($urilc, 'urn://') )">
+      <xsl:when test="$uri != '' and ( starts-with($urilc, 'http://') or starts-with($urilc, 'https://') or starts-with($urilc, 'urn:') )">
         <xsl:choose>
           <xsl:when test="local-name() = 'identifier'">
             <dct:identifier rdf:datatype="{$xsd}anyURI"><xsl:value-of select="$uri"/></dct:identifier>
@@ -1685,7 +1686,7 @@
                 <skos:notation rdf:datatype="{$xsd}anyURI"><xsl:value-of select="$uri"/></skos:notation>
 		<xsl:choose>
 		  <xsl:when test="$type != ''">
-		    <adms:schemeAgency><xsl:value-of select="$type"/></adms:schemeAgency>
+		    <adms:schemeAgency><xsl:value-of select="$type-original"/></adms:schemeAgency>
 		  </xsl:when>
 		  <xsl:when test="$schemeURI != ''">
 		    <dct:creator rdf:resource="{$schemeURI}"/>
@@ -1704,10 +1705,10 @@
           <xsl:when test="local-name() = 'alternateIdentifier'">
             <adms:identifier>
               <adms:Identifier>
-                <skos:notation rdf:datatype="{$xsd}string"><xsl:value-of select="$uri"/></skos:notation>
+                <skos:notation><xsl:value-of select="$uri"/></skos:notation>
 		<xsl:choose>
 		  <xsl:when test="$type != ''">
-		    <adms:schemeAgency><xsl:value-of select="$type"/></adms:schemeAgency>
+		    <adms:schemeAgency><xsl:value-of select="$type-original"/></adms:schemeAgency>
 		  </xsl:when>
 		  <xsl:when test="$schemeURI != ''">
 		    <dct:creator rdf:resource="{$schemeURI}"/>
