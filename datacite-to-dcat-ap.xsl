@@ -572,6 +572,16 @@
     <xsl:variable name="subjectSchemeLC" select="translate($subjectScheme,$uppercase,$lowercase)"/>
     <xsl:variable name="schemeURI" select="@schemeURI"/>
     <xsl:choose>
+      <xsl:when test="starts-with($subject, 'http://') or starts-with($subject, 'https://')">
+        <xsl:choose>
+	  <xsl:when test="starts-with($subject, 'http://publications.europa.eu/resource/authority/theme/')">
+            <dcat:theme rdf:resource="{$subject}"/>
+	  </xsl:when>
+          <xsl:otherwise>
+            <dct:subject rdf:resource="{$subject}"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
       <xsl:when test="$subjectScheme != '' or $schemeURI != ''">
         <dct:subject>
           <skos:Concept>
