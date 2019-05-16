@@ -11,7 +11,7 @@
 -->
 <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c-common"></script>
 <script class="remove" src="./config.js"></script>
-<style class="remove">
+<style>
 table {font-size:small;}
 .disclaimer {font-size:.9em;}
 .disclaimer:before {content:"\2605\00a0 Disclaimer: ";font-weight:bold;}
@@ -1552,7 +1552,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>TBD</td>
     </tr>
     <tr>
-      <td colspan="2" rowspan="2">AlternateIdentifier</td>
+      <td colspan="2" rowspan="2"><a href="#mapping-alternate-identifier">AlternateIdentifier</a></td>
       <td><code>owl:sameAs</code></td>
       <td>URI reference</td>
       <td><em>testing</em></td>
@@ -2217,6 +2217,21 @@ a:Project a prov:Activity , foaf:Project ;
         <p>TBD</p>
         <p>Added in DataCite 4.1</p>
       </td>
+    </tr>
+    <tr>
+      <td rowspan="2" id="mapping-alternate-identifier">AlternateIdentifier</td>
+      <td><em>textual content</em></td>
+      <td rowspan="2"><code>adms:Identifier</code></td>
+      <td><code>skos:notation</code></td>
+      <td><code>rdfs:Literal</code></td>
+      <td rowspan="2"><strong>unstable</strong></td>
+      <td>
+      </td>
+    </tr>
+    <tr>
+      <td>@alternateIdentifierType</td>
+      <td><code>adms:schemeAgency</code></td>
+      <td><code>rdfs:Literal</code></td>
     </tr>
     <tr>
       <td id="mapping-related-identifier">RelatedIdentifier</td>
