@@ -479,7 +479,14 @@
 -->
 <!-- Unstable -->
       <xsl:when test="$type = 'translated'">
-        <dct:title xml:lang="{@xml:lang}"><xsl:value-of select="$title"/></dct:title>
+        <xsl:choose>
+          <xsl:when test="normalize-space(@xml:lang) != ''">
+            <dct:title xml:lang="{@xml:lang}"><xsl:value-of select="$title"/></dct:title>
+          </xsl:when>
+          <xsl:otherwise>
+            <dct:title><xsl:value-of select="$title"/></dct:title>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
         
     </xsl:choose>
@@ -533,10 +540,24 @@
       <xsl:otherwise>
         <xsl:choose>
           <xsl:when test="not(../*[local-name() = 'description' and $type = 'abstract'])">
-            <dct:description xml:lang="{@xml:lang}"><xsl:value-of select="$description"/></dct:description>
+            <xsl:choose>
+              <xsl:when test="normalize-space(@xml:lang) != ''">
+                <dct:description xml:lang="{@xml:lang}"><xsl:value-of select="$description"/></dct:description>
+              </xsl:when>
+              <xsl:otherwise>
+                <dct:description><xsl:value-of select="$description"/></dct:description>
+              </xsl:otherwise>
+            </xsl:choose>
           </xsl:when>
           <xsl:otherwise>
-            <rdfs:comment xml:lang="{@xml:lang}"><xsl:value-of select="$description"/></rdfs:comment>
+            <xsl:choose>
+              <xsl:when test="normalize-space(@xml:lang) != ''">
+                <rdfs:comment xml:lang="{@xml:lang}"><xsl:value-of select="$description"/></rdfs:comment>
+              </xsl:when>
+              <xsl:otherwise>
+                <rdfs:comment><xsl:value-of select="$description"/></rdfs:comment>
+              </xsl:otherwise>
+            </xsl:choose>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:otherwise>
@@ -554,12 +575,26 @@
       <xsl:when test="$subjectScheme != '' or $schemeURI != ''">
         <dct:subject>
           <skos:Concept>
-            <skos:prefLabel xml:lang="{@xml:lang}"><xsl:value-of select="$subject"/></skos:prefLabel>
+            <xsl:choose>
+              <xsl:when test="normalize-space(@xml:lang) != ''">
+                <skos:prefLabel xml:lang="{@xml:lang}"><xsl:value-of select="$subject"/></skos:prefLabel>
+              </xsl:when>
+              <xsl:otherwise>
+                <skos:prefLabel><xsl:value-of select="$subject"/></skos:prefLabel>
+              </xsl:otherwise>
+            </xsl:choose>
             <skos:inScheme>
               <xsl:choose>
                 <xsl:when test="$subjectScheme != '' and $schemeURI != ''">
                   <skos:ConceptScheme rdf:about="{$schemeURI}">
-                    <dct:title xml:lang="{@xml:lang}"><xsl:value-of select="$subjectScheme"/></dct:title>
+		    <xsl:choose>
+		      <xsl:when test="normalize-space(@xml:lang) != ''">
+			<dct:title xml:lang="{@xml:lang}"><xsl:value-of select="$subjectScheme"/></dct:title>
+		      </xsl:when>
+		      <xsl:otherwise>
+			<dct:title><xsl:value-of select="$subjectScheme"/></dct:title>
+		      </xsl:otherwise>
+		    </xsl:choose>
                   </skos:ConceptScheme>
                 </xsl:when>
                 <xsl:when test="not($subjectScheme != '') and $schemeURI != ''">
@@ -567,7 +602,14 @@
                 </xsl:when>
                 <xsl:when test="$subjectScheme != '' and not($schemeURI != '')">
                   <skos:ConceptScheme>
-                    <dct:title xml:lang="{@xml:lang}"><xsl:value-of select="$subjectScheme"/></dct:title>
+		    <xsl:choose>
+		      <xsl:when test="normalize-space(@xml:lang) != ''">
+			<dct:title xml:lang="{@xml:lang}"><xsl:value-of select="$subjectScheme"/></dct:title>
+		      </xsl:when>
+		      <xsl:otherwise>
+			<dct:title><xsl:value-of select="$subjectScheme"/></dct:title>
+		      </xsl:otherwise>
+		    </xsl:choose>
                   </skos:ConceptScheme>
                 </xsl:when>
               </xsl:choose>
