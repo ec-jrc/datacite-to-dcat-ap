@@ -751,7 +751,7 @@ a:Project a prov:Activity , foaf:Project ;
 <li>It is often the case that no URIs are available for the used vocabularies.</li>
 </ol>
 <p>Such situation makes it difficult the effective implementation of vocabulary mapping.</p>
-<p>For this reason, CiteDCAT-AP preserve keywords from controlled vocabularies as textual labels.</p>
+<p>For this reason, CiteDCAT-AP preserves keywords from controlled vocabularies as textual labels, unless the textual label is a URI.</p>
 
 </section>
 
@@ -1060,8 +1060,19 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td colspan="2" rowspan="2"><a title="see details" href="#mapping-subject">Subject</a></td>
-      <td><code>dct:subject</code></td>
+      <td colspan="2" rowspan="4"><a title="see details" href="#mapping-subject">Subject</a></td>
+      <td><code>dcat:theme</code></td>
+      <td><code>skos:Concept</code> (URI reference)</td>
+      <td><em>testing</em></td>
+      <td>If the subject is a URI from [[MDR-THEMES]]</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><code>dct:subject</code></td>
+      <td><code>skos:Concept</code> (URI reference)</td>
+      <td><em>testing</em></td>
+      <td>If the subject is a URI</td>
+    </tr>
+    <tr>
       <td><code>skos:Concept</code></td>
       <td><em>testing</em></td>
       <td>If the subject is associated with a subject scheme</td>
