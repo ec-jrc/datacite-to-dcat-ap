@@ -129,8 +129,8 @@ The views expressed are purely those of the author and may not in any circumstan
 <p>The motivation for investigating the possiblity of aligning DataCite metadata with DCAT-AP is twofold:</p>
 
 <ol>
-	<li>To identify how to create a DCAT-AP-compliant representation of DataCite metadata, in order to enable their sharing across DCAT-AP-enabled data catalogues. This analysis is not meant to provide a complete representation of all DataCite metadata elements, but only of those included in DCAT-AP.</li>
-	<li>To identify how to create a DataCite-compliant representation of DCAT-AP metadata, in order to enable their publishing on the DataCite infrastructure. This analysis is meant to develop an extension of DCAT-AP, covering all DataCite metadata elements.</li>
+<li>To identify how to create a DCAT-AP-compliant representation of DataCite metadata, in order to enable their sharing across DCAT-AP-enabled data catalogues. This analysis is not meant to provide a complete representation of all DataCite metadata elements, but only of those included in DCAT-AP.</li>
+<li>To identify how to create a DataCite-compliant representation of DCAT-AP metadata, in order to enable their publishing on the DataCite infrastructure. This analysis is meant to develop an extension of DCAT-AP, covering all DataCite metadata elements.</li>
 </ol>
 
 <p>The following sections first illustrate the background (<a class="no-sectionRef" href="#background"></a>) and the methodology (<a class="no-sectionRef" href="#methodology"></a>) for the design of CiteDCAT-AP, followed by an analysis of related work (<a class="no-sectionRef" href="#comparison-with-dc2ap-and-datacite2rdf"></a>). Then, a high level overview of the metadata elements supported in DCAT-AP and DataCite is provided (<a class="no-sectionRef" href="#comparison"></a>), along with a summary of mapping issues (<a class="no-sectionRef" href="#alignment-issues"></a>).</p>
@@ -173,7 +173,7 @@ The views expressed are purely those of the author and may not in any circumstan
 
 <h3>DataCite</h3>
 
-<p><a href="https://www.datacite.org/">DataCite</a> is an international initiative meant to enable citation for scientific datasets. To achieve this, DataCite operates a metadata infrastructure, following the same approach used by <a href="https://www.crossref.org/">CrossRef</a> for scientific publications. As such, the DataCite infrastructure is responsible for issuing persistent identifiers (in particular, <abbr title="Digital Object Identifier">DOI</abbr>s) for datasets, and for registering dataset metadata. Such metadata are to be provided according to the DataCite metadata schema - which is basically an extension to the DOI one.</p>
+<p><a href="https://www.datacite.org/">DataCite</a> is an international initiative meant to enable citation for scientific datasets. To achieve this, DataCite operates a metadata infrastructure, following the same approach used by <a href="https://www.crossref.org/">CrossRef</a> for scientific publications. As such, the DataCite infrastructure is responsible for issuing persistent identifiers (in particular, <abbr title="Digital Object Identifier">DOI</abbr>s) for datasets, and for registering dataset metadata. Such metadata are to be provided according to the DataCite metadata schema [[DataCite]] - which is basically an extension to the DOI one.</p>
 <p>Currently, DataCite is the de facto standard for data citation. Therefore, the ability to transform metadata records from and to the DataCite metadata schema would enable, respectively, the harvesting of DataCite records, and the publication of metadata records in the DataCite infrastructure (thus enabling their citation).</p>
 
 </section>
@@ -185,8 +185,8 @@ The views expressed are purely those of the author and may not in any circumstan
 <p>The motivation for investigating the possiblity of aligning DataCite metadata with DCAT-AP is twofold:</p>
 
 <ol>
-	<li>To identify how to create a DCAT-AP-compliant representation of DataCite metadata, in order to enable their sharing across DCAT-AP-enabled data catalogues. This analysis is not meant to provide a complete representation of all DataCite metadata elements, but only of those included in DCAT-AP.</li>
-	<li>To identify how to create a DataCite-compliant representation of DCAT-AP metadata, in order to enable their publishing on the DataCite infrastructure. This analysis is meant to develop an extension of DCAT-AP, covering all DataCite metadata elements.</li>
+<li>To identify how to create a DCAT-AP-compliant representation of DataCite metadata, in order to enable their sharing across DCAT-AP-enabled data catalogues. This analysis is not meant to provide a complete representation of all DataCite metadata elements, but only of those included in DCAT-AP.</li>
+<li>To identify how to create a DataCite-compliant representation of DCAT-AP metadata, in order to enable their publishing on the DataCite infrastructure. This analysis is meant to develop an extension of DCAT-AP, covering all DataCite metadata elements.</li>
 </ol>
 
 <p>About point (2), the DataCite-based extension of DCAT-AP is also meant to integrate into DCAT-AP all the information required for data citation.</p>
@@ -206,7 +206,7 @@ The views expressed are purely those of the author and may not in any circumstan
 <li>DCAT-AP 1.2.1 (<time datetime="2019-05-28">May 2019</time>) [[DCAT-AP-20190528]]</li>
 <li>GeoDCAT-AP 1.0.1 (<time datetime="2016-08-02">August 2016</time>) [[GeoDCAT-AP-20160802]]</li>
 <li>StatDCAT-AP 1.0.1 (<time datetime="2019-05-28">May 2019</time>) [[StatDCAT-AP-20190528]]</li>
-<li>DataCite 4.2 (<time datetime="2019-03-20">March 2019</time>) [[DataCite-20190320]]</li>
+<li>DataCite 4.3 (<time datetime="2019-08-16">August 2019</time>) [[DataCite-20190816]]</li>
 </ul>
 <p>
 <p>For the mappings, existing work has been taken into account concerning the mapping of DataCite to other metadata standards. In particular:</p>
@@ -1030,7 +1030,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>If the resource is not modelled as a <code>dcat:Dataset</code></td>
     </tr>
     <tr>
-      <td>* <code>dcat:accessURL</code></td>
+      <td>*&nbsp;<code>dcat:accessURL</code></td>
       <td><code>rdfs:Resource</code> (URI reference)</td>
       <td><em>testing</em></td>
       <td>If the resource is modelled as a <code>dcat:Dataset</code>,  the domain is <code>dcat:Distribution</code></td>
@@ -1166,7 +1166,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>
         <p>Only for the extended profile.</p>
-        <p>This element has been deprecated in DataCite 4.0, in favour of new element <a href="#mapping-funding-reference">FundingReference</a>.</p>
+        <p>This element has been deprecated in [[DataCite-20160916]], in favour of new element <a href="#mapping-funding-reference">FundingReference</a>.</p>
       </td>
     </tr>
     <tr>
@@ -1205,7 +1205,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>Only for the extended profile</td>
     </tr>
     <tr>
-      <td><strong>* <code>foaf:member</code></strong></td>
+      <td><strong>*&nbsp;<code>foaf:member</code></strong></td>
       <td><em>testing</em></td>
       <td>
         <p>Only for the extended profile</p>
@@ -1284,7 +1284,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>Only for the extended profile</td>
     </tr>
     <tr>
-      <td rowspan="13"><a href="#mapping-date">Date</a></td>
+      <td rowspan="13"><a title="see details" href="#mapping-date">Date</a></td>
       <td><em>default</em></td>
       <td><strong><code>dct:date</code></strong></td>
       <td><strong><code>xsd:date</code></strong></td>
@@ -1340,7 +1340,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>
         <p>Only for the extended profile</p>
-        <p>Added in DataCite 4.1</p>
+        <p>Added in [[DataCite-20171023]]</p>
       </td>
     </tr>
     <tr>
@@ -1371,7 +1371,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td rowspan="2"><em>testing</em></td>
       <td rowspan="2">
         <p>Only for the extended profile</p>
-        <p>Added in DataCite 4.2</p>
+        <p>Added in [[DataCite-20190320]]</p>
       </td>
     </tr>
     <tr>
@@ -1424,7 +1424,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><code>rdf:type</code></td>
       <td><code>dcat:Dataset</code></td>
       <td><em>testing</em></td>
-      <td>Added in DataCite 4.1</td>
+      <td>Added in [[DataCite-20171023]]</td>
     </tr>
     <tr>
       <td><strong><code>dct:type</code></strong></td>
@@ -1589,7 +1589,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td>TBD</td>
     </tr>
     <tr>
-      <td colspan="2" rowspan="2"><a href="#mapping-alternate-identifier">AlternateIdentifier</a></td>
+      <td colspan="2" rowspan="2"><a title="see details" href="#mapping-alternate-identifier">AlternateIdentifier</a></td>
       <td><code>owl:sameAs</code></td>
       <td>URI reference</td>
       <td><em>testing</em></td>
@@ -1602,7 +1602,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td rowspan="34"><a href="#mapping-related-identifier">RelatedIdentifier</a></td>
+      <td rowspan="34"><a title="see details" href="#mapping-related-identifier">RelatedIdentifier</a></td>
       <td><em>default</em></td>
       <td><code>dct:relation</code></td>
       <td><code>rdfs:Resource</code></td>
@@ -1791,7 +1791,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><strong>unstable</strong></td>
       <td>
         <p>TBD</p>
-        <p>Added in DataCite 4.1</p>
+        <p>Added in [[DataCite-20171023]]</p>
       </td>
     </tr>
     <tr>
@@ -1801,7 +1801,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>
         <p>Only for the extended profile</p>
-        <p>Added in DataCite 4.1</p>
+        <p>Added in [[DataCite-20171023]]</p>
       </td>
     </tr>
     <tr>
@@ -1811,7 +1811,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>
         <p>Only for the extended profile</p>
-        <p>Added in DataCite 4.1</p>
+        <p>Added in [[DataCite-20171023]]</p>
       </td>
     </tr>
     <tr>
@@ -1821,7 +1821,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>
         <p>Only for the extended profile</p>
-        <p>Added in DataCite 4.1</p>
+        <p>Added in [[DataCite-20171023]]</p>
       </td>
     </tr>
     <tr>
@@ -1831,7 +1831,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>
         <p>Only for the extended profile</p>
-        <p>Added in DataCite 4.1</p>
+        <p>Added in [[DataCite-20171023]]</p>
       </td>
     </tr>
     <tr>
@@ -1841,7 +1841,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>
         <p>Only for the extended profile</p>
-        <p>Added in DataCite 4.1</p>
+        <p>Added in [[DataCite-20171023]]</p>
       </td>
     </tr>
     <tr>
@@ -1851,7 +1851,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>
         <p>Only for the extended profile</p>
-        <p>Added in DataCite 4.2</p>
+        <p>Added in [[DataCite-20190320]]</p>
       </td>
     </tr>
     <tr>
@@ -1861,18 +1861,18 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>
         <p>Only for the extended profile</p>
-        <p>Added in DataCite 4.2</p>
+        <p>Added in [[DataCite-20190320]]</p>
       </td>
     </tr>
     <tr>
-      <td colspan="2">* Size</td>
+      <td colspan="2">*&nbsp;Size</td>
       <td><strong><code>dct:extent</code></strong></td>
       <td><strong><code>dct:SizeOrDuration</code></strong></td>
       <td><em>testing</em></td>
       <td><p>If the resource is modelled as a <code>dcat:Dataset</code>,  the domain is <code>dcat:Distribution</code>.</p><p>Only for the extended profile.</p></td>
     </tr>
     <tr>
-      <td colspan="2" rowspan="2">* Format</td>
+      <td colspan="2" rowspan="2">*&nbsp;Format</td>
       <td><code>dct:format</code></td>
       <td><code>dct:MediaTypeOrExtent</code></td>
       <td><em>testing</em></td>
@@ -1892,7 +1892,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td colspan="2"><a title="see details" href="#mapping-rights">* Rights</a></td>
+      <td colspan="2"><a title="see details" href="#mapping-rights">*&nbsp;Rights</a></td>
       <td><code>dct:rights</code></td>
       <td><code>dct:RightsStatement</code></td>
       <td><em>testing</em></td>
@@ -1954,7 +1954,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><strong><code>foaf:Project</code></strong></td>
       <td><em>testing</em></td>
       <td>
-        <p>Element added in DataCite 4.0.</p>
+        <p>Element added in [[DataCite-20160916]].</p>
         <p>Only for the extended profile.</p>
       </td>
     </tr>
@@ -1994,7 +1994,7 @@ a:Project a prov:Activity , foaf:Project ;
   <tbody>
     <tr>
       <td rowspan="5" id="mapping-creator">Creator</td>
-      <td><a href="#mapping-creator-name">creatorName</a></td>
+      <td><a title="see details" href="#mapping-creator-name">creatorName</a></td>
       <td rowspan="5"><code>foaf:Agent</code></td>
       <td><code>foaf:name</code></td>
       <td><code>rdf:PlainLiteral</code></td>
@@ -2023,7 +2023,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td>affiliation</td>
+      <td><a title="see details" href="#mapping-affiliation">affiliation</a></td>
       <td><code>org:memberOf</code></td>
       <td><code>foaf:Organization</code></td>
       <td><em>testing</em></td>
@@ -2031,7 +2031,7 @@ a:Project a prov:Activity , foaf:Project ;
     </tr>
     <tr>
       <td rowspan="10" id="mapping-contributor">Contributor</td>
-      <td rowspan="2"><a href="#mapping-contributor-name">contributorName</a></td>
+      <td rowspan="2"><a title="see details" href="#mapping-contributor-name">contributorName</a></td>
       <td><code>foaf:Agent</code></td>
       <td><code>foaf:name</code></td>
       <td><code>rdf:PlainLiteral</code></td>
@@ -2111,7 +2111,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><code>rdfs:Literal</code></td>
       <td><em>testing</em></td>
       <td rowspan="3">
-        <p>In DataCite 4.0, this information is specified by using 2 child elements - namely, <code>pointLatitude</code> and <code>pointLongitude</code>.</p>
+        <p>In [[DataCite-20160916]], this information is specified by using 2 child elements - namely, <code>pointLatitude</code> and <code>pointLongitude</code>.</p>
         <p>Earlier versions of DataCite use a literal instead.</p>
       </td>
     </tr>
@@ -2129,7 +2129,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><code>gsp:wktLiteral</code></td>
       <td rowspan="2"><em>testing</em></td>
       <td rowspan="3">
-        <p>In DataCite 4.0, this information is specified by using 4 child elements - namely, <code>northBoundLatitude</code>, <code>eastBoundLongitude</code>, <code>southBoundLatitude</code>, and <code>westBoundLongitude</code>.</p>
+        <p>In [[DataCite-20160916]], this information is specified by using 4 child elements - namely, <code>northBoundLatitude</code>, <code>eastBoundLongitude</code>, <code>southBoundLatitude</code>, and <code>westBoundLongitude</code>.</p>
         <p>Earlier versions of DataCite use a literal instead.</p>
       </td>
     </tr>
@@ -2147,9 +2147,9 @@ a:Project a prov:Activity , foaf:Project ;
       <td><code>gsp:wktLiteral</code></td>
       <td rowspan="2"><em>testing</em></td>
       <td rowspan="3">
-        <p>Element added in DataCite 4.0.</p>
+        <p>Element added in [[DataCite-20160916]].</p>
         <p>The polygon vertices are specified by using child element <code>geoPolygonPoint</code>. The coordinates of each vertex are specified by using two child elements - respectively, <code>pointLatitude</code> and <code>pointLongitude</code>.</p>
-        <p>DataCite 4.1 introduces an additional element <code>inPolygonPoint</code> to mark the inside of the polygon for "any bound area that is larger than half the earth". Its purpose is not necessary in the transformed geometry encoding, so this element is not mapped.</p>
+        <p>[[DataCite-20171023]] introduces an additional element <code>inPolygonPoint</code> to mark the inside of the polygon for "any bound area that is larger than half the earth". Its purpose is not necessary in the transformed geometry encoding, so this element is not mapped.</p>
       </td>
     </tr>
     <tr>
@@ -2161,8 +2161,8 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
     </tr>
     <tr>
-      <td rowspan="4" id="mapping-funding-reference">FundingReference</td>
-      <td><a href="#mapping-award-number">awardNumber</a></td>
+      <td rowspan="5" id="mapping-funding-reference">FundingReference</td>
+      <td><a title="see details" href="#mapping-award-number">awardNumber</a></td>
       <td rowspan="2"><code>foaf:Project</code></td>
       <td><code>dct:identifier</code></td>
       <td><code>xsd:string</code> | <code>xsd:anyURI</code></td>
@@ -2177,22 +2177,58 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td>* funderName</td>
-      <td rowspan="2"><code>foaf:Organization</code></td>
+      <td>*&nbsp;funderName</td>
+      <td rowspan="3"><code>foaf:Organization</code></td>
       <td><code>foaf:name</code></td>
       <td><code>rdf:PlainLiteral</code></td>
       <td><em>testing</em></td>
-      <td rowspan="2">
+      <td rowspan="3">
         <p>The "funding project" (<code>foaf:Project</code>) is linked to the "funder" (<code>foaf:Organization</code>) by using property <code>frapo:isAwardedBy</code>.</p>
         <p>The domain is <code>foaf:Organization</code>.</p>
       </td>
     </tr>
     <tr>
-      <td>* funderIdentifier</td>
+      <td rowspan="2">*&nbsp;funderIdentifier</td>
+      <td><code>@rdf:about</code></td>
+      <td>URI reference</td>
+      <td><em>testing</em></td>
+    </tr>
+    <tr>
       <td><code>dct:identifier</code></td>
       <td><code>xsd:string</code> | <code>xsd:anyURI</code></td>
       <td><em>testing</em></td>
     </tr>
+<!--
+    <tr>
+      <td rowspan="2">
+        <p>The "funder identifier" is specified both via property <code>dct:identifier</code> and class <code>adms:Identifier</code>).</p>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4"><code>adms:Identifier</code></td>
+      <td rowspan="2"><code>skos:notation</code></td>
+      <td rowspan="2"><code>xsd:string</code> | <code>xsd:anyURI</code></td>
+      <td rowspan="2"><em>testing</em></td>
+    </tr>
+    <tr>
+      <td rowspan="3">
+        <p>The "funder" (<code>foaf:Organization</code>) is linked to the "funder identifier" (<code>adms:Identifier</code>) by using property <code>adms:identifier</code>.</p>
+        <p>The domain is <code>adms:Identifier</code>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>*&nbsp;@funderIdentifierType</td>
+      <td><code>adms:schemeAgency</code></td>
+      <td><code>rdfs:Literal</code></td>
+      <td><em>testing</em></td>
+    </tr>
+    <tr>
+      <td>*&nbsp;@schemeURI</td>
+      <td><code>dct:creator</code></td>
+      <td>URI reference</td>
+      <td><em>testing</em></td>
+    </tr>
+-->    
   </tbody>
 </table>
 
@@ -2224,7 +2260,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td rowspan="2"><code>foaf:name</code></td>
       <td rowspan="2"><code>rdf:PlainLiteral</code></td>
       <td rowspan="2"><em>testing</em></td>
-      <td rowspan="2">Added in DataCite 4.1</td>
+      <td rowspan="2">Added in [[DataCite-20171023]]</td>
     </tr>
     <tr>
       <td>@nameType = Personal</td>
@@ -2237,12 +2273,59 @@ a:Project a prov:Activity , foaf:Project ;
       <td rowspan="2"><code>foaf:name</code></td>
       <td rowspan="2"><code>rdf:PlainLiteral</code></td>
       <td rowspan="2"><em>testing</em></td>
-      <td rowspan="2">Added in DataCite 4.1</td>
+      <td rowspan="2">Added in [[DataCite-20171023]]</td>
     </tr>
     <tr>
       <td>@nameType = Personal</td>
       <td><code>foaf:Person</code></td>
     </tr>
+    <tr>
+      <td rowspan="3" id="mapping-affiliation">affiliation</td>
+      <td><em>textual content</em></td>
+      <td rowspan="3"><code>foaf:Organization</code></td>
+      <td><code>foaf:name</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="2">@affiliationIdentifier</td>
+<!--      
+      <td rowspan="3"><code>adms:Identifier</code></td>
+      <td><code>skos:notation</code></td>
+      <td><code>rdfs:Literal</code></td>
+-->      
+      <td><code>@rdf:about</code></td>
+      <td>URI reference</td>
+      <td><em>testing</em></td>
+<!--
+	<td rowspan="3">
+        <p>The domain is <code>adms:Identifier</code></p>
+        <p>Added in [[DataCite-20190816]]</p>
+-->
+      <td rowspan="2">
+        <p>Added in [[DataCite-20190816]]</p>
+      </td>
+    </tr>
+    <tr>
+      <td><code>dct:identifier</code></td>
+      <td><code>xsd:string</code> | <code>xsd:anyURI</code></td>
+      <td><em>testing</em></td>
+    </tr>
+<!--    
+    <tr>
+      <td>@affiliationIdentifierScheme</td>
+      <td><code>adms:schemeAgency</code></td>
+      <td><code>rdfs:Literal</code></td>
+      <td><em>testing</em></td>
+    </tr>
+    <tr>
+      <td>@schemeURI</td>
+      <td><code>dct:creator</code></td>
+      <td>URI reference</td>
+      <td><em>testing</em></td>
+    </tr>
+-->    
     <tr>
       <td id="mapping-date">Date</td>
       <td>@dateInformation</td>
@@ -2252,7 +2335,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><strong>unstable</strong></td>
       <td>
         <p>TBD</p>
-        <p>Added in DataCite 4.1</p>
+        <p>Added in [[DataCite-20171023]]</p>
       </td>
     </tr>
     <tr>
@@ -2281,7 +2364,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><strong>unstable</strong></td>
       <td>
         <p>Not mapped at the moment</p>
-        <p>Added in DataCite 4.1</p>
+        <p>Added in [[DataCite-20171023]]</p>
       </td>
     </tr>
     <tr>
@@ -2332,7 +2415,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td rowspan="3">
         <p>The domain is <code>adms:Identifier</code></p>
-        <p>Added in DataCite 4.2</p>
+        <p>Added in [[DataCite-20190320]]</p>
       </td>
     </tr>
     <tr>
@@ -2419,11 +2502,26 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td rowspan="2"><a href="https://en.wikipedia.org/wiki/International_Standard_Name_Identifier" title="International Standard Name Identifier"><em>ISNI</em></a></td>
+      <td rowspan="3"><a href="https://en.wikipedia.org/wiki/International_Standard_Name_Identifier" title="International Standard Name Identifier"><em>ISNI</em></a></td>
       <td>nameIdentifier</td>
-      <td rowspan="2"><a href="http://www.isni.org/"><code>http://www.isni.org/</code></a></td>
-      <td rowspan="2"><code>0000000121032683</code></td>
-      <td rowspan="2"><a href="http://www.isni.org/0000000121032683"><code>http://www.isni.org/0000000121032683</code></a></td>
+      <td rowspan="3"><a href="http://www.isni.org/"><code>http://www.isni.org/</code></a></td>
+      <td rowspan="3"><code>0000000121032683</code></td>
+      <td rowspan="3"><a href="http://www.isni.org/0000000121032683"><code>http://www.isni.org/0000000121032683</code></a></td>
+      <td rowspan="3"><em>testing</em></td>
+      <td rowspan="3"></td>
+    </tr>
+    <tr>
+      <td>affiliationIdentifier</td>
+    </tr>
+    <tr>
+      <td>funderIdentifier</td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://www.grid.ac/"><abbr title="Global Research Identifier">GRID</abbr></a></td>
+      <td>affiliationIdentifier</td>
+      <td rowspan="2"><a href="https://www.grid.ac/institutes/"><code>https://www.grid.ac/institutes/</code></a></td>
+      <td rowspan="2"><code>grid.270680.b</code></td>
+      <td rowspan="2"><a href="https://www.grid.ac/institutes/grid.270680.b"><code>https://www.grid.ac/institutes/grid.270680.b</code></a></td>
       <td rowspan="2"><em>testing</em></td>
       <td rowspan="2"></td>
     </tr>
@@ -2431,22 +2529,28 @@ a:Project a prov:Activity , foaf:Project ;
       <td>funderIdentifier</td>
     </tr>
     <tr>
-      <td><a href="https://www.grid.ac/"><abbr title="Global Research Identifier">GRID</abbr></a></td>
-      <td>funderIdentifier</td>
-      <td><a href="https://www.grid.ac/institutes/"><code>https://www.grid.ac/institutes/</code></a></td>
-      <td><code>grid.270680.b</code></td>
-      <td><a href="https://www.grid.ac/institutes/grid.270680.b"><code>https://www.grid.ac/institutes/grid.270680.b</code></a></td>
-      <td><em>testing</em></td>
-      <td></td>
+      <td rowspan="2"><a href="https://www.crossref.org/services/funder-registry/"><abbr title="CrossRef Funder Identifier">CrossRef Funder ID</abbr></a></td>
+      <td>affiliationIdentifier</td>
+      <td rowspan="2"><a href="https://doi.org/"><code>https://doi.org/</code></a></td>
+      <td rowspan="2"><code>10.13039/501100000900</code></td>
+      <td rowspan="2"><a href="https://doi.org/10.13039/501100000900"><code>https://doi.org/10.13039/501100000900</code></a></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2"></td>
     </tr>
     <tr>
-      <td><a href="https://www.crossref.org/services/funder-registry/"><abbr title="CrossRef Funder Identifier">CrossRef Funder ID</abbr></a></td>
       <td>funderIdentifier</td>
-      <td><a href="https://doi.org/"><code>https://doi.org/</code></a></td>
-      <td><code>10.13039/501100000900</code></td>
-      <td><a href="https://doi.org/10.13039/501100000900"><code>https://doi.org/10.13039/501100000900</code></a></td>
-      <td><em>testing</em></td>
-      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="2"><a href="https://ror.org/"><abbr title="Research Organization Registry">ROR</abbr></a></td>
+      <td>affiliationIdentifier</td>
+      <td rowspan="2"><a href="https://ror.org/"><code>https://ror.org/</code></a></td>
+      <td rowspan="2"><code>04j5wtv36</code></td>
+      <td rowspan="2"><a href="https://ror.org/04j5wtv36"><code>https://ror.org/04j5wtv36</code></a></td>
+      <td rowspan="2"><em>testing</em></td>
+      <td rowspan="2"></td>
+    </tr>
+    <tr>
+      <td>funderIdentifier</td>
     </tr>
     <tr>
       <td rowspan="3"><a href="https://en.wikipedia.org/wiki/Digital_object_identifier" title="Digital Object Identifier">DOI</a></td>
@@ -2548,7 +2652,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td rowspan="2"><code>SSH000SUA</code></td>
       <td rowspan="2"><a href="http://hdl.handle.net/10273/SSH000SUA"><code>http://hdl.handle.net/10273/SSH000SUA</code></a> (<a href="https://doi.org/10273/SSH000SUA"><code>https://doi.org/10273/SSH000SUA</code></a>)</td>
       <td rowspan="2">stable</td>
-      <td rowspan="2">Identifier type added in DataCite 4.0.</td>
+      <td rowspan="2">Identifier type added in [[DataCite-20160916]].</td>
     </tr>
     <tr>
       <td>RelatedIdentifier</td>
@@ -2694,7 +2798,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td rowspan="2"><em>testing</em></td>
       <td rowspan="2">
        <p>w3id's are HTTP URIs - no need for a URI prefix.</p>
-       <p>Added in DataCite 4.2.</p>
+       <p>Added in [[DataCite-20190320]].</p>
       </td>
     </tr>
     <tr>
