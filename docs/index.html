@@ -229,19 +229,19 @@ The views expressed are purely those of the author and may not in any circumstan
 <li>They have clear persistence and versioning policies.</li>
 <li>Preferably, they should be used across domains and data communities.</li>
 </ol>
-<p>These criteria are determining the main differences with the mappings defined in DC2AP and DC2RDF, that are illustrated in the following section.</p>
+<p>These criteria are determining the main differences with the mappings defined in [[DC2AP]] and DC2RDF, that are illustrated in the following section.</p>
 
 </section>
 <section id="comparison-with-dc2ap-and-datacite2rdf">
 
 <h2>Comparison with DC2AP &amp; DataCite2RDF</h2>
 
-<p>DC2AP and DataCite2RDF provide a full mapping of version 3.1 of the DataCite metadata schema. To achieve this, they re-use a number of vocabularies, that can be grouped into two main classes:</p>
+<p>[[DC2AP]] and [[DataCite2RDF]] provide a full mapping of version 3.1 of the DataCite metadata schema. To achieve this, they re-use a number of vocabularies, that can be grouped into two main classes:</p>
 <ol>
 <li>General purpose and widely used vocabularies, such as Dublin Core, FOAF, GeoSPARQL, and SKOS.</li>
 <li>A set of vocabularies developed specifically to model the publishing and academic domain. They include PRISM (<em>Publishing Requirements for Industry Standard Metadata</em>) [[PRISM]] and FRBR (<em>Functional Requirements for Bibliographic Records</em>) [[FRBR]], plus a set of ontologies developed in the framework of the <a href="http://www.sparontologies.net/">SPAR</a> (<em>Semantic Publishing and Referencing Ontologies</em>) project.</li>
 </ol>
-<p>The current version of CiteDCAT-AP follows the mappings based on the former group of vocabularies, but not the ones based on the latter group. The reason is twofold. First, the persistence and versioning policies of these vocabularies are unclear, and so it has been considered safer to re-consider their use when CiteDCAT-AP is more consolidated. Second, the mappings defined in DC2AP and DataCite2RDF are not compliant with the general requirements of DCAT-AP. For instance, despite the resource types defined in DataCite include datasets and metadata records, DC2AP and DataCite2RDF do not make use of DCAT.</p>
+<p>The current version of CiteDCAT-AP follows the mappings based on the former group of vocabularies, but not the ones based on the latter group. The reason is twofold. First, the persistence and versioning policies of these vocabularies are unclear, and so it has been considered safer to re-consider their use when CiteDCAT-AP is more consolidated. Second, the mappings defined in [[DC2AP]] and [[DataCite2RDF]] are not compliant with the general requirements of DCAT-AP. For instance, despite the resource types defined in DataCite include datasets and metadata records, [[DC2AP]] and [[DataCite2RDF]] do not make use of DCAT.</p>
 <p>It is worth noting that the second group of ontologies, and in particular the ones developed in the SPAR project, provide interesting solutions to modelling some aspects not explicitly addressed in DCAT-AP - e.g., the possibility of associating a temporal dimension to agent roles - but also alternative solutions for specifying the same information - one of the examples being resource identifiers. Complementing and aligning the different approaches would be mutually beneficial.</p>
 
 </section>
