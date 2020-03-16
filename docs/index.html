@@ -1652,16 +1652,16 @@ a:Project a prov:Activity , foaf:Project ;
       <td>TBD</td>
     </tr>
     <tr>
-      <td>HasMetadata</td>
+      <td id="mapping-has-metadata">HasMetadata</td>
       <td><code>foaf:isPrimaryTopicOf</code></td>
       <td><code>dcat:CatalogRecord</code> (URI reference)</td>
       <td><em>testing</em></td>
       <td></td>
     </tr>
     <tr>
-      <td>IsMetadataFor</td>
+      <td id="mapping-is-metadata-for">IsMetadataFor</td>
       <td><strong><code>foaf:primaryTopic</code></strong></td>
-      <td><strong><code>rdfs:Resource</code></strong></td>
+      <td><strong><code>rdfs:Resource</code></strong> (URI reference)</td>
       <td><em>testing</em></td>
       <td>Only for the extended profile</td>
     </tr>
@@ -2356,7 +2356,7 @@ a:Project a prov:Activity , foaf:Project ;
       </td>
     </tr>
     <tr>
-      <td id="mapping-related-identifier">RelatedIdentifier</td>
+      <td id="mapping-related-identifier" rowspan="3">RelatedIdentifier</td>
       <td>@resourceTypeGeneral</td>
       <td><code>rdfs:Resource</code></td>
       <td><code>rdf:type</code>, <code>dct:type</code></td>
@@ -2364,6 +2364,30 @@ a:Project a prov:Activity , foaf:Project ;
       <td><strong>unstable</strong></td>
       <td>
         <p>Not mapped at the moment</p>
+        <p>Added in [[DataCite-20171023]]</p>
+      </td>
+    </tr>
+    <tr>
+      <td>*&nbsp;@relatedMetadataScheme</td>
+      <td><code>dct:Standard</code></td>
+      <td><code>dct:title</code></td>
+      <td><code>rdf:PlainLiteral</code></td>
+      <td><em>testing</em></td>
+      <td>
+	<p>Only when @resourceTypeGeneral is <a href="#mapping-has-metadata">HasMetadata</a>.</p>
+        <p>The domain is <code>dct:Standard</code></p>
+        <p>Added in [[DataCite-20171023]]</p>
+      </td>
+    </tr>
+    <tr>
+      <td>*&nbsp;@schemeURI</td>
+      <td><code>dct:Standard</code></td>
+      <td><code>@rdf:about</code></td>
+      <td>URI reference</td>
+      <td><em>testing</em></td>
+      <td>
+	<p>Only when @resourceTypeGeneral is <a href="#mapping-has-metadata">HasMetadata</a>.</p>
+        <p>The domain is <code>dct:Standard</code></p>
         <p>Added in [[DataCite-20171023]]</p>
       </td>
     </tr>
