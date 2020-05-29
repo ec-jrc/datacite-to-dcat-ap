@@ -1,7 +1,8 @@
 var respecConfig = {
 
 //	preProcess: [dfn_index],
-//    logos: [{
+    logos: [
+//    {
 ////      src: './images/eu-isa-programme.png',
 //      src: "./images/eu-isa2-programme.jpg",
 ////      url: 'https://ec.europa.eu/isa',
@@ -13,7 +14,8 @@ var respecConfig = {
 //      width: 150,
 ////      height: 42,
 //      id: 'logo-eu-isa-programme',
-//    }],
+//    }
+    ],
 //    includePermalinks: true,
     addSectionLinks: true,
     doJsonLd: true,
@@ -22,7 +24,7 @@ var respecConfig = {
     copyrightHolder: "European Union",
     copyrightURL: "https://europa.eu/",
     copyrightStart: 2015,
-//    publishDate: "2016-08-02",
+    publishDate: "2020-03-16",
 /*
     alternateFormats: [{
       label: "PDF",
@@ -43,7 +45,7 @@ var respecConfig = {
     edDraftURI:           "https://ec-jrc.github.io/datacite-to-dcat-ap/",
     issueBase:            "https://github.com/ec-jrc/datacite-to-dcat-ap/issues/",
     github:               "https://github.com/ec-jrc/datacite-to-dcat-ap/",
-    overrideCopyright: '<p class="copyright"><a href="https://europa.eu/european-union/abouteuropa/legal_notices_en#copyright_notice">Copyright</a> © 2015-2019 <a href="https://europa.eu/">European Union</a>. This document is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" class="subfoot">Creative Commons Attribution 4.0 License</a>.</p>',
+//    overrideCopyright: '<p class="copyright"><a href="https://europa.eu/european-union/abouteuropa/legal_notices_en#copyright_notice">Copyright</a> © 2015-2020 <a href="https://europa.eu/">European Union</a>. This document is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" class="subfoot">Creative Commons Attribution 4.0 License</a>.</p>',
     editors: [
     {
       name:       "Andrea Perego",
@@ -108,7 +110,7 @@ var respecConfig = {
 //        ]
 //      }],
     wg: "JRC Data Support Team",
-    wgURI: "",
+    wgURI: "https://data.jrc.ec.europa.eu/contact",
 //    wgPublicList: "",
 //    wgPatentURI: "",
     inlineCSS: "true",
