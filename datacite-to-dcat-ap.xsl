@@ -775,7 +775,7 @@
 -->
         <xsl:choose>
           <xsl:when test="starts-with($rightsURI,'info:eu-repo/semantics/closedAccess')">
-            <dct:accessRights rdf:resource="{$arr}NON_PUBLIC"/>
+            <dct:accessRights rdf:resource="{$opar}NON_PUBLIC"/>
             <dct:accessRights>
               <dct:RightsStatement rdf:about="{$rightsURI}">
                 <xsl:copy-of select="$rightsLabel"/>
@@ -1458,9 +1458,9 @@
             <vcard:given-name><xsl:value-of select="$agentGivenName"/></vcard:given-name>
             <vcard:family-name><xsl:value-of select="$agentFamilyName"/></vcard:family-name>
           </xsl:if>
-          <xsl:if test="$affiliation != ''">
-            <vcard:organization-name><xsl:value-of select="$affiliation"/></vcard:organization-name>
-          </xsl:if>
+          <xsl:for-each select="*[local-name() = 'affiliation']">
+            <vcard:organization-name><xsl:value-of select="."/></vcard:organization-name>
+          </xsl:for-each>
         </xsl:when>
         <xsl:otherwise>
 <!--        
@@ -2253,7 +2253,9 @@
       </xsl:choose>
     </xsl:param>
     <xsl:param name="affiliationInfo">
-      <dct:identifier rdf:datatype="{$affiliationIdentifierDatatype}"><xsl:value-of select="$affiliationIdentifier"/></dct:identifier>
+      <xsl:if test="$affiliationIdentifier != ''">
+        <dct:identifier rdf:datatype="{$affiliationIdentifierDatatype}"><xsl:value-of select="$affiliationIdentifier"/></dct:identifier>
+      </xsl:if>
       <xsl:choose>
         <xsl:when test="normalize-space(@xml:lang) != ''">
           <foaf:name xml:lang="{normalize-space(@xml:lang)}"><xsl:value-of select="normalize-space(.)"/></foaf:name>
@@ -2275,7 +2277,7 @@
             </xsl:when>
           </xsl:choose>
         </adms:Identifier>
-    </adms:identifier>
+      </adms:identifier>
 -->
     </xsl:param>
     <xsl:choose>
