@@ -1,0 +1,2305 @@
+[
+  {
+  "@graph": [
+    {
+    "@id": "https://w3id.org/citedcat-ap/DataPaper",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class",
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "A factual and objective publication with a focused intent to identify and describe specific data, sets of data, or data collections to facilitate discoverability [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "Data paper"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "A data paper describes data provenance and methodologies used in the gathering, processing, organizing, and representing the data [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/registrationAuthority",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "A standards-setting body from which Registration Agencies obtain official recognition and guidance [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "registration authority"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "For intance: The IDF serves as the Registration Authority for the International Standards Organisation (ISO) in the area/domain of Digital Object Identifiers [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/isReviewedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Indicates that A is reviewed by B [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "is reviewed by"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+      "@id": "http://purl.org/ontology/bibo/reviewOf"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/",
+    "@type": [
+      "http://www.w3.org/ns/adms#Asset",
+      "http://www.w3.org/2002/07/owl#Ontology",
+      "http://purl.org/vocommons/voaf#Vocabulary"
+    ],
+    "http://purl.org/dc/terms/abstract": [
+      {
+      "@language": "en",
+      "@value": "CiteDCAT-AP is an extension of the DCAT application profile for data portals in Europe (DCAT-AP) for describing resources documented by using the DataCite metadata schema - the de facto standard for data citation, and used across scientific disciplines. Its basic use case is to make research data searchable on general data portals, thereby bridging the gap between scientific and public sector information. For this purpose, CiteDCAT-AP provides an RDF vocabulary and the corresponding RDF syntax binding for the metadata elements defined in DataCite."
+      }
+    ],
+    "http://purl.org/dc/terms/conformsTo": [
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "http://data.europa.eu/930/"
+      },
+      {
+      "@id": "http://data.europa.eu/r5r/"
+      },
+      {
+      "@id": "https://www.w3.org/TR/vocab-dcat/"
+      }
+    ],
+    "http://purl.org/dc/terms/created": [
+      {
+      "@type": "http://www.w3.org/2001/XMLSchema#date",
+      "@value": "2021-03-14"
+      }
+    ],
+    "http://purl.org/dc/terms/creator": [
+      {
+      "@id": "https://andrea-perego.name/foaf/#me"
+      },
+      {
+      "@id": "_:N457c4a50331d40769939c4420e89210c"
+      },
+      {
+      "@id": "_:Ne70e85451a674566ad72fc4b46d638da"
+      },
+      {
+      "@id": "_:Ncf555e384d4b4e9f872513fda4c8d003"
+      },
+      {
+      "@id": "_:N8579ac103f5848d68dbc37f26af618cc"
+      }
+    ],
+    "http://purl.org/dc/terms/dateCopyrighted": [
+      {
+      "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+      "@value": "2021"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+      "@language": "en",
+      "@value": "CiteDCAT-AP is an extension of the DCAT application profile for data portals in Europe (DCAT-AP) for describing resources documented by using the DataCite metadata schema - the de facto standard for data citation, and used across scientific disciplines. Its basic use case is to make research data searchable on general data portals, thereby bridging the gap between scientific and public sector information. For this purpose, CiteDCAT-AP provides an RDF vocabulary and the corresponding RDF syntax binding for the metadata elements defined in DataCite."
+      }
+    ],
+    "http://purl.org/dc/terms/issued": [
+      {
+      "@type": "http://www.w3.org/2001/XMLSchema#date",
+      "@value": "2021-03-18"
+      }
+    ],
+    "http://purl.org/dc/terms/license": [
+      {
+      "@id": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/modified": [
+      {
+      "@type": "http://www.w3.org/2001/XMLSchema#date",
+      "@value": "2021-03-18"
+      }
+    ],
+    "http://purl.org/dc/terms/publisher": [
+      {
+      "@id": "http://publications.europa.eu/resource/authority/corporate-body/COM"
+      }
+    ],
+    "http://purl.org/dc/terms/rightsHolder": [
+      {
+      "@id": "http://publications.europa.eu/resource/authority/corporate-body/EURUN"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+      "@language": "en",
+      "@value": "CiteDCAT-AP Vocabulary"
+      }
+    ],
+    "http://purl.org/dc/terms/type": [
+      {
+      "@id": "http://publications.europa.eu/resource/authority/dataset-type/APROF"
+      },
+      {
+      "@id": "http://publications.europa.eu/resource/authority/asset-classification/c_89b4bdb7"
+      },
+      {
+      "@id": "http://publications.europa.eu/resource/authority/dataset-type/ONTOLOGY"
+      }
+    ],
+    "http://purl.org/ontology/bibo/editor": [
+      {
+      "@id": "_:N1b24e2d6f214426a8423356a522b155a"
+      },
+      {
+      "@id": "https://andrea-perego.name/foaf/#me"
+      }
+    ],
+    "http://purl.org/vocab/vann/preferredNamespacePrefix": [
+      {
+      "@value": "citedcat"
+      }
+    ],
+    "http://purl.org/vocab/vann/preferredNamespaceUri": [
+      {
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "@value": "https://w3id.org/citedcat-ap/"
+      }
+    ],
+    "http://purl.org/vocommons/voaf#reliesOn": [
+      {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#"
+      },
+      {
+      "@id": "http://www.w3.org/2006/vcard/ns#"
+      },
+      {
+      "@id": "http://www.w3.org/ns/prov#"
+      },
+      {
+      "@id": "http://purl.org/dc/terms/"
+      },
+      {
+      "@id": "http://www.w3.org/2002/07/owl#"
+      },
+      {
+      "@id": "http://purl.org/cerif/frapo/"
+      },
+      {
+      "@id": "http://www.w3.org/ns/locn#"
+      },
+      {
+      "@id": "http://purl.org/dc/dctype/"
+      },
+      {
+      "@id": "http://www.w3.org/2004/02/skos/core#"
+      },
+      {
+      "@id": "http://www.w3.org/ns/org#"
+      },
+      {
+      "@id": "http://www.w3.org/ns/dcat#"
+      },
+      {
+      "@id": "http://purl.org/ontology/bibo/"
+      },
+      {
+      "@id": "https://www.w3.org/2007/05/powder-s"
+      },
+      {
+      "@id": "http://www.w3.org/ns/adms#"
+      },
+      {
+      "@id": "http://xmlns.com/foaf/0.1/"
+      },
+      {
+      "@id": "http://www.opengis.net/ont/geosparql#"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "CiteDCAT-AP is an extension of the DCAT application profile for data portals in Europe (DCAT-AP) for describing resources documented by using the DataCite metadata schema - the de facto standard for data citation, and used across scientific disciplines. Its basic use case is to make research data searchable on general data portals, thereby bridging the gap between scientific and public sector information. For this purpose, CiteDCAT-AP provides an RDF vocabulary and the corresponding RDF syntax binding for the metadata elements defined in DataCite."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "CiteDCAT-AP Vocabulary"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionInfo": [
+      {
+      "@language": "en",
+      "@value": "Version 1.0.0"
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED"
+      }
+    ],
+    "http://www.w3.org/ns/adms#versionNotes": [
+      {
+      "@language": "en",
+      "@value": "First version of the CiteDCAT-AP RDF Vocabulary, including only the terms defined in the CiteDCAT-AP namespace."
+      },
+      {
+      "@language": "en",
+      "@value": "This version of CiteDCAT-AP is aligned with the following specifications: DataCite 4.3, DCAT 2, DCAT-AP 2.0.1, GeoDCAT-AP 2.0.0."
+      }
+    ],
+    "http://www.w3.org/ns/dcat#distribution": [
+      {
+      "@id": "_:N1fe1e1d5709446aba8c48587b375f803"
+      },
+      {
+      "@id": "_:Nb9c29251f071439e932f5ae64fea5293"
+      },
+      {
+      "@id": "_:N3aa209ec6ca64a6b997eca442b02bdea"
+      },
+      {
+      "@id": "_:N700576bd38204b1d8c9042fb1a91ef12"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/isFundedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "The activity (typically, a project) that provided financial support for the development of the resource."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "is funded by"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Project"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/isSupplementedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Indicates that B is a supplement to A [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "is supplemented by"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+      "@id": "https://w3id.org/citedcat-ap/isSupplementTo"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/dataCollector",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Person/institution responsible for finding, gathering/collecting data under the guidelines of the author(s) or Principal Investigator (PI) [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "data collector"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "May also use when crediting survey conductors, interviewers, event or condition observers, person responsible for monitoring key instrument data [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/dataManager",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Person (or organisation with a staff of data managers, such as a data centre) responsible for maintaining the finished resource [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "data manager"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "The work done by this person or organisation ensures that the resource is periodically “refreshed” in terms of software/hardware support, is kept available or is protected from unauthorized access, is stored in accordance with industry standards, and is handled in accordance with the records management requirements applicable to it [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "_:N700576bd38204b1d8c9042fb1a91ef12",
+    "@type": [
+      "http://www.w3.org/ns/adms#AssetDistribution"
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+      "@id": "http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE"
+      },
+      {
+      "@id": "http://www.w3.org/ns/formats/data/Turtle"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+      "@language": "en",
+      "@value": "Turtle"
+      }
+    ],
+    "http://www.w3.org/ns/adms#representationTechnique": [
+      {
+      "@id": "http://purl.org/adms/representationtechnique/OWL"
+      },
+      {
+      "@id": "http://purl.org/adms/representationtechnique/RDFSchema"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#downloadURL": [
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/rdf/citedcat-ap.ttl"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#mediaType": [
+      {
+      "@id": "https://www.iana.org/assignments/media-types/text/turtle"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/researchGroup",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Typically refers to a group of individuals with a lab, department, or division; the group has a particular, defined focus of activity [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "research group"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Group"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "May operate at a narrower level of scope; may or may not hold less administrative responsibility than a project team [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "_:Ncf555e384d4b4e9f872513fda4c8d003",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+      "@value": "Chrisa Tsinaraki"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/funder",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Institution that provided financial support for the development of the resource [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "funder"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "Includes organizations that provide funding via regular budget allocations, through grants or awards [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/researcher",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "A person involved in analyzing data or the results of an experiment or formal study. May indicate an intern or assistant to one of the authors who helped with research but who was not so “key” as to be listed as an author [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "researcher"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "Should be a person, not an institution. Note that a person involved in the gathering of data would fall under the contributorType “DataCollector.” The researcher may find additional data online and correlate it to the data collected for the experiment or study, for example [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/isVariantFormOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Indicates A is a variant or different form of B [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "is variant form or"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+      "@id": "https://w3id.org/citedcat-ap/isOriginalFormOf"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "Use for a different form of one thing. May be used for different software operating systems or compiler formats, for example [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/Workflow",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class",
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "A structured series of steps which can be executed to produce a final outcome, allowing users a means to specify and enact their work in a more reproducible manner [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "Workflow"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "Computational workflows involving sequential operations made on data by wrapped software and may be specified in a format belonging to a workflow management system, such as Taverna [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/Model",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class",
+      "http://www.w3.org/2000/01/rdf-schema#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "An abstract, conceptual, graphical, mathematical or visualization model that represents empirical objects, phenomena, or physical processes [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "Model"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "Modelled descriptions of, for example, different aspects of languages or a molecular biology reaction chain [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/describes",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Indicates A describes B [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "describes"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+      "@id": "http://www.w3.org/2007/05/powder-s#describedby"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/dataCurator",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Person tasked with reviewing, enhancing, cleaning, or standardizing metadata and the associated data submitted for storage, use, and maintenance within a data centre or repository [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "data curator"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "While the “DataManager” is concerned with digital maintenance, the DataCurator’s role encompasses quality assurance focused on content and metadata. This includes checking whether the submitted dataset is complete, with all files and components as described by submitter, whether the metadata is standardized to appropriate systems and schema, whether specialized metadata is needed to add value and ensure access across disciplines, and determining how the metadata might map to search engines, database products, and automated feeds [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/compiles",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Indicates B is the result of a compile or creation event using A [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "compiles"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+      "@id": "https://w3id.org/citedcat-ap/isCompiledBy"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "May be used for software and text, as a compiler can be a computer program or a person [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "_:N1b24e2d6f214426a8423356a522b155a",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+      "@value": "Tim Austin"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/registrationAgency",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Institution/organisation officially appointed by a Registration Authority to handle specific tasks within a defined area of responsibility [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "registration agency"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "For instance: DataCite is a Registration Agency for the International DOI Foundation (IDF). One of DataCite’s tasks is to assign DOI prefixes to the allocating agents who then assign the full, specific character string to data clients, provide metadata back to the DataCite registry, etc. [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/isCompiledBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Indicates B is used to compile or create A [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "is compiled by"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+      "@id": "https://w3id.org/citedcat-ap/compiles"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "May be used for software and text, as a compiler can be a computer program or a person [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "_:N8579ac103f5848d68dbc37f26af618cc",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+      "@value": "Anders Friis-Christensen"
+      }
+    ]
+    },
+    {
+    "@id": "_:Ne70e85451a674566ad72fc4b46d638da",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+      "@value": "Lorenzino Vaccari"
+      }
+    ]
+    },
+    {
+    "@id": "_:N1fe1e1d5709446aba8c48587b375f803",
+    "@type": [
+      "http://www.w3.org/ns/adms#AssetDistribution"
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+      "@id": "http://publications.europa.eu/resource/authority/file-type/JSON_LD"
+      },
+      {
+      "@id": "http://www.w3.org/ns/formats/data/JSON-LD"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+      "@language": "en",
+      "@value": "JSON-LD"
+      }
+    ],
+    "http://www.w3.org/ns/adms#representationTechnique": [
+      {
+      "@id": "http://purl.org/adms/representationtechnique/RDFSchema"
+      },
+      {
+      "@id": "http://purl.org/adms/representationtechnique/OWL"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#downloadURL": [
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/rdf/citedcat-ap.jsonld"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#mediaType": [
+      {
+      "@id": "https://www.iana.org/assignments/media-types/application/ld+json"
+      }
+    ]
+    },
+    {
+    "@id": "_:N457c4a50331d40769939c4420e89210c",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+      "@value": "Tim Austin"
+      }
+    ]
+    },
+    {
+    "@id": "https://andrea-perego.name/foaf/#me",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://www.w3.org/2002/07/owl#sameAs": [
+      {
+      "@id": "https://orcid.org/0000-0001-9300-2694"
+      }
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+      "@value": "Andrea Perego"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/supervisor",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Designated administrator over one or more groups/teams working to produce a resource or over one or more steps of a development process [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "supervisor"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/projectLeader",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Person officially designated as head of project team or sub-project team instrumental in the work necessary to development of the resource [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Project"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "project leader"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+      "@id": "https://w3id.org/citedcat-ap/projectMember"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "The Project Leader is not “removed” from the work that resulted in the resource; he or she remains intimately involved throughout the life of the particular project team [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/projectManager",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Person officially designated as manager of a project. Project may consist of one or many project teams and sub-teams [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Project"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "project manager"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+      "@id": "https://w3id.org/citedcat-ap/projectMember"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "The manager of a project normally has more administrative responsibility than actual work involvement [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/isContinuedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Indicates A is continued by the work B [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "is continued by"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+      "@id": "https://w3id.org/citedcat-ap/continues"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/isSupplementTo",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Indicates that A is a supplement to B [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "is supplement to"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+      "@id": "https://w3id.org/citedcat-ap/isSupplementedBy"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/isOriginalFormOf",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Indicates A is the original form of B [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "is original form of"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+      "@id": "https://w3id.org/citedcat-ap/isVariantFormOf"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "May be used for different software operating systems or compiler formats, for example [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "_:Nb9c29251f071439e932f5ae64fea5293",
+    "@type": [
+      "http://www.w3.org/ns/adms#AssetDistribution"
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+      "@id": "http://publications.europa.eu/resource/authority/file-type/HTML"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+      "@language": "en",
+      "@value": "HTML"
+      }
+    ],
+    "http://www.w3.org/ns/adms#representationTechnique": [
+      {
+      "@id": "http://purl.org/adms/representationtechnique/HumanLanguage"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#downloadURL": [
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#mediaType": [
+      {
+      "@type": "http://purl.org/dc/terms/IMT",
+      "@value": "text/html"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/sponsor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Person or organisation that issued a contract or under the auspices of which a work has been written, printed, published, developed, etc. [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "sponsor"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "Includes organisations that provide in-kind support, through donation, provision of people or a facility or instrumentation necessary for the development of the resource, etc. [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/workPackageLeader",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "A Work Package is a recognized data product, not all of which is included in publication. The package, instead, may include notes, discarded documents, etc. The Work Package Leader is responsible for ensuring the comprehensive contents, versioning, and availability of the Work Package during the development of the resource [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "work package leader"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "_:N3aa209ec6ca64a6b997eca442b02bdea",
+    "@type": [
+      "http://www.w3.org/ns/adms#AssetDistribution"
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+      "@id": "http://publications.europa.eu/resource/authority/file-type/RDF_XML"
+      },
+      {
+      "@id": "http://www.w3.org/ns/formats/data/RDF_XML"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+      "@language": "en",
+      "@value": "RDF/XML"
+      }
+    ],
+    "http://www.w3.org/ns/adms#representationTechnique": [
+      {
+      "@id": "http://purl.org/adms/representationtechnique/OWL"
+      },
+      {
+      "@id": "http://purl.org/adms/representationtechnique/RDFSchema"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#downloadURL": [
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/rdf/citedcat-ap.rdf"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#mediaType": [
+      {
+      "@id": "https://www.iana.org/assignments/media-types/application/rdf+xml"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/continues",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Indicates A is a continuation of the work B [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "continues"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+      "@id": "https://w3id.org/citedcat-ap/isContinuedBy"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/projectMember",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Person on the membership list of a designated project/project team [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Project"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "project member"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "This vocabulary may or may not indicate the quality, quantity, or substance of the person’s involvement [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/hostingInstitution",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Typically, the organisation allowing the resource to be available on the internet through the provision of its hardware/software/operating support [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "hosting institution"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "May also be used for an organisation that stores the data offline. Often a data centre (if that data centre is not the “publisher” of the resource) [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/isAwardedBy",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Agent responsible for awarding financial support to an activity (typically, a project)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "is awarded by"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    }
+  ],
+  "@id": "file:///var/www/html/git/github/ec-jrc/datacite-to-dcat-ap/docs/citedcat-ap.rdf"
+  }
+]
