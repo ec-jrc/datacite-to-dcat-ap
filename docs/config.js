@@ -19,22 +19,31 @@ var respecConfig = {
 //    includePermalinks: true,
     addSectionLinks: true,
     doJsonLd: true,
-    noRecTrack: true,    
+//    noRecTrack: true,    
 //    subtitle: "",
     copyrightHolder: "European Union",
     copyrightURL: "https://europa.eu/",
     copyrightStart: 2015,
-    publishDate: "2020-03-16",
-/*
-    alternateFormats: [{
-      label: "PDF",
-      uri: "",
-    }, {
-      label: "DOCX",
-      uri: "",
-    }],    
-*/
-    license: "ec-notice",
+    publishDate: "2021-03-28",
+    alternateFormats: [
+    {
+      label: "RDF/XML",
+      uri: "./citedcat-ap.rdf",
+    },
+    {
+      label: "Turtle",
+      uri: "./citedcat-ap.ttl",
+    },
+    {
+      label: "JSON-LD",
+      uri: "./citedcat-ap.jsonld",
+    },
+    {
+      label: "XSLT",
+      uri: "https://raw.githubusercontent.com/ec-jrc/datacite-to-dcat-ap/master/datacite-to-dcat-ap.xsl",
+    }
+    ],    
+//    license: "cc-by",
     specStatus: "unofficial",
     shortName: "datacite-to-dcat-ap",
     canonicalURI: "https://ec-jrc.github.io/datacite-to-dcat-ap/",
@@ -109,8 +118,8 @@ var respecConfig = {
 //        }
 //        ]
 //      }],
-    wg: "JRC Data Support Team",
-    wgURI: "https://data.jrc.ec.europa.eu/contact",
+//    wg: "JRC Data Support Team",
+//    wgURI: "https://data.jrc.ec.europa.eu/contact",
 //    wgPublicList: "",
 //    wgPatentURI: "",
     inlineCSS: "true",
@@ -266,67 +275,67 @@ var respecConfig = {
 //        "status":"OGC® Implementation Standard",
         "date": "4 August 2015"
       },
-      "MDR-AR":{
+      "EUV-AR":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/access-right",
         "title":"Named Authority List: Access rights",
         "publisher":"Publications Office of the European Union"
        },
-      "MDR-CB":{
+      "EUV-CB":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/corporate-body",
         "title":"Named Authority List: Corporate bodies",
         "publisher":"Publications Office of the European Union"
        },
-      "MDR-CONT":{
+      "EUV-CONT":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/continent",
         "title":"Named Authority List: Continents",
         "publisher":"Publications Office of the European Union"
        },
-      "MDR-COUNTRIES":{
+      "EUV-COUNTRIES":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/country",
         "title":"Named Authority List: Countries",
         "publisher":"Publications Office of the European Union"
        },
-      "MDR-DS":{
+      "EUV-DS":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/dataset-status",
         "title":"Named Authority List: Dataset statuses",
         "publisher":"Publications Office of the European Union"
        },
-      "MDR-DT":{
+      "EUV-DT":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/distribution-type",
         "title":"Named Authority List: Distribution types",
         "publisher":"Publications Office of the European Union"
        },
-      "MDR-EUROVOC":{
+      "EUV-EUROVOC":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/th-dataset/-/resource/dataset/eurovoc",
         "title":"EuroVoc",
         "publisher":"Publications Office of the European Union"
        },
-      "MDR-FREQ":{
+      "EUV-FREQ":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/frequency",
         "title":"Named Authority List: Frequencies",
         "publisher":"Publications Office of the European Union"
        },
-      "MDR-FT":{
+      "EUV-FT":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/file-type",
         "title":"Named Authority List: File types",
         "publisher":"Publications Office of the European Union"
        },
-      "MDR-LANG":{
+      "EUV-LANG":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/language",
         "title":"Named Authority List: Languages",
         "publisher":"Publications Office of the European Union"
        },
-      "MDR-LICENCES":{
+      "EUV-LICENCES":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/licence",
         "title":"Named Authority List: Licences",
         "publisher":"Publications Office of the European Union"
        },
-      "MDR-PLACES":{
+      "EUV-PLACES":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/place",
         "title":"Named Authority List: Places",
         "publisher":"Publications Office of the European Union"
        },
-      "MDR-THEMES":{
+      "EUV-THEMES":{
         "href":"https://publications.europa.eu/en/web/eu-vocabularies/at-dataset/-/resource/dataset/data-theme",
         "title":"Named Authority List: Data Themes",
         "publisher":"Publications Office of the European Union"
@@ -341,6 +350,14 @@ var respecConfig = {
       "SCHEMA-ORG":{
         "href":"http://schema.org/",
         "title":"Schema.org"
+      },
+      "DataCite-4-4": {
+        "href": "https://github.com/datacite/schema/tree/master/source/meta/kernel-4.4",
+        "title": "DataCite Metadata Schema 4.4",
+        "authors": ["DataCite Metadata Working Group"],
+        "publisher":"DataCite e.V",
+        "status":"Under development",
+//        "date": "25 February 2012"
       },
     }
   };
