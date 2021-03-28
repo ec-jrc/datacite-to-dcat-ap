@@ -116,21 +116,11 @@ citedcat: a voaf:Vocabulary,
   adms:versionNotes "First version of the CiteDCAT-AP RDF Vocabulary, including only the terms defined in the CiteDCAT-AP namespace."@en,
     "This version of CiteDCAT-AP is aligned with the following specifications: DataCite 4.3, DCAT 2, DCAT-AP 2.0.1, GeoDCAT-AP 2.0.0."@en ;
   dcat:distribution [ a adms:AssetDistribution ;
-      dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE>,
-        <http://www.w3.org/ns/formats/data/Turtle> ;
-      dct:title "Turtle"@en ;
-      adms:representationTechnique <http://purl.org/adms/representationtechnique/OWL>,
-        <http://purl.org/adms/representationtechnique/RDFSchema> ;
-      dcat:downloadURL <https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.ttl> ;
-      dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> ],
-    [ a adms:AssetDistribution ;
-      dct:format <http://publications.europa.eu/resource/authority/file-type/JSON_LD>,
-        <http://www.w3.org/ns/formats/data/JSON-LD> ;
-      dct:title "JSON-LD"@en ;
-      adms:representationTechnique <http://purl.org/adms/representationtechnique/OWL>,
-        <http://purl.org/adms/representationtechnique/RDFSchema> ;
-      dcat:downloadURL <https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.jsonld> ;
-      dcat:mediaType <https://www.iana.org/assignments/media-types/application/ld+json> ],
+      dct:format <http://publications.europa.eu/resource/authority/file-type/HTML> ;
+      dct:title "HTML"@en ;
+      adms:representationTechnique <http://purl.org/adms/representationtechnique/HumanLanguage> ;
+      dcat:downloadURL <https://ec-jrc.github.io/datacite-to-dcat-ap/> ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/text/html> ],
     [ a adms:AssetDistribution ;
       dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_XML>,
         <http://www.w3.org/ns/formats/data/RDF_XML> ;
@@ -140,11 +130,21 @@ citedcat: a voaf:Vocabulary,
       dcat:downloadURL <https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.rdf> ;
       dcat:mediaType <https://www.iana.org/assignments/media-types/application/rdf+xml> ],
     [ a adms:AssetDistribution ;
-      dct:format <http://publications.europa.eu/resource/authority/file-type/HTML> ;
-      dct:title "HTML"@en ;
-      adms:representationTechnique <http://purl.org/adms/representationtechnique/HumanLanguage> ;
-      dcat:downloadURL <https://ec-jrc.github.io/datacite-to-dcat-ap/> ;
-      dcat:mediaType "text/html"^^dct:IMT ] .
+      dct:format <http://publications.europa.eu/resource/authority/file-type/JSON_LD>,
+        <http://www.w3.org/ns/formats/data/JSON-LD> ;
+      dct:title "JSON-LD"@en ;
+      adms:representationTechnique <http://purl.org/adms/representationtechnique/OWL>,
+        <http://purl.org/adms/representationtechnique/RDFSchema> ;
+      dcat:downloadURL <https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.jsonld> ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/application/ld+json> ],
+    [ a adms:AssetDistribution ;
+      dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE>,
+        <http://www.w3.org/ns/formats/data/Turtle> ;
+      dct:title "Turtle"@en ;
+      adms:representationTechnique <http://purl.org/adms/representationtechnique/OWL>,
+        <http://purl.org/adms/representationtechnique/RDFSchema> ;
+      dcat:downloadURL <https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.ttl> ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> ] .
 
 citedcat:dataCollector a rdf:Property,
     owl:ObjectProperty ;

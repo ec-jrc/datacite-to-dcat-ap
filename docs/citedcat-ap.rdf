@@ -120,7 +120,7 @@
         <dct:title xml:lang="en">HTML</dct:title>
         <adms:representationTechnique rdf:resource="http://purl.org/adms/representationtechnique/HumanLanguage"/>
         <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/HTML"/>
-        <dcat:mediaType rdf:datatype="http://purl.org/dc/terms/IMT">text/html</dcat:mediaType>
+        <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/text/html"/>
         <dcat:downloadURL rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
       </adms:AssetDistribution>
     </dcat:distribution>  
