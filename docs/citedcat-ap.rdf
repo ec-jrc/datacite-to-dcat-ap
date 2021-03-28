@@ -31,8 +31,8 @@
     <dct:type rdf:resource="http://publications.europa.eu/resource/authority/dataset-type/APROF"/>
 <!-- Version information -->
     <dct:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-03-14</dct:created>
-    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-03-18</dct:issued>
-    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-03-18</dct:modified>
+    <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-03-28</dct:issued>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-03-28</dct:modified>
     <adms:status rdf:resource="http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED"/>
     <owl:versionInfo xml:lang="en">Version 1.0.0</owl:versionInfo>
     <adms:versionNotes xml:lang="en">First version of the CiteDCAT-AP RDF Vocabulary, including only the terms defined in the CiteDCAT-AP namespace.</adms:versionNotes>
