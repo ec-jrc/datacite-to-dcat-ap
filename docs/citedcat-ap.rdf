@@ -60,7 +60,6 @@
     <voaf:reliesOn rdf:resource="http://purl.org/dc/terms/"/> 
     <voaf:reliesOn rdf:resource="http://purl.org/dc/dctype/"/> 
     <voaf:reliesOn rdf:resource="http://xmlns.com/foaf/0.1/"/> 
-    <voaf:reliesOn rdf:resource="http://purl.org/cerif/frapo/"/>
     <voaf:reliesOn rdf:resource="http://www.opengis.net/ont/geosparql#"/> 
     <voaf:reliesOn rdf:resource="http://www.w3.org/ns/locn#"/> 
     <voaf:reliesOn rdf:resource="http://www.w3.org/2002/07/owl#"/> 
@@ -133,7 +132,7 @@
         <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/RDF_XML"/>
         <dct:format rdf:resource="http://www.w3.org/ns/formats/data/RDF_XML"/>
         <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/application/rdf+xml"/>
-        <dcat:downloadURL rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/rdf/citedcat-ap.rdf"/>
+        <dcat:downloadURL rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.rdf"/>
       </adms:AssetDistribution>
     </dcat:distribution>  
     <dcat:distribution>
@@ -144,7 +143,7 @@
         <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE"/>
         <dct:format rdf:resource="http://www.w3.org/ns/formats/data/Turtle"/>
         <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/text/turtle"/>
-        <dcat:downloadURL rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/rdf/citedcat-ap.ttl"/>
+        <dcat:downloadURL rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.ttl"/>
       </adms:AssetDistribution>
     </dcat:distribution>  
     <dcat:distribution>
@@ -155,7 +154,7 @@
         <dct:format rdf:resource="http://publications.europa.eu/resource/authority/file-type/JSON_LD"/>
         <dct:format rdf:resource="http://www.w3.org/ns/formats/data/JSON-LD"/>
         <dcat:mediaType rdf:resource="https://www.iana.org/assignments/media-types/application/ld+json"/>    
-        <dcat:downloadURL rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/rdf/citedcat-ap.jsonld"/>
+        <dcat:downloadURL rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.jsonld"/>
       </adms:AssetDistribution>
     </dcat:distribution>  
   </rdf:Description>

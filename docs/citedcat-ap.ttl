@@ -70,13 +70,13 @@ citedcat: a voaf:Vocabulary,
     <https://www.w3.org/TR/vocab-dcat/> ;
   dct:created "2021-03-14"^^xsd:date ;
   dct:creator [ a foaf:Person ;
-      foaf:name "Chrisa Tsinaraki" ],
-    [ a foaf:Person ;
-      foaf:name "Lorenzino Vaccari" ],
-    [ a foaf:Person ;
       foaf:name "Tim Austin" ],
     [ a foaf:Person ;
+      foaf:name "Chrisa Tsinaraki" ],
+    [ a foaf:Person ;
       foaf:name "Anders Friis-Christensen" ],
+    [ a foaf:Person ;
+      foaf:name "Lorenzino Vaccari" ],
     <https://andrea-perego.name/foaf/#me> ;
   dct:dateCopyrighted "2021"^^xsd:gYear ;
   dct:description "CiteDCAT-AP is an extension of the DCAT application profile for data portals in Europe (DCAT-AP) for describing resources documented by using the DataCite metadata schema - the de facto standard for data citation, and used across scientific disciplines. Its basic use case is to make research data searchable on general data portals, thereby bridging the gap between scientific and public sector information. For this purpose, CiteDCAT-AP provides an RDF vocabulary and the corresponding RDF syntax binding for the metadata elements defined in DataCite."@en ;
@@ -94,8 +94,7 @@ citedcat: a voaf:Vocabulary,
     <https://andrea-perego.name/foaf/#me> ;
   vann:preferredNamespacePrefix "citedcat" ;
   vann:preferredNamespaceUri "https://w3id.org/citedcat-ap/"^^xsd:anyURI ;
-  voaf:reliesOn <http://purl.org/cerif/frapo/>,
-    <http://purl.org/dc/dctype/>,
+  voaf:reliesOn <http://purl.org/dc/dctype/>,
     dct:,
     bibo:,
     <http://www.opengis.net/ont/geosparql#>,
@@ -128,24 +127,24 @@ citedcat: a voaf:Vocabulary,
       dct:title "JSON-LD"@en ;
       adms:representationTechnique <http://purl.org/adms/representationtechnique/OWL>,
         <http://purl.org/adms/representationtechnique/RDFSchema> ;
-      dcat:downloadURL <https://ec-jrc.github.io/datacite-to-dcat-ap/rdf/citedcat-ap.jsonld> ;
+      dcat:downloadURL <https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.jsonld> ;
       dcat:mediaType <https://www.iana.org/assignments/media-types/application/ld+json> ],
-    [ a adms:AssetDistribution ;
-      dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE>,
-        <http://www.w3.org/ns/formats/data/Turtle> ;
-      dct:title "Turtle"@en ;
-      adms:representationTechnique <http://purl.org/adms/representationtechnique/OWL>,
-        <http://purl.org/adms/representationtechnique/RDFSchema> ;
-      dcat:downloadURL <https://ec-jrc.github.io/datacite-to-dcat-ap/rdf/citedcat-ap.ttl> ;
-      dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> ],
     [ a adms:AssetDistribution ;
       dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_XML>,
         <http://www.w3.org/ns/formats/data/RDF_XML> ;
       dct:title "RDF/XML"@en ;
       adms:representationTechnique <http://purl.org/adms/representationtechnique/OWL>,
         <http://purl.org/adms/representationtechnique/RDFSchema> ;
-      dcat:downloadURL <https://ec-jrc.github.io/datacite-to-dcat-ap/rdf/citedcat-ap.rdf> ;
-      dcat:mediaType <https://www.iana.org/assignments/media-types/application/rdf+xml> ] .
+      dcat:downloadURL <https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.rdf> ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/application/rdf+xml> ],
+    [ a adms:AssetDistribution ;
+      dct:format <http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE>,
+        <http://www.w3.org/ns/formats/data/Turtle> ;
+      dct:title "Turtle"@en ;
+      adms:representationTechnique <http://purl.org/adms/representationtechnique/OWL>,
+        <http://purl.org/adms/representationtechnique/RDFSchema> ;
+      dcat:downloadURL <https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.ttl> ;
+      dcat:mediaType <https://www.iana.org/assignments/media-types/text/turtle> ] .
 
 citedcat:dataCollector a rdf:Property,
     owl:ObjectProperty ;

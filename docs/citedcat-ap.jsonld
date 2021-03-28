@@ -2,15 +2,15 @@
   {
   "@graph": [
     {
-    "@id": "https://w3id.org/citedcat-ap/DataPaper",
+    "@id": "https://w3id.org/citedcat-ap/isCompiledBy",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class",
-      "http://www.w3.org/2000/01/rdf-schema#Class"
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
       "@language": "en",
-      "@value": "A factual and objective publication with a focused intent to identify and describe specific data, sets of data, or data collections to facilitate discoverability [DataCite]."
+      "@value": "Indicates B is used to compile or create A [DataCite]."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
@@ -18,22 +18,36 @@
       "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      "@id": "https://schema.datacite.org/"
       },
       {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       },
       {
-      "@id": "https://schema.datacite.org/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
       "@language": "en",
-      "@value": "Data paper"
+      "@value": "is compiled by"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#inverseOf": [
+      {
+      "@id": "https://w3id.org/citedcat-ap/compiles"
       }
     ],
     "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
@@ -44,7 +58,7 @@
     "http://www.w3.org/2004/02/skos/core#scopeNote": [
       {
       "@language": "en",
-      "@value": "A data paper describes data provenance and methodologies used in the gathering, processing, organizing, and representing the data [DataCite]."
+      "@value": "May be used for software and text, as a compiler can be a computer program or a person [DataCite]."
       }
     ],
     "http://www.w3.org/ns/adms#status": [
@@ -54,21 +68,18 @@
     ]
     },
     {
-    "@id": "https://w3id.org/citedcat-ap/registrationAuthority",
+    "@id": "https://w3id.org/citedcat-ap/Workflow",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty",
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+      "http://www.w3.org/2002/07/owl#Class",
+      "http://www.w3.org/2000/01/rdf-schema#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
       "@language": "en",
-      "@value": "A standards-setting body from which Registration Agencies obtain official recognition and guidance [DataCite]."
+      "@value": "A structured series of steps which can be executed to produce a final outcome, allowing users a means to specify and enact their work in a more reproducible manner [DataCite]."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
-      },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       },
@@ -76,30 +87,28 @@
       "@id": "https://schema.datacite.org/meta/kernel-3.1/"
       },
       {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.3/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       },
       {
       "@id": "https://schema.datacite.org/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
       "@language": "en",
-      "@value": "registration authority"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      "@value": "Workflow"
       }
     ],
     "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
@@ -110,7 +119,7 @@
     "http://www.w3.org/2004/02/skos/core#scopeNote": [
       {
       "@language": "en",
-      "@value": "For intance: The IDF serves as the Registration Authority for the International Standards Organisation (ISO) in the area/domain of Digital Object Identifiers [DataCite]."
+      "@value": "Computational workflows involving sequential operations made on data by wrapped software and may be specified in a format belonging to a workflow management system, such as Taverna [DataCite]."
       }
     ],
     "http://www.w3.org/ns/adms#status": [
@@ -133,10 +142,10 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       },
       {
       "@id": "https://schema.datacite.org/"
@@ -151,7 +160,7 @@
       "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       },
       {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -179,9 +188,9 @@
     {
     "@id": "https://w3id.org/citedcat-ap/",
     "@type": [
-      "http://www.w3.org/ns/adms#Asset",
       "http://www.w3.org/2002/07/owl#Ontology",
-      "http://purl.org/vocommons/voaf#Vocabulary"
+      "http://purl.org/vocommons/voaf#Vocabulary",
+      "http://www.w3.org/ns/adms#Asset"
     ],
     "http://purl.org/dc/terms/abstract": [
       {
@@ -191,10 +200,10 @@
     ],
     "http://purl.org/dc/terms/conformsTo": [
       {
-      "@id": "https://schema.datacite.org/"
+      "@id": "http://data.europa.eu/930/"
       },
       {
-      "@id": "http://data.europa.eu/930/"
+      "@id": "https://schema.datacite.org/"
       },
       {
       "@id": "http://data.europa.eu/r5r/"
@@ -214,16 +223,16 @@
       "@id": "https://andrea-perego.name/foaf/#me"
       },
       {
-      "@id": "_:N457c4a50331d40769939c4420e89210c"
+      "@id": "_:Nd62e14f3a9304587b4efab2e82ecf53b"
       },
       {
-      "@id": "_:Ne70e85451a674566ad72fc4b46d638da"
+      "@id": "_:N7a2c389ce49a4efbb9970c14b36faf84"
       },
       {
-      "@id": "_:Ncf555e384d4b4e9f872513fda4c8d003"
+      "@id": "_:Nbbcd66093f314d52a171c37ebffb9ba5"
       },
       {
-      "@id": "_:N8579ac103f5848d68dbc37f26af618cc"
+      "@id": "_:Nffb5371cdc5344e28dc6ee5b010be4d6"
       }
     ],
     "http://purl.org/dc/terms/dateCopyrighted": [
@@ -273,18 +282,18 @@
     ],
     "http://purl.org/dc/terms/type": [
       {
-      "@id": "http://publications.europa.eu/resource/authority/dataset-type/APROF"
-      },
-      {
       "@id": "http://publications.europa.eu/resource/authority/asset-classification/c_89b4bdb7"
       },
       {
       "@id": "http://publications.europa.eu/resource/authority/dataset-type/ONTOLOGY"
+      },
+      {
+      "@id": "http://publications.europa.eu/resource/authority/dataset-type/APROF"
       }
     ],
     "http://purl.org/ontology/bibo/editor": [
       {
-      "@id": "_:N1b24e2d6f214426a8423356a522b155a"
+      "@id": "_:N096e4adfc82d46ac88176216a030604c"
       },
       {
       "@id": "https://andrea-perego.name/foaf/#me"
@@ -303,25 +312,16 @@
     ],
     "http://purl.org/vocommons/voaf#reliesOn": [
       {
+      "@id": "http://xmlns.com/foaf/0.1/"
+      },
+      {
       "@id": "http://www.w3.org/2000/01/rdf-schema#"
       },
       {
-      "@id": "http://www.w3.org/2006/vcard/ns#"
-      },
-      {
-      "@id": "http://www.w3.org/ns/prov#"
-      },
-      {
-      "@id": "http://purl.org/dc/terms/"
-      },
-      {
-      "@id": "http://www.w3.org/2002/07/owl#"
-      },
-      {
-      "@id": "http://purl.org/cerif/frapo/"
-      },
-      {
       "@id": "http://www.w3.org/ns/locn#"
+      },
+      {
+      "@id": "http://www.w3.org/ns/org#"
       },
       {
       "@id": "http://purl.org/dc/dctype/"
@@ -330,25 +330,31 @@
       "@id": "http://www.w3.org/2004/02/skos/core#"
       },
       {
-      "@id": "http://www.w3.org/ns/org#"
-      },
-      {
-      "@id": "http://www.w3.org/ns/dcat#"
+      "@id": "http://www.w3.org/2006/vcard/ns#"
       },
       {
       "@id": "http://purl.org/ontology/bibo/"
       },
       {
-      "@id": "https://www.w3.org/2007/05/powder-s"
-      },
-      {
       "@id": "http://www.w3.org/ns/adms#"
       },
       {
-      "@id": "http://xmlns.com/foaf/0.1/"
+      "@id": "http://www.w3.org/ns/prov#"
+      },
+      {
+      "@id": "http://purl.org/dc/terms/"
+      },
+      {
+      "@id": "http://www.w3.org/ns/dcat#"
       },
       {
       "@id": "http://www.opengis.net/ont/geosparql#"
+      },
+      {
+      "@id": "http://www.w3.org/2002/07/owl#"
+      },
+      {
+      "@id": "https://www.w3.org/2007/05/powder-s"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
@@ -391,55 +397,16 @@
     ],
     "http://www.w3.org/ns/dcat#distribution": [
       {
-      "@id": "_:N1fe1e1d5709446aba8c48587b375f803"
+      "@id": "_:N05cbb3a7e99e42d8b032fe7b262810d5"
       },
       {
-      "@id": "_:Nb9c29251f071439e932f5ae64fea5293"
+      "@id": "_:N4b255ffd095844f8bf2a554812361ecf"
       },
       {
-      "@id": "_:N3aa209ec6ca64a6b997eca442b02bdea"
+      "@id": "_:N536bf9ed85dd4690beba0594a35dfe6b"
       },
       {
-      "@id": "_:N700576bd38204b1d8c9042fb1a91ef12"
-      }
-    ]
-    },
-    {
-    "@id": "https://w3id.org/citedcat-ap/isFundedBy",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty",
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-      "@language": "en",
-      "@value": "The activity (typically, a project) that provided financial support for the development of the resource."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-      "@language": "en",
-      "@value": "is funded by"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-      "@id": "http://xmlns.com/foaf/0.1/Project"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-      "@value": "stable"
-      }
-    ],
-    "http://www.w3.org/ns/adms#status": [
-      {
-      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      "@id": "_:N856745384f134ed982844faa87e8ccb6"
       }
     ]
     },
@@ -457,28 +424,28 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-3.1/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       },
       {
       "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       },
       {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
       "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.3/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      "@id": "https://schema.datacite.org/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -506,8 +473,8 @@
     {
     "@id": "https://w3id.org/citedcat-ap/dataCollector",
     "@type": [
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
@@ -517,28 +484,28 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
       "@id": "https://schema.datacite.org/meta/kernel-3.1/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       },
       {
       "@id": "https://schema.datacite.org/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
-      },
-      {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -572,8 +539,8 @@
     {
     "@id": "https://w3id.org/citedcat-ap/dataManager",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty",
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
@@ -583,28 +550,28 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
-      },
-      {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       },
       {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
       "@id": "https://schema.datacite.org/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -636,44 +603,6 @@
     ]
     },
     {
-    "@id": "_:N700576bd38204b1d8c9042fb1a91ef12",
-    "@type": [
-      "http://www.w3.org/ns/adms#AssetDistribution"
-    ],
-    "http://purl.org/dc/terms/format": [
-      {
-      "@id": "http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE"
-      },
-      {
-      "@id": "http://www.w3.org/ns/formats/data/Turtle"
-      }
-    ],
-    "http://purl.org/dc/terms/title": [
-      {
-      "@language": "en",
-      "@value": "Turtle"
-      }
-    ],
-    "http://www.w3.org/ns/adms#representationTechnique": [
-      {
-      "@id": "http://purl.org/adms/representationtechnique/OWL"
-      },
-      {
-      "@id": "http://purl.org/adms/representationtechnique/RDFSchema"
-      }
-    ],
-    "http://www.w3.org/ns/dcat#downloadURL": [
-      {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/rdf/citedcat-ap.ttl"
-      }
-    ],
-    "http://www.w3.org/ns/dcat#mediaType": [
-      {
-      "@id": "https://www.iana.org/assignments/media-types/text/turtle"
-      }
-    ]
-    },
-    {
     "@id": "https://w3id.org/citedcat-ap/researchGroup",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty",
@@ -687,28 +616,28 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-3.1/"
-      },
-      {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
-      },
-      {
-      "@id": "https://schema.datacite.org/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -740,21 +669,48 @@
     ]
     },
     {
-    "@id": "_:Ncf555e384d4b4e9f872513fda4c8d003",
+    "@id": "_:N4b255ffd095844f8bf2a554812361ecf",
     "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
+      "http://www.w3.org/ns/adms#AssetDistribution"
     ],
-    "http://xmlns.com/foaf/0.1/name": [
+    "http://purl.org/dc/terms/format": [
       {
-      "@value": "Chrisa Tsinaraki"
+      "@id": "http://www.w3.org/ns/formats/data/JSON-LD"
+      },
+      {
+      "@id": "http://publications.europa.eu/resource/authority/file-type/JSON_LD"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+      "@language": "en",
+      "@value": "JSON-LD"
+      }
+    ],
+    "http://www.w3.org/ns/adms#representationTechnique": [
+      {
+      "@id": "http://purl.org/adms/representationtechnique/OWL"
+      },
+      {
+      "@id": "http://purl.org/adms/representationtechnique/RDFSchema"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#downloadURL": [
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.jsonld"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#mediaType": [
+      {
+      "@id": "https://www.iana.org/assignments/media-types/application/ld+json"
       }
     ]
     },
     {
     "@id": "https://w3id.org/citedcat-ap/funder",
     "@type": [
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
@@ -764,7 +720,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/"
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
       },
       {
       "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
@@ -773,7 +729,7 @@
       "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      "@id": "https://schema.datacite.org/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -805,68 +761,57 @@
     ]
     },
     {
-    "@id": "https://w3id.org/citedcat-ap/researcher",
+    "@id": "_:N096e4adfc82d46ac88176216a030604c",
     "@type": [
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://xmlns.com/foaf/0.1/Person"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
+    "http://xmlns.com/foaf/0.1/name": [
       {
-      "@language": "en",
-      "@value": "A person involved in analyzing data or the results of an experiment or formal study. May indicate an intern or assistant to one of the authors who helped with research but who was not so “key” as to be listed as an author [DataCite]."
+      "@value": "Tim Austin"
+      }
+    ]
+    },
+    {
+    "@id": "_:Nffb5371cdc5344e28dc6ee5b010be4d6",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+      "@value": "Tim Austin"
+      }
+    ]
+    },
+    {
+    "@id": "_:N536bf9ed85dd4690beba0594a35dfe6b",
+    "@type": [
+      "http://www.w3.org/ns/adms#AssetDistribution"
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+      "@id": "http://publications.europa.eu/resource/authority/file-type/HTML"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+    "http://purl.org/dc/terms/title": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
-      },
+      "@language": "en",
+      "@value": "HTML"
+      }
+    ],
+    "http://www.w3.org/ns/adms#representationTechnique": [
       {
-      "@id": "https://schema.datacite.org/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
-      },
+      "@id": "http://purl.org/adms/representationtechnique/HumanLanguage"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#downloadURL": [
       {
       "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/ns/dcat#mediaType": [
       {
-      "@language": "en",
-      "@value": "researcher"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-      "@id": "http://xmlns.com/foaf/0.1/Agent"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-      "@value": "stable"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#scopeNote": [
-      {
-      "@language": "en",
-      "@value": "Should be a person, not an institution. Note that a person involved in the gathering of data would fall under the contributorType “DataCollector.” The researcher may find additional data online and correlate it to the data collected for the experiment or study, for example [DataCite]."
-      }
-    ],
-    "http://www.w3.org/ns/adms#status": [
-      {
-      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      "@type": "http://purl.org/dc/terms/IMT",
+      "@value": "text/html"
       }
     ]
     },
@@ -884,7 +829,16 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.3/"
@@ -893,19 +847,10 @@
       "@id": "https://schema.datacite.org/meta/kernel-3.1/"
       },
       {
-      "@id": "https://schema.datacite.org/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       },
       {
       "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -937,47 +882,52 @@
     ]
     },
     {
-    "@id": "https://w3id.org/citedcat-ap/Workflow",
+    "@id": "https://w3id.org/citedcat-ap/registrationAuthority",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class",
-      "http://www.w3.org/2000/01/rdf-schema#Class"
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
       "@language": "en",
-      "@value": "A structured series of steps which can be executed to produce a final outcome, allowing users a means to specify and enact their work in a more reproducible manner [DataCite]."
+      "@value": "A standards-setting body from which Registration Agencies obtain official recognition and guidance [DataCite]."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-3.1/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
-      },
-      {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       },
       {
       "@id": "https://schema.datacite.org/"
       },
       {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
       "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
       "@language": "en",
-      "@value": "Workflow"
+      "@value": "registration authority"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
       }
     ],
     "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
@@ -988,68 +938,7 @@
     "http://www.w3.org/2004/02/skos/core#scopeNote": [
       {
       "@language": "en",
-      "@value": "Computational workflows involving sequential operations made on data by wrapped software and may be specified in a format belonging to a workflow management system, such as Taverna [DataCite]."
-      }
-    ],
-    "http://www.w3.org/ns/adms#status": [
-      {
-      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
-      }
-    ]
-    },
-    {
-    "@id": "https://w3id.org/citedcat-ap/Model",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class",
-      "http://www.w3.org/2000/01/rdf-schema#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-      "@language": "en",
-      "@value": "An abstract, conceptual, graphical, mathematical or visualization model that represents empirical objects, phenomena, or physical processes [DataCite]."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
-      {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
-      },
-      {
-      "@id": "https://schema.datacite.org/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-      "@language": "en",
-      "@value": "Model"
-      }
-    ],
-    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
-      {
-      "@value": "stable"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#scopeNote": [
-      {
-      "@language": "en",
-      "@value": "Modelled descriptions of, for example, different aspects of languages or a molecular biology reaction chain [DataCite]."
+      "@value": "For intance: The IDF serves as the Registration Authority for the International Standards Organisation (ISO) in the area/domain of Digital Object Identifiers [DataCite]."
       }
     ],
     "http://www.w3.org/ns/adms#status": [
@@ -1061,8 +950,8 @@
     {
     "@id": "https://w3id.org/citedcat-ap/describes",
     "@type": [
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
@@ -1072,13 +961,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       },
       {
       "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      "@id": "https://schema.datacite.org/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.3/"
@@ -1123,25 +1012,25 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-4.3/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
-      },
-      {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       },
       {
       "@id": "https://schema.datacite.org/"
       },
       {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
       "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1175,8 +1064,8 @@
     {
     "@id": "https://w3id.org/citedcat-ap/compiles",
     "@type": [
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
@@ -1189,25 +1078,25 @@
       "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       },
       {
-      "@id": "https://schema.datacite.org/"
-      },
-      {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-3.1/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1239,21 +1128,10 @@
     ]
     },
     {
-    "@id": "_:N1b24e2d6f214426a8423356a522b155a",
-    "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
-    ],
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-      "@value": "Tim Austin"
-      }
-    ]
-    },
-    {
     "@id": "https://w3id.org/citedcat-ap/registrationAgency",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty",
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
@@ -1263,28 +1141,28 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-3.1/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       },
       {
       "@id": "https://schema.datacite.org/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       },
       {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1316,52 +1194,76 @@
     ]
     },
     {
-    "@id": "https://w3id.org/citedcat-ap/isCompiledBy",
+    "@id": "_:N05cbb3a7e99e42d8b032fe7b262810d5",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty",
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+      "http://www.w3.org/ns/adms#AssetDistribution"
+    ],
+    "http://purl.org/dc/terms/format": [
+      {
+      "@id": "http://www.w3.org/ns/formats/data/RDF_XML"
+      },
+      {
+      "@id": "http://publications.europa.eu/resource/authority/file-type/RDF_XML"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+      "@language": "en",
+      "@value": "RDF/XML"
+      }
+    ],
+    "http://www.w3.org/ns/adms#representationTechnique": [
+      {
+      "@id": "http://purl.org/adms/representationtechnique/OWL"
+      },
+      {
+      "@id": "http://purl.org/adms/representationtechnique/RDFSchema"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#downloadURL": [
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.rdf"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#mediaType": [
+      {
+      "@id": "https://www.iana.org/assignments/media-types/application/rdf+xml"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/DataPaper",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
       "@language": "en",
-      "@value": "Indicates B is used to compile or create A [DataCite]."
+      "@value": "A factual and objective publication with a focused intent to identify and describe specific data, sets of data, or data collections to facilitate discoverability [DataCite]."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
-      },
-      {
       "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
       "@language": "en",
-      "@value": "is compiled by"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#inverseOf": [
-      {
-      "@id": "https://w3id.org/citedcat-ap/compiles"
+      "@value": "Data paper"
       }
     ],
     "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
@@ -1372,7 +1274,7 @@
     "http://www.w3.org/2004/02/skos/core#scopeNote": [
       {
       "@language": "en",
-      "@value": "May be used for software and text, as a compiler can be a computer program or a person [DataCite]."
+      "@value": "A data paper describes data provenance and methodologies used in the gathering, processing, organizing, and representing the data [DataCite]."
       }
     ],
     "http://www.w3.org/ns/adms#status": [
@@ -1382,73 +1284,79 @@
     ]
     },
     {
-    "@id": "_:N8579ac103f5848d68dbc37f26af618cc",
+    "@id": "_:N7a2c389ce49a4efbb9970c14b36faf84",
     "@type": [
       "http://xmlns.com/foaf/0.1/Person"
     ],
     "http://xmlns.com/foaf/0.1/name": [
       {
-      "@value": "Anders Friis-Christensen"
+      "@value": "Chrisa Tsinaraki"
       }
     ]
     },
     {
-    "@id": "_:Ne70e85451a674566ad72fc4b46d638da",
+    "@id": "https://w3id.org/citedcat-ap/researcher",
     "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
-    "http://xmlns.com/foaf/0.1/name": [
-      {
-      "@value": "Lorenzino Vaccari"
-      }
-    ]
-    },
-    {
-    "@id": "_:N1fe1e1d5709446aba8c48587b375f803",
-    "@type": [
-      "http://www.w3.org/ns/adms#AssetDistribution"
-    ],
-    "http://purl.org/dc/terms/format": [
-      {
-      "@id": "http://publications.europa.eu/resource/authority/file-type/JSON_LD"
-      },
-      {
-      "@id": "http://www.w3.org/ns/formats/data/JSON-LD"
-      }
-    ],
-    "http://purl.org/dc/terms/title": [
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
       "@language": "en",
-      "@value": "JSON-LD"
+      "@value": "A person involved in analyzing data or the results of an experiment or formal study. May indicate an intern or assistant to one of the authors who helped with research but who was not so “key” as to be listed as an author [DataCite]."
       }
     ],
-    "http://www.w3.org/ns/adms#representationTechnique": [
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "http://purl.org/adms/representationtechnique/RDFSchema"
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       },
       {
-      "@id": "http://purl.org/adms/representationtechnique/OWL"
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       }
     ],
-    "http://www.w3.org/ns/dcat#downloadURL": [
+    "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/rdf/citedcat-ap.jsonld"
+      "@language": "en",
+      "@value": "researcher"
       }
     ],
-    "http://www.w3.org/ns/dcat#mediaType": [
+    "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-      "@id": "https://www.iana.org/assignments/media-types/application/ld+json"
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
       }
-    ]
-    },
-    {
-    "@id": "_:N457c4a50331d40769939c4420e89210c",
-    "@type": [
-      "http://xmlns.com/foaf/0.1/Person"
     ],
-    "http://xmlns.com/foaf/0.1/name": [
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
       {
-      "@value": "Tim Austin"
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "Should be a person, not an institution. Note that a person involved in the gathering of data would fall under the contributorType “DataCollector.” The researcher may find additional data online and correlate it to the data collected for the experiment or study, for example [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
       }
     ]
     },
@@ -1471,8 +1379,8 @@
     {
     "@id": "https://w3id.org/citedcat-ap/supervisor",
     "@type": [
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
@@ -1482,28 +1390,28 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
-      },
-      {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-3.1/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       },
       {
       "@id": "https://schema.datacite.org/"
       },
       {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
       "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1531,8 +1439,8 @@
     {
     "@id": "https://w3id.org/citedcat-ap/projectLeader",
     "@type": [
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
@@ -1547,10 +1455,10 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      "@id": "https://schema.datacite.org/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-3.0/"
@@ -1559,16 +1467,16 @@
       "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       },
       {
-      "@id": "https://schema.datacite.org/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
       },
       {
       "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1623,28 +1531,28 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
-      },
-      {
-      "@id": "https://schema.datacite.org/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-3.1/"
       },
       {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
       "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       },
       {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1694,28 +1602,28 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      "@id": "https://schema.datacite.org/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       },
       {
-      "@id": "https://schema.datacite.org/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       },
       {
       "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1754,7 +1662,13 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
       },
       {
       "@id": "https://schema.datacite.org/"
@@ -1763,19 +1677,13 @@
       "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       },
       {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
       "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-4.3/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1801,6 +1709,83 @@
     ]
     },
     {
+    "@id": "_:Nbbcd66093f314d52a171c37ebffb9ba5",
+    "@type": [
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+      "@value": "Lorenzino Vaccari"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/hostingInstitution",
+    "@type": [
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "Typically, the organisation allowing the resource to be available on the internet through the provision of its hardware/software/operating support [DataCite]."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "hosting institution"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+      "@language": "en",
+      "@value": "May also be used for an organisation that stores the data offline. Often a data centre (if that data centre is not the “publisher” of the resource) [DataCite]."
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
     "@id": "https://w3id.org/citedcat-ap/isOriginalFormOf",
     "@type": [
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
@@ -1814,28 +1799,28 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-3.1/"
       },
       {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1867,43 +1852,10 @@
     ]
     },
     {
-    "@id": "_:Nb9c29251f071439e932f5ae64fea5293",
-    "@type": [
-      "http://www.w3.org/ns/adms#AssetDistribution"
-    ],
-    "http://purl.org/dc/terms/format": [
-      {
-      "@id": "http://publications.europa.eu/resource/authority/file-type/HTML"
-      }
-    ],
-    "http://purl.org/dc/terms/title": [
-      {
-      "@language": "en",
-      "@value": "HTML"
-      }
-    ],
-    "http://www.w3.org/ns/adms#representationTechnique": [
-      {
-      "@id": "http://purl.org/adms/representationtechnique/HumanLanguage"
-      }
-    ],
-    "http://www.w3.org/ns/dcat#downloadURL": [
-      {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
-      }
-    ],
-    "http://www.w3.org/ns/dcat#mediaType": [
-      {
-      "@type": "http://purl.org/dc/terms/IMT",
-      "@value": "text/html"
-      }
-    ]
-    },
-    {
     "@id": "https://w3id.org/citedcat-ap/sponsor",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty",
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
@@ -1916,25 +1868,25 @@
       "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       },
       {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
-      },
-      {
       "@id": "https://schema.datacite.org/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       },
       {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      },
+      {
       "@id": "https://schema.datacite.org/meta/kernel-4.3/"
       },
       {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
       "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -1979,28 +1931,28 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
       "@id": "https://schema.datacite.org/meta/kernel-4.0/"
       },
       {
       "@id": "https://schema.datacite.org/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       },
       {
       "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -2026,22 +1978,61 @@
     ]
     },
     {
-    "@id": "_:N3aa209ec6ca64a6b997eca442b02bdea",
+    "@id": "https://w3id.org/citedcat-ap/isFundedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+      "@language": "en",
+      "@value": "The activity (typically, a project) that provided financial support for the development of the resource."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+      "@language": "en",
+      "@value": "is funded by"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+      "@id": "http://xmlns.com/foaf/0.1/Project"
+      }
+    ],
+    "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
+      {
+      "@value": "stable"
+      }
+    ],
+    "http://www.w3.org/ns/adms#status": [
+      {
+      "@id": "http://publications.europa.eu/resource/dataset/concept-status/CURRENT"
+      }
+    ]
+    },
+    {
+    "@id": "_:N856745384f134ed982844faa87e8ccb6",
     "@type": [
       "http://www.w3.org/ns/adms#AssetDistribution"
     ],
     "http://purl.org/dc/terms/format": [
       {
-      "@id": "http://publications.europa.eu/resource/authority/file-type/RDF_XML"
+      "@id": "http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE"
       },
       {
-      "@id": "http://www.w3.org/ns/formats/data/RDF_XML"
+      "@id": "http://www.w3.org/ns/formats/data/Turtle"
       }
     ],
     "http://purl.org/dc/terms/title": [
       {
       "@language": "en",
-      "@value": "RDF/XML"
+      "@value": "Turtle"
       }
     ],
     "http://www.w3.org/ns/adms#representationTechnique": [
@@ -2054,12 +2045,12 @@
     ],
     "http://www.w3.org/ns/dcat#downloadURL": [
       {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/rdf/citedcat-ap.rdf"
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/citedcat-ap.ttl"
       }
     ],
     "http://www.w3.org/ns/dcat#mediaType": [
       {
-      "@id": "https://www.iana.org/assignments/media-types/application/rdf+xml"
+      "@id": "https://www.iana.org/assignments/media-types/text/turtle"
       }
     ]
     },
@@ -2077,10 +2068,19 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       },
       {
       "@id": "https://schema.datacite.org/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       },
       {
       "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
@@ -2089,16 +2089,7 @@
       "@id": "https://schema.datacite.org/meta/kernel-4.3/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
-      },
-      {
       "@id": "https://schema.datacite.org/meta/kernel-4.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -2142,10 +2133,19 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
+      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
       },
       {
-      "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
+      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
+      },
+      {
+      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-4.2/"
@@ -2154,16 +2154,7 @@
       "@id": "https://schema.datacite.org/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-4.3/"
-      },
-      {
-      "@id": "https://schema.datacite.org/meta/kernel-3.1/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.1/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
@@ -2195,20 +2186,31 @@
     ]
     },
     {
-    "@id": "https://w3id.org/citedcat-ap/hostingInstitution",
+    "@id": "_:Nd62e14f3a9304587b4efab2e82ecf53b",
     "@type": [
-      "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://xmlns.com/foaf/0.1/Person"
+    ],
+    "http://xmlns.com/foaf/0.1/name": [
+      {
+      "@value": "Anders Friis-Christensen"
+      }
+    ]
+    },
+    {
+    "@id": "https://w3id.org/citedcat-ap/Model",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
       "@language": "en",
-      "@value": "Typically, the organisation allowing the resource to be available on the internet through the provision of its hardware/software/operating support [DataCite]."
+      "@value": "An abstract, conceptual, graphical, mathematical or visualization model that represents empirical objects, phenomena, or physical processes [DataCite]."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
+      "@id": "https://schema.datacite.org/"
       },
       {
       "@id": "https://ec-jrc.github.io/datacite-to-dcat-ap/"
@@ -2220,27 +2222,22 @@
       "@id": "https://schema.datacite.org/meta/kernel-3.1/"
       },
       {
+      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
+      },
+      {
       "@id": "https://schema.datacite.org/meta/kernel-4.3/"
       },
       {
       "@id": "https://schema.datacite.org/meta/kernel-3.0/"
       },
       {
-      "@id": "https://schema.datacite.org/meta/kernel-4.0/"
-      },
-      {
-      "@id": "https://schema.datacite.org/"
+      "@id": "https://schema.datacite.org/meta/kernel-4.2/"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
       "@language": "en",
-      "@value": "hosting institution"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-      "@id": "http://xmlns.com/foaf/0.1/Agent"
+      "@value": "Model"
       }
     ],
     "http://www.w3.org/2003/06/sw-vocab-status/ns#term_status": [
@@ -2251,7 +2248,7 @@
     "http://www.w3.org/2004/02/skos/core#scopeNote": [
       {
       "@language": "en",
-      "@value": "May also be used for an organisation that stores the data offline. Often a data centre (if that data centre is not the “publisher” of the resource) [DataCite]."
+      "@value": "Modelled descriptions of, for example, different aspects of languages or a molecular biology reaction chain [DataCite]."
       }
     ],
     "http://www.w3.org/ns/adms#status": [
