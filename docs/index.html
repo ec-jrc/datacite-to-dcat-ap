@@ -213,7 +213,7 @@ The views expressed are purely those of the author and may not in any circumstan
 <li>DCAT-AP 2.0.1 (<time datetime="2020-06-08">June 2020</time>) [[DCAT-AP-20200608]]</li>
 <li>GeoDCAT-AP 2.0.0 (<time datetime="2020-12-23">December 2020</time>) [[GeoDCAT-AP-20201223]]</li>
 <li>StatDCAT-AP 1.0.1 (<time datetime="2019-05-28">May 2019</time>) [[StatDCAT-AP-20190528]]</li>
-<li>DataCite 4.3 (<time datetime="2019-08-16">August 2019</time>) [[DataCite-20190816]]</li>
+<li>DataCite 4.4 (<time datetime="2021-03-30">March 2021</time>) [[DataCite-20210330]]</li>
 </ul>
 <p>
 <p>For the mappings, existing work has been taken into account concerning the mapping of DataCite to other metadata standards. In particular:</p>
@@ -222,10 +222,11 @@ The views expressed are purely those of the author and may not in any circumstan
 <li>The DataCite to Dublin Core mappings defined in <a href="https://schema.datacite.org/meta/kernel-2.2/">version 2.2 of the DataCite metadata schema specification</a> (July 2011)</li>
 <li>The RDF bindings defined in the <a href="https://docs.google.com/document/d/1paJgvmCMu3pbM4in6PjWAKO0gP-6ultii3DWQslygq4/edit">DataCite2RDF mapping document</a> (April 2011)</li>
 -->
-<li>DataCite Dublin Core Application Profile (DC2AP). Version 1. (February 2016) [[?DC2AP]]</li>
+<li>The DataCite to Dublin Core mappings recommended in [[DataCite-20210330]]</li>
+<li>DataCite Dublin Core Application Profile (DC2AP). Version 1.8 (February 2016) [[?DC2AP]]</li>
 <li>DataCite2RDF: Mapping DataCite Metadata Schema 3.1 Terms to RDF. Version 3.3 (February 2016) [[?DataCite2RDF]]</li>
 </ul>
-<p>CiteDCAT-AP builds upon these specifications to provide an as much as possible complete mapping of all the metadata elements in version 4.3 of the DataCite metadata schema [[DataCite-20190816]]. Moreover, the defined mappings are backward compatible with earlier versions of the DataCite metadata schema.</p>
+<p>CiteDCAT-AP builds upon these specifications to provide an as much as possible complete mapping of all the metadata elements in version 4.4 of the DataCite metadata schema [[DataCite-20210330]]. Moreover, the defined mappings are backward compatible with earlier versions of the DataCite metadata schema.</p>
 <p>The resulting mappings have been grouped into two classes, corresponding to two different CiteDCAT-AP profiles:</p>
 <ul>
 <li><strong>CiteDCAT-AP Core</strong>: This profile defines alignments for the subset of DataCite metadata elements supported by DCAT-AP.</li>
@@ -649,12 +650,12 @@ The views expressed are purely those of the author and may not in any circumstan
 
 <h3>Resource types</h3>
 
-<!-- For DataCite v4.3 -->
+<!-- For DataCite v4.3 
 <p>DataCite supports 15 different resource types - namely: audiovisual, collection, data paper, dataset, event, image, interactive resource, model, physical object, service, software, sound, text, workflow, other. They basically corresponds to the classes included in the DCMI Type vocabulary [[DCTERMS]], with the exception of data paper, model, and workflow.</p>
-<!-- -->
-<!-- For DataCite v4.4 
-<p>DataCite supports 28 different resource types, 12 of which correspond to the classes included in the DCMI Type vocabulary [[DCTERMS]].</p>
 -->
+<!-- For DataCite v4.4 -->
+<p>DataCite supports 28 different resource types, 12 of which correspond to the classes included in the DCMI Type vocabulary [[DCTERMS]].</p>
+<!-- -->
 <p>The definition of <code>dcat:Dataset</code> is broad enough to cover most of the DataCite resource types, the exceptions being event, physical object, service, which are not supported in DCAT-AP (class <code>dcat:DataService</code> is semantically more specific than service DataCite resource type). For these resource types, it is possible to re-use the DCMI Type vocabulary, which includes classes for event (<a href="http://dublincore.org/documents/dcmi-terms/#http://purl.org/dc/dcmitype/Event"><code>dctype:Event</code></a>), physical object (<a href="http://dublincore.org/documents/dcmi-terms/#http://purl.org/dc/dcmitype/PhysicalObject"><code>dctype:PhysicalObject</code></a>), and service (<a href="http://dublincore.org/documents/dcmi-terms/#http://purl.org/dc/dcmitype/Service"><code>dctype:Service</code></a>). Moreover, for compliance with [[VOCAB-DCAT-2]], they are also typed as <a data-cite="VOCAB-DCAT-2#Class:Resource"><code>dcat:Resource</code></a>'s.</p>
 <p>CiteDCAT-AP re-uses the approach outlined above. Moreover, in order to preserve the original information, it uses <code>dct:type</code> with the relevant classes of the DCMI Type vocabulary to denote the DataCite resource type.</p>
 <!--
@@ -699,7 +700,7 @@ The views expressed are purely those of the author and may not in any circumstan
 <h3>Related resource</h3>
 
 <p>DataCite supports the possibility of specifying references to resources related to the described in the metadata record via element RelatedIdentifier, carrying an optional attribute that can be used to express the related resource type.</p>
-<p>Roughly half of the supported related resource "types" (34, in total) correspond to the ones defined in Dublin Core. Moreover, with the exception of type "IsIdenticalTo", they denote a relationship (e.g., "IsReferencedBy") and its inverse (e.g., "References").</p>
+<p>Roughly half of the supported related resource "types" (34, in total) correspond to the ones defined in Dublin Core. Moreover, with the exception of types "IsIdenticalTo" and "IsPublishedIn", they denote a relationship (e.g., "IsReferencedBy") and its inverse (e.g., "References").</p>
 <p>Based on this CiteDCAT-AP specifies this information as follows:</p>
 <ul>
 <li>The default mapping of element RelatedIdentifier is <code>dct:relation</code></li>
@@ -822,7 +823,7 @@ a:Project a prov:Activity , foaf:Project ;
 <li>It is often the case that no URIs are available for the used vocabularies.</li>
 </ol>
 <p>Such situation makes it difficult the effective implementation of vocabulary mapping.</p>
-<p>For this reason, CiteDCAT-AP preserves keywords from controlled vocabularies as textual labels, unless the textual label is a URI.</p>
+<p>For this reason, CiteDCAT-AP preserves keywords from controlled vocabularies as textual labels, unless attribute @valueURI is specified, or the textual label is a URI.</p>
 
 </section>
 
@@ -1504,7 +1505,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td rowspan="32" id="mapping-resource-type">ResourceType</td>
+      <td rowspan="59" id="mapping-resource-type">ResourceType</td>
       <td><em>default</em></td>
       <td><strong><code>rdf:type</code></strong></td>
       <td><strong><code>dcat:Resource</code></strong></td>
@@ -1524,6 +1525,42 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>Only for the extended profile</td>
     </tr>
+<!-- Added in DataCite v4.4 -->
+    <tr>
+      <td rowspan="2">Book</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in [[DataCite-20210330]]</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td>
+        <strong><code>dctype:Text</code></strong>
+        <strong><code>bibo:Book</code></strong>
+      </td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+<!-- -->
+<!-- Added in DataCite v4.4 -->
+    <tr>
+      <td rowspan="2">BookChapter</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in [[DataCite-20210330]]</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td>
+        <strong><code>dctype:Text</code></strong>
+        <strong><code>bibo:Chapter</code></strong>
+      </td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+<!-- -->
     <tr>
       <td rowspan="2">Collection</td>
       <td><code>rdf:type</code></td>
@@ -1537,6 +1574,66 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>Only for the extended profile</td>
     </tr>
+<!-- Added in DataCite v4.4 -->
+    <tr>
+      <td rowspan="2">ComputationalNotebook</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in [[DataCite-20210330]]</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td>
+        <strong><code>dctype:InteractiveResource</code></strong>
+        <strong><code>??:??</code></strong>
+      </td>
+      <td><strong>unstable</strong></td>
+      <td>
+        <p>TBD</p>
+        <p>Only for the extended profile</p>
+      </td>
+    </tr>
+<!-- -->
+<!-- Added in DataCite v4.4 -->
+    <tr>
+      <td rowspan="2">ConferencePaper</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in [[DataCite-20210330]]</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td>
+        <strong><code>dctype:Text</code></strong>
+        <strong><code>??:??</code></strong>
+      </td>
+      <td><strong>unstable</strong></td>
+      <td>
+        <p>TBD</p>
+        <p>Only for the extended profile</p>
+      </td>
+    </tr>
+<!-- -->
+<!-- Added in DataCite v4.4 -->
+    <tr>
+      <td rowspan="2">ConferenceProceeding</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in [[DataCite-20210330]]</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td>
+        <strong><code>dctype:Text</code></strong>
+        <strong><code>bibo:Proceedings</code></strong>
+      </td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+<!-- -->
     <tr>
       <td rowspan="2">DataPaper</td>
       <td><code>rdf:type</code></td>
@@ -1563,6 +1660,24 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>Only for the extended profile</td>
     </tr>
+<!-- Added in DataCite v4.4 -->
+    <tr>
+      <td rowspan="2">Dissertation</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in [[DataCite-20210330]]</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td>
+        <strong><code>dctype:Text</code></strong>
+        <strong><code>bibo:Thesis</code></strong>
+      </td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+<!-- -->
     <tr>
       <td rowspan="3">Event</td>
       <td rowspan="2"><strong><code>rdf:type</code></strong></td>
@@ -1579,6 +1694,45 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>Only for the extended profile</td>
     </tr>
+<!-- Added in DataCite v4.4 -->
+    <tr>
+      <td rowspan="2">Journal</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in [[DataCite-20210330]]</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td>
+        <strong><code>dctype:Text</code></strong>
+        <strong><code>bibo:Journal</code></strong>
+      </td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+<!-- -->
+<!-- Added in DataCite v4.4 -->
+    <tr>
+      <td rowspan="2">JournalArticle</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in [[DataCite-20210330]]</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td>
+        <strong><code>dctype:Text</code></strong>
+        <strong><code>??:??</code></strong>
+      </td>
+      <td><strong>unstable</strong></td>
+      <td>
+        <p>TBD</p>
+        <p>Only for the extended profile</p>
+      </td>
+    </tr>
+<!-- -->
     <tr>
       <td rowspan="2">Image</td>
       <td><code>rdf:type</code></td>
@@ -1618,6 +1772,48 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td></td>
     </tr>
+<!-- Added in DataCite v4.4 -->
+    <tr>
+      <td rowspan="2">OutputsManagementPlan</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in [[DataCite-20210330]]</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td>
+        <strong><code>dctype:Text</code></strong>
+        <strong><code>??:??</code></strong>
+      </td>
+      <td><strong>unstable</strong></td>
+      <td>
+        <p>TBD</p>
+        <p>Only for the extended profile</p>
+      </td>
+    </tr>
+<!-- -->
+<!-- Added in DataCite v4.4 -->
+    <tr>
+      <td rowspan="2">PeerReview</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in [[DataCite-20210330]]</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td>
+        <strong><code>dctype:Text</code></strong>
+        <strong><code>??:??</code></strong>
+      </td>
+      <td><strong>unstable</strong></td>
+      <td>
+        <p>TBD</p>
+        <p>Only for the extended profile</p>
+      </td>
+    </tr>
+<!-- -->
     <tr>
       <td rowspan="3">PhysicalObject</td>
       <td rowspan="2"><strong><code>rdf:type</code></strong></td>
@@ -1634,6 +1830,45 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>Only for the extended profile</td>
     </tr>
+<!-- Added in DataCite v4.4 -->
+    <tr>
+      <td rowspan="2">Preprint</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in [[DataCite-20210330]]</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td>
+        <strong><code>dctype:Text</code></strong>
+        <strong><code>??:??</code></strong>
+      </td>
+      <td><strong>unstable</strong></td>
+      <td>
+        <p>TBD</p>
+        <p>Only for the extended profile</p>
+      </td>
+    </tr>
+<!-- -->
+<!-- Added in DataCite v4.4 -->
+    <tr>
+      <td rowspan="2">Report</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in [[DataCite-20210330]]</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td>
+        <strong><code>dctype:Text</code></strong>
+        <strong><code>bibo:Report</code></strong>
+      </td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+<!-- -->
     <tr>
       <td rowspan="3">Service</td>
       <td rowspan="2"><strong><code>rdf:type</code></strong></td>
@@ -1676,6 +1911,24 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>Only for the extended profile</td>
     </tr>
+<!-- Added in DataCite v4.4 -->
+    <tr>
+      <td rowspan="2">Standard</td>
+      <td><code>rdf:type</code></td>
+      <td><code>dcat:Dataset</code></td>
+      <td><em>testing</em></td>
+      <td>Added in [[DataCite-20210330]]</td>
+    </tr>
+    <tr>
+      <td><strong><code>dct:type</code></strong></td>
+      <td>
+        <strong><code>dct:Standard</code></strong>
+        <strong><code>bibo:Standard</code></strong>
+      </td>
+      <td><em>testing</em></td>
+      <td>Only for the extended profile</td>
+    </tr>
+<!-- -->
     <tr>
       <td rowspan="2">Text</td>
       <td><code>rdf:type</code></td>
@@ -1709,258 +1962,6 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td></td>
     </tr>
-<!-- Added in DataCite v4.4
-    <tr>
-      <td rowspan="2">Book</td>
-      <td><code>rdf:type</code></td>
-      <td><code>dcat:Dataset</code></td>
-      <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
-    </tr>
-    <tr>
-      <td><strong><code>dct:type</code></strong></td>
-      <td>
-        <strong><code>dctype:Text</code></strong>
-        <strong><code>bibo:Book</code></strong>
-      </td>
-      <td><em>testing</em></td>
-      <td>Only for the extended profile</td>
-    </tr>
--->
-<!-- Added in DataCite v4.4
-    <tr>
-      <td rowspan="2">BookChapter</td>
-      <td><code>rdf:type</code></td>
-      <td><code>dcat:Dataset</code></td>
-      <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
-    </tr>
-    <tr>
-      <td><strong><code>dct:type</code></strong></td>
-      <td>
-        <strong><code>dctype:Text</code></strong>
-        <strong><code>bibo:Chapter</code></strong>
-      </td>
-      <td><em>testing</em></td>
-      <td>Only for the extended profile</td>
-    </tr>
--->
-<!-- Added in DataCite v4.4
-    <tr>
-      <td rowspan="2">ComputationalNotebook</td>
-      <td><code>rdf:type</code></td>
-      <td><code>dcat:Dataset</code></td>
-      <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
-    </tr>
-    <tr>
-      <td><strong><code>dct:type</code></strong></td>
-      <td>
-        <strong><code>dctype:Software</code></strong>
-        <strong><code>??:??</code></strong>
-      </td>
-      <td><strong>unstable</strong></td>
-      <td>
-        <p>TBD</p>
-        <p>Only for the extended profile</p>
-      </td>
-    </tr>
--->
-<!-- Added in DataCite v4.4
-    <tr>
-      <td rowspan="2">ConferencePaper</td>
-      <td><code>rdf:type</code></td>
-      <td><code>dcat:Dataset</code></td>
-      <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
-    </tr>
-    <tr>
-      <td><strong><code>dct:type</code></strong></td>
-      <td>
-        <strong><code>dctype:Text</code></strong>
-        <strong><code>??:??</code></strong>
-      </td>
-      <td><strong>unstable</strong></td>
-      <td>
-        <p>TBD</p>
-        <p>Only for the extended profile</p>
-      </td>
-    </tr>
--->
-<!-- Added in DataCite v4.4
-    <tr>
-      <td rowspan="2">ConferenceProceeding</td>
-      <td><code>rdf:type</code></td>
-      <td><code>dcat:Dataset</code></td>
-      <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
-    </tr>
-    <tr>
-      <td><strong><code>dct:type</code></strong></td>
-      <td>
-        <strong><code>dctype:Text</code></strong>
-        <strong><code>bibo:Proceedings</code></strong>
-      </td>
-      <td><em>testing</em></td>
-      <td>Only for the extended profile</td>
-    </tr>
--->
-<!-- Added in DataCite v4.4
-    <tr>
-      <td rowspan="2">Dissertation</td>
-      <td><code>rdf:type</code></td>
-      <td><code>dcat:Dataset</code></td>
-      <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
-    </tr>
-    <tr>
-      <td><strong><code>dct:type</code></strong></td>
-      <td>
-        <strong><code>dctype:Text</code></strong>
-        <strong><code>bibo:Thesis</code></strong>
-      </td>
-      <td><em>testing</em></td>
-      <td>Only for the extended profile</td>
-    </tr>
--->
-<!-- Added in DataCite v4.4
-    <tr>
-      <td rowspan="2">Journal</td>
-      <td><code>rdf:type</code></td>
-      <td><code>dcat:Dataset</code></td>
-      <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
-    </tr>
-    <tr>
-      <td><strong><code>dct:type</code></strong></td>
-      <td>
-        <strong><code>dctype:Text</code></strong>
-        <strong><code>bibo:Journal</code></strong>
-      </td>
-      <td><em>testing</em></td>
-      <td>Only for the extended profile</td>
-    </tr>
--->
-<!-- Added in DataCite v4.4
-    <tr>
-      <td rowspan="2">JournalArticle</td>
-      <td><code>rdf:type</code></td>
-      <td><code>dcat:Dataset</code></td>
-      <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
-    </tr>
-    <tr>
-      <td><strong><code>dct:type</code></strong></td>
-      <td>
-        <strong><code>dctype:Text</code></strong>
-        <strong><code>??:??</code></strong>
-      </td>
-      <td><strong>unstable</strong></td>
-      <td>
-        <p>TBD</p>
-        <p>Only for the extended profile</p>
-      </td>
-    </tr>
--->
-<!-- Added in DataCite v4.4
-    <tr>
-      <td rowspan="2">OutputsManagementPlan</td>
-      <td><code>rdf:type</code></td>
-      <td><code>dcat:Dataset</code></td>
-      <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
-    </tr>
-    <tr>
-      <td><strong><code>dct:type</code></strong></td>
-      <td>
-        <strong><code>dctype:Text</code></strong>
-        <strong><code>??:??</code></strong>
-      </td>
-      <td><strong>unstable</strong></td>
-      <td>
-        <p>TBD</p>
-        <p>Only for the extended profile</p>
-      </td>
-    </tr>
--->
-<!-- Added in DataCite v4.4
-    <tr>
-      <td rowspan="2">PeerReview</td>
-      <td><code>rdf:type</code></td>
-      <td><code>dcat:Dataset</code></td>
-      <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
-    </tr>
-    <tr>
-      <td><strong><code>dct:type</code></strong></td>
-      <td>
-        <strong><code>dctype:Text</code></strong>
-        <strong><code>??:??</code></strong>
-      </td>
-      <td><strong>unstable</strong></td>
-      <td>
-        <p>TBD</p>
-        <p>Only for the extended profile</p>
-      </td>
-    </tr>
--->
-<!-- Added in DataCite v4.4
-    <tr>
-      <td rowspan="2">Preprint</td>
-      <td><code>rdf:type</code></td>
-      <td><code>dcat:Dataset</code></td>
-      <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
-    </tr>
-    <tr>
-      <td><strong><code>dct:type</code></strong></td>
-      <td>
-        <strong><code>dctype:Text</code></strong>
-        <strong><code>??:??</code></strong>
-      </td>
-      <td><strong>unstable</strong></td>
-      <td>
-        <p>TBD</p>
-        <p>Only for the extended profile</p>
-      </td>
-    </tr>
--->
-<!-- Added in DataCite v4.4
-    <tr>
-      <td rowspan="2">Report</td>
-      <td><code>rdf:type</code></td>
-      <td><code>dcat:Dataset</code></td>
-      <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
-    </tr>
-    <tr>
-      <td><strong><code>dct:type</code></strong></td>
-      <td>
-        <strong><code>dctype:Text</code></strong>
-        <strong><code>bibo:Report</code></strong>
-      </td>
-      <td><em>testing</em></td>
-      <td>Only for the extended profile</td>
-    </tr>
--->
-<!-- Added in DataCite v4.4
-    <tr>
-      <td rowspan="2">Standard</td>
-      <td><code>rdf:type</code></td>
-      <td><code>dcat:Dataset</code></td>
-      <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
-    </tr>
-    <tr>
-      <td><strong><code>dct:type</code></strong></td>
-      <td>
-        <strong><code>dct:Standard</code></strong>
-        <strong><code>bibo:Standard</code></strong>
-      </td>
-      <td><em>testing</em></td>
-      <td>Only for the extended profile</td>
-    </tr>
--->
     <tr>
       <td colspan="2" rowspan="2"><a title="see details" href="#mapping-alternate-identifier">AlternateIdentifier</a></td>
       <td><code>owl:sameAs</code></td>
@@ -1975,11 +1976,11 @@ a:Project a prov:Activity , foaf:Project ;
       <td></td>
     </tr>
     <tr>
-      <td id="mapping-related-identifier" rowspan="34">
+      <td id="mapping-related-identifier" rowspan="35">
         <p><a title="see details" href="#mapping-related-identifier-attributes">RelatedIdentifier</a></p>
-<!-- Added in DataCite v4.4 
-        <p><a title="see details" href="#mapping-related-item">RelatedItem</a> (Added in [[DataCite-4-4]])</p>
--->
+<!-- Added in DataCite v4.4 -->
+        <p><a title="see details" href="#mapping-related-item">RelatedItem</a> (Added in [[DataCite-20210330]])</p>
+<!-- -->
       </td>
       <td><em>default</em></td>
       <td><code>dct:relation</code></td>
@@ -2255,7 +2256,7 @@ a:Project a prov:Activity , foaf:Project ;
         <p>Added in [[?DataCite-20190320]]</p>
       </td>
     </tr>
-<!-- Added in DataCite v4.4
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>IsPublishedIn</td>
       <td><strong><code>dct:isPartOf</code></strong></td>
@@ -2263,10 +2264,10 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>
         <p>Only for the extended profile</p>
-        <p>Added in [[DataCite-4-4]]</p>
+        <p>Added in [[DataCite-20210330]]</p>
       </td>
     </tr>
--->
+<!-- -->
     <tr>
       <td colspan="2">*&nbsp;Size</td>
       <td><strong><code>dct:extent</code></strong></td>
@@ -2521,7 +2522,7 @@ a:Project a prov:Activity , foaf:Project ;
     </tr>
     <tr>
       <td rowspan="2">geoLocationPoint</td>
-<!--
+<!-- DEPRECATED
       <td><code>geo:lat_long</code></td>
       <td><code>rdfs:Literal</code></td>
       <td><em>testing</em></td>
@@ -2534,7 +2535,7 @@ a:Project a prov:Activity , foaf:Project ;
         <p>Earlier versions of DataCite use a literal instead.</p>
       </td>
     </tr>
-<!--
+<!-- DEPRECATED
     <tr>
       <td rowspan="2"><code>locn:geometry</code></td>
       <td><code>gsp:gmlLiteral</code></td>
@@ -2557,7 +2558,7 @@ a:Project a prov:Activity , foaf:Project ;
     <tr>
       <td><code>gsp:gmlLiteral</code></td>
     </tr>
-<!--
+<!-- DEPRECATED
     <tr>
       <td><code>schema:box</code></td>
       <td><code>rdfs:Literal</code></td>
@@ -2578,7 +2579,7 @@ a:Project a prov:Activity , foaf:Project ;
     <tr>
       <td><code>gsp:gmlLiteral</code></td>
     </tr>
-<!--
+<!-- DEPRECATED
     <tr>
       <td><code>schema:polygon</code></td>
       <td><code>rdfs:Literal</code></td>
@@ -2657,7 +2658,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
     </tr>
 -->
-<!-- Added in DataCite v4.4 
+<!-- Added in DataCite v4.4 --> 
     <tr>
       <td rowspan="12" id="mapping-related-item"><a title="see details" href="#mapping-related-item-attributes">RelatedItem</a></td>
       <td><a title="see details" href="#mapping-related-item-identifier-attributes">relatedItemIdentifier</a></td>
@@ -2665,105 +2666,105 @@ a:Project a prov:Activity , foaf:Project ;
       <td><code>dct:identifier</code></td>
       <td><code>xsd:string</code> | <code>xsd:anyURI</code></td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>creator</td>
       <td colspan="2">Same mapping of element <a href="#mapping-creator">Creator</a>.</td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>contributor</td>
       <td colspan="2">Same mapping of element <a href="#mapping-contributor">Contributor</a>.</td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>title</td>
       <td colspan="2">Same mapping of element <a href="#mapping-title">Title</a>.</td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>publicationYear</td>
       <td><code>dct:issued</code></td>
       <td><code>xsd:gYear</code></td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>volume</td>
       <td><code>bibo:volume</code></td>
       <td><code>rdfs:Literal</code></td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>issue</td>
       <td><code>bibo:issue</code></td>
       <td><code>rdfs:Literal</code></td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td><a href="#mapping-number">number</a></td>
       <td>The property depends on the value of attribute <a href="#mapping-number">@numberType</a>.</td>
       <td><code>rdfs:Literal</code></td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>firstPage</td>
       <td><code>bibo:pageStart</code></td>
       <td><code>rdfs:Literal</code></td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>lastPage</td>
       <td><code>bibo:pageEnd</code></td>
       <td><code>rdfs:Literal</code></td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>publisher</td>
       <td><code>dct:publisher</code></td>
       <td><code>foaf:Agent</code></td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>edition</td>
       <td><code>bibo:edition</code></td>
       <td><code>rdfs:Literal</code></td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
+<!-- -->
   </tbody>
 </table>
 
@@ -2948,7 +2949,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>Added in [[?DataCite-20160916]].</td>
     </tr>
-<!-- Added in DataCite v4.4
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>@classificationCode</td>
       <td><strong><code>skos:notation</code></strong></td>
@@ -2956,10 +2957,10 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td>
         <p>Only for the extended profile</p>
-        <p>Added in [[DataCite-4-4]]</p>
+        <p>Added in [[DataCite-20210330]]</p>
       </td>
     </tr>
--->
+<!-- -->
     <tr>
       <td>*&nbsp;@subjectScheme</td>
       <td><code>skos:ConceptScheme</code></td>
@@ -3023,7 +3024,7 @@ a:Project a prov:Activity , foaf:Project ;
       <td><em>testing</em></td>
       <td></td>
     </tr>
-<!-- Added in DataCite v4.4
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td rowspan="1" id="mapping-related-item-attributes">RelatedItem</td>
       <td>@relatedItemType</td>
@@ -3032,11 +3033,11 @@ a:Project a prov:Activity , foaf:Project ;
       <td>The same set of types of element <a href="#mapping-resource-type">ResourceType</a></td>
       <td><em>testing</em></td>
       <td>
-        <p>Added in [[DataCite-4-4]]</p>
+        <p>Added in [[DataCite-20210330]]</p>
       </td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>@relationType</td>
       <td colspan="3">
@@ -3045,14 +3046,14 @@ a:Project a prov:Activity , foaf:Project ;
       </td>
       <td><em>testing</em></td>
       <td>
-        <p>Added in [[DataCite-4-4]]</p>
+        <p>Added in [[DataCite-20210330]]</p>
       </td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td id="mapping-related-item-identifier-attributes" rowspan="2">relatedItemIdentifier</td>
--->
+<!-- -->
 <!-- TBD
       <td>@relatedItemIdentifierType</td>
       <td><code>rdfs:Resource</code></td>
@@ -3060,12 +3061,12 @@ a:Project a prov:Activity , foaf:Project ;
       <td>The same set of types of element <a href="#mapping-resource-type">ResourceType</a></td>
       <td><em>testing</em></td>
       <td>
-        <p>Added in [[DataCite-4-4]]</p>
+        <p>Added in [[DataCite-20210330]]</p>
       </td>
     </tr>
     <tr>
 -->
-<!--
+<!-- -->
       <td>*&nbsp;@relatedMetadataScheme</td>
       <td><code>dct:Standard</code></td>
       <td><code>dct:title</code></td>
@@ -3074,11 +3075,11 @@ a:Project a prov:Activity , foaf:Project ;
       <td>
         <p>Only when @relatedItemType (RelatedItem) is <a href="#mapping-has-metadata">HasMetadata</a>.</p>
         <p>The domain is <code>dct:Standard</code></p>
-        <p>Added in [[DataCite-4-4]]</p>
+        <p>Added in [[DataCite-20210330]]</p>
       </td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 --> 
     <tr>
       <td>*&nbsp;@schemeURI</td>
       <td><code>dct:Standard</code></td>
@@ -3088,11 +3089,11 @@ a:Project a prov:Activity , foaf:Project ;
       <td>
         <p>Only when @relatedItemType (RelatedItem) is <a href="#mapping-has-metadata">HasMetadata</a>.</p>
         <p>The domain is <code>dct:Standard</code></p>
-        <p>Added in [[DataCite-4-4]]</p>
+        <p>Added in [[DataCite-20210330]]</p>
       </td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td rowspan="5" id="mapping-number">number</td>
       <td><em>default</em></td>
@@ -3100,10 +3101,10 @@ a:Project a prov:Activity , foaf:Project ;
       <td><code>bibo:number</code></td>
       <td><code>rdfs:Literal</code></td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>@numberType = Article</td>
       <td><code>??:??</code></td>
@@ -3111,20 +3112,20 @@ a:Project a prov:Activity , foaf:Project ;
       <td><strong>unstable</strong></td>
       <td>
         <p>TBD</p>
-        <p>Added in [[DataCite-4-4]]</p>
+        <p>Added in [[DataCite-20210330]]</p>
       </td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>@numberType = Chapter</td>
       <td><code>bibo:chapter</code></td>
       <td><code>rdfs:Literal</code></td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>@numberType = Report</td>
       <td><code>??:??</code></td>
@@ -3132,19 +3133,19 @@ a:Project a prov:Activity , foaf:Project ;
       <td><strong>unstable</strong></td>
       <td>
         <p>TBD</p>
-        <p>Added in [[DataCite-4-4]]</p>
+        <p>Added in [[DataCite-20210330]]</p>
       </td>
     </tr>
--->
-<!-- Added in DataCite v4.4 
+<!-- -->
+<!-- Added in DataCite v4.4 -->
     <tr>
       <td>@numberType = Other</td>
       <td><code>bibo:number</code></td>
       <td><code>rdfs:Literal</code></td>
       <td><em>testing</em></td>
-      <td>Added in [[DataCite-4-4]]</td>
+      <td>Added in [[DataCite-20210330]]</td>
     </tr>
--->
+<!-- -->
   </tbody>
 </table>
 
@@ -3514,7 +3515,7 @@ a:Project a prov:Activity , foaf:Project ;
 <section id="formal-definition-rdf" class="appendix">
 <h2>RDF vocabulary</h2>
 <p>The following sections summarise the classes and properties defined in the CiteDCAT-AP RDF vocabulary.</p>
-<p>The vocabulary is maintained in the dedicated <a href="https://github.com/ec-jrc/datacite-to-dcat-ap/rdf/">GitHub repository</a>, and available in <a href="./rdf/citedcat-ap.rdf">RDF/XML</a>, <a href="./rdf/citedcat-ap.ttl">Turtle</a>, and <a href="./rdf/citedcat-ap.jsonld">JSON-LD</a> .</p>
+<p>The vocabulary is maintained in the CiteDCAT-AP <a href="https://github.com/ec-jrc/datacite-to-dcat-ap/">GitHub repository</a>, and available in <a href="./citedcat-ap.rdf">RDF/XML</a>, <a href="./citedcat-ap.ttl">Turtle</a>, and <a href="./citedcat-ap.jsonld">JSON-LD</a> .</p>
 <p>The CiteDCAT-AP namespace URI is <code>https://w3id.org/citedcat-ap/</code></p>
 <p>The preferred namespace prefix is <code>citedcat</code></p>
 

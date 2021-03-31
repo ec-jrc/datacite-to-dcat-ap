@@ -24,7 +24,7 @@ var respecConfig = {
     copyrightHolder: "European Union",
     copyrightURL: "https://europa.eu/",
     copyrightStart: 2015,
-    publishDate: "2021-03-28",
+    publishDate: "2021-03-31",
     alternateFormats: [
     {
       label: "RDF/XML",
