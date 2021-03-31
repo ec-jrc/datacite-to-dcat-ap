@@ -32,11 +32,11 @@
 <!-- Version information -->
     <dct:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-03-14</dct:created>
     <dct:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-03-28</dct:issued>
-    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-03-28</dct:modified>
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-03-31</dct:modified>
     <adms:status rdf:resource="http://publications.europa.eu/resource/dataset/dataset-status/COMPLETED"/>
     <owl:versionInfo xml:lang="en">Version 1.0.0</owl:versionInfo>
     <adms:versionNotes xml:lang="en">First version of the CiteDCAT-AP RDF Vocabulary, including only the terms defined in the CiteDCAT-AP namespace.</adms:versionNotes>
-    <adms:versionNotes xml:lang="en">This version of CiteDCAT-AP is aligned with the following specifications: DataCite 4.3, DCAT 2, DCAT-AP 2.0.1, GeoDCAT-AP 2.0.0.</adms:versionNotes>
+    <adms:versionNotes xml:lang="en">This version of CiteDCAT-AP is aligned with the following specifications: DCAT 2, DCAT-AP 2.0.1, GeoDCAT-AP 2.0.0, StatDCAT-AP 1.0.1, DataCite 4.4.</adms:versionNotes>
 <!-- Namespace and prefix -->
     <vann:preferredNamespacePrefix>citedcat</vann:preferredNamespacePrefix>
     <vann:preferredNamespaceUri rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://w3id.org/citedcat-ap/</vann:preferredNamespaceUri>
@@ -52,6 +52,7 @@
     <dct:conformsTo rdf:resource="https://www.w3.org/TR/vocab-dcat/"/>
     <dct:conformsTo rdf:resource="http://data.europa.eu/r5r/"/>
     <dct:conformsTo rdf:resource="http://data.europa.eu/930/"/>
+    <dct:conformsTo rdf:resource="http://data.europa.eu/s1n/"/>
     <dct:conformsTo rdf:resource="https://schema.datacite.org/"/>
 <!-- Re-used vocabularies -->  
     <voaf:reliesOn rdf:resource="http://www.w3.org/ns/adms#"/> 
@@ -72,40 +73,31 @@
 <!-- Editor -->  
     <bibo:editor>
       <foaf:Person rdf:about="https://andrea-perego.name/foaf/#me">
-        <foaf:name>Andrea Perego</foaf:name>
+        <foaf:name>Perego, Andrea</foaf:name>
         <owl:sameAs rdf:resource="https://orcid.org/0000-0001-9300-2694"/>
       </foaf:Person>
     </bibo:editor>
     <bibo:editor>
-      <foaf:Person>
-        <foaf:name>Tim Austin</foaf:name>
+      <foaf:Person rdf:nodeID="tim-austin">
+        <foaf:name>Austin, Tim</foaf:name>
       </foaf:Person>
     </bibo:editor>
 <!-- Author -->    
+    <dct:creator rdf:resource="https://andrea-perego.name/foaf/#me"/>
+    <dct:creator rdf:nodeID="tim-austin"/>
     <dct:creator>
-      <foaf:Person rdf:about="https://andrea-perego.name/foaf/#me">
-        <foaf:name>Andrea Perego</foaf:name>
-        <owl:sameAs rdf:resource="https://orcid.org/0000-0001-9300-2694"/>
+      <foaf:Person>
+        <foaf:name>Friis-Christensen, Anders</foaf:name>
       </foaf:Person>
     </dct:creator>
     <dct:creator>
       <foaf:Person>
-        <foaf:name>Tim Austin</foaf:name>
+        <foaf:name>Vaccari, Lorenzino</foaf:name>
       </foaf:Person>
     </dct:creator>
     <dct:creator>
       <foaf:Person>
-        <foaf:name>Anders Friis-Christensen</foaf:name>
-      </foaf:Person>
-    </dct:creator>
-    <dct:creator>
-      <foaf:Person>
-        <foaf:name>Lorenzino Vaccari</foaf:name>
-      </foaf:Person>
-    </dct:creator>
-    <dct:creator>
-      <foaf:Person>
-        <foaf:name>Chrisa Tsinaraki</foaf:name>
+        <foaf:name>Tsinaraki, Chrisa</foaf:name>
       </foaf:Person>
     </dct:creator>
 <!-- Publisher -->    
@@ -177,11 +169,12 @@
     <rdfs:label xml:lang="en">Data paper</rdfs:label>
     <rdfs:comment xml:lang="en">A factual and objective publication with a focused intent to identify and describe specific data, sets of data, or data collections to facilitate discoverability [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">A data paper describes data provenance and methodologies used in the gathering, processing, organizing, and representing the data [DataCite].</skos:scopeNote>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
      
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/Model">
@@ -193,13 +186,14 @@
     <rdfs:comment xml:lang="en">An abstract, conceptual, graphical, mathematical or visualization model that represents empirical objects, phenomena, or physical processes [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">Modelled descriptions of, for example, different aspects of languages or a molecular biology reaction chain [DataCite].</skos:scopeNote>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
      
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/Workflow">
@@ -211,13 +205,14 @@
     <rdfs:comment xml:lang="en">A structured series of steps which can be executed to produce a final outcome, allowing users a means to specify and enact their work in a more reproducible manner [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">Computational workflows involving sequential operations made on data by wrapped software and may be specified in a format belonging to a workflow management system, such as Taverna [DataCite].</skos:scopeNote>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
 <!-- ========================================= -->
@@ -234,6 +229,7 @@
     <rdfs:label xml:lang="en">is supplement to</rdfs:label>
     <rdfs:comment xml:lang="en">Indicates that A is a supplement to B [DataCite].</rdfs:comment>
     <owl:inverseOf rdf:resource="https://w3id.org/citedcat-ap/isSupplementedBy"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -241,7 +237,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/isSupplementedBy">
@@ -252,6 +248,7 @@
     <rdfs:label xml:lang="en">is supplemented by</rdfs:label>
     <rdfs:comment xml:lang="en">Indicates that B is a supplement to A [DataCite].</rdfs:comment>
     <owl:inverseOf rdf:resource="https://w3id.org/citedcat-ap/isSupplementTo"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -259,7 +256,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/isContinuedBy">
@@ -270,6 +267,7 @@
     <rdfs:label xml:lang="en">is continued by</rdfs:label>
     <rdfs:comment xml:lang="en">Indicates A is continued by the work B [DataCite].</rdfs:comment>
     <owl:inverseOf rdf:resource="https://w3id.org/citedcat-ap/continues"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -277,7 +275,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/continues">
@@ -288,6 +286,7 @@
     <rdfs:label xml:lang="en">continues</rdfs:label>
     <rdfs:comment xml:lang="en">Indicates A is a continuation of the work B [DataCite].</rdfs:comment>
     <owl:inverseOf rdf:resource="https://w3id.org/citedcat-ap/isContinuedBy"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -295,7 +294,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/isCompiledBy">
@@ -307,6 +306,7 @@
     <rdfs:comment xml:lang="en">Indicates B is used to compile or create A [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">May be used for software and text, as a compiler can be a computer program or a person [DataCite].</skos:scopeNote>
     <owl:inverseOf rdf:resource="https://w3id.org/citedcat-ap/compiles"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -314,7 +314,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/compiles">
@@ -326,6 +326,7 @@
     <rdfs:comment xml:lang="en">Indicates B is the result of a compile or creation event using A [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">May be used for software and text, as a compiler can be a computer program or a person [DataCite].</skos:scopeNote>
     <owl:inverseOf rdf:resource="https://w3id.org/citedcat-ap/isCompiledBy"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -333,7 +334,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/isVariantFormOf">
@@ -345,6 +346,7 @@
     <rdfs:comment xml:lang="en">Indicates A is a variant or different form of B [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">Use for a different form of one thing. May be used for different software operating systems or compiler formats, for example [DataCite].</skos:scopeNote>
     <owl:inverseOf rdf:resource="https://w3id.org/citedcat-ap/isOriginalFormOf"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -352,7 +354,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/isOriginalFormOf">
@@ -364,6 +366,7 @@
     <rdfs:comment xml:lang="en">Indicates A is the original form of B [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">May be used for different software operating systems or compiler formats, for example [DataCite].</skos:scopeNote>
     <owl:inverseOf rdf:resource="https://w3id.org/citedcat-ap/isVariantFormOf"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -371,7 +374,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/isReviewedBy">
@@ -382,13 +385,14 @@
     <rdfs:label xml:lang="en">is reviewed by</rdfs:label>
     <rdfs:comment xml:lang="en">Indicates that A is reviewed by B [DataCite].</rdfs:comment>
     <owl:inverseOf rdf:resource="http://purl.org/ontology/bibo/reviewOf"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/describes">
@@ -399,13 +403,14 @@
     <rdfs:label xml:lang="en">describes</rdfs:label>
     <rdfs:comment xml:lang="en">Indicates A describes B [DataCite].</rdfs:comment>
     <owl:inverseOf rdf:resource="http://www.w3.org/2007/05/powder-s#describedby"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
-
+  
 <!-- Agent roles -->
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/dataCollector">
@@ -417,6 +422,7 @@
     <rdfs:comment xml:lang="en">Person/institution responsible for finding, gathering/collecting data under the guidelines of the author(s) or Principal Investigator (PI) [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">May also use when crediting survey conductors, interviewers, event or condition observers, person responsible for monitoring key instrument data [DataCite].</skos:scopeNote>
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -424,7 +430,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/dataCurator">
@@ -434,15 +440,16 @@
     <vs:term_status>stable</vs:term_status>
     <rdfs:label xml:lang="en">data curator</rdfs:label>
     <rdfs:comment xml:lang="en">Person tasked with reviewing, enhancing, cleaning, or standardizing metadata and the associated data submitted for storage, use, and maintenance within a data centre or repository [DataCite].</rdfs:comment>
-    <skos:scopeNote xml:lang="en">While the “DataManager” is concerned with digital maintenance, the DataCurator’s role encompasses quality assurance focused on content and metadata. This includes checking whether the submitted dataset is complete, with all files and components as described by submitter, whether the metadata is standardized to appropriate systems and schema, whether specialized metadata is needed to add value and ensure access across disciplines, and determining how the metadata might map to search engines, database products, and automated feeds [DataCite].</skos:scopeNote>
+    <skos:scopeNote xml:lang="en">While the DataManager is concerned with digital maintenance, the DataCurator’s role encompasses quality assurance focused on content and metadata. DataCurator responsibilities include: checking completeness of the submitted dataset against the content as described by the submitter; verifying standard metadata according to the applicable system or schema; adding or verifying specialized metadata to add value and ensure access across disciplines; and determining how the metadata might map to search engines, database products, and automated feeds. Repository managers as well as data librarians working in the repository fall within this category [DataCite].</skos:scopeNote>
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/dataManager">
@@ -454,6 +461,7 @@
     <rdfs:comment xml:lang="en">Person (or organisation with a staff of data managers, such as a data centre) responsible for maintaining the finished resource [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">The work done by this person or organisation ensures that the resource is periodically “refreshed” in terms of software/hardware support, is kept available or is protected from unauthorized access, is stored in accordance with industry standards, and is handled in accordance with the records management requirements applicable to it [DataCite].</skos:scopeNote>
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -461,7 +469,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/hostingInstitution">
@@ -470,9 +478,10 @@
     <adms:status rdf:resource="http://publications.europa.eu/resource/dataset/concept-status/CURRENT"/>
     <vs:term_status>stable</vs:term_status>
     <rdfs:label xml:lang="en">hosting institution</rdfs:label>
-    <rdfs:comment xml:lang="en">Typically, the organisation allowing the resource to be available on the internet through the provision of its hardware/software/operating support [DataCite].</rdfs:comment>
-    <skos:scopeNote xml:lang="en">May also be used for an organisation that stores the data offline. Often a data centre (if that data centre is not the “publisher” of the resource) [DataCite].</skos:scopeNote>
+    <rdfs:comment xml:lang="en">Typically, the organisation allowing the resource to be available on the Internet through the provision of its hardware/software/operating support [DataCite].</rdfs:comment>
+    <skos:scopeNote xml:lang="en">This role normally falls on the University, research center or organization where the data center/data repository belongs. May also be used for an organisation that stores the data offline - often a data centre if that data centre is not the “publisher” of the resource [DataCite].</skos:scopeNote>
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -480,7 +489,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/projectLeader">
@@ -493,7 +502,8 @@
     <skos:scopeNote xml:lang="en">The Project Leader is not “removed” from the work that resulted in the resource; he or she remains intimately involved throughout the life of the particular project team [DataCite].</skos:scopeNote>
     <rdfs:subPropertyOf rdf:resource="https://w3id.org/citedcat-ap/projectMember"/>
     <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
-    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -501,7 +511,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/projectManager">
@@ -514,7 +524,8 @@
     <skos:scopeNote xml:lang="en">The manager of a project normally has more administrative responsibility than actual work involvement [DataCite].</skos:scopeNote>
     <rdfs:subPropertyOf rdf:resource="https://w3id.org/citedcat-ap/projectMember"/>
     <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
-    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -522,7 +533,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/projectMember">
@@ -534,7 +545,8 @@
     <rdfs:comment xml:lang="en">Person on the membership list of a designated project/project team [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">This vocabulary may or may not indicate the quality, quantity, or substance of the person’s involvement [DataCite].</skos:scopeNote>
     <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
-    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -542,7 +554,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/registrationAgency">
@@ -554,6 +566,7 @@
     <rdfs:comment xml:lang="en">Institution/organisation officially appointed by a Registration Authority to handle specific tasks within a defined area of responsibility [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">For instance: DataCite is a Registration Agency for the International DOI Foundation (IDF). One of DataCite’s tasks is to assign DOI prefixes to the allocating agents who then assign the full, specific character string to data clients, provide metadata back to the DataCite registry, etc. [DataCite].</skos:scopeNote>
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -561,7 +574,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/registrationAuthority">
@@ -573,6 +586,7 @@
     <rdfs:comment xml:lang="en">A standards-setting body from which Registration Agencies obtain official recognition and guidance [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">For intance: The IDF serves as the Registration Authority for the International Standards Organisation (ISO) in the area/domain of Digital Object Identifiers [DataCite].</skos:scopeNote>
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -580,7 +594,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/researcher">
@@ -591,7 +605,8 @@
     <rdfs:label xml:lang="en">researcher</rdfs:label>
     <rdfs:comment xml:lang="en">A person involved in analyzing data or the results of an experiment or formal study. May indicate an intern or assistant to one of the authors who helped with research but who was not so “key” as to be listed as an author [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">Should be a person, not an institution. Note that a person involved in the gathering of data would fall under the contributorType “DataCollector.” The researcher may find additional data online and correlate it to the data collected for the experiment or study, for example [DataCite].</skos:scopeNote>
-    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -599,7 +614,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/researchGroup">
@@ -608,9 +623,10 @@
     <adms:status rdf:resource="http://publications.europa.eu/resource/dataset/concept-status/CURRENT"/>
     <vs:term_status>stable</vs:term_status>
     <rdfs:label xml:lang="en">research group</rdfs:label>
-    <rdfs:comment xml:lang="en">Typically refers to a group of individuals with a lab, department, or division; the group has a particular, defined focus of activity [DataCite].</rdfs:comment>
+    <rdfs:comment xml:lang="en">Typically refers to a group of individuals with a lab, department, or division that has a specifically defined focus of activity [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">May operate at a narrower level of scope; may or may not hold less administrative responsibility than a project team [DataCite].</skos:scopeNote>
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -618,7 +634,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/sponsor">
@@ -630,6 +646,7 @@
     <rdfs:comment xml:lang="en">Person or organisation that issued a contract or under the auspices of which a work has been written, printed, published, developed, etc. [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">Includes organisations that provide in-kind support, through donation, provision of people or a facility or instrumentation necessary for the development of the resource, etc. [DataCite].</skos:scopeNote>
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -637,7 +654,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/supervisor">
@@ -648,6 +665,7 @@
     <rdfs:label xml:lang="en">supervisor</rdfs:label>
     <rdfs:comment xml:lang="en">Designated administrator over one or more groups/teams working to produce a resource or over one or more steps of a development process [DataCite].</rdfs:comment>
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -655,7 +673,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/workPackageLeader">
@@ -665,7 +683,8 @@
     <vs:term_status>stable</vs:term_status>
     <rdfs:label xml:lang="en">work package leader</rdfs:label>
     <rdfs:comment xml:lang="en">A Work Package is a recognized data product, not all of which is included in publication. The package, instead, may include notes, discarded documents, etc. The Work Package Leader is responsible for ensuring the comprehensive contents, versioning, and availability of the Work Package during the development of the resource [DataCite].</rdfs:comment>
-    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
@@ -673,7 +692,7 @@
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.1/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.2/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.3/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
+    <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-4.4/"/>
   </rdf:Description>
 
   <rdf:Description rdf:about="https://w3id.org/citedcat-ap/funder">
@@ -685,10 +704,10 @@
     <rdfs:comment xml:lang="en">Institution that provided financial support for the development of the resource [DataCite].</rdfs:comment>
     <skos:scopeNote xml:lang="en">Includes organizations that provide funding via regular budget allocations, through grants or awards [DataCite].</skos:scopeNote>
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.0/"/>
     <rdfs:isDefinedBy rdf:resource="https://schema.datacite.org/meta/kernel-3.1/"/>
-    <rdfs:isDefinedBy rdf:resource="https://ec-jrc.github.io/datacite-to-dcat-ap/"/>
   </rdf:Description>
 
 <!-- Funding reference -->
