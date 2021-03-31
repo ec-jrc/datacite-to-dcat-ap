@@ -29,7 +29,8 @@
   concerning the DataCite profile of DCAT-AP (CiteDCAT-AP)
     
   As such, this XSLT must be considered as unstable, and can be updated any 
-  time based on the revisions to the CiteDCAT-AP specifications.  
+  time based on the revisions to the CiteDCAT-AP specification.
+  
 -->
 
 <xsl:transform
@@ -170,16 +171,10 @@
 <!-- IANA registers URIs -->
 
   <xsl:param name="iana-mt" select="concat($iana,'media-types/')"/>
-<!--
-  <xsl:param name="ianaMT">https://www.iana.org/assignments/media-types/</xsl:param>
--->
 
 <!-- DEPRECATED: Parameter kept for backward compatibility -->
-<!-- This is used as the datatype for the GeoJSON-based encoding of the geometry. -->
+<!-- This was used as the datatype for the GeoJSON-based encoding of the geometry, now replaced by gsp:geoJSONLiteral . -->
   <xsl:param name="geojsonMediaTypeUri" select="concat($iana-mt,'application/vnd.geo+json')"/>
-<!--
-  <xsl:param name="geojsonMediaTypeUri">https://www.iana.org/assignments/media-types/application/vnd.geo+json</xsl:param>
--->
 
 <!-- 
 
@@ -2776,8 +2771,9 @@
       <xsl:when test="$type = 'computationalnotebook'">
         <rdf:type rdf:resource="{$dcat}Dataset"/>
         <xsl:if test="$profile = 'extended'">
-          <dct:type rdf:resource="{$dctype}Software"/>
+          <dct:type rdf:resource="{$dctype}InteractiveResource"/>
 <!-- TBD
+          <dct:type rdf:resource="{$dctype}Software"/>
           <dct:type rdf:resource="{$??}??"/>
 -->
         </xsl:if>
