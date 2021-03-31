@@ -2895,7 +2895,7 @@
     <xsl:param name="schemeURI"/>
 <!-- Resolvers -->
     <xsl:variable name="orcid">https://orcid.org/</xsl:variable>
-    <xsl:variable name="isni">http://www.isni.org/</xsl:variable>
+    <xsl:variable name="isni">https://www.isni.org/</xsl:variable>
     <xsl:variable name="grid">https://www.grid.ac/institutes/</xsl:variable>
     <xsl:variable name="fundref">https://doi.org/</xsl:variable>
 <!--    
