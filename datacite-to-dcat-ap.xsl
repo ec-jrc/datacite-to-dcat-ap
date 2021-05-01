@@ -19,6 +19,8 @@
   Authors:      European Commission, Joint Research Centre (JRC)
                 Andrea Perego (https://github.com/andrea-perego)
 
+  Source code:  https://github.com/ec-jrc/datacite-to-dcat-ap/
+
 -->
 
 <!--
@@ -26,7 +28,9 @@
   PURPOSE AND USAGE
 
   This XSLT is a proof of concept for the implementation of the specification
-  concerning the DataCite profile of DCAT-AP (CiteDCAT-AP)
+  concerning the DataCite profile of DCAT-AP (CiteDCAT-AP):
+
+    https://w3id.org/citedcat-ap/
     
   As such, this XSLT must be considered as unstable, and can be updated any 
   time based on the revisions to the CiteDCAT-AP specification.
